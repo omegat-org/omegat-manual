@@ -1,0 +1,44 @@
+plugins {
+    id 'groovy'
+    id 'java-gradle-plugin'
+}
+
+gradlePlugin {
+    plugins {
+        documentationPlugin {
+            id = 'org.omegat.documentation'
+            implementationClass = 'org.omegat.documentation.DocumentationPlugin'
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    // 'repository' for getting docbook xsd
+    ivy {
+        url 'https://docbook.org/xml'
+        patternLayout {
+            artifact '[revision]/[module]-[revision].[ext]'
+        }
+        content {
+            includeGroup 'docbook'
+        }
+        metadataSources {
+            artifact()
+        }
+    }
+    gradlePluginPortal()
+}
+
+dependencies {
+    compileOnly gradleApi()
+    compileOnly localGroovy()
+    implementation 'xerces:xercesImpl:2.12.2'
+    implementation 'xml-resolver:xml-resolver:1.2'
+    implementation 'net.sf.saxon:saxon:7.9.1'
+    // implementation 'org.apache.xmlgraphics:fop:2.4'
+    implementation 'net.sf.docbook:docbook-xsl:1.79.1:resources@zip'
+    // dependencies not on Maven
+    // https://docbook.org/xml/4.5/docbook-xml-4.5.zip
+    implementation 'docbook:docbook-xml:4.5:resources@zip'
+}
