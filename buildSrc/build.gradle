@@ -36,7 +36,6 @@ dependencies {
     implementation 'xerces:xercesImpl:2.12.2'
     implementation 'xml-resolver:xml-resolver:1.2'
     implementation 'net.sf.saxon:saxon:7.9.1'
-    // implementation 'org.apache.xmlgraphics:fop:2.4'
     implementation 'net.sf.docbook:docbook-xsl:1.79.1:resources@zip'
     // dependencies not on Maven
     // https://docbook.org/xml/4.5/docbook-xml-4.5.zip
