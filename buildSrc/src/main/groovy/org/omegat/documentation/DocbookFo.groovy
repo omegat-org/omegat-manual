@@ -28,20 +28,4 @@ class DocbookFo extends Docbook {
         super('fo')
     }
 
-    @Override
-    protected void preTransform(Transformer transformer, File sourceFile, File outputFile) {
-        super.preTransform(transformer, sourceFile, outputFile)
-        def foParams = new Properties()
-        languageConfigDir.get().file('fo-params.txt').asFile.newInputStream()
-                .withCloseable { inputStream ->
-                    foParams.load(inputStream)
-                }
-        foParams.stringPropertyNames().each { propertyName ->
-            def propertyValue = foParams.getProperty(propertyName)
-            if (propertyValue != null && propertyName.length() > 0) {
-                transformer.setParameter(propertyName, propertyValue)
-            }
-        }
-    }
-
 }

@@ -46,21 +46,14 @@ class Docbook extends AbstractTransformationTask {
     final DirectoryProperty styleDir = project.objects.directoryProperty()
 
     /**
-     * Base name of the XSLT (eg html, fo)
-     */
-    @Input
-    final Property<String> stylesheetBaseName = project.objects.property(String)
-
-    /**
-     * XSLT filename (eg src/docs/xsl/html-firebirddocs.xsl)
+     * XSLT filename.
      */
     @InputFile
-    final Provider<RegularFile> styleSheetFile = styleDir
-            .file(baseName.map({ baseNameValue -> "${stylesheetBaseName.get()}-${baseNameValue}.xsl" }))
+    final Provider<RegularFile> styleSheetFile = styleDir.file("docbook-utf8.xsl")
 
-    @Input
-    final Provider<FileTree> imageSource = project.provider {
-        return project.fileTree(docRoot.dir('images'))
+    @InputFiles
+    final Provider<ConfigurableFileTree> imageSource = project.provider {
+        project.fileTree(docRoot.dir('images'))
     }
 
     @Input

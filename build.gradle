@@ -2,7 +2,6 @@ import org.omegat.documentation.DocbookHtml
 
 plugins {
     id 'org.omegat.documentation'
-    // Version controlled through buildSrc/build.gradle
 }
 
 repositories {
@@ -10,9 +9,8 @@ repositories {
 }
 
 docConfig {
-    configRootDir.set(file('config'))
-    docRoot.set(file('src/docs'))
     styleDir.set(file('src/docs/xsl'))
+    docRoot.set(file('src/docs'))
     outputRoot.set(layout.buildDirectory.dir('docs'))
     defaultBaseName.set('omegat')
 }
@@ -20,7 +18,6 @@ docConfig {
 
 task docbookHtml(type: DocbookHtml, group: 'documentation') {
     description 'Generate chunked HTML documentation'
-    stylesheetBaseName.set('html')
     outputTypeName.set('html')
     extraFilesToOutput.set(files('src/docs/OmegaT.css'))
 }

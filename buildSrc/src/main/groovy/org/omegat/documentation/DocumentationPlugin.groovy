@@ -28,8 +28,6 @@ class DocumentationPlugin implements Plugin<Project> {
     static final String DOCUMENTATION_EXTENSION = 'docConfig'
     static final String DOCUMENTATION_OUTPUT_TYPES = 'docOutputTypes'
     static final String DOCUMENTATION_SET_CONTAINER = 'documentationSets'
-    static final String TTF_METRICS_TASK = 'ttfMetrics'
-    static final String T1_FONT_METRICS_TASK = 't1Metrics'
 
     @Override
     void apply(Project project) {

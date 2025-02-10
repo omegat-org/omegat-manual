@@ -25,14 +25,12 @@ import static groovy.lang.Closure.DELEGATE_FIRST
 @CompileStatic
 class DocConfigExtension {
 
-    final DirectoryProperty configRootDir
     final DirectoryProperty styleDir
     final DirectoryProperty docRoot
     final DirectoryProperty outputRoot
     final Property<String> defaultBaseName
 
     DocConfigExtension(ObjectFactory objectFactory) {
-        configRootDir = objectFactory.directoryProperty()
         styleDir = objectFactory.directoryProperty()
         docRoot = objectFactory.directoryProperty()
         outputRoot = objectFactory.directoryProperty()

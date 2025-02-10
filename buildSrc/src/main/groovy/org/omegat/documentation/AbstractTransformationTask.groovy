@@ -104,22 +104,6 @@ abstract class AbstractTransformationTask extends DefaultTask implements DocConf
     @Internal
     final DirectoryProperty outputRoot = project.objects.directoryProperty()
 
-    @Internal
-    final DirectoryProperty configRootDir = project.objects.directoryProperty()
-
-    @InputDirectory
-    final Provider<Directory> languageConfigDir = project.provider {
-        if (language.present) {
-            def candidateDir = configRootDir.dir(language).get()
-            def candidateDirFile = candidateDir.asFile
-            if (candidateDirFile.isDirectory()) {
-                // We have a language specific config directory
-                return candidateDir
-            }
-        }
-        return configRootDir.get()
-    }
-
     @OutputDirectory
     final Provider<Directory> docsOutput = outputRoot
             .dir(setName.map({ setNameValue -> "${outputTypeName.get()}-${setNameValue}" }))
@@ -150,7 +134,6 @@ abstract class AbstractTransformationTask extends DefaultTask implements DocConf
     void configureWith(DocConfigExtension extension) {
         docRoot.convention(extension.docRoot)
         outputRoot.convention(extension.outputRoot)
-        configRootDir.convention(extension.configRootDir)
         baseName.convention(extension.defaultBaseName)
     }
 
