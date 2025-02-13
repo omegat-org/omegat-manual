@@ -33,6 +33,14 @@
        False: up arrow disabled at top of doc; need to use explicit doc index links. -->
   <xsl:param name="nav-up-to-docindex" select="false()"/>
 
+  <!-- Cells with our logo etc., linking to home page. Used by html and monohtml. -->
+  <xsl:variable name="omegat-home-logo">
+    <td><a href="{$omegat-home.url}"><img src="images/OmegaT.png"
+        alt="{$omegat-home.title}" title="{$omegat-home.title}" border="0" width="85" height="84"/></a></td>
+    <td width="100%"><a href="{$omegat-home.url}"><img src="images/OmegaT.png"
+        alt="{$omegat-home.title}" title="{$omegat-home.title}" border="0" width="215" height="40"/></a></td>
+  </xsl:variable>
+
 
   <!-- misc params -->
   <xsl:param name="segmentedlist.as.table" select="1"/>

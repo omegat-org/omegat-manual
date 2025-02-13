@@ -49,7 +49,7 @@ class Docbook extends AbstractTransformationTask {
      * XSLT filename.
      */
     @InputFile
-    final Provider<RegularFile> styleSheetFile = styleDir.file("docbook-utf8.xsl")
+    final Provider<RegularFile> styleSheetFile = styleDir.file("html.xsl")
 
     @InputFiles
     final Provider<ConfigurableFileTree> imageSource = project.provider {

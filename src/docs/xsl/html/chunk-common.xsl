@@ -63,7 +63,7 @@
 
           <!-- HEADER ONLY: LOGO LINKING TO FIREBIRD HOMEPAGE: -->
           <xsl:if test="$kind='header'">
-            <xsl:copy-of select="$fb-home-logo"/>
+            <xsl:copy-of select="$omegat-home-logo"/>
           </xsl:if>
 
           <!-- NAVIGATIONAL BUTTONS: -->
@@ -134,8 +134,8 @@
     <!-- LINK TO DOCUMENTATION INDEX: -->
     <xsl:call-template name="put-navicon">
       <xsl:with-param name="type" select="'toc'"/>
-      <xsl:with-param name="href" select="$fb-docindex.url"/>
-      <xsl:with-param name="title" select="$fb-docindex.title"/>
+      <xsl:with-param name="href" select="$omegat-docindex.url"/>
+      <xsl:with-param name="title" select="$omegat-docindex.title"/>
     </xsl:call-template>
 
     <!-- UPWARD LINK: -->
@@ -144,7 +144,7 @@
       <xsl:choose>
         <xsl:when test="$no-up-doc">
           <xsl:if test="$nav-up-to-docindex">
-            <xsl:value-of select="$fb-docindex.url"/>
+            <xsl:value-of select="$omegat-docindex.url"/>
           </xsl:if>
         </xsl:when>
         <xsl:otherwise>
@@ -158,7 +158,7 @@
       <xsl:choose>
         <xsl:when test="$no-up-doc">
           <xsl:if test="$nav-up-to-docindex">
-            <xsl:value-of select="$fb-docindex.title"/>
+            <xsl:value-of select="$omegat-docindex.title"/>
           </xsl:if>
         </xsl:when>
         <xsl:otherwise>
@@ -274,7 +274,7 @@
   <xsl:template name="zoompath">
     <xsl:param name="node" select="."/>
 
-    <a href="{$fb-docindex.url}"><xsl:value-of select="$fb-docindex.title"/></a>
+    <a href="{$omegat-docindex.url}"><xsl:value-of select="$omegat-docindex.title"/></a>
 
     <xsl:for-each select="$node/ancestor-or-self::*
                             [name(.) != 'set'
