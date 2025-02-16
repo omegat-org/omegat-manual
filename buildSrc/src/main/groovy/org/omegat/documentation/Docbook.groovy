@@ -16,7 +16,7 @@
 package org.omegat.documentation
 
 import groovy.transform.CompileStatic
-import net.sf.saxon.TransformerFactoryImpl
+import com.icl.saxon.TransformerFactoryImpl
 import org.apache.xerces.jaxp.SAXParserFactoryImpl
 import org.apache.xml.resolver.tools.CatalogResolver
 import org.gradle.api.file.*

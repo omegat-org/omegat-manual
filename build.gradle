@@ -12,12 +12,11 @@ docConfig {
     styleDir.set(file('src/docs/xsl'))
     docRoot.set(file('src/docs'))
     outputRoot.set(layout.buildDirectory.dir('docs'))
-    defaultBaseName.set('omegat')
+    defaultBaseName.set("omegat")
 }
-
 
 task docbookHtml(type: DocbookHtml, group: 'documentation') {
     description 'Generate chunked HTML documentation'
     outputTypeName.set('html')
-    extraFilesToOutput.set(files('src/docs/OmegaT.css'))
+    extraFilesToOutput.set(files('src/docs/omegat.css'))
 }
