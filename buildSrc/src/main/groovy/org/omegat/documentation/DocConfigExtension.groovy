@@ -18,7 +18,6 @@ package org.omegat.documentation
 import groovy.transform.CompileStatic
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.model.ObjectFactory
-import org.gradle.api.provider.Property
 
 import static groovy.lang.Closure.DELEGATE_FIRST
 
@@ -28,13 +27,11 @@ class DocConfigExtension {
     final DirectoryProperty styleDir
     final DirectoryProperty docRoot
     final DirectoryProperty outputRoot
-    final Property<String> defaultBaseName
 
     DocConfigExtension(ObjectFactory objectFactory) {
         styleDir = objectFactory.directoryProperty()
         docRoot = objectFactory.directoryProperty()
         outputRoot = objectFactory.directoryProperty()
-        defaultBaseName = objectFactory.property(String)
     }
 
     void asciidocConfig(Closure cfg) {

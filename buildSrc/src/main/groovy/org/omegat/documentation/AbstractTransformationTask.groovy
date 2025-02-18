@@ -40,24 +40,11 @@ abstract class AbstractTransformationTask extends DefaultTask implements DocConf
     final Property<String> outputTypeName = project.objects.property(String)
 
     /**
-     * 'baseName' is the base set name, without language suffix.
-     * <p>
-     * Currently it can be firebirddocs, rlsnotes, papers or refdocs.
-     * </p>
-     */
-    @Input
-    @Option(option = 'baseName', description = 'The base name of the documentation set, without language suffix (eg firebirddocs, rlsnotes, papers or refdocs)')
-    final Property<String> baseName = project.objects.property(String)
-
-    /**
      * Language of the documentation (eg 'de', 'ru').
-     * <p>
-     * Should not be set to 'en' for English.
-     * </p>
      */
     @Input
     @Optional
-    @Option(option = 'language', description = 'The two letter language code for output (eg de), don\'t specify for English')
+    @Option(option = 'language', description = 'The two letter language code for output')
     final Property<String> language = project.objects.property(String)
 
     /**
@@ -74,20 +61,8 @@ abstract class AbstractTransformationTask extends DefaultTask implements DocConf
      */
     @Input
     @Optional
-    @Option(option = "docName", description = 'The filename (without extension) of the resulting document. Defaults to the docId, or otherwise the set name (base name + language).')
+    @Option(option = "docName", description = 'The filename (without extension) of the resulting document. Defaults to the docId, or index.')
     final Property<String> docName = project.objects.property(String)
-
-    /**
-     * setName is the base filename of the set, without extension, but already including
-     * the language suffix (if applicable), e.g. firebirddocs, firebirddocs-ru, firebirddocs-es.
-     */
-    @Internal
-    final Provider<String> setName = project.provider {
-        if (language.present) {
-            return "${baseName.get()}-${language.get()}".toString()
-        }
-        return baseName.get()
-    }
 
     /**
      * Sources root for the documentation
@@ -95,30 +70,19 @@ abstract class AbstractTransformationTask extends DefaultTask implements DocConf
     @Internal
     final DirectoryProperty docRoot = project.objects.directoryProperty()
 
-    /**
-     * Sources root for the set
-     */
-    @InputDirectory
-    final Provider<Directory> setSource = docRoot.dir(setName)
-
     @Internal
     final DirectoryProperty outputRoot = project.objects.directoryProperty()
 
-    @OutputDirectory
+    @Internal
     final Provider<Directory> docsOutput = outputRoot
-            .dir(setName.map({ setNameValue -> "${outputTypeName.get()}-${setNameValue}" }))
+            .dir(language.map({ value -> "${outputTypeName.get()}/${value}" }))
 
     /**
      * Main output file for this task.
-     * <p>
-     * Some variants of this task (eg {@link org.firebirdsql.documentation.docbook.DocbookHtml} with html style), can produces multiple files, then this will
-     * point to the initial file.
-     * </p>
      */
     @OutputFile
-    final Provider<RegularFile> mainOutputFile = docsOutput.map { docsOutputDir ->
-        docsOutputDir.file("${docName.get()}.${extension}")
-    }
+    final Provider<RegularFile> mainOutputFile = docsOutput.map{ docsOutputDir ->
+        docsOutputDir.file("index.${extension}") }
 
     AbstractTransformationTask(String extension) {
         this.extension = extension
@@ -126,7 +90,7 @@ abstract class AbstractTransformationTask extends DefaultTask implements DocConf
             if (docId.present) {
                 return docId.get()
             }
-            return setName.get()
+            return 'index'
         })
     }
 
@@ -134,7 +98,6 @@ abstract class AbstractTransformationTask extends DefaultTask implements DocConf
     void configureWith(DocConfigExtension extension) {
         docRoot.convention(extension.docRoot)
         outputRoot.convention(extension.outputRoot)
-        baseName.convention(extension.defaultBaseName)
     }
 
     @TaskAction
@@ -147,7 +110,6 @@ abstract class AbstractTransformationTask extends DefaultTask implements DocConf
      * @param other The other transformation task to copy from
      */
     void configureWith(AbstractTransformationTask other) {
-        baseName.set(other.baseName)
         language.set(other.language)
         docId.set(other.docId)
         docName.set(other.docName)

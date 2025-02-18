@@ -49,7 +49,7 @@ class Docbook extends AbstractTransformationTask {
      * XSLT filename.
      */
     @InputFile
-    final Provider<RegularFile> styleSheetFile = styleDir.file("html.xsl")
+    Provider<RegularFile> styleSheetFile = project.objects.fileProperty()
 
     @InputFiles
     final Provider<ConfigurableFileTree> imageSource = project.provider {
@@ -93,8 +93,7 @@ class Docbook extends AbstractTransformationTask {
 
         docsOutput.get().asFile.mkdirs()
 
-        def setNameValue = setName.get()
-        def srcFile = docRoot.get().file("${setNameValue}/${setNameValue}.xml").asFile
+        def srcFile = docRoot.dir(language).get().file("index.xml").asFile
         def inputSource = new InputSource(srcFile.getAbsolutePath())
 
         def outputFile = mainOutputFile.get().asFile
