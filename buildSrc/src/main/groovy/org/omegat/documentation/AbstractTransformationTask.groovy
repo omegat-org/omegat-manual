@@ -29,9 +29,6 @@ import org.gradle.api.tasks.options.Option
 @CompileStatic
 abstract class AbstractTransformationTask extends DefaultTask implements DocConfigurable {
 
-    @Input
-    String extension
-
     /**
      * Output type name, used for generating the output folder
      */
@@ -76,8 +73,7 @@ abstract class AbstractTransformationTask extends DefaultTask implements DocConf
     final Provider<Directory> docsOutput = outputRoot
             .dir(language.map({ value -> "${outputTypeName.get()}/${value}" }))
 
-    AbstractTransformationTask(String extension) {
-        this.extension = extension
+    AbstractTransformationTask() {
         docName.convention(project.provider {
             if (docId.present) {
                 return docId.get()

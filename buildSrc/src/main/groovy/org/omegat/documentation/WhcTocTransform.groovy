@@ -8,7 +8,7 @@ import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.TaskAction
 
 @CompileStatic
-class DocbookWhc extends AbstractStyleSheetTask {
+class WhcTocTransform extends AbstractStyleSheetTask {
 
     @InputFile
     Provider<RegularFile> headerStyleSheetFile = project.objects.fileProperty()
@@ -19,7 +19,7 @@ class DocbookWhc extends AbstractStyleSheetTask {
     @InputFile
     Provider<RegularFile> indexStyleSheetFile = project.objects.fileProperty()
 
-    DocbookWhc() {
+    WhcTocTransform() {
     }
 
     @TaskAction
@@ -37,10 +37,10 @@ class DocbookWhc extends AbstractStyleSheetTask {
 
         def srcFile = docRoot.dir(language).get().file("index.xml").asFile
         execute(srcFile, headerStyleSheetFile.get().asFile,
-                new File(docsOutput.get().asFile, "header.html"))
+                new File(docsOutput.get().asFile, "header.xhtml"))
         def htmlOutputFile = new File(docsOutput.get().asFile, "index_.html")
         execute(htmlOutputFile, indexStyleSheetFile.get().asFile,
-                new File(docsOutput.get().asFile, "index.xhtml"))
+                new File(docsOutput.get().asFile, "index.html"))
         execute(htmlOutputFile, tocStyleSheetFile.get().asFile,
                 new File(docsOutput.get().asFile, "toc.xhtml"))
     }

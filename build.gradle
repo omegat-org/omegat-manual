@@ -1,5 +1,5 @@
 import org.omegat.documentation.DocbookHtml
-import org.omegat.documentation.DocbookWhc
+import org.omegat.documentation.WhcTocTransform
 
 plugins {
     id 'org.omegat.documentation'
@@ -9,25 +9,41 @@ repositories {
     mavenCentral()
 }
 
+def documentRootDir = file('src/docs')
+
 docConfig {
     styleDir.set(file('src/docs/xsl'))
-    docRoot.set(file('src/docs'))
+    docRoot.set(documentRootDir)
     outputRoot.set(layout.buildDirectory.dir('docs'))
 }
 
 task docbookHtml(type: DocbookHtml, group: 'documentation') {
     description 'Generate chunked HTML documentation'
+
+    mainOutputFile.set(outputRoot.map {d -> d.file("html/${language.get()}/index_.html") })
     outputTypeName.set('html')
     language.set("en")
-    mainOutputFile.set(outputRoot.map {d -> d.file("html/${language.get()}/index_html") })
-    styleSheetFile.set(styleDir.file("html.xsl"))
-    extraFilesToOutput.set(files('src/docs/omegat.css'))
+    styleSheetFile.set(styleDir.file("xhtml.xsl"))
+    def cssFile = files('src/docs/omegat.css')
+    extraFilesToOutput.set(cssFile)
+
+    inputs.dir(documentRootDir)
+    outputs.file(mainOutputFile.asFile)
 }
 
-task docbookWhc(type: DocbookWhc, group: 'documentation') {
+task docbookWhc(type: WhcTocTransform, group: 'documentation') {
     description 'Generate whc header and index'
     indexStyleSheetFile.set(styleDir.file('whc-index.xsl'))
     tocStyleSheetFile.set(styleDir.file('whc-toc.xsl'))
     headerStyleSheetFile.set(styleDir.file('whc-header.xsl'))
     language.set("en")
+
+    inputs.files(indexStyleSheetFile, tocStyleSheetFile, headerStyleSheetFile,
+            outputRoot.map {d -> d.file("html/${language.get()}/index_.html") })
+    outputs.files(
+            outputRoot.map {d -> d.files("html/${language.get()}/index.html")},
+            outputRoot.map {d -> d.files("html/${language.get()}/toc.xhtml")},
+            outputRoot.map {d -> d.files("html/${language.get()}/header.xhtml")}
+    )
+    dependsOn(docbookHtml)
 }

@@ -4,11 +4,13 @@ import com.icl.saxon.ExtendedInputSource
 import com.icl.saxon.ParameterSet
 import com.icl.saxon.StyleSheet
 import com.icl.saxon.TransformerFactoryImpl
+import com.icl.saxon.expr.StringValue
+import com.icl.saxon.om.NamePool
 import groovy.transform.CompileStatic
 import org.gradle.api.DefaultTask
+import org.gradle.api.file.CopySpec
 import org.gradle.api.file.Directory
 import org.gradle.api.file.DirectoryProperty
-import org.gradle.api.logging.LogLevel
 import org.gradle.api.provider.Property
 import org.gradle.api.provider.Provider
 import org.gradle.api.tasks.Input
@@ -58,7 +60,15 @@ abstract class AbstractStyleSheetTask extends DefaultTask implements DocConfigur
     @TaskAction
     abstract void transform()
 
-    static void execute(File sourceFile, File sheetFile, File outputFile) {
+    protected NamePool namePool = NamePool.getDefaultNamePool()
+    protected ParameterSet params = new ParameterSet()
+
+    void setParameter(String name, String value) {
+        int argcode = namePool.allocate("", "", name);
+        params.put(argcode, new StringValue(value));
+    }
+
+    void execute(File sourceFile, File sheetFile, File outputFile) {
         def factory = new TransformerFactoryImpl()
 
         ExtendedInputSource eis = new ExtendedInputSource(sourceFile)
@@ -70,7 +80,6 @@ abstract class AbstractStyleSheetTask extends DefaultTask implements DocConfigur
         Templates sheet = factory.newTemplates(styleSource)
 
         StyleSheet styleSheet = new StyleSheet()
-        ParameterSet params = new ParameterSet()
         styleSheet.processFile(sourceInput, sheet, outputFile, params)
     }
 

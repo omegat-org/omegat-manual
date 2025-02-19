@@ -67,11 +67,7 @@ class Docbook extends AbstractTransformationTask {
     final Provider<RegularFile> mainOutputFile = project.objects.fileProperty()
 
     Docbook() {
-        this('html')
-    }
-
-    Docbook(String extension) {
-        super(extension)
+        super()
     }
 
     @Override

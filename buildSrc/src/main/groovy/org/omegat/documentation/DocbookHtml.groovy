@@ -25,7 +25,7 @@ import javax.xml.transform.Transformer
 class DocbookHtml extends Docbook {
 
     DocbookHtml() {
-        super('html')
+        super()
     }
 
     @Override
