@@ -19,7 +19,6 @@ import groovy.transform.CompileStatic
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.Directory
 import org.gradle.api.file.DirectoryProperty
-import org.gradle.api.file.RegularFile
 import org.gradle.api.provider.Property
 import org.gradle.api.provider.Provider
 import org.gradle.api.tasks.*
@@ -76,13 +75,6 @@ abstract class AbstractTransformationTask extends DefaultTask implements DocConf
     @Internal
     final Provider<Directory> docsOutput = outputRoot
             .dir(language.map({ value -> "${outputTypeName.get()}/${value}" }))
-
-    /**
-     * Main output file for this task.
-     */
-    @OutputFile
-    final Provider<RegularFile> mainOutputFile = docsOutput.map{ docsOutputDir ->
-        docsOutputDir.file("index.${extension}") }
 
     AbstractTransformationTask(String extension) {
         this.extension = extension

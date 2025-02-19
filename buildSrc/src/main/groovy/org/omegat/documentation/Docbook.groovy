@@ -63,6 +63,9 @@ class Docbook extends AbstractTransformationTask {
     @Optional
     final Property<FileCollection> extraFilesToOutput = project.objects.property(FileCollection)
 
+    @OutputFile
+    final Provider<RegularFile> mainOutputFile = project.objects.fileProperty()
+
     Docbook() {
         this('html')
     }

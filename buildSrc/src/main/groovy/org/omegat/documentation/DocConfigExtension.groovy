@@ -19,8 +19,6 @@ import groovy.transform.CompileStatic
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.model.ObjectFactory
 
-import static groovy.lang.Closure.DELEGATE_FIRST
-
 @CompileStatic
 class DocConfigExtension {
 
@@ -32,11 +30,5 @@ class DocConfigExtension {
         styleDir = objectFactory.directoryProperty()
         docRoot = objectFactory.directoryProperty()
         outputRoot = objectFactory.directoryProperty()
-    }
-
-    void asciidocConfig(Closure cfg) {
-        Closure configurator = (Closure) cfg.clone()
-        configurator.resolveStrategy = DELEGATE_FIRST
-        configurator.call()
     }
 }

@@ -1,4 +1,5 @@
 import org.omegat.documentation.DocbookHtml
+import org.omegat.documentation.DocbookWhc
 
 plugins {
     id 'org.omegat.documentation'
@@ -17,7 +18,16 @@ docConfig {
 task docbookHtml(type: DocbookHtml, group: 'documentation') {
     description 'Generate chunked HTML documentation'
     outputTypeName.set('html')
-    styleSheetFile.set(styleDir.file("html.xsl"))
     language.set("en")
+    mainOutputFile.set(outputRoot.map {d -> d.file("html/${language.get()}/index_html") })
+    styleSheetFile.set(styleDir.file("html.xsl"))
     extraFilesToOutput.set(files('src/docs/omegat.css'))
+}
+
+task docbookWhc(type: DocbookWhc, group: 'documentation') {
+    description 'Generate whc header and index'
+    indexStyleSheetFile.set(styleDir.file('whc-index.xsl'))
+    tocStyleSheetFile.set(styleDir.file('whc-toc.xsl'))
+    headerStyleSheetFile.set(styleDir.file('whc-header.xsl'))
+    language.set("en")
 }

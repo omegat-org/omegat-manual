@@ -31,7 +31,7 @@ class DocbookHtml extends Docbook {
     @Override
     protected void preTransform(Transformer transformer, File sourceFile, File outputFile) {
         super.preTransform(transformer, sourceFile, outputFile)
-        transformer.setParameter("root.filename", docId.orElse('index').get())
+        transformer.setParameter("root.filename", docId.orElse('index_').get())
         transformer.setParameter("base.dir", outputFile.getParent() + File.separator)
         transformer.setParameter("use.id.as.filename", 1)
         transformer.setParameter("chunk.section.depth", 0)
