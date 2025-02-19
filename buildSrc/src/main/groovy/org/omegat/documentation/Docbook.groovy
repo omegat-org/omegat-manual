@@ -87,6 +87,7 @@ class Docbook extends AbstractTransformationTask {
         // run gradle with '-d' or '-i' switches -- in that case show them everything
         switch (project.gradle.startParameter.logLevel) {
             case LogLevel.DEBUG:
+                break
             case LogLevel.INFO:
                 break
             default:

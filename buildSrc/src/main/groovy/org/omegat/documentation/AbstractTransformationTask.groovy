@@ -94,16 +94,4 @@ abstract class AbstractTransformationTask extends DefaultTask implements DocConf
 
     @TaskAction
     abstract void transform()
-
-    /**
-     * Configures this task with the values of {@code baseName}, {@code language}, {@code docId} and {@code docName}
-     * from {@code other}.
-     *
-     * @param other The other transformation task to copy from
-     */
-    void configureWith(AbstractTransformationTask other) {
-        language.set(other.language)
-        docId.set(other.docId)
-        docName.set(other.docName)
-    }
 }
