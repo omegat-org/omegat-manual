@@ -1,5 +1,6 @@
 import org.omegat.documentation.DocbookHtml
-import org.omegat.documentation.WhcTocTransform
+import org.omegat.documentation.WhcTask
+import org.omegat.documentation.StylesheetTask
 
 plugins {
     id 'org.omegat.documentation'
@@ -17,33 +18,82 @@ docConfig {
     outputRoot.set(layout.buildDirectory.dir('docs'))
 }
 
-task docbookHtml(type: DocbookHtml, group: 'documentation') {
-    description 'Generate chunked HTML documentation'
+task docbookInclude(type: Exec) {
+    def language = 'en'
+    executable('/usr/bin/xmllint')
+    commandLine '/usr/bin/xmllint', '--xinclude', '-o', layout.buildDirectory.dir("docs/${language}/xhtml5/_index.xml").get().toString(),
+            "${documentRootDir}/${language}/OmegaTUsersManual_xinclude_full.xml"
 
-    mainOutputFile.set(outputRoot.map {d -> d.file("html/${language.get()}/index_.html") })
-    outputTypeName.set('html')
-    language.set("en")
-    styleSheetFile.set(styleDir.file("xhtml.xsl"))
-    def cssFile = files('src/docs/omegat.css')
-    extraFilesToOutput.set(cssFile)
-
-    inputs.dir(documentRootDir)
-    outputs.file(mainOutputFile.asFile)
+    inputs.file file("${documentRootDir}/${language}/OmegaTUsersManual_xinclude_full.xml")
+    outputs.file file(layout.buildDirectory.dir("docs/${language}/xhtml5/_index.xml"))
 }
 
-task docbookWhc(type: WhcTocTransform, group: 'documentation') {
-    description 'Generate whc header and index'
-    indexStyleSheetFile.set(styleDir.file('whc-index.xsl'))
-    tocStyleSheetFile.set(styleDir.file('whc-toc.xsl'))
-    headerStyleSheetFile.set(styleDir.file('whc-header.xsl'))
-    language.set("en")
+task copyCss(type: Copy) {
+    description 'Copy Images and CSS file to target'
+    def language = 'en'
+    into layout.buildDirectory.dir("docs/${language}")
+    from new File(documentRootDir, 'omegat.css')
+}
 
-    inputs.files(indexStyleSheetFile, tocStyleSheetFile, headerStyleSheetFile,
-            outputRoot.map {d -> d.file("html/${language.get()}/index_.html") })
-    outputs.files(
-            outputRoot.map {d -> d.files("html/${language.get()}/index.html")},
-            outputRoot.map {d -> d.files("html/${language.get()}/toc.xhtml")},
-            outputRoot.map {d -> d.files("html/${language.get()}/header.xhtml")}
-    )
+task copyImages(type: Copy) {
+    description 'Copy Images and CSS file to target'
+    def language = 'en'
+    into layout.buildDirectory.dir("docs/${language}/images/")
+    from new File(documentRootDir, "${language}/images/")
+}
+
+task docbookHtml(type: DocbookHtml) {
+    description 'Generate chunked HTML documentation'
+    language.set("en")
+    inputFile.set(outputRoot.get().file("${language.get()}/xhtml5/_index.xml"))
+    mainOutputFile.set(outputRoot.get().file("${language.get()}/xhtml5/_index.html"))
+    styleSheetFile.set(styleDir.file("xhtml.xsl"))
+    inputs.dir(documentRootDir)
+    outputs.files(outputRoot.get().file("${language.get()}/xhtml5/_index.html"))
+    dependsOn(docbookInclude, copyImages, copyCss)
+}
+
+task whcToc(type: StylesheetTask) {
+    description 'Generate whc header and index'
+    language.set("en")
+    styleSheetFile.set(styleDir.file('whc-toc.xsl'))
+    inputFile.set(outputRoot.get().file("${language.get()}/xhtml5/_index.html"))
+    outputFile.set(outputRoot.get().file("${language.get()}/xhtml5/toc.xml"))
     dependsOn(docbookHtml)
+}
+
+task whcIndex(type: StylesheetTask) {
+    description 'Generate whc header and index'
+    language.set("en")
+    styleSheetFile.set(styleDir.file('whc-index.xsl'))
+    inputFile.set(outputRoot.get().file("${language.get()}/xhtml5/_index.html"))
+    outputFile.set(outputRoot.get().file("${language.get()}/xhtml5/index.html"))
+    dependsOn(docbookHtml, whcToc)
+}
+
+task whcHeader(type: StylesheetTask) {
+    description 'Generate whc header and index'
+    language.set("en")
+    styleSheetFile.set(styleDir.file('whc-header.xsl'))
+    inputFile.set(outputRoot.file("${language.get()}/xhtml5/_index.xml"))
+    outputFile.set(outputRoot.get().file("${language.get()}/xhtml5/_header.xhtml"))
+    dependsOn(docbookHtml)
+}
+
+task buildDocument(type: WhcTask, group: 'build') {
+    description 'Build whc contents'
+    language.set("en")
+    tocFile.set(outputRoot.get().file("${language.get()}/xhtml5/toc.xml"))
+    inputFile.set(outputRoot.get().file("${language.get()}/xhtml5/index.html"))
+    outputDirectory.set(outputRoot.get().dir("${language.get()}"))
+    parameterList.set([
+            'layout', 'simple',
+            // 'user-header', "${language.get()}/xhtml5/_header.xhtml",
+            '--navigation-background-color', '#FDFDFD',
+            '--field-background-color', '#FDFDFD',
+            '--panel-background-color', '#FDFDFD',
+            'local-jquery', 'yes'
+    ])
+    contentFiles.set(fileTree(dir: "${outputRoot.get()}/${language.get()}/xhtml5", include: '*.html', exclude: '_*'))
+    dependsOn(whcHeader, whcToc, whcIndex)
 }

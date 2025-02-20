@@ -30,12 +30,6 @@ import org.gradle.api.tasks.options.Option
 abstract class AbstractTransformationTask extends DefaultTask implements DocConfigurable {
 
     /**
-     * Output type name, used for generating the output folder
-     */
-    @Input
-    final Property<String> outputTypeName = project.objects.property(String)
-
-    /**
      * Language of the documentation (eg 'de', 'ru').
      */
     @Input
@@ -71,7 +65,7 @@ abstract class AbstractTransformationTask extends DefaultTask implements DocConf
 
     @Internal
     final Provider<Directory> docsOutput = outputRoot
-            .dir(language.map({ value -> "${outputTypeName.get()}/${value}" }))
+            .dir(language.map({ value -> "${value}/xhtml5" }))
 
     AbstractTransformationTask() {
         docName.convention(project.provider {

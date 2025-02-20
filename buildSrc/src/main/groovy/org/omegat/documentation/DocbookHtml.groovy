@@ -25,15 +25,14 @@ import javax.xml.transform.Transformer
 class DocbookHtml extends Docbook {
 
     DocbookHtml() {
-        super()
     }
 
     @Override
     protected void preTransform(Transformer transformer, File sourceFile, File outputFile) {
-        super.preTransform(transformer, sourceFile, outputFile)
-        transformer.setParameter("root.filename", 'index_')
+        transformer.setParameter("root.filename", '_index')
         transformer.setParameter("base.dir", outputFile.getParent() + File.separator)
         transformer.setParameter("use.id.as.filename", 1)
+        transformer.setParameter("html.ext", ".html")
         transformer.setParameter("chunk.section.depth", 0)
         transformer.setParameter("chunk.first.sections", 0)
         transformer.setParameter("chunker.output.encoding", "UTF-8")

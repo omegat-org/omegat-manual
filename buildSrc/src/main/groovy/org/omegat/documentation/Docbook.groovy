@@ -66,8 +66,10 @@ class Docbook extends AbstractTransformationTask {
     @OutputFile
     final Provider<RegularFile> mainOutputFile = project.objects.fileProperty()
 
+    @InputFile
+    Provider<RegularFile> inputFile = project.objects.fileProperty()
+
     Docbook() {
-        super()
     }
 
     @Override
@@ -90,12 +92,9 @@ class Docbook extends AbstractTransformationTask {
                 logging.captureStandardOutput(LogLevel.INFO)
                 logging.captureStandardError(LogLevel.INFO)
         }
-
         docsOutput.get().asFile.mkdirs()
 
-        def srcFile = docRoot.dir(language).get().file("index.xml").asFile
-        def inputSource = new InputSource(srcFile.getAbsolutePath())
-
+        def inputSource = new InputSource(inputFile.get().asFile.getAbsolutePath())
         def outputFile = mainOutputFile.get().asFile
         def result = new StreamResult(outputFile)
 
@@ -113,7 +112,7 @@ class Docbook extends AbstractTransformationTask {
         def source = new StreamSource(url.openStream(), url.toExternalForm())
         def transformer = transformerFactory.newTransformer(source)
 
-        preTransform(transformer, srcFile, outputFile)
+        preTransform(transformer, inputFile.get().asFile, outputFile)
 
         transformer.transform(new SAXSource(reader, inputSource), result)
 
@@ -121,33 +120,9 @@ class Docbook extends AbstractTransformationTask {
     }
 
     protected void preTransform(Transformer transformer, File sourceFile, File outputFile) {
-        copyImages()
-        copyExtraFiles()
-        if (docId.isPresent()) {
-            // rootid is used in the stylesheet to represent the root of the document
-            transformer.setParameter("rootid", docId.get())
-        }
     }
 
     protected void postTransform(File outputFile) {
-    }
-
-    private void copyImages() {
-        project.copy { CopySpec copySpec ->
-            copySpec.from imageSource.get()
-            copySpec.exclude imageExcludes.get()
-            copySpec.duplicatesStrategy = EXCLUDE
-            copySpec.into docsOutput.get().dir('images')
-        }
-    }
-
-    private void copyExtraFiles() {
-        if (extraFilesToOutput.present) {
-            project.copy { CopySpec copySpec ->
-                copySpec.from extraFilesToOutput.get()
-                copySpec.into docsOutput.get()
-            }
-        }
     }
 
 }
