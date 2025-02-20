@@ -9,4 +9,4 @@ develocity {
         termsOfUseAgree = "yes"
     }
 }
-rootProject.name = 'docbook-sample'
+rootProject.name = 'omegat-manual'
