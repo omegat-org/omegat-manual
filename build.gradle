@@ -29,7 +29,7 @@ tasks.register('manualHtmls') {
     group = 'documentation'
 }
 
-ext.manualIndexXmls = fileTree(dir: 'src/docs', include: '**/OmegaTUsersManual_xinclude_full.xml')
+def manualIndexXmls = fileTree(dir: 'src/docs', include: '**/OmegaTUsersManual_xinclude_full.xml')
 manualIndexXmls.each { xml ->
     def lang = xml.parentFile.name
     def docbookInclude = tasks.register("docbookInclude${lang.capitalize()}", Exec) {
@@ -110,14 +110,13 @@ manualIndexXmls.each { xml ->
     }
     manualHtmls.dependsOn htmlTask
 
-    def zipTaskName="manualZip${lang.capitalize()}"
-    tasks.register(zipTaskName, Zip) {
+    def zipTask= tasks.register("manualZip${lang.capitalize()}", Zip) {
         from fileTree(dir: layout.buildDirectory.file("docs/manual/${lang}"))
         exclude 'docs/manual/index.html'
         from fileTree(dir: "src/docs/${lang}", include: '**/version*.properties')
         archiveFileName = "${lang}.zip"
         destinationDirectory = file(layout.buildDirectory.dir("docs/manuals/"))
+        dependsOn htmlTask
     }
-    manualZips.dependsOn zipTaskName
-    tasks.getByName(zipTaskName).dependsOn htmlTask
+    manualZips.dependsOn zipTask
 }
