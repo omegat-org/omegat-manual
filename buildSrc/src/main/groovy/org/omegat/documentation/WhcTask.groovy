@@ -23,8 +23,6 @@ import org.gradle.api.tasks.TaskAction
 import com.xmlmind.whc.Compiler
 import org.gradle.api.tasks.options.Option
 
-import static org.gradle.api.file.DuplicatesStrategy.EXCLUDE
-
 @CompileStatic
 class WhcTask extends DefaultTask implements DocConfigurable {
 

@@ -64,6 +64,7 @@ manualIndexXmls.each { xml ->
 
     def whcToc = tasks.register("whcToc${lang.capitalize()}", StylesheetTask) {
         description 'Generate whc header and index'
+        language.set(lang)
         styleSheetFile.set(styleDir.file('whc-toc.xsl'))
         inputFile.set(outputRoot.get().file("${lang}/xhtml5/_index.html"))
         outputFile.set(outputRoot.get().file("${lang}/xhtml5/toc.xml"))
@@ -72,6 +73,7 @@ manualIndexXmls.each { xml ->
 
     def whcIndex = tasks.register("whcIndex${lang.capitalize()}", StylesheetTask) {
         description 'Generate whc header and index'
+        language.set(lang)
         styleSheetFile.set(styleDir.file('whc-index.xsl'))
         inputFile.set(outputRoot.get().file("${lang}/xhtml5/_index.html"))
         outputFile.set(outputRoot.get().file("${lang}/xhtml5/index.html"))
@@ -80,6 +82,7 @@ manualIndexXmls.each { xml ->
 
     def whcHeader = tasks.register("whcHeader${lang.capitalize()}", StylesheetTask) {
         description 'Generate whc header and index'
+        language.set(lang)
         styleSheetFile.set(styleDir.file('whc-header.xsl'))
         inputFile.set(outputRoot.file("${lang}/xhtml5/_index.xml"))
         outputFile.set(outputRoot.get().file("${lang}/xhtml5/_header.xhtml"))
@@ -88,10 +91,9 @@ manualIndexXmls.each { xml ->
 
     def buildDocumentTask = tasks.register("buildDocument${lang.capitalize()}", WhcTask) {
         description 'Build whc contents'
-        language.set(lang)
-        tocFile.set(outputRoot.get().file("${language.get()}/xhtml5/toc.xml"))
-        inputFile.set(outputRoot.get().file("${language.get()}/xhtml5/index.html"))
-        outputDirectory.set(outputRoot.get().dir("${language.get()}"))
+        tocFile.set(outputRoot.get().file("${lang}/xhtml5/toc.xml"))
+        inputFile.set(outputRoot.get().file("${lang}/xhtml5/index.html"))
+        outputDirectory.set(outputRoot.get().dir("${lang}"))
         parameterList.set([
                 'layout', 'simple',
                 // 'user-header', "${language.get()}/xhtml5/_header.xhtml",
@@ -100,7 +102,7 @@ manualIndexXmls.each { xml ->
                 '--panel-background-color', '#FDFDFD',
                 'local-jquery', 'yes'
         ])
-        contentFiles.set(fileTree(dir: "${outputRoot.get()}/${language.get()}/xhtml5", include: '*.html', exclude: '_*'))
+        contentFiles.set(fileTree(dir: "${outputRoot.get()}/${lang}/xhtml5", include: '*.html', exclude: '_*'))
         dependsOn(whcHeader, whcToc, whcIndex)
         group('documentation')
     }
@@ -116,6 +118,8 @@ manualIndexXmls.each { xml ->
     }
     assemble.dependsOn zipTask
 
+    def languageName = new Locale(lang).displayName
+
     // Create a new publication for this language
     def publication = publishing.publications.create("manual${lang.capitalize()}", MavenPublication) {
         groupId = 'org.omegat'
@@ -126,13 +130,13 @@ manualIndexXmls.each { xml ->
         artifact(zipTask)
 
         pom {
-            name = "OmegaT ${lang} manual"
-            description = "OmegaT ${lang} manual"
+            name = "OmegaT ${languageName} manual"
+            description = "OmegaT ${languageName} manual"
             url = 'https://omegat.org'
             scm {
-                connection = "scm:git:https://github.com/omegat-org/omegat"
-                developerConnection = "scm:git:https://github.com/omegat-org/omegat"
-                url = "https://github.com/omegat-org/omegat"
+                connection = "scm:git:https://github.com/omegat-org/omegat-manual"
+                developerConnection = "scm:git:https://github.com/omegat-org/omegat-manual"
+                url = "https://github.com/omegat-org/omegat-manual"
             }
             licenses {
                 license {

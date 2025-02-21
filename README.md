@@ -16,7 +16,7 @@ Please execute the Gradle command
 You will find HTML files under `build/docs/manual/<lang>/`
 
 ```shell
-./gradlew manualZips
+./gradlew assemble
 ```
 
 You will find Zip files under `build/docs/manuals/<lang>.zip`
@@ -24,6 +24,17 @@ You will find Zip files under `build/docs/manuals/<lang>.zip`
 ## Pre-requisite
 
 - `xmllint` command
+
+## Usage
+
+Project can use manual Zip with gradle dependencies
+
+```gradle
+dependencies {
+  implementation 'org.omegat:omegat-manual-en:6.1.0:resources@zip'
+  implementation 'org.omegat:omegat-manual-fr:6.1.0:resources@zip'
+}
+```
 
 ## source difference from original manual source
 
