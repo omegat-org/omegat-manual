@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "../../../docbook-xml-4.5/docbookx.dtd">
+<section id="app.glossaries">
+  <title id="app.glossaries.title">Glossare</title>
+
+  <para>Glossare sind Terminologiedateien, die im <link linkend="project.folder.glossary" endterm="project.folder.glossary.title"/>-Ordner aufbewahrt werden.</para>
+
+  <para>Alle Begriffe in einem Segment, die in <emphasis>irgendeinem</emphasis> der Glossare übereinstimmen, werden im <link linkend="panes.glossary" endterm="panes.glossary.title"/>-Bereich angezeigt.</para>
+
+  <para>Quellbegriffe können aus mehreren Wörtern bestehen.</para>
+
+  <para>Es gibt zwei Arten von Glossardateien:</para>
+
+  <variablelist>
+	<varlistentry>
+	  <term>Das Projektglossar</term>
+	  <listitem>
+		<para>Verwenden Sie <link linkend="menus.edit" endterm="menus.edit.title"/><link linkend="menus.edit.create.glossary.entry" endterm="menus.edit.create.glossary.entry.title"/>, um neue Begriffe in dieses Glossar einzutragen. Deshalb wird es auch als <emphasis>beschreibbares</emphasis> Glossar bezeichnet.</para>
+		
+		<para>Verwenden Sie <link linkend="menus.project" endterm="menus.project.title"/><link linkend="menus.project.access.project.contents.title" endterm="menus.project.access.project.contents.title"/>, um direkt darauf zuzugreifen. Sie können es dann in einem Texteditor öffnen und ändern.</para>
+
+		<para>Sie müssen die Datei nicht vorab vorbereiten.</para>
+
+		<para>Sie wird erstellt, wenn Sie das erste Mal einen Eintrag zum Glossar hinzufügen.</para>
+
+		<note>
+          <para>Wenn Sie eine vorhandene Datei als Standardglossar verwenden, werden alle neuen Einträge standardmäßig im tabulatorgetrennten Format und in UTF-8 gespeichert.</para>
+
+		  <para>Wenn Sie eine andere Kodierung angeben möchten, können Sie einen &quot;magischen&quot; Kommentar hinzufügen, der die folgende Form hat:</para>
+
+		  <simplelist>
+            <member>
+              <code># -*- coding: &lt;Zeichensatz&gt; -*-</code>,</member>
+          </simplelist>
+		  
+          <para>wobei <parameter>&lt;Zeichensatz&gt;</parameter> in der Regel einer der Zeichensätze ist, die in <ulink url="http://www.iana.org/assignments/character-sets/character-sets.xhtml">IANA Charset Registry</ulink> aufgelistet sind.</para>
+		</note>
+	  </listitem>
+	</varlistentry>
+	
+	<varlistentry>
+	  <term>Referenzglossare</term>
+	  <listitem>
+		<para>Referenzglossare sind Terminologiedateien in einem von OmegaT erkannten Format. Sie können diese nicht über die Benutzeroberfläche von OmegaT ändern, wie es beim projekteigenen Glossar der Fall ist, aber Sie können stattdessen einen Texteditor verwenden.</para>
+	  </listitem>
+	</varlistentry>
+  </variablelist>
+
+  <note>
+	<para>Änderungen an einer beliebigen Glossardatei werden von OmegaT sofort erkannt und im <link linkend="panes.glossary" endterm="panes.glossary.title"/>-Bereich angezeigt.</para>
+  </note>
+
+  <section id="glossaries.glossary.folder">
+    <title id="glossaries.glossary.folder.title">Ordner für Glossardateien</title>
+
+    <para>Standardmäßig enthält jedes Projekt einen <link linkend="project.folder.glossary" endterm="project.folder.glossary.title"/>-Ordner, wo das beschreibbare Glossar aufbewahrt wird, sowie alle Referenzglossare, die Sie dem Projekt hinzufügen möchten. Siehe die Projekteigenschaft <link linkend="dialogs.project.properties.file.locations.glossaries" endterm="dialogs.project.properties.file.locations.glossaries.title"/> für weitere Informationen.</para>
+
+    <para>Alle Glossare müssen sich im <link linkend="project.folder.glossary" endterm="project.folder.glossary.title"/>-Ordner befinden. Glossare in Unterordnern werden ebenfalls erkannt.</para>
+
+    <para>Innerhalb dieses Ordners können Sie mehrere Terminologie-Unterordner erstellen, die nach Thema, Kunde oder einer anderen Kategorie passend zu Ihrem Workflow geordnet sind.</para>
+    <para>Verwenden Sie die Projekteigenschaft <link linkend="dialogs.project.properties.file.locations.glossaries" endterm="dialogs.project.properties.file.locations.glossaries.title"/>, um den Speicherort des Ordners für Glossardateien zu ändern. Dieser Ordner kann außerhalb des Projekts festgelegt werden, so dass Sie ihn oder einen der spezifischen Unterordner in anderen Projekten verwenden können.</para>
+  </section>
+
+  <section id="glossaries.default.glossary">
+    <title id="glossaries.default.glossary.title">Projekteigenes Glossar</title>
+
+    <para>Das beschreibbare Glossar des Projekts befindet sich standardmäßig im <link linkend="project.folder.glossary" endterm="project.folder.glossary.title"/>-Ordner und heißt <link linkend="project.folder.glossary.txt" endterm="project.folder.glossary.txt.title"/>.</para>
+
+    <para>Sie können den Namen und den Speicherort im Dialogfenster <link linkend="dialogs.project.properties.file.locations.writable.glossary" endterm="dialogs.project.properties.file.locations.writable.glossary.title"/> ändern, aber Sie müssen der Datei die Endung <filename>.txt</filename> oder <filename>.utf8</filename> geben und sie in den <link linkend="project.folder.glossary" endterm="project.folder.glossary.title"/>-Ordner oder in einen seiner Unterordner ablegen.</para>
+  </section>
+
+  <section id="glossaries.fileformat">
+    <title id="glossaries.fileformat.title">Dateiformat</title>
+
+    <para>OmegaT-Glossardateien sind reine Textdateien, die aus drei Spalten bestehen. In der ersten Spalte steht der Quellbegriff, in der zweiten Spalte ein optionaler Zielbegriff und in der dritten Spalte ein optionaler Kommentar.</para>
+
+    <para>Glossare können Dateien mit tabulatorgetrennten Werten (TSV) oder kommagetrennten Werten (CSV) sein oder auch das TermBase-eXchange-Format (TBX 2) verwenden.</para>
+
+    <para>Ein beschreibbares Glossar, das von OmegaT für das Projekt erstellt wird, wird als UTF-8-kodierte TSV-Datei gespeichert. Benutzerdefinierte Dateien, die nur lateinische Zeichen verwenden, werden eventuell erkannt und als ISO-8859-1 behandelt, wenn sie keine ASCII-fremden Zeichen oder andere Zeichen enthalten, die als UTF-8 interpretiert werden.</para>
+
+    <para>Die Kodierung, die zum Lesen von Referenzglossaren verwendet wird, hängt von deren Dateiendung ab:</para>
+
+    <table id="glossary.extensions">
+      <title>Format, Endungen und erwartete Kodierung</title>
+	  <tgroup cols="3">
+      <thead>
+        <row>
+          <entry>Format</entry>
+
+          <entry>Endung</entry>
+
+          <entry>Kodierung</entry>
+        </row>
+      </thead>
+
+      <tbody>
+        <row>
+          <entry>TSV</entry>
+
+          <entry>
+            <filename>.txt</filename>
+          </entry>
+
+          <entry>UTF-8</entry>
+        </row>
+
+        <row>
+          <entry>TSV</entry>
+
+          <entry>
+            <filename>.utf8</filename>
+          </entry>
+
+          <entry>UTF-8</entry>
+        </row>
+
+        <row>
+          <entry>TSV</entry>
+
+          <entry>
+            <filename>.tab</filename>
+          </entry>
+
+          <entry>Standardkodierung des Betriebssystems</entry>
+        </row>
+
+        <row>
+          <entry>TSV</entry>
+
+          <entry>
+            <filename>.tsv</filename>
+          </entry>
+
+          <entry>Standardkodierung des Betriebssystems</entry>
+        </row>
+
+        <row>
+          <entry>CSV</entry>
+
+          <entry>
+            <filename>.csv</filename>
+          </entry>
+
+          <entry>UTF-8</entry>
+        </row>
+
+        <row>
+          <entry>TBX</entry>
+
+          <entry>
+            <filename>.tbx</filename>
+          </entry>
+
+          <entry>UTF-8</entry>
+        </row>
+      </tbody>
+      </tgroup>
+    </table>
+  </section>
+</section>

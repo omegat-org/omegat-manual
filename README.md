@@ -21,10 +21,6 @@ You will find HTML files under `build/docs/manual/<lang>/`
 
 You will find Zip files under `build/docs/manuals/<lang>.zip`
 
-## Pre-requisite
-
-- `xmllint` command
-
 ## Usage
 
 Project can use manual Zip with gradle dependencies
