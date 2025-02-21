@@ -106,7 +106,7 @@ manualIndexXmls.each { xml ->
     }
     manualHtmls.dependsOn buildDocumentTask
 
-    def jarTask= tasks.register("manualJar${lang.capitalize()}", Jar) {
+    def zipTask= tasks.register("manualZip${lang.capitalize()}", Zip) {
         from fileTree(dir: layout.buildDirectory.file("docs/manual/${lang}"))
         exclude 'docs/manual/index.html'
         from fileTree(dir: "src/docs/${lang}", include: '**/version*.properties')
@@ -114,7 +114,7 @@ manualIndexXmls.each { xml ->
         destinationDirectory = file(layout.buildDirectory.dir("docs/manuals/"))
         dependsOn buildDocumentTask
     }
-    assemble.dependsOn jarTask
+    assemble.dependsOn zipTask
 
     // Create a new publication for this language
     def publication = publishing.publications.create("manual${lang.capitalize()}", MavenPublication) {
@@ -123,7 +123,7 @@ manualIndexXmls.each { xml ->
         version = '6.1.0'
 
         // Add the jar task to the publication
-        artifact(jarTask)
+        artifact(zipTask)
 
         pom {
             name = "OmegaT ${lang} manual"
