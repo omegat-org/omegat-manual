@@ -56,7 +56,7 @@ class WhcTask extends DefaultTask implements DocConfigurable {
     @TaskAction
     void transform() {
         Compiler compiler = new Compiler(null)
-        compiler.setVerbose(true);
+        compiler.setVerbose(true)
         File[] contents = contentFiles.get().getFiles().toArray(new File[0])
         if (parameterList.get().size() > 1) {
             compiler.parseParameters((String[])parameterList.get().toArray(StringUtil.EMPTY_LIST))
