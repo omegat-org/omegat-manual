@@ -28,19 +28,9 @@ import static org.gradle.api.file.DuplicatesStrategy.EXCLUDE
 @CompileStatic
 class WhcTask extends DefaultTask implements DocConfigurable {
 
-    /**
-     * Language of the documentation (eg 'de', 'ru').
-     */
-    @Input
-    @Optional
-    @Option(option = 'language', description = 'The two letter language code for output')
-    final Property<String> language = project.objects.property(String)
-
     @InputDirectory
     final DirectoryProperty styleDir = project.objects.directoryProperty()
-    /**
-     * Sources root for the documentation
-     */
+
     @Internal
     final DirectoryProperty docRoot = project.objects.directoryProperty()
 
