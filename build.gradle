@@ -4,6 +4,9 @@ import org.omegat.documentation.StylesheetTask
 
 plugins {
     id 'org.omegat.documentation'
+    id 'maven-publish'
+    id 'signing'
+    id 'io.github.gradle-nexus.publish-plugin' version "2.0.0"
 }
 
 repositories {
@@ -19,16 +22,12 @@ docConfig {
     outputRoot.set(layout.buildDirectory.dir('docs/manual'))
 }
 
-tasks.register('manualZips') {
-    description = 'Build ZIP manuals to bundle into application. Requires container runtime.'
-    group = 'documentation'
-}
-
 tasks.register('manualHtmls') {
     description = 'Build HTML manuals and zip for all languages. Requires container runtime.'
     group = 'documentation'
 }
 
+def publications = []
 def manualIndexXmls = fileTree(dir: 'src/docs', include: '**/OmegaTUsersManual_xinclude_full.xml')
 manualIndexXmls.each { xml ->
     def lang = xml.parentFile.name
@@ -55,7 +54,7 @@ manualIndexXmls.each { xml ->
     def docbookHtml = tasks.register("docbookHtml${lang.capitalize()}", DocbookHtml) {
         description 'Generate chunked HTML documentation'
         language.set(lang)
-        inputFile.set(outputRoot.get().file("${language.get()}/xhtml5/_index.xml"))
+        inputFile.set(file("${documentRootDir}/${lang}/OmegaTUsersManual_xinclude_full.xml"))
         mainOutputFile.set(outputRoot.get().file("${language.get()}/xhtml5/_index.html"))
         styleSheetFile.set(styleDir.file("xhtml.xsl"))
         inputs.dir(documentRootDir)
@@ -65,32 +64,29 @@ manualIndexXmls.each { xml ->
 
     def whcToc = tasks.register("whcToc${lang.capitalize()}", StylesheetTask) {
         description 'Generate whc header and index'
-        language.set(lang)
         styleSheetFile.set(styleDir.file('whc-toc.xsl'))
-        inputFile.set(outputRoot.get().file("${language.get()}/xhtml5/_index.html"))
-        outputFile.set(outputRoot.get().file("${language.get()}/xhtml5/toc.xml"))
+        inputFile.set(outputRoot.get().file("${lang}/xhtml5/_index.html"))
+        outputFile.set(outputRoot.get().file("${lang}/xhtml5/toc.xml"))
         dependsOn(docbookHtml)
     }
 
     def whcIndex = tasks.register("whcIndex${lang.capitalize()}", StylesheetTask) {
         description 'Generate whc header and index'
-        language.set(lang)
         styleSheetFile.set(styleDir.file('whc-index.xsl'))
-        inputFile.set(outputRoot.get().file("${language.get()}/xhtml5/_index.html"))
-        outputFile.set(outputRoot.get().file("${language.get()}/xhtml5/index.html"))
+        inputFile.set(outputRoot.get().file("${lang}/xhtml5/_index.html"))
+        outputFile.set(outputRoot.get().file("${lang}/xhtml5/index.html"))
         dependsOn(docbookHtml, whcToc)
     }
 
     def whcHeader = tasks.register("whcHeader${lang.capitalize()}", StylesheetTask) {
         description 'Generate whc header and index'
-        language.set(lang)
         styleSheetFile.set(styleDir.file('whc-header.xsl'))
-        inputFile.set(outputRoot.file("${language.get()}/xhtml5/_index.xml"))
-        outputFile.set(outputRoot.get().file("${language.get()}/xhtml5/_header.xhtml"))
+        inputFile.set(outputRoot.file("${lang}/xhtml5/_index.xml"))
+        outputFile.set(outputRoot.get().file("${lang}/xhtml5/_header.xhtml"))
         dependsOn(docbookHtml)
     }
 
-    def htmlTask = tasks.register("buildDocument${lang.capitalize()}", WhcTask) {
+    def buildDocumentTask = tasks.register("buildDocument${lang.capitalize()}", WhcTask) {
         description 'Build whc contents'
         language.set(lang)
         tocFile.set(outputRoot.get().file("${language.get()}/xhtml5/toc.xml"))
@@ -108,15 +104,84 @@ manualIndexXmls.each { xml ->
         dependsOn(whcHeader, whcToc, whcIndex)
         group('documentation')
     }
-    manualHtmls.dependsOn htmlTask
+    manualHtmls.dependsOn buildDocumentTask
 
-    def zipTask= tasks.register("manualZip${lang.capitalize()}", Zip) {
+    def jarTask= tasks.register("manualJar${lang.capitalize()}", Jar) {
         from fileTree(dir: layout.buildDirectory.file("docs/manual/${lang}"))
         exclude 'docs/manual/index.html'
         from fileTree(dir: "src/docs/${lang}", include: '**/version*.properties')
         archiveFileName = "${lang}.zip"
         destinationDirectory = file(layout.buildDirectory.dir("docs/manuals/"))
-        dependsOn htmlTask
+        dependsOn buildDocumentTask
     }
-    manualZips.dependsOn zipTask
+    assemble.dependsOn jarTask
+
+    // Create a new publication for this language
+    def publication = publishing.publications.create("manual${lang.capitalize()}", MavenPublication) {
+        groupId = 'org.omegat'
+        artifactId = "omegat-manual-${lang}"
+        version = '6.1.0'
+
+        // Add the jar task to the publication
+        artifact(jarTask)
+
+        pom {
+            name = "OmegaT ${lang} manual"
+            description = "OmegaT ${lang} manual"
+            url = 'https://omegat.org'
+            scm {
+                connection = "scm:git:https://github.com/omegat-org/omegat"
+                developerConnection = "scm:git:https://github.com/omegat-org/omegat"
+                url = "https://github.com/omegat-org/omegat"
+            }
+            licenses {
+                license {
+                    name = 'The GNU General Public License, Version 3.0'
+                    url = 'https://www.gnu.org/licenses/licenses/gpl-3.0.html'
+                }
+            }
+            developers {
+                developer {
+                    id = 'omegat'
+                    name = 'OmegaT Developers'
+                    email = 'info@omegat.org'
+                }
+            }
+        }
+    }
+
+    // Add the publication to the list
+    publications << publication
 }
+
+signing {
+    publications.each { publication ->
+        sign publication
+    }
+    if (!findProperty("signing.keyId")) {
+        useGpgCmd()
+    }
+}
+
+// Publish all the publications
+publishing {
+    repositories {
+        maven {
+            url = 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
+            credentials(PasswordCredentials) {
+                username = findProperty('ossrhUsername')
+                password = findProperty('ossrhPassword')
+            }
+        }
+    }
+}
+
+nexusPublishing.repositories {
+    sonatype {
+        nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
+        snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
+        username.set(findProperty('ossrhUsername') as String)
+        password.set(findProperty('ossrhPassword') as String)
+    }
+}
+
