@@ -1,6 +1,7 @@
 import org.omegat.documentation.DocbookHtml
 import org.omegat.documentation.WhcTask
 import org.omegat.documentation.StylesheetTask
+import org.omegat.documentation.XIncludeTask
 
 plugins {
     id 'org.omegat.documentation'
@@ -32,11 +33,9 @@ tasks.register('manualHtmls') {
 def manualIndexXmls = fileTree(dir: 'src/docs', include: '**/OmegaTUsersManual_xinclude_full.xml')
 manualIndexXmls.each { xml ->
     def lang = xml.parentFile.name
-    def docbookInclude = tasks.register("docbookInclude${lang.capitalize()}", Exec) {
-        executable('/usr/bin/xmllint')
-        commandLine '/usr/bin/xmllint', '--xinclude', '-o', layout.buildDirectory.dir("docs/manual/${lang}/xhtml5/_index.xml").get().toString(),
-                "${documentRootDir}/${lang}/OmegaTUsersManual_xinclude_full.xml"
-        inputs.file file("${documentRootDir}/${lang}/OmegaTUsersManual_xinclude_full.xml")
+    def docbookInclude = tasks.register("docbookInclude${lang.capitalize()}", XIncludeTask) {
+        styleSheetFile.set(styleDir.file('passthrough.xsl'))
+        inputFile.set(file("${documentRootDir}/${lang}/OmegaTUsersManual_xinclude_full.xml"))
         outputs.file file(layout.buildDirectory.dir("docs/manual/${lang}/xhtml5/_index.xml"))
     }
 
