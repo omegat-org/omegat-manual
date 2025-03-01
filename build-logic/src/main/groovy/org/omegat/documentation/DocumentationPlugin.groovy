@@ -35,7 +35,7 @@ class DocumentationPlugin implements Plugin<Project> {
 
         def extension = project.extensions.create(DOCUMENTATION_EXTENSION, DocConfigExtension, project.objects)
         project.tasks.withType(DocConfigurable).whenTaskAdded { DocConfigurable docConfigurableTask ->
-            log.debug("Configuring task {}", docConfigurableTask)
+            org.omegat.documentation.DocumentationPlugin.log.debug("Configuring task {}", docConfigurableTask)
             docConfigurableTask.configureWith(extension)
         }
     }

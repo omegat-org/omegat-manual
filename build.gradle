@@ -1,10 +1,6 @@
-import org.omegat.documentation.DocbookHtml
-import org.omegat.documentation.WhcTask
-import org.omegat.documentation.StylesheetTask
-import org.omegat.documentation.XIncludeTask
 
 plugins {
-    id 'org.omegat.documentation'
+    id 'org.omegat.document-conventions'
     id 'maven-publish'
     id 'signing'
     id 'io.github.gradle-nexus.publish-plugin' version "2.0.0"
@@ -14,13 +10,9 @@ repositories {
     mavenCentral()
 }
 
-def documentRootDir = file('src/docs')
-def styleRootDir = file('src/docs/xsl')
-
-docConfig {
-    styleDir.set(styleRootDir)
-    docRoot.set(documentRootDir)
-    outputRoot.set(layout.buildDirectory.dir('docs/manual'))
+tasks.register('manualZips') {
+    description = 'Build ZIP manuals to bundle into application. Requires container runtime.'
+    group = 'documentation'
 }
 
 tasks.register('manualHtmls') {
@@ -30,136 +22,9 @@ tasks.register('manualHtmls') {
 
 def publications = []
 def manualIndexXmls = fileTree(dir: 'src/docs', include: '**/OmegaTUsersManual_xinclude_full.xml')
-manualIndexXmls.each { xml ->
-    def lang = xml.parentFile.name
-    def docbookInclude = tasks.register("docbookInclude${lang.capitalize()}", XIncludeTask) {
-        styleSheetFile.set(styleDir.file('passthrough.xsl'))
-        inputFile.set(file("${documentRootDir}/${lang}/OmegaTUsersManual_xinclude_full.xml"))
-        outputs.file file(layout.buildDirectory.dir("docs/manual/${lang}/xhtml5/_index.xml"))
-    }
-
-    def copyCss = tasks.register("copyCss${lang.capitalize()}", Copy) {
-        description 'Copy Images and CSS file to target'
-        into layout.buildDirectory.dir("docs/manual/${lang}")
-        from new File(documentRootDir, 'omegat.css')
-    }
-
-    def copyImages = tasks.register("copyImages${lang.capitalize()}", Copy) {
-        description 'Copy Images and CSS file to target'
-        into layout.buildDirectory.dir("docs/manual/${lang}/images/")
-        from new File(documentRootDir, "${lang}/images/")
-    }
-
-    def docbookHtml = tasks.register("docbookHtml${lang.capitalize()}", DocbookHtml) {
-        description 'Generate chunked HTML documentation'
-        language.set(lang)
-        inputFile.set(file("${documentRootDir}/${lang}/OmegaTUsersManual_xinclude_full.xml"))
-        mainOutputFile.set(outputRoot.get().file("${language.get()}/xhtml5/_index.html"))
-        styleSheetFile.set(styleDir.file("xhtml.xsl"))
-        inputs.dir(documentRootDir)
-        outputs.files(outputRoot.get().file("${language.get()}/xhtml5/_index.html"))
-        dependsOn(docbookInclude, copyImages, copyCss)
-    }
-
-    def whcToc = tasks.register("whcToc${lang.capitalize()}", StylesheetTask) {
-        description 'Generate whc header and index'
-        language.set(lang)
-        styleSheetFile.set(styleDir.file('whc-toc.xsl'))
-        inputFile.set(outputRoot.get().file("${lang}/xhtml5/_index.html"))
-        outputFile.set(outputRoot.get().file("${lang}/xhtml5/toc.xml"))
-        dependsOn(docbookHtml)
-    }
-
-    def whcIndex = tasks.register("whcIndex${lang.capitalize()}", StylesheetTask) {
-        description 'Generate whc header and index'
-        language.set(lang)
-        styleSheetFile.set(styleDir.file('whc-index.xsl'))
-        inputFile.set(outputRoot.get().file("${lang}/xhtml5/_index.html"))
-        outputFile.set(outputRoot.get().file("${lang}/xhtml5/index.html"))
-        dependsOn(docbookHtml, whcToc)
-    }
-
-    def whcHeader = tasks.register("whcHeader${lang.capitalize()}", StylesheetTask) {
-        description 'Generate whc header and index'
-        language.set(lang)
-        styleSheetFile.set(styleDir.file('whc-header.xsl'))
-        inputFile.set(outputRoot.file("${lang}/xhtml5/_index.xml"))
-        outputFile.set(outputRoot.get().file("${lang}/xhtml5/_header.xhtml"))
-        dependsOn(docbookHtml)
-    }
-
-    def buildDocumentTask = tasks.register("buildDocument${lang.capitalize()}", WhcTask) {
-        description 'Build whc contents'
-        tocFile.set(outputRoot.get().file("${lang}/xhtml5/toc.xml"))
-        inputFile.set(outputRoot.get().file("${lang}/xhtml5/index.html"))
-        outputDirectory.set(outputRoot.get().dir("${lang}"))
-        parameterList.set([
-                'layout', 'simple',
-                // 'user-header', "${language.get()}/xhtml5/_header.xhtml",
-                '--navigation-background-color', '#FDFDFD',
-                '--field-background-color', '#FDFDFD',
-                '--panel-background-color', '#FDFDFD',
-                'local-jquery', 'yes'
-        ])
-        contentFiles.set(fileTree(dir: "${outputRoot.get()}/${lang}/xhtml5", include: '*.html', exclude: '_*'))
-        dependsOn(whcHeader, whcToc, whcIndex)
-        doLast {
-            project.delete(fileTree(dir: "${outputRoot.get()}/${lang}/xhtml5"))
-            project.delete(file("${outputRoot.get()}/${lang}/xhtml5"))
-        }
-        group('documentation')
-    }
-    manualHtmls.dependsOn buildDocumentTask
-
-    def zipTask= tasks.register("manualZip${lang.capitalize()}", Zip) {
-        from fileTree(dir: layout.buildDirectory.file("docs/manual/${lang}"))
-        exclude 'docs/manual/index.html'
-        from fileTree(dir: "src/docs/${lang}", include: '**/version*.properties')
-        archiveFileName = "${lang}.zip"
-        destinationDirectory = file(layout.buildDirectory.dir("docs/manuals/"))
-        dependsOn buildDocumentTask
-    }
-    assemble.dependsOn zipTask
-
-    def languageName = new Locale(lang).displayName
-
-    // Create a new publication for this language
-    def publication = publishing.publications.create("manual${lang.capitalize()}", MavenPublication) {
-        groupId = 'org.omegat'
-        artifactId = "omegat-manual-${lang}"
-        version = '6.1.0'
-
-        // Add the jar task to the publication
-        artifact(zipTask)
-
-        pom {
-            name = "OmegaT ${languageName} manual"
-            description = "OmegaT ${languageName} manual"
-            url = 'https://omegat.org'
-            scm {
-                connection = "scm:git:https://github.com/omegat-org/omegat-manual"
-                developerConnection = "scm:git:https://github.com/omegat-org/omegat-manual"
-                url = "https://github.com/omegat-org/omegat-manual"
-            }
-            licenses {
-                license {
-                    name = 'The GNU General Public License, Version 3.0'
-                    url = 'https://www.gnu.org/licenses/licenses/gpl-3.0.html'
-                }
-            }
-            developers {
-                developer {
-                    id = 'omegat'
-                    name = 'OmegaT Developers'
-                    email = 'info@omegat.org'
-                }
-            }
-        }
-    }
-
-    // Add the publication to the list
-    publications << publication
-}
+manualIndexXmls.each { xml -> {
+    publications << makeDocumentationTasks(xml)
+}}
 
 signing {
     publications.each { publication ->

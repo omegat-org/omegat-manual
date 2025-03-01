@@ -2,12 +2,12 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.6">
-      <module name="build-logic" target="17" />
-      <module name="build-logic.main" target="17" />
-      <module name="build-logic.test" target="17" />
       <module name="docbook-sample.buildSrc" target="17" />
       <module name="docbook-sample.buildSrc.main" target="17" />
       <module name="docbook-sample.buildSrc.test" target="17" />
+      <module name="omegat-manual.buildSrc" target="17" />
+      <module name="omegat-manual.buildSrc.main" target="17" />
+      <module name="omegat-manual.buildSrc.test" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
