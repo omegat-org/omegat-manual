@@ -1,6 +1,7 @@
 
 plugins {
     id 'org.omegat.document-conventions'
+    id 'org.omegat.publish-conventions'
     id 'maven-publish'
     id 'signing'
     id 'io.github.gradle-nexus.publish-plugin' version "2.0.0"
@@ -20,18 +21,23 @@ tasks.register('manualHtmls') {
     group = 'documentation'
 }
 
-def publications = []
-def manualIndexXmls = fileTree(dir: 'src/docs', include: '**/OmegaTUsersManual_xinclude_full.xml')
-manualIndexXmls.each { xml -> {
-    publications << makeDocumentationTasks(xml)
-}}
+def manualIndexXmls = fileTree(dir: 'src/docs/manual', include: '**/OmegaTUsersManual_xinclude_full.xml')
+manualIndexXmls.each { xml ->
+    def lang = xml.parentFile.name
+    makeDocumentationTasks(lang)
+    manualZips.dependsOn "manualZip${lang.capitalize()}"
+    manualHtmls.dependsOn "buildDocument${lang.capitalize()}"
+    genDocIndex.dependsOn "buildDocument${lang.capitalize()}"
+}
 
-signing {
-    publications.each { publication ->
-        sign publication
-    }
-    if (!findProperty("signing.keyId")) {
-        useGpgCmd()
+tasks.register('webManual', Sync) {
+    group = 'documentation'
+    description = 'Sync the HTML manual files'
+    dependsOn manualHtmls, genDocIndex
+    destinationDir = file(layout.buildDirectory.file("docs/htdocs"))
+    from file(layout.buildDirectory.file("docs/manual"))
+    from('release') {
+        include 'doc-license.txt'
     }
 }
 

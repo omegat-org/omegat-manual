@@ -34,12 +34,18 @@ repositories {
 dependencies {
     compileOnly gradleApi()
     compileOnly localGroovy()
+
+    // 3rd party gradle plugin
+    implementation 'org.hidetake.ssh:org.hidetake.ssh.gradle.plugin:2.11.2'
+
+    // dependencies on Maven
     implementation 'xerces:xercesImpl:2.12.2'
     implementation 'xml-resolver:xml-resolver:1.2'
     implementation 'tokyo.northside:saxon-6-5-5:1.0.0'
     implementation 'net.sf.docbook:docbook-xsl:1.79.1:resources@zip'
+    implementation 'tokyo.northside:whc:3.6.0'
+
     // dependencies not on Maven
     // https://docbook.org/xml/4.5/docbook-xml-4.5.zip
     implementation 'docbook:docbook-xml:4.5:resources@zip'
-    implementation 'tokyo.northside:whc:3.6.0'
 }
