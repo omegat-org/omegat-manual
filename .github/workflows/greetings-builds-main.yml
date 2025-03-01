@@ -1,10 +1,9 @@
-name: Check manuals build
+name: Chec greetings build
 
 on:
   push:
     branches:
-      - master
-      - releases/*
+      - main
   pull_request:
 
 jobs:
@@ -19,6 +18,6 @@ jobs:
     - uses: gradle/actions/setup-gradle@v4
       name: Setup Gradle
       id: setup-gradle
-    - name: Run gradle manualsHtmls
-      run: ./gradlew -PenvIsCi=true manualHtmls
+    - name: Run gradle firstSteps
+      run: ./gradlew -PenvIsCi=true firstSteps
       id: gradle
