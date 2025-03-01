@@ -34,19 +34,14 @@ class StylesheetTask extends AbstractStyleSheetTask {
     @TaskAction
     void transform() {
         preTransform()
-        docsOutput.get().asFile.mkdirs()
+        outputFile.get().asFile.parentFile.mkdirs()
         execute(inputFile.get().asFile, styleSheetFile.get().asFile, outputFile.get().asFile)
     }
 
     protected NamePool namePool = NamePool.getDefaultNamePool()
     protected ParameterSet params = new ParameterSet()
 
-    void setParameter(String name, String value) {
-        int argcode = namePool.allocate("", "", name);
-        params.put(argcode, new StringValue(value));
-    }
-
-    void execute(File sourceFile, File sheetFile, File outputFile) {
+    void execute(File sourceFile, File sheetFile, File output) {
         def factory = new TransformerFactoryImpl()
 
         ExtendedInputSource eis = new ExtendedInputSource(sourceFile)
@@ -58,7 +53,7 @@ class StylesheetTask extends AbstractStyleSheetTask {
         Templates sheet = factory.newTemplates(styleSource)
 
         StyleSheet styleSheet = new StyleSheet()
-        styleSheet.processFile(sourceInput, sheet, outputFile, params)
+        styleSheet.processFile(sourceInput, sheet, output, params)
     }
 
     void preTransform() {}

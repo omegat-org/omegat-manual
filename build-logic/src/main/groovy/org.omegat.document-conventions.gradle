@@ -179,6 +179,7 @@ tasks.register('firstSteps') {
     description = 'Build First pages for all languages at docs/greetings/. Requires Docker.'
     group = 'documentation'
 }
+assemble.dependsOn firstSteps
 
 tasks.register('updateManuals') {
     group = 'documentation'
@@ -198,9 +199,6 @@ firstStepsXmls.each { xml ->
         inputs.files fileTree(dir: "src/docs/greeting/${lang}", include: 'First_Steps.xml')
         outputs.files fileTree(dir: layout.buildDirectory.file('docs/greetings/'),
                 includes: ["${lang}/first_steps.html", "${lang}/omegat.css"])
-        doLast {
-            project.delete(fileTree(dir: "${outputRoot.get()}/greeting/${lang}/_index.html"))
-        }
     }
     firstSteps.dependsOn firstStepsHtml
 }

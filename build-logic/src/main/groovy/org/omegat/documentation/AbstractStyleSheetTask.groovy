@@ -35,9 +35,6 @@ abstract class AbstractStyleSheetTask extends DefaultTask implements DocConfigur
     @Internal
     final DirectoryProperty outputRoot = project.objects.directoryProperty()
 
-    @Internal
-    final Provider<Directory> docsOutput = outputRoot.dir(language)
-
     @Override
     void configureWith(DocConfigExtension extension) {
         docRoot.convention(extension.docRoot)

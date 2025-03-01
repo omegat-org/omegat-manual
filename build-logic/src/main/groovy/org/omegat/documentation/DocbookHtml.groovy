@@ -29,8 +29,17 @@ class DocbookHtml extends Docbook {
 
     @Override
     protected void preTransform(Transformer transformer, File sourceFile, File outputFile) {
-        transformer.setParameter("root.filename", '_index')
-        transformer.setParameter("base.dir", outputFile.getParent() + File.separator)
+        def rootName = mainOutputFile.map { file ->
+            String filename = file.asFile.getName()
+            int extensionIndex = filename.lastIndexOf('.')
+            if (extensionIndex > 0) {
+                filename.substring(0, extensionIndex)
+            } else {
+                filename
+            }
+        }.get()
+        transformer.setParameter("root.filename", rootName)
+        transformer.setParameter("base.dir", mainOutputFile.get().asFile.parent + File.separator)
         transformer.setParameter("use.id.as.filename", 1)
         transformer.setParameter("html.ext", ".html")
         transformer.setParameter("chunk.section.depth", 0)

@@ -92,11 +92,10 @@ class Docbook extends AbstractTransformationTask {
                 logging.captureStandardOutput(LogLevel.INFO)
                 logging.captureStandardError(LogLevel.INFO)
         }
-        docsOutput.get().asFile.mkdirs()
+        mainOutputFile.get().asFile.parentFile.mkdirs()
 
         def inputSource = new InputSource(inputFile.get().asFile.getAbsolutePath())
-        def outputFile = mainOutputFile.get().asFile
-        def result = new StreamResult(outputFile)
+        def result = new StreamResult(mainOutputFile.get().asFile)
 
         def resolver = new CatalogResolver(XsltHelper.createCatalogManager())
 
@@ -112,11 +111,11 @@ class Docbook extends AbstractTransformationTask {
         def source = new StreamSource(url.openStream(), url.toExternalForm())
         def transformer = transformerFactory.newTransformer(source)
 
-        preTransform(transformer, inputFile.get().asFile, outputFile)
+        preTransform(transformer, inputFile.get().asFile, mainOutputFile.get().asFile)
 
         transformer.transform(new SAXSource(reader, inputSource), result)
 
-        postTransform(outputFile)
+        postTransform(mainOutputFile.get().asFile)
     }
 
     protected void preTransform(Transformer transformer, File sourceFile, File outputFile) {
