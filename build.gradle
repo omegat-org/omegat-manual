@@ -11,34 +11,18 @@ repositories {
     mavenCentral()
 }
 
-tasks.register('manualZips') {
-    description = 'Build ZIP manuals to bundle into application. Requires container runtime.'
-    group = 'documentation'
-}
-
-tasks.register('manualHtmls') {
-    description = 'Build HTML manuals and zip for all languages. Requires container runtime.'
-    group = 'documentation'
-}
+version = '6.1.0'
 
 def manualIndexXmls = fileTree(dir: 'src/docs/manual', include: '**/OmegaTUsersManual_xinclude_full.xml')
 manualIndexXmls.each { xml ->
     def lang = xml.parentFile.name
     makeDocumentationTasks(lang)
-    manualZips.dependsOn "manualZip${lang.capitalize()}"
-    manualHtmls.dependsOn "buildDocument${lang.capitalize()}"
-    genDocIndex.dependsOn "buildDocument${lang.capitalize()}"
 }
 
-tasks.register('webManual', Sync) {
+tasks.register('updateManuals') {
     group = 'documentation'
-    description = 'Sync the HTML manual files'
-    dependsOn manualHtmls, genDocIndex
-    destinationDir = file(layout.buildDirectory.file("docs/htdocs"))
-    from file(layout.buildDirectory.file("docs/manual"))
-    from('release') {
-        include 'doc-license.txt'
-    }
+    description = 'Update first pages and HTML manuals.'
+    dependsOn manualHtmls, firstSteps
 }
 
 // Publish all the publications

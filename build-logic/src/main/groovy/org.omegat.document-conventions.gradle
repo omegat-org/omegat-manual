@@ -18,34 +18,45 @@ docConfig {
     outputRoot.set(layout.buildDirectory.dir('docs'))
 }
 
-def genDocIndex = tasks.register('genDocIndex', Copy) {
-    def docPropsFiles = fileTree(dir: 'src/docs', include: '*/version*.properties').findAll {
-        file("${it.parent}/OmegaTUsersManual_xinclude full.xml").file }
-    def langNameExceptions = loadProperties(file('src/docs/lang_exceptions.properties'))
-    def langInfos = docPropsFiles.toSorted{ it.parentFile.name }.collect { props ->
+tasks.register('genDocIndex', Copy) {
+    def inputTemplate = layout.projectDirectory.file('src/docs/template/index.html')
+    def docPropsFiles = fileTree(dir: 'src/docs/manual', include: '**/version*.properties')
+    def langInformation = docPropsFiles.collect { props ->
         def docVersion = loadProperties(props).version
-        ['code': props.parentFile.name, 'nomanual': false, 'version': docVersion,
-         'name': langNameExceptions[props.parentFile.name] ?:
-                 Locale.forLanguageTag(props.parentFile.name.replace('_', '-')).getDisplayName(),
-         'status': docVersion == omtVersion.version ? 'up-to-date' : 'out-of-date'] }
-    def inputTemplate = file('src/docs/template/index_template.html')
-    def outputIndex = layout.buildDirectory.file("docs/manual/index.html").get().asFile
+        ['code'  : props.parentFile.name, 'nomanual': false, 'version': docVersion,
+         'name'  : Locale.forLanguageTag(props.parentFile.name.replace('_', '-')).getDisplayName(),
+         'status': docVersion == version ? 'up-to-date' : 'out-of-date']
+    }
     description = 'Generate the docs index file'
     inputs.files docPropsFiles, inputTemplate
-    outputs.files file(outputIndex)
     from inputTemplate
-    into outputIndex.parent
-    rename('index_template.html', 'index.html')
-    expand('languages': langInfos)
+    into layout.buildDirectory.dir("tmp/manual/")
+    expand('languages': langInformation)
+    doLast {
+        copy {
+            from layout.buildDirectory.file("tmp/manual/index.html")
+            into layout.buildDirectory.dir("docs/manual")
+        }
+    }
     filteringCharset = 'UTF-8'
+}
+
+tasks.register('manualZips') {
+    description = 'Build ZIP manuals to bundle into application. Requires container runtime.'
+    group = 'documentation'
+}
+
+tasks.register('manualHtmls') {
+    description = 'Build HTML manuals and zip for all languages. Requires container runtime.'
+    finalizedBy genDocIndex
     group = 'documentation'
 }
 
 ext.makeDocumentationTasks = { lang ->
     def docbookInclude = tasks.register("docbookInclude${lang.capitalize()}", XIncludeTask) {
         styleSheetFile.set(styleDir.file('passthrough.xsl'))
-        inputFile.set(file("${documentRootDir}/manual/${lang}/OmegaTUsersManual_xinclude_full.xml"))
-        outputs.file file(layout.buildDirectory.dir("docs/manual/${lang}/xhtml5/_index.xml"))
+        inputFile.set(layout.projectDirectory.file("src/docs/manual/${lang}/OmegaTUsersManual_xinclude_full.xml"))
+        outputs.files layout.buildDirectory.dir("docs/manual/${lang}/xhtml5/_index.xml")
     }
 
     def copyCss = tasks.register("copyCss${lang.capitalize()}", Copy) {
@@ -57,7 +68,7 @@ ext.makeDocumentationTasks = { lang ->
     def copyImages = tasks.register("copyImages${lang.capitalize()}", Copy) {
         description 'Copy Images and CSS file to target'
         into layout.buildDirectory.dir("docs/manual/${lang}/images/")
-        from new File(documentRootDir, "${lang}/images/")
+        from new File(documentRootDir, "manual/${lang}/images/")
     }
 
     def docbookHtml = tasks.register("docbookHtml${lang.capitalize()}", DocbookHtml) {
@@ -95,7 +106,9 @@ ext.makeDocumentationTasks = { lang ->
         styleSheetFile.set(styleDir.file('whc-header.xsl'))
         inputFile.set(outputRoot.file("manual/${lang}/xhtml5/_index.xml"))
         outputFile.set(outputRoot.get().file("manual/${lang}/xhtml5/_header.xhtml"))
-        dependsOn(docbookHtml)
+        inputs.files(styleDir.file('whc-header.xsl'), outputRoot.file("manual/${lang}/xhtml5/_index.xml"))
+        outputs.file(outputRoot.get().file("manual/${lang}/xhtml5/_header.xhtml"))
+        dependsOn(copyCss, docbookInclude)
     }
 
     def buildDocumentTask = tasks.register("buildDocument${lang.capitalize()}", WhcTask) {
@@ -120,6 +133,7 @@ ext.makeDocumentationTasks = { lang ->
         group('documentation')
     }
     assemble.dependsOn buildDocumentTask
+    manualHtmls.dependsOn buildDocumentTask
 
     def zipTask= tasks.register("manualZip${lang.capitalize()}", Zip) {
         from fileTree(dir: layout.buildDirectory.file("docs/manual/${lang}"))
@@ -130,6 +144,7 @@ ext.makeDocumentationTasks = { lang ->
         dependsOn buildDocumentTask
     }
     assemble.dependsOn zipTask
+    manualZips.dependsOn zipTask
 
     def languageName = new Locale(lang).displayName
 
@@ -176,16 +191,10 @@ ext.makeDocumentationTasks = { lang ->
 }
 
 tasks.register('firstSteps') {
-    description = 'Build First pages for all languages at docs/greetings/. Requires Docker.'
+    description = 'Build first pages for all languages at docs/greetings/. Requires Docker.'
     group = 'documentation'
 }
 assemble.dependsOn firstSteps
-
-tasks.register('updateManuals') {
-    group = 'documentation'
-    description = 'Update Instant Start guides and HTML manuals.'
-    dependsOn manualHtmls, firstSteps, genDocIndex
-}
 
 ext.firstStepsXmls = fileTree(dir: 'src/docs/greeting', include: '**/First_Steps.xml')
 firstStepsXmls.each { xml ->

@@ -4,7 +4,7 @@ pluginManagement {
         gradlePluginPortal()
         // 'repository' for getting docbook xsd
         ivy {
-            url 'https://docbook.org/xml'
+            url = 'https://docbook.org/xml'
             patternLayout {
                 artifact '[revision]/[module]-[revision].[ext]'
             }
