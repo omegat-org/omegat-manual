@@ -86,8 +86,6 @@ class Docbook extends AbstractTransformationTask {
         switch (project.gradle.startParameter.logLevel) {
             case LogLevel.DEBUG:
                 break
-            case LogLevel.INFO:
-                break
             default:
                 logging.captureStandardOutput(LogLevel.INFO)
                 logging.captureStandardError(LogLevel.INFO)
