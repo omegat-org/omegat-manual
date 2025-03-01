@@ -13,24 +13,7 @@ Please execute the Gradle command
 ./gradlew manualHtmls
 ```
 
-You will find HTML files under `build/docs/manual/<lang>/`
-
-```shell
-./gradlew assemble
-```
-
-You will find Zip files under `build/docs/manuals/<lang>.zip`
-
-## Usage
-
-Project can use manual Zip with Gradle dependencies
-
-```gradle
-dependencies {
-  implementation 'org.omegat:omegat-manual-en:6.1.0:resources@zip'
-  implementation 'org.omegat:omegat-manual-fr:6.1.0:resources@zip'
-}
-```
+You will find HTML files under `build/docs/manual/`
 
 ## Supported languages
 
@@ -38,16 +21,21 @@ dependencies {
 
 ## Sources
 
-Tasks are defined as a custom local plugin defined in `buildSrc`
+Tasks are defined as a custom local plugin defined in `build-logic`
 
 ## source difference from original manual source
 
-1. Folder location: `src/docs/<lang>/`
+1. Folder location: `src/docs/manual/<lang>` and `src/docs/greeting/<lang>`
 2. Name of the main source file: `OmegaTUsersManual_xincludes_full.xml`
 3. DTD of the index file: the first 2 lines of the index file should be like
 ```text
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd"
 ```
-4. CSS file is located at `src/docs/omegat.css`
-5. XSL files are located at `src/docs/xsl`
+4. CSS file is located at `src/docs/style/omegat.css`
+5. XSL files are located at `src/docs/xsl/`
+6. Place `First_Steps.xml` in `src/docs/greeting/<lang>`
+
+## GitHub Actions
+
+You can download build artifact from GitHub Actions page with "artifact" link
