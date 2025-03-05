@@ -9,8 +9,8 @@ plugins {
     id 'signing'
 }
 
-def documentRootDir = file('src/docs')
-def styleRootDir = file('src/docs/xsl')
+def documentRootDir = file('src_docs')
+def styleRootDir = file('src_docs/xsl')
 
 docConfig {
     styleDir.set(styleRootDir)
@@ -19,8 +19,8 @@ docConfig {
 }
 
 tasks.register('genDocIndex', Copy) {
-    def inputTemplate = layout.projectDirectory.file('src/docs/template/index.html')
-    def docPropsFiles = fileTree(dir: 'src/docs/manual', include: '**/version*.properties')
+    def inputTemplate = layout.projectDirectory.file('src_docs/template/index.html')
+    def docPropsFiles = fileTree(dir: 'src_docs/manual', include: '**/version*.properties')
     def langInformation = docPropsFiles.collect { props ->
         def docVersion = loadProperties(props).version
         ['code'  : props.parentFile.name, 'nomanual': false, 'version': docVersion,
@@ -55,7 +55,7 @@ tasks.register('manualHtmls') {
 ext.makeDocumentationTasks = { lang ->
     def docbookInclude = tasks.register("docbookInclude${lang.capitalize()}", XIncludeTask) {
         styleSheetFile.set(styleDir.file('passthrough.xsl'))
-        inputFile.set(layout.projectDirectory.file("src/docs/manual/${lang}/OmegaTUsersManual_xinclude_full.xml"))
+        inputFile.set(layout.projectDirectory.file("src_docs/manual/${lang}/OmegaTUsersManual_xinclude_full.xml"))
         outputs.files layout.buildDirectory.dir("tmp/manual/${lang}/xhtml5/_index.xml")
     }
 
@@ -134,7 +134,7 @@ ext.makeDocumentationTasks = { lang ->
     def zipTask= tasks.register("manualZip${lang.capitalize()}", Zip) {
         from fileTree(dir: layout.buildDirectory.file("docs/manual/${lang}"))
         exclude 'docs/manual/index.html'
-        from fileTree(dir: "src/docs/${lang}", include: '**/version*.properties')
+        from fileTree(dir: "src_docs/${lang}", include: '**/version*.properties')
         archiveFileName = "${lang}.zip"
         destinationDirectory = file(layout.buildDirectory.dir("docs/manuals/"))
         dependsOn buildDocumentTask
@@ -192,7 +192,7 @@ tasks.register('firstSteps') {
 }
 assemble.dependsOn firstSteps
 
-ext.firstStepsXmls = fileTree(dir: 'src/docs/greeting', include: '**/First_Steps.xml')
+ext.firstStepsXmls = fileTree(dir: 'src_docs/greeting', include: '**/First_Steps.xml')
 firstStepsXmls.each { xml ->
     def lang = xml.parentFile.name
     def firstStepsHtml = tasks.register("firstSteps${lang.capitalize()}", DocbookHtml) {
@@ -201,7 +201,7 @@ firstStepsXmls.each { xml ->
         inputFile.set(file("${documentRootDir}/greeting/${lang}/First_Steps.xml"))
         mainOutputFile.set(outputRoot.get().file("greetings/${language.get()}/first_steps.html"))
         styleSheetFile.set(styleDir.file("xhtml.xsl"))
-        inputs.files fileTree(dir: "src/docs/greeting/${lang}", include: 'First_Steps.xml')
+        inputs.files fileTree(dir: "src_docs/greeting/${lang}", include: 'First_Steps.xml')
         outputs.files fileTree(dir: layout.buildDirectory.file('docs/greetings/'),
                 includes: ["${lang}/first_steps.html", "${lang}/omegat.css"])
     }
