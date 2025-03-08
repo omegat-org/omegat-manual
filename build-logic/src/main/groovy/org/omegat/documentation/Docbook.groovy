@@ -16,55 +16,36 @@
 package org.omegat.documentation
 
 import groovy.transform.CompileStatic
-import com.icl.saxon.TransformerFactoryImpl
 import org.apache.xerces.jaxp.SAXParserFactoryImpl
 import org.apache.xml.resolver.tools.CatalogResolver
 import org.gradle.api.file.*
 import org.gradle.api.logging.LogLevel
-import org.gradle.api.provider.Property
 import org.gradle.api.provider.Provider
-import org.gradle.api.provider.SetProperty
 import org.gradle.api.tasks.*
 import org.xml.sax.InputSource
+import org.xml.sax.XMLReader
 
+import javax.xml.transform.Source
 import javax.xml.transform.Transformer
+import javax.xml.transform.TransformerFactory
 import javax.xml.transform.sax.SAXSource
 import javax.xml.transform.stream.StreamResult
 import javax.xml.transform.stream.StreamSource
-
-import static org.gradle.api.file.DuplicatesStrategy.EXCLUDE
+import java.nio.file.Files
 
 // Parts derived from https://github.com/spring-projects/spring-build-gradle
 
 @CompileStatic
 class Docbook extends AbstractTransformationTask {
 
-    /**
-     * Directory containing the XSLT files
-     */
     @InputDirectory
-    final DirectoryProperty styleDir = project.objects.directoryProperty()
+    DirectoryProperty styleDir = project.objects.directoryProperty()
 
-    /**
-     * XSLT filename.
-     */
     @InputFile
     Provider<RegularFile> styleSheetFile = project.objects.fileProperty()
 
-    @InputFiles
-    final Provider<ConfigurableFileTree> imageSource = project.provider {
-        project.fileTree(docRoot.dir('images'))
-    }
-
-    @Input
-    final SetProperty<String> imageExcludes = project.objects.setProperty(String)
-
-    @Input
-    @Optional
-    final Property<FileCollection> extraFilesToOutput = project.objects.property(FileCollection)
-
     @OutputFile
-    final Provider<RegularFile> mainOutputFile = project.objects.fileProperty()
+    Provider<RegularFile> mainOutputFile = project.objects.fileProperty()
 
     @InputFile
     Provider<RegularFile> inputFile = project.objects.fileProperty()
@@ -80,9 +61,27 @@ class Docbook extends AbstractTransformationTask {
 
     @TaskAction
     final void transform() {
-        // the docbook tasks issue spurious content to the console. redirect to INFO level
-        // so it doesn't show up in the default log level of LIFECYCLE unless the user has
-        // run gradle with '-d' or '-i' switches -- in that case show them everything
+        configureLogging()
+
+        System.setProperty("javax.xml.transform.TransformerFactory", "org.apache.xalan.processor.TransformerFactoryImpl")
+        File outputFile = mainOutputFile.get().asFile
+        outputFile.parentFile.mkdirs()
+
+        InputSource inputSource = new InputSource(new InputStreamReader(Files.newInputStream(inputFile.get().asFile.toPath())))
+        StreamResult outputResult = new StreamResult(outputFile)
+
+        CatalogResolver resolver = new CatalogResolver(XsltHelper.createCatalogManager())
+        XMLReader xmlReader = initializeXmlReader(resolver)
+
+        Transformer transformer = initializeTransformer(resolver, styleSheetFile.get().asFile)
+
+        preTransform(transformer, inputFile.get().asFile, outputFile)
+        transformer.transform(new SAXSource(xmlReader, inputSource), outputResult)
+        postTransform(outputFile)
+    }
+
+    void configureLogging() {
+        // Redirect spurious DocBook task output to INFO unless explicitly configured for debug
         switch (project.gradle.startParameter.logLevel) {
             case LogLevel.DEBUG:
                 break
@@ -90,30 +89,23 @@ class Docbook extends AbstractTransformationTask {
                 logging.captureStandardOutput(LogLevel.INFO)
                 logging.captureStandardError(LogLevel.INFO)
         }
-        mainOutputFile.get().asFile.parentFile.mkdirs()
+    }
 
-        def inputSource = new InputSource(inputFile.get().asFile.getAbsolutePath())
-        def result = new StreamResult(mainOutputFile.get().asFile)
-
-        def resolver = new CatalogResolver(XsltHelper.createCatalogManager())
-
+    XMLReader initializeXmlReader(CatalogResolver resolver) {
         def factory = new SAXParserFactoryImpl()
         factory.setXIncludeAware(true)
+        def xmlReader = factory.newSAXParser().getXMLReader()
+        xmlReader.setEntityResolver(resolver)
+        return xmlReader
+    }
 
-        def reader = factory.newSAXParser().getXMLReader()
-        reader.setEntityResolver(resolver)
-
-        def transformerFactory = new TransformerFactoryImpl()
+    Transformer initializeTransformer(CatalogResolver resolver, File styleSheetFile) {
+        def transformerFactory = TransformerFactory.newInstance()
         transformerFactory.setURIResolver(resolver)
-        def url = styleSheetFile.get().asFile.toURI().toURL()
-        def source = new StreamSource(url.openStream(), url.toExternalForm())
-        def transformer = transformerFactory.newTransformer(source)
 
-        preTransform(transformer, inputFile.get().asFile, mainOutputFile.get().asFile)
-
-        transformer.transform(new SAXSource(reader, inputSource), result)
-
-        postTransform(mainOutputFile.get().asFile)
+        def styleSheetUrl = styleSheetFile.toURI().toURL()
+        def styleSource = new StreamSource(styleSheetUrl.openStream(), styleSheetUrl.toExternalForm())
+        return transformerFactory.newTransformer(styleSource)
     }
 
     protected void preTransform(Transformer transformer, File sourceFile, File outputFile) {

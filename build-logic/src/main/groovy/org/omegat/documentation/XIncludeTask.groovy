@@ -1,6 +1,5 @@
 package org.omegat.documentation
 
-import com.icl.saxon.TransformerFactoryImpl
 import org.apache.xerces.jaxp.SAXParserFactoryImpl
 import org.apache.xml.resolver.tools.CatalogResolver
 import org.gradle.api.DefaultTask
@@ -36,6 +35,7 @@ class XIncludeTask extends DefaultTask implements DocConfigurable {
 
     @TaskAction
     void transform() {
+        System.setProperty("javax.xml.transform.TransformerFactory", "org.apache.xalan.processor.TransformerFactoryImpl")
         File outputFile = outputs.getFiles().singleFile
 
         // Configure SAX Parser with XInclude support
@@ -52,7 +52,7 @@ class XIncludeTask extends DefaultTask implements DocConfigurable {
 
         XMLReader reader = factory.newSAXParser().getXMLReader()
         reader.setEntityResolver(resolver)
-        TransformerFactory transformerFactory = new TransformerFactoryImpl()
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
         transformerFactory.setURIResolver(resolver)
         URL url = styleSheetFile.get().asFile.toURI().toURL()
         Source source = new StreamSource(url.openStream(), url.toExternalForm())
