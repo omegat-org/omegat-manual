@@ -17,29 +17,9 @@ import javax.xml.transform.TransformerFactory
 import javax.xml.transform.stream.StreamSource
 
 @CompileStatic
-abstract class AbstractTransformationTask extends DefaultTask implements DocConfigurable {
-
-    @InputDirectory
-    final DirectoryProperty styleDir = project.objects.directoryProperty()
-
-    /**
-     * Sources root for the documentation
-     */
-    @Internal
-    final DirectoryProperty docRoot = project.objects.directoryProperty()
-
-    @Internal
-    final DirectoryProperty outputRoot = project.objects.directoryProperty()
-
+abstract class AbstractTransformationTask extends AbstractDocumentTask implements DocConfigurable {
 
     AbstractTransformationTask() {
-    }
-
-    @Override
-    void configureWith(DocConfigExtension extension) {
-        docRoot.convention(extension.docRoot)
-        styleDir.convention(extension.styleDir)
-        outputRoot.convention(extension.outputRoot)
     }
 
     @TaskAction
@@ -81,14 +61,4 @@ abstract class AbstractTransformationTask extends DefaultTask implements DocConf
         return transformerFactory.newTransformer(styleSource)
     }
 
-    protected void configureLogging() {
-        // Redirect spurious task output to INFO unless explicitly configured for debug
-        switch (project.gradle.startParameter.logLevel) {
-            case LogLevel.DEBUG:
-                break
-            default:
-                logging.captureStandardOutput(LogLevel.INFO)
-                logging.captureStandardError(LogLevel.INFO)
-        }
-    }
 }
