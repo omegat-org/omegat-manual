@@ -79,7 +79,7 @@ ext.makeDocumentationTasks = { lang ->
         dependsOn(docbookInclude, copyImages, copyCss)
     }
 
-    def whcToc = tasks.register("whcToc${lang.capitalize()}", StylesheetTask) {
+    def whcToc = tasks.register("whcToc${lang.capitalize()}", TransformationTask) {
         description 'Generate whc header and index'
         styleSheetFile.set(styleDir.file('whc-toc.xsl'))
         inputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/xhtml5/_index.html"))
@@ -87,7 +87,7 @@ ext.makeDocumentationTasks = { lang ->
         dependsOn(docbookHtml)
     }
 
-    def whcIndex = tasks.register("whcIndex${lang.capitalize()}", StylesheetTask) {
+    def whcIndex = tasks.register("whcIndex${lang.capitalize()}", TransformationTask) {
         description 'Generate whc header and index'
         styleSheetFile.set(styleDir.file('whc-index.xsl'))
         inputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/xhtml5/_index.html"))
@@ -95,7 +95,7 @@ ext.makeDocumentationTasks = { lang ->
         dependsOn(docbookHtml, whcToc)
     }
 
-    def whcHeader = tasks.register("whcHeader${lang.capitalize()}", StylesheetTask) {
+    def whcHeader = tasks.register("whcHeader${lang.capitalize()}", TransformationTask) {
         description 'Generate whc header and index'
         styleSheetFile.set(styleDir.file('whc-header.xsl'))
         inputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/xhtml5/_index.xml"))
