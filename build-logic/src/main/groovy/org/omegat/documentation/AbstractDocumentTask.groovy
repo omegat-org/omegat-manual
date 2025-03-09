@@ -1,11 +1,13 @@
 package org.omegat.documentation
 
+import groovy.transform.CompileStatic
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.logging.LogLevel
 import org.gradle.api.tasks.InputDirectory
 import org.gradle.api.tasks.Internal
 
+@CompileStatic
 abstract class AbstractDocumentTask  extends DefaultTask implements DocConfigurable {
 
     @InputDirectory
