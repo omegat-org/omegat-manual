@@ -16,20 +16,20 @@
 package org.omegat.documentation
 
 import groovy.transform.CompileStatic
+import org.gradle.api.provider.Property
+import org.gradle.api.tasks.Input
+import org.gradle.api.tasks.options.Option
 
 import javax.xml.transform.Transformer
 
 // Parts derived from https://github.com/spring-projects/spring-build-gradle
 
 @CompileStatic
-class DocbookHtml extends Docbook {
-
-    DocbookHtml() {
-    }
+class DocbookHtmlTask extends TransformationTask {
 
     @Override
-    protected void preTransform(Transformer transformer, File sourceFile, File outputFile) {
-        def rootName = mainOutputFile.map { file ->
+    protected void preTransform(Transformer transformer, File sourceFile, File output) {
+        def rootName = outputFile.map { file ->
             String filename = file.asFile.getName()
             int extensionIndex = filename.lastIndexOf('.')
             if (extensionIndex > 0) {
@@ -39,7 +39,7 @@ class DocbookHtml extends Docbook {
             }
         }.get()
         transformer.setParameter("root.filename", rootName)
-        transformer.setParameter("base.dir", mainOutputFile.get().asFile.parent + File.separator)
+        transformer.setParameter("base.dir", outputFile.get().asFile.parent + File.separator)
         transformer.setParameter("use.id.as.filename", 1)
         transformer.setParameter("html.ext", ".html")
         transformer.setParameter("chunk.section.depth", 0)
