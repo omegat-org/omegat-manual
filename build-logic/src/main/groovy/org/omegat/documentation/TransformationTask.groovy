@@ -36,7 +36,6 @@ class TransformationTask extends AbstractTransformationTask {
     @TaskAction
     final void transform() {
         configureLogging()
-        configureTransformerFactory()
 
         File outputFile = outputFile.get().asFile
 

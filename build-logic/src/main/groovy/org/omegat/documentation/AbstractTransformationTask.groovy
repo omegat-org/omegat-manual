@@ -21,14 +21,8 @@ abstract class AbstractTransformationTask extends AbstractDocumentTask implement
     abstract void transform()
 
 
-    static final String TRANSFORMER_FACTORY_PROPERTY = "javax.xml.transform.TransformerFactory"
-    static final String TRANSFORMER_FACTORY_IMPL = "org.apache.xalan.processor.TransformerFactoryImpl"
     static final String EXTERNAL_GENERAL_ENTITIES = "http://xml.org/sax/features/external-general-entities"
     static final String EXTERNAL_PARAMETER_ENTITIES = "http://xml.org/sax/features/external-parameter-entities"
-
-    protected static void configureTransformerFactory() {
-        System.setProperty(TRANSFORMER_FACTORY_PROPERTY, TRANSFORMER_FACTORY_IMPL)
-    }
 
     protected XMLReader initializeXmlReader(CatalogResolver resolver) {
         def factory = configureSAXParserFactory()
