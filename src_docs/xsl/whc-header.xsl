@@ -1,6 +1,5 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:htm="http://www.w3.org/1999/xhtml"
 		        version="1.0">
 
 
@@ -18,7 +17,7 @@
                     <a href="https://omegat.org/">
                         <img alt="OmegaT"
                              height="50" width="100"
-                             src="images/omegat.svg"
+                             src="images/OmegaT.svg"
                              style="border-style: none;"  />
                     </a>
                 </div>

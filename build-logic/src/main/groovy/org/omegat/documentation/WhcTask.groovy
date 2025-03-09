@@ -6,6 +6,7 @@ import org.gradle.api.file.Directory
 import org.gradle.api.file.FileTree
 import org.gradle.api.file.RegularFile
 import org.gradle.api.provider.ListProperty
+import org.gradle.api.provider.Property
 import org.gradle.api.provider.Provider
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputFile
@@ -27,12 +28,24 @@ class WhcTask extends AbstractDocumentTask {
     @InputFile
     final Provider<RegularFile> tocFile = project.objects.fileProperty()
 
+    @InputFile
+    final Provider<RegularFile> headerFile = project.objects.fileProperty()
+
     @OutputDirectory
     final Provider<Directory> outputDirectory = project.objects.directoryProperty()
 
-    @Option
     @Input
+    @Option
     ListProperty<String> parameterList = project.objects.listProperty(String)
+
+    @Input
+    @Option
+    Property<String> documentLayout = project.objects.property(String)
+
+    @Input
+    @Option
+    Property<Boolean> localJQuery = project.objects.property(Boolean)
+
 
     @TaskAction
     void transform() {
@@ -40,6 +53,13 @@ class WhcTask extends AbstractDocumentTask {
 
         Compiler compiler = new Compiler(null)
         compiler.setVerbose(true)
+        compiler.setUserHeader(headerFile.get().asFile.toPath().toUri().toURL())
+        if (documentLayout.present) {
+            compiler.setLayout(documentLayout.get())
+        }
+        if (localJQuery.present) {
+            compiler.setLocalJQuery(localJQuery.get())
+        }
         File[] contents = contentFiles.get().getFiles().toArray(new File[0])
         if (parameterList.get().size() > 1) {
             compiler.parseParameters((String[])parameterList.get().toArray(StringUtil.EMPTY_LIST))
