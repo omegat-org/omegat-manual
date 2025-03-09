@@ -1,9 +1,6 @@
 package org.omegat.documentation
 
 import groovy.transform.CompileStatic
-import org.gradle.api.provider.Property
-import org.gradle.api.tasks.Input
-import org.gradle.api.tasks.options.Option
 
 import javax.xml.transform.Transformer
 

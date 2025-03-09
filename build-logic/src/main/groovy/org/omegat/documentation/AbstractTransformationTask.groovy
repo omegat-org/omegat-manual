@@ -3,12 +3,7 @@ package org.omegat.documentation
 import groovy.transform.CompileStatic
 import org.apache.xerces.jaxp.SAXParserFactoryImpl
 import org.apache.xml.resolver.tools.CatalogResolver
-import org.gradle.api.DefaultTask
-import org.gradle.api.file.DirectoryProperty
-import org.gradle.api.logging.LogLevel
-import org.gradle.api.provider.Property
 import org.gradle.api.tasks.*
-import org.gradle.api.tasks.options.Option
 import org.xml.sax.XMLReader
 
 import javax.xml.parsers.SAXParserFactory
