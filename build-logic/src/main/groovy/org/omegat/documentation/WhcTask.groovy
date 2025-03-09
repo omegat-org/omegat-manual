@@ -36,35 +36,46 @@ class WhcTask extends AbstractDocumentTask {
 
     @Input
     @Option
-    ListProperty<String> parameterList = project.objects.listProperty(String)
+    final ListProperty<String> parameterList = project.objects.listProperty(String)
 
     @Input
     @Option
-    Property<String> documentLayout = project.objects.property(String)
+    final Property<String> documentLayout = project.objects.property(String)
 
     @Input
     @Option
-    Property<Boolean> localJQuery = project.objects.property(Boolean)
+    final Property<Boolean> localJQuery = project.objects.property(Boolean)
 
 
     @TaskAction
     void transform() {
         configureLogging()
 
+        // get task options
+        def hasParameter = parameterList.get().size() > 1
+        def toc = tocFile.get().asFile
+        def input = inputFile.get().asFile
+        def output = outputDirectory.get().asFile
+        File[] contents = contentFiles.get().getFiles().toArray(new File[0])
+
+        // configure WHC compiler
         Compiler compiler = new Compiler(null)
         compiler.setVerbose(true)
-        compiler.setUserHeader(headerFile.get().asFile.toPath().toUri().toURL())
+        if (headerFile.present) {
+            def headerFileUrl = headerFile.get().asFile.toPath().toUri().toURL()
+            compiler.setUserHeader(headerFileUrl)
+        }
         if (documentLayout.present) {
             compiler.setLayout(documentLayout.get())
         }
         if (localJQuery.present) {
             compiler.setLocalJQuery(localJQuery.get())
         }
-        File[] contents = contentFiles.get().getFiles().toArray(new File[0])
-        if (parameterList.get().size() > 1) {
+        if (hasParameter) {
             compiler.parseParameters((String[])parameterList.get().toArray(StringUtil.EMPTY_LIST))
         }
-        compiler.compile(contents, tocFile.get().asFile, inputFile.get().asFile, outputDirectory.get().asFile)
-    }
 
+        // do compile
+        compiler.compile(contents, toc, input, output)
+    }
 }
