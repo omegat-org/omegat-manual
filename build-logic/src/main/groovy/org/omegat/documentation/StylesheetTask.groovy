@@ -1,11 +1,5 @@
 package org.omegat.documentation
 
-import com.icl.saxon.ExtendedInputSource
-import com.icl.saxon.ParameterSet
-import com.icl.saxon.StyleSheet
-import com.icl.saxon.TransformerFactoryImpl
-import com.icl.saxon.expr.StringValue
-import com.icl.saxon.om.NamePool
 import groovy.transform.CompileStatic
 import org.gradle.api.file.RegularFile
 import org.gradle.api.provider.Provider
@@ -13,8 +7,13 @@ import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.OutputFile
 import org.gradle.api.tasks.TaskAction
 
+import javax.xml.transform.Result
+import javax.xml.transform.Source
 import javax.xml.transform.Templates
-import javax.xml.transform.sax.SAXSource
+import javax.xml.transform.Transformer
+import javax.xml.transform.TransformerFactory
+import javax.xml.transform.stream.StreamResult
+import javax.xml.transform.stream.StreamSource
 
 @CompileStatic
 class StylesheetTask extends AbstractStyleSheetTask {
@@ -33,29 +32,24 @@ class StylesheetTask extends AbstractStyleSheetTask {
 
     @TaskAction
     void transform() {
-        preTransform()
         outputFile.get().asFile.parentFile.mkdirs()
         execute(inputFile.get().asFile, styleSheetFile.get().asFile, outputFile.get().asFile)
     }
 
-    protected NamePool namePool = NamePool.getDefaultNamePool()
-    protected ParameterSet params = new ParameterSet()
-
     void execute(File sourceFile, File sheetFile, File output) {
-        def factory = new TransformerFactoryImpl()
+        def factory = TransformerFactory.newInstance()
+        def styleSource = new StreamSource(sheetFile)
+        Templates templates = factory.newTemplates(styleSource)
+        Transformer transformer = templates.newTransformer()
+        Source sourceInput = new StreamSource(sourceFile)
+        Result outputTarget = new StreamResult(output)
 
-        ExtendedInputSource eis = new ExtendedInputSource(sourceFile)
-        def sourceInput = new SAXSource(factory.getSourceParser(), eis)
-        eis.setEstimatedLength((int)sourceFile.length())
-
-        ExtendedInputSource eis2 = new ExtendedInputSource(sheetFile)
-        def styleSource = new SAXSource(factory.getStyleParser(), eis2)
-        Templates sheet = factory.newTemplates(styleSource)
-
-        StyleSheet styleSheet = new StyleSheet()
-        styleSheet.processFile(sourceInput, sheet, output, params)
+        preTransform(transformer)
+        transformer.transform(sourceInput, outputTarget)
     }
 
-    void preTransform() {}
+    void preTransform(Transformer transformer) {
+        transformer.setParameter("saxon.character.representation", "native;decimal")
+    }
 
 }
