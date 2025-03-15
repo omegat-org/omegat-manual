@@ -8,7 +8,7 @@ import javax.xml.transform.Transformer
 class DocbookHtmlTask extends TransformationTask {
 
     private static String extractRootName(File file) {
-        String fileName = file.getName()
+        def fileName = file.getName()
         int extensionIndex = fileName.lastIndexOf('.')
         if (extensionIndex <= 0) {
             return fileName

@@ -1,6 +1,7 @@
 package org.omegat.documentation
 
 import com.xmlmind.util.StringUtil
+import com.xmlmind.whc.Compiler
 import groovy.transform.CompileStatic
 import org.gradle.api.file.Directory
 import org.gradle.api.file.FileTree
@@ -8,19 +9,11 @@ import org.gradle.api.file.RegularFile
 import org.gradle.api.provider.ListProperty
 import org.gradle.api.provider.Property
 import org.gradle.api.provider.Provider
-import org.gradle.api.tasks.Input
-import org.gradle.api.tasks.InputFile
-import org.gradle.api.tasks.InputFiles
-import org.gradle.api.tasks.OutputDirectory
-import org.gradle.api.tasks.TaskAction
-import com.xmlmind.whc.Compiler
+import org.gradle.api.tasks.*
 import org.gradle.api.tasks.options.Option
 
 @CompileStatic
 class WhcTask extends AbstractDocumentTask {
-
-    @InputFile
-    final Provider<RegularFile> inputFile = project.objects.fileProperty()
 
     @InputFiles
     final Provider<FileTree> contentFiles = project.objects.property(FileTree)
