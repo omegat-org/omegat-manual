@@ -35,7 +35,7 @@ class XsltHelper {
         manager.setIgnoreMissingProperties(true)
         def classLoader = XsltHelper.class.getClassLoader()
         def builder = new StringBuilder()
-        def docbookCatalogName = "docbook/catalog.xml"
+        def docbookCatalogName = "org/docbook/xsltng/catalog.xml"
         def docbookCatalog = classLoader.getResource(docbookCatalogName)
 
         if (docbookCatalog == null) {
