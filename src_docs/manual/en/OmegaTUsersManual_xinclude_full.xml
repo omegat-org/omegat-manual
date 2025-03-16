@@ -2,9 +2,6 @@
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="en" xml:id="book.user.manual">
   <info>
     <title xml:id="book.user.manual.title">OmegaT 6.1.0 - User Manual</title>
-  	<!-- Copyright 2002-2025 -->
-	<author> <personname><firstname>Hiroshi</firstname><surname>Miura</surname></personname> </author>
-    <author> <personname> <firstname>Jean-Christophe</firstname> <surname>Helary</surname> </personname></author>
     <abstract>
       <para>This document is the official user manual to OmegaT, the free
       Computer-Assisted Translation tool.</para>
@@ -40,6 +37,10 @@
     </abstract>
   </info>
 
+	<!-- test with a very simple xml file -->
+	<xi:include href="sample.xml"/>
+
+<!-- these files are invalid as docbook 5.
   <xi:include href="Introduction.xml"/>
   <xi:include href="OmegaT_HowTo.xml"/>
   <xi:include href="OmegaT_EditorsPanes.xml"/>
@@ -48,5 +49,6 @@
   <xi:include href="OmegaT_Preferences.xml"/>
   <xi:include href="OmegaT_ProjectFolder.xml"/>
   <xi:include href="OmegaT_Appendices.xml"/>
+-->
 
 </book>
