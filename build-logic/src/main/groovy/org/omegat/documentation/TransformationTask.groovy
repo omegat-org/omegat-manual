@@ -7,12 +7,15 @@ import net.sf.saxon.s9api.Serializer
 import net.sf.saxon.s9api.XsltCompiler
 import net.sf.saxon.s9api.XsltExecutable
 import net.sf.saxon.s9api.XsltTransformer
+import org.apache.xerces.jaxp.SAXParserFactoryImpl
 import org.gradle.api.file.RegularFile
 import org.gradle.api.provider.Provider
 import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.OutputFile
 import org.gradle.api.tasks.TaskAction
 import org.xml.sax.InputSource
+import org.xml.sax.XMLReader
+import org.xmlresolver.CatalogResolver
 import org.xmlresolver.Resolver
 import org.xmlresolver.ResolverConfiguration
 import org.xmlresolver.ResolverFeature
@@ -28,7 +31,7 @@ class TransformationTask extends AbstractDocumentTask {
     static final String EXTERNAL_GENERAL_ENTITIES = "http://xml.org/sax/features/external-general-entities"
     static final String EXTERNAL_PARAMETER_ENTITIES = "http://xml.org/sax/features/external-parameter-entities"
 
-    static final String CATALOG = "classpath:/org/docbook/xsltng/catalog.xml"
+    static final String CATALOG = "classpath:/org/xmlresolver/catalog.xml"
 
     @InputFile
     Provider<RegularFile> styleSheetFile = project.objects.fileProperty()
@@ -47,25 +50,12 @@ class TransformationTask extends AbstractDocumentTask {
         File output = outputFile.get().asFile
         File xslFile = styleSheetFile.get().asFile
 
-        def factory = SAXParserFactory.newInstance()
-        factory.setFeature(EXTERNAL_GENERAL_ENTITIES, true)
-        factory.setFeature(EXTERNAL_PARAMETER_ENTITIES, true)
-        factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", false)  // Allow DOCTYPE
-
-        def saxParser = factory.newSAXParser()
-        def xmlReader = saxParser.getXMLReader()
+        def xmlReader = initializeXmlReader()
 
         // Set up Saxon Processor
         Processor processor = new Processor(false)
         XsltCompiler compiler = processor.newXsltCompiler()
-
-        // Use the Catalog Resolver for URI resolution
-        ResolverConfiguration resolverConfig = new XMLResolverConfiguration()
-        resolverConfig.addCatalog(CATALOG)
-        resolverConfig.setFeature(ResolverFeature.CLASSPATH_CATALOGS, true)
-        def resolver = new Resolver(resolverConfig)
-        def resourceResolver = new ResourceResolverWrappingURIResolver(resolver)
-        compiler.setResourceResolver(resourceResolver)
+        compiler.setResourceResolver(initializeResourceResolver())
 
         // Compile the XSLT stylesheet
         XsltExecutable executable = compiler.compile(new StreamSource(xslFile))
@@ -86,7 +76,9 @@ class TransformationTask extends AbstractDocumentTask {
         transformer.setDestination(serializer)
 
         preTransform(transformer, input, output)
+
         transformer.transform()
+
         postTransform(output)
     }
 
@@ -94,5 +86,25 @@ class TransformationTask extends AbstractDocumentTask {
     }
 
     protected void postTransform(File output) {
+    }
+
+    protected static XMLReader initializeXmlReader() {
+        SAXParserFactory factory = new SAXParserFactoryImpl()
+        factory.setValidating(false)
+        factory.setNamespaceAware(true)
+        factory.setXIncludeAware(true)
+        factory.setFeature(EXTERNAL_GENERAL_ENTITIES, true)
+        factory.setFeature(EXTERNAL_PARAMETER_ENTITIES, true)
+        factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", false)  // Allow DOCTYPE
+        return factory.newSAXParser().getXMLReader()
+    }
+
+    protected static ResourceResolverWrappingURIResolver initializeResourceResolver() {
+        // Use the Catalog Resolver for URI resolution
+        ResolverConfiguration resolverConfig = new XMLResolverConfiguration()
+        resolverConfig.addCatalog(CATALOG)
+        resolverConfig.setFeature(ResolverFeature.CLASSPATH_CATALOGS, true)
+        def resolver = new Resolver(resolverConfig)
+        return new ResourceResolverWrappingURIResolver(resolver)
     }
 }

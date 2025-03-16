@@ -41,8 +41,6 @@
   </info>
 
   <xi:include href="Introduction.xml"/>
-
-<!--
   <xi:include href="OmegaT_HowTo.xml"/>
   <xi:include href="OmegaT_EditorsPanes.xml"/>
   <xi:include href="OmegaT_Menus.xml"/>
@@ -50,6 +48,5 @@
   <xi:include href="OmegaT_Preferences.xml"/>
   <xi:include href="OmegaT_ProjectFolder.xml"/>
   <xi:include href="OmegaT_Appendices.xml"/>
--->
 
 </book>

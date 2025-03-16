@@ -27,9 +27,15 @@ class DocbookHtmlTask extends TransformationTask {
         transformer.setParameter(new QName("persistent-toc"), new XdmAtomicValue(true))
         transformer.setParameter(new QName("persistent-toc-search"), new XdmAtomicValue(true))
         transformer.setParameter(new QName("chunk-section-depth"), new XdmAtomicValue(0))
+        transformer.setParameter(new QName("html-extension"), new XdmAtomicValue(".html"))
+        transformer.setParameter(new QName("list-of-figures"), new XdmAtomicValue("true"))
+        transformer.setParameter(new QName("list-of-tables"), new XdmAtomicValue("true"))
+        transformer.setParameter(new QName("output-media"), new XdmAtomicValue("screen"))
+        transformer.setParameter(new QName("page-style"), new XdmAtomicValue("book"))
+        transformer.setParameter(new QName("pagetoc-dynamic"), new XdmAtomicValue("true"))
+        transformer.setParameter(new QName("persistent-toc"), new XdmAtomicValue("true"))
         /*
         transformer.setParameter(new QName("root.filename"), new XdmAtomicValue(extractRootName(target)))
-        transformer.setParameter(new QName("html.ext"), new XdmAtomicValue(".html"))
         transformer.setParameter(new QName("html.stylesheet"), new XdmAtomicValue("omegat.css"))
         */
     }
