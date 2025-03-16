@@ -51,5 +51,6 @@ dependencies {
 
     // dependencies not on Maven
     // https://docbook.org/xml/5.0.1/docbook-5.0.1.zip
+    implementation 'docbook:docbook-xml:4.5:resources@zip'
     implementation 'docbook:docbook:5.0.1:resources@zip'
 }
