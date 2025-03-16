@@ -2,8 +2,6 @@ package org.omegat.documentation
 
 import groovy.transform.CompileStatic
 
-import javax.xml.transform.Transformer
-
 @CompileStatic
 class DocbookHtmlTask extends TransformationTask {
 
@@ -15,9 +13,9 @@ class DocbookHtmlTask extends TransformationTask {
         }
         return fileName.substring(0, extensionIndex)
     }
-
+/*
     @Override
-    protected void preTransform(Transformer transformer, File source, File target) {
+    protected void preTransform(XsltTransformer transformer, File source, File target) {
         String baseDir = outputFile.get().asFile.parent + File.separator
         transformer.setParameter("root.filename", extractRootName(target))
         transformer.setParameter("base.dir", baseDir)
@@ -37,5 +35,5 @@ class DocbookHtmlTask extends TransformationTask {
         transformer.setParameter("html.stylesheet", "omegat.css")
         transformer.setParameter("docbook.css.link", 0)
         transformer.setParameter("saxon.character.representation", "native;decimal")
-    }
+    }*/
 }
