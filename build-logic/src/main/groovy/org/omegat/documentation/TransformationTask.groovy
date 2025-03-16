@@ -15,7 +15,6 @@ import org.gradle.api.tasks.OutputFile
 import org.gradle.api.tasks.TaskAction
 import org.xml.sax.InputSource
 import org.xml.sax.XMLReader
-import org.xmlresolver.CatalogResolver
 import org.xmlresolver.Resolver
 import org.xmlresolver.ResolverConfiguration
 import org.xmlresolver.ResolverFeature
