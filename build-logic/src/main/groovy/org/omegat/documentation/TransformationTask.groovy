@@ -9,6 +9,7 @@ import net.sf.saxon.s9api.XsltExecutable
 import net.sf.saxon.s9api.XsltTransformer
 import org.gradle.api.file.RegularFile
 import org.gradle.api.provider.Provider
+import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.OutputFile
 import org.gradle.api.tasks.TaskAction
@@ -19,7 +20,6 @@ import org.xmlresolver.ResolverFeature
 import org.xmlresolver.XMLResolverConfiguration
 
 import javax.xml.parsers.SAXParserFactory
-import javax.xml.transform.URIResolver
 import javax.xml.transform.sax.SAXSource
 import javax.xml.transform.stream.StreamSource
 
@@ -28,6 +28,9 @@ class TransformationTask extends AbstractDocumentTask {
 
     static final String EXTERNAL_GENERAL_ENTITIES = "http://xml.org/sax/features/external-general-entities"
     static final String EXTERNAL_PARAMETER_ENTITIES = "http://xml.org/sax/features/external-parameter-entities"
+
+    @Input
+    Provider<String> catalogURI = project.objects.property(String)
 
     @InputFile
     Provider<RegularFile> styleSheetFile = project.objects.fileProperty()
@@ -45,6 +48,7 @@ class TransformationTask extends AbstractDocumentTask {
         File input = inputFile.get().asFile
         File output = outputFile.get().asFile
         File xslFile = styleSheetFile.get().asFile
+        String catalog = catalogURI.get().toString()
 
         def factory = SAXParserFactory.newInstance()
         factory.setFeature(EXTERNAL_GENERAL_ENTITIES, true)
@@ -60,7 +64,7 @@ class TransformationTask extends AbstractDocumentTask {
 
         // Use the Catalog Resolver for URI resolution
         ResolverConfiguration resolverConfig = new XMLResolverConfiguration()
-        resolverConfig.addCatalog("classpath:/org/docbook/xsltng/catalog.xml") // Path to the catalog file
+        resolverConfig.addCatalog(catalog)
         resolverConfig.setFeature(ResolverFeature.CLASSPATH_CATALOGS, true)
         def resolver = new Resolver(resolverConfig)
         def resourceResolver = new ResourceResolverWrappingURIResolver(resolver)

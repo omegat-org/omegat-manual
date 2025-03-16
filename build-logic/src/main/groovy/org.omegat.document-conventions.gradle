@@ -47,6 +47,7 @@ ext.makeDocumentationTasks = { lang ->
         styleSheetFile.set(layout.projectDirectory.file("${documentRootDir}/xsl/passthrough.xsl"))
         outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/xhtml5/_index.xml"))
         inputFile.set(layout.projectDirectory.file("src_docs/manual/${lang}/OmegaTUsersManual_xinclude_full.xml"))
+        catalogURI.set("classpath:catalog.xml")
     }
 
     def copyCss = tasks.register("copyCss${lang.capitalize()}", Copy) {
@@ -67,6 +68,7 @@ ext.makeDocumentationTasks = { lang ->
         styleSheetFile.set(layout.projectDirectory.file("${documentRootDir}/xsl/xhtml.xsl"))
         inputFile.set(layout.projectDirectory.file("src_docs/manual/${lang}/OmegaTUsersManual_xinclude_full.xml"))
         outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/xhtml5/_index.html"))
+        catalogURI.set("classpath:catalog.xml")
         dependsOn(docbookInclude, copyImages, copyCss)
     }
 
@@ -75,6 +77,7 @@ ext.makeDocumentationTasks = { lang ->
         styleSheetFile.set(layout.projectDirectory.file("${documentRootDir}/xsl/whc-toc.xsl"))
         inputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/xhtml5/_index.html"))
         outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/xhtml5/toc.xml"))
+        catalogURI.set("classpath:docbook-5.0.1/catalog.xml")
         dependsOn(docbookHtml)
     }
 
@@ -83,6 +86,7 @@ ext.makeDocumentationTasks = { lang ->
         styleSheetFile.set(layout.projectDirectory.file("${documentRootDir}/xsl/whc-index.xsl"))
         inputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/xhtml5/_index.html"))
         outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/xhtml5/index.html"))
+        catalogURI.set("classpath:docbook-5.0.1/catalog.xml")
         dependsOn(docbookHtml, whcToc)
     }
 
@@ -91,6 +95,7 @@ ext.makeDocumentationTasks = { lang ->
         styleSheetFile.set(layout.projectDirectory.file("${documentRootDir}/xsl/whc-header.xsl"))
         inputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/xhtml5/_index.xml"))
         outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/xhtml5/_header.xhtml"))
+        catalogURI.set("classpath:docbook-5.0.1/catalog.xml")
         dependsOn(copyCss, docbookInclude)
     }
     def buildDocumentTask = tasks.register("manual${lang.capitalize()}", WhcTask) {
@@ -183,6 +188,7 @@ ext.makeFirstStepTask = { lang ->
         inputFile.set(file("${documentRootDir}/greeting/${lang}/First_Steps.xml"))
         outputFile.set(layout.buildDirectory.file("docs/greetings/${lang}/first_steps.html"))
         styleSheetFile.set(layout.projectDirectory.file("${documentRootDir}/xsl/html.xsl"))
+        catalogURI.set("classpath:/docbook-5.0.1/catalog.xml")
         finalizedBy firstStepsHtmlFinally
     }
     firstSteps.dependsOn firstStepsHtml
