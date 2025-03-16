@@ -46,7 +46,7 @@ ext.makeDocumentationTasks = { lang ->
 
     def copyCss = tasks.register("copyCss${lang.capitalize()}", Copy) {
         description 'Copy Images and CSS file to target'
-        into layout.buildDirectory.dir("docs/manual/${lang}/")
+        into(layout.buildDirectory.dir("docs/manual/${lang}/"))
         from fileTree(dir: "${documentRootDir}/docbook", includes: ['css/*', 'js/*'])
     }
 
@@ -72,7 +72,6 @@ ext.makeDocumentationTasks = { lang ->
         from fileTree(dir: "${documentRootDir}/manual/${lang}", include: '**/version*.properties')
         archiveFileName = "${lang}.zip"
         destinationDirectory = file(layout.buildDirectory.dir("docs/manuals/"))
-        // dependsOn buildDocumentTask
         dependsOn docbookHtml
     }
     assemble.dependsOn zipTask
