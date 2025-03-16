@@ -40,9 +40,9 @@
     </abstract>
   </info>
 
+  <xi:include href="Introduction.xml"/>
 
 <!--
-  <xi:include href="Introduction.xml"/>
   <xi:include href="OmegaT_HowTo.xml"/>
   <xi:include href="OmegaT_EditorsPanes.xml"/>
   <xi:include href="OmegaT_Menus.xml"/>
