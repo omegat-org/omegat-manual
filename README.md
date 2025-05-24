@@ -27,6 +27,20 @@ Currently, only **two manual source files** have been migrated to DocBook 5:
 
 The `sample.xml` is a file to test the build logic.
 
+## Directory hierarchy
+
+- `.github`: CI/CD configuration to automate build test
+- `build-logic`: Gradle build logic to build HTML contents from source files in DocBook 5 format.
+- `gradle`: System folder which used by Gradle build system
+- `images`: OmegaT resources of the images, that is as same as OmegaT project repository
+- `release`: OmegaT release resource `doc-license.txt` which is used by build configuration
+- `src_docs/developer`: developer manual of the DocBook 5 transformation
+- `src_docs/docbook`: CSS and Javascript resources used by XSLTNG DocBook5 XSLT tookkit.
+- `src_docs/greeting`: OmegaT greeting pages for each langauges in DocBook 5 format
+- `src_docs/manual/en`: working directory to migrate manual into DocBook 5 compliant format.
+- `src_docs/template`: OmegaT manual Web Site index page template as same as the OmegaT project repository.
+- `src_docs/xsl`: small glue stylesheet to import XLSTNG stylesheet from internet and configure output.
+
 
 ## Build Logic
 
