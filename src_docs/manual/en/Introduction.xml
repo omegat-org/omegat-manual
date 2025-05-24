@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<chapter xmlns="http://docbook.org/ns/docbook" version="5.0" id="chapter.instant.start.guide">
-  <title id="chapter.instant.start.guide.title">Introduction to OmegaT</title>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="chapter.instant.start.guide">
+  <title xml:id="chapter.instant.start.guide.title">Introduction to OmegaT</title>
   
-  <section id="introduction.omegat.principles">
-	<title id="introduction.omegat.principles.title">Principles</title>
+  <section xml:id="introduction.omegat.principles">
+	<title xml:id="introduction.omegat.principles.title">Principles</title>
 
     <para>Welcome to OmegaT, a computer-assisted translation (CAT) tool that
     offers great flexibility, performance and robustness, as well as features
     beyond those of commercial offerings, even for beginning translators.</para>
 
-	<section id="introduction.omegat.principles.translation.project">
+	<section xml:id="introduction.omegat.principles.translation.project">
       <title
-      id="introduction.omegat.principles.translation.project.title">Translation
+      xml:id="introduction.omegat.principles.translation.project.title">Translation
       project</title>
 
       <para>An OmegaT translation project consists of a number of resources
-      stored in separate folders, of an <link
-      linkend="project.folder.omegat.project.file"><filename>omegat.project</filename></link>
-      file that stores the location of all the resources and of a <link
-      linkend="project.folder.project.save.tmx"><filename>project_save.tmx</filename></link>
+      stored in separate folders, of an <olink targetdoc="OmegaT_ProjectFolder"
+      linkend="project.folder.omegat.project.file"><filename>omegat.project</filename></olink>
+      file that stores the location of all the resources and of a <olink targetdoc="OmegaT_ProjectFolder"
+      linkend="project.folder.project.save.tmx"><filename>project_save.tmx</filename></olink>
       translation memory file that stores all the translations made while
       working on that project.</para>
 
@@ -30,13 +30,13 @@
       translate. They can also include reference translation memories,
       glossaries, and other reference files.</para>
 
-      <para>See the <link linkend="chapter.project.folder"
+      <para>See the <olink linkend="chapter.project.folder" targetdoc="OmegaT_ProjectFolder"
       endterm="chapter.project.folder.title"/> chapter for details.</para>
     </section>
 
-	<section id="introduction.omegat.principles.translation.memories">
+	<section xml:id="introduction.omegat.principles.translation.memories">
       <title
-      id="introduction.omegat.principles.translation.memories.title">Translation
+      xml:id="introduction.omegat.principles.translation.memories.title">Translation
       memories</title>
 
       <para>Translators do not have to <emphasis>create</emphasis> a translation
@@ -52,13 +52,13 @@
       to assign different levels of priority to these additional
       memories.</para>
 
-      <para>See the <link linkend="how.to.use.tm"
+      <para>See the <olink linkend="how.to.use.tm"
       endterm="how.to.use.tm.title"/> how-to for details.</para>
 	</section>
 
-	<section id="introduction.omegat.principles.collaboration">
+	<section xml:id="introduction.omegat.principles.collaboration">
       <title
-      id="introduction.omegat.principles.collaboration.title">Collaboration</title>
+      xml:id="introduction.omegat.principles.collaboration.title">Collaboration</title>
 
       <para>Simple settings enable translators to easily share resources and
       work together on a project.</para>
@@ -68,13 +68,13 @@
       allowing easy resolution of conflicts between different
       translations.</para>
 
-      <para>See the <link linkend="how.to.tm.share.translation.memories"
+      <para>See the <olink linkend="how.to.tm.share.translation.memories"
       endterm="how.to.tm.share.translation.memories.title"/> how-to for
       details.</para>
 	</section>
 
-	<section id="introduction.omegat.principles.made.for.translators">
-      <title id="introduction.omegat.principles.made.for.translators.title">Made
+	<section xml:id="introduction.omegat.principles.made.for.translators">
+      <title xml:id="introduction.omegat.principles.made.for.translators.title">Made
       for translators</title>
 
 	  <para>OmegaT is designed not only to facilitate the translation process,
@@ -96,7 +96,7 @@
 		few minutes of work.</para>
 
 		<para>Even if things look very broken, do not panic. Just follow the
-		simple steps described in the <link linkend="how.to.restore.your.data"
+		simple steps described in the <olink linkend="how.to.restore.your.data"
 		endterm="how.to.restore.your.data.title"/> how-to.</para>
 	  </note>
 
@@ -105,14 +105,14 @@
 	  better translator.</para>
 
 	  <para>If you need assistance with any aspect of OmegaT, feel free to join
-	  the <ulink url="https://omegat.org/support">OmegaT user
-	  groups.</ulink></para>
+	  the <!--<link xlink:xref="https://omegat.org/support">OmegaT user
+	  groups.</link> --></para>
 
 	</section>
   </section>
 
-  <section id="introduction.how.to.use.the.manual">
-	<title id="introduction.how.to.use.the.manual.title">Conventions used in
+  <section xml:id="introduction.how.to.use.the.manual">
+	<title xml:id="introduction.how.to.use.the.manual.title">Conventions used in
 	this manual</title>
 	<para>This section presents the conventions used to distinguish the elements
 	of the OmegaT user interface in this manual. They are displayed in a way
@@ -128,8 +128,8 @@
 	  <varlistentry>
 		<term>Menu items with a default shortcut</term>
 		<listitem>
-		  <para>Use <link linkend="menus.project"
-		  endterm="menus.project.title"/><link linkend="menus.project.new"
+		  <para>Use <olink linkend="menus.project"
+		  endterm="menus.project.title"/><olink linkend="menus.project.new"
 		  endterm="menus.project.new.title"/>.</para>
 		</listitem>
 	  </varlistentry>
@@ -137,8 +137,8 @@
 	  <varlistentry>
 		<term>Menu items with no default shortcut</term>
 		<listitem>
-		  <para>Use <link linkend="menus.project"
-		  endterm="menus.project.title"/><link linkend="menus.project.copy.files.to.source.folder"
+		  <para>Use <olink linkend="menus.project"
+		  endterm="menus.project.title"/><olink linkend="menus.project.copy.files.to.source.folder"
 		  endterm="menus.project.copy.files.to.source.folder.title"/>.</para>
 		</listitem>
 	  </varlistentry>
@@ -146,7 +146,7 @@
 	  <varlistentry>
 		<term>Buttons</term>
 		<listitem>
-		  <para>Click on <link linkend="windows.source.files.list.copy.files"
+		  <para>Click on <olink linkend="windows.source.files.list.copy.files"
 		  endterm="windows.source.files.list.copy.files.title"/>.</para>
 		</listitem>
 	  </varlistentry>
@@ -154,7 +154,7 @@
 	  <varlistentry>
 		<term>Panes, windows, dialogs</term>
 		<listitem>
-		  <para>The <link linkend="panes.editor" endterm="panes.editor.title"/>
+		  <para>The <olink linkend="panes.editor" endterm="panes.editor.title"/>
 		  pane.</para>
 		</listitem>
 	  </varlistentry>
@@ -162,15 +162,15 @@
 	  <varlistentry>
 		<term>Files and folders</term>
 		<listitem>
-		  <para>The <link linkend="project.folder.omegat.project.file">
-		  <filename>omegat.project</filename> </link> file.</para>
+		  <para>The <olink linkend="project.folder.omegat.project.file" targetdoc="OmegaT_ProjectFolder">
+		  <filename>omegat.project</filename> </olink> file.</para>
 		</listitem>
 	  </varlistentry>
 
 	  <varlistentry>
 		<term>Preference settings and project properties</term>
 		<listitem>
-		  <para>The <link endterm="dialogs.preferences.fonts.title"
+		  <para>The <olink endterm="dialogs.preferences.fonts.title"
 		  linkend="dialogs.preferences.fonts"/> preference.</para>
 		</listitem>
 	  </varlistentry>
@@ -178,7 +178,7 @@
 	  <varlistentry>
 		<term>Chapters, how-to and appendices</term>
 		<listitem>
-		  <para>The <link linkend="chapter.project.folder"
+		  <para>The <olink linkend="chapter.project.folder" targetdoc="OmegaT_ProjectFolder"
 		  endterm="chapter.project.folder.title"/> chapter.</para>
 		</listitem>
 	  </varlistentry>
@@ -186,8 +186,8 @@
 	  <varlistentry>
 		<term>Links to external resources</term>
 		<listitem>
-		  <para>The <ulink url="&javaregex;">Java Regex
-		  documentation</ulink>.</para>
+		  <para>The <!--<link xlink:xref="&javaregex;">Java Regex
+		  documentation</link>. --> </para>
 		</listitem>
 	  </varlistentry>
 
@@ -195,12 +195,12 @@
 		<term>Shortcuts</term>
 		<listitem>
 		  <para>To avoid duplicating shortcut descriptions, we use single
-		  letters as a common identifier for modifiers. See the <link
+		  letters as a common identifier for modifiers. See the <olink
 		  linkend="chapter.menus" endterm="chapter.menus.title"/> chapter for
 		  details.</para>
 
-		  <example id="example.introduction.note.on.shortcuts">
-			<title id="example.introduction.note.on.shortcuts.title">Key
+		  <example xml:id="example.introduction.note.on.shortcuts">
+			<title xml:id="example.introduction.note.on.shortcuts.title">Key
 			modifiers are identified by a single letter.</title>
 
 			<para>On Windows and Linux:
@@ -217,16 +217,16 @@
 	</variablelist>
   </section>
 
-  <section id="introduction.create.and.open.new.project">
-    <title id="introduction.create.and.open.new.project.title">Create a new
+  <section xml:id="introduction.create.and.open.new.project">
+    <title xml:id="introduction.create.and.open.new.project.title">Create a new
     project</title>
 
 	<warning>
-	  <para>If you have not yet installed OmegaT, see the <link
+	  <para>If you have not yet installed OmegaT, see the <olink
 	  linkend="how.to.installing.omegat"
 	  endterm="how.to.installing.omegat.title"/> how-to.</para>
 
-	  <para>To learn how to launch OmegaT, see the <link
+	  <para>To learn how to launch OmegaT, see the <olink
 	  linkend="how.to.running.omegat" endterm="how.to.running.omegat.title"/>
 	  how-to.</para>
 	</warning>
@@ -235,14 +235,14 @@
 	<para>To start using OmegaT, you first have to create a project to hold all
 	your files.</para>
 
-	<para>Use <link linkend="menus.project" endterm="menus.project.title"/><link
+	<para>Use <olink linkend="menus.project" endterm="menus.project.title"/><olink
 	linkend="menus.project.new" endterm="menus.project.new.title"/>, and select
 	an empty folder or create a new one with the name of your project.</para>
 
     <para>An OmegaT project is simply a set of folders that holds
     all your default resources.</para>
 
-    <para>The <link linkend="dialogs.project.properties"
+    <para>The <olink linkend="dialogs.project.properties"
     endterm="dialogs.project.properties.title"/> dialog opens after you have
     named your project.</para>
 
@@ -251,20 +251,20 @@
 	to continue.</para>
 
 	<para>OmegaT provides a convenient short list of two-letter language
-	codes, but you can type any code that conforms to <ulink
-	url="https://www.rfc-editor.org/rfc/bcp/bcp47.txt">BCP-47</ulink>
+	codes, but you can type any code that conforms to <link
+	xlink:xref="https://www.rfc-editor.org/rfc/bcp/bcp47.txt">BCP-47</link>
 	(including the three-letter language codes) into the appropriate
 	field.</para>
 
 	<warning>
 	  <para>Make sure that you enter the correct languages and that all other
 	  locations requiring a language code match the code you assign here. See
-	  the <link linkend="dialogs.project.properties.languages"
+	  the <olink linkend="dialogs.project.properties.languages"
 	  endterm="dialogs.project.properties.languages.title"/> section for
 	  details.</para>
 	</warning>
 	
-    <para>Use <link linkend="menus.project" endterm="menus.project.title"/><link
+    <para>Use <olink linkend="menus.project" endterm="menus.project.title"/><olink
     linkend="menus.project.properties"
     endterm="menus.project.properties.title"/> to come back to this dialog after
     you have created the project,.</para>
@@ -276,49 +276,49 @@
 	  using the new locations.</para>
 	</note>
 	
-    <para>The <link linkend="windows.source.files.list"
+    <para>The <olink linkend="windows.source.files.list"
     endterm="windows.source.files.list.title"/> dialog opens next.</para>
 
-	<para>Click on <link linkend="windows.source.files.list.copy.files"
-	endterm="windows.source.files.list.copy.files.title"/> or <link
+	<para>Click on <olink linkend="windows.source.files.list.copy.files"
+	endterm="windows.source.files.list.copy.files.title"/> or <olink
 	linkend="windows.source.files.list.download.page"
 	endterm="windows.source.files.list.download.page.title"/> and add source
 	files.</para>
 
-	<para>Use <link linkend="menus.project" endterm="menus.project.title"/><link
+	<para>Use <olink linkend="menus.project" endterm="menus.project.title"/><olink
 	linkend="menus.project.access.project.contents"
 	endterm="menus.project.access.project.contents.title"/> if you don’t
 	remember where your project is.</para>
 
-	<para>If you do not see the contents of a file in the <link
+	<para>If you do not see the contents of a file in the <olink
 	linkend="panes.editor" endterm="panes.editor.title"/> pane, that file might
-	be empty, or in a format that is not supported by OmegaT.  Use <link
-	linkend="menus.options" endterm="menus.options.title"/><link
+	be empty, or in a format that is not supported by OmegaT.  Use <olink
+	linkend="menus.options" endterm="menus.options.title"/><olink
 	linkend="menus.options.file.filters"
 	endterm="menus.options.file.filters.title"/> to open the list of supported
 	file formats. If the format of your file is not listed, use third-party
-	plugins or convert the file to a format that is supported. See the <link
+	plugins or convert the file to a format that is supported. See the <olink
 	linkend="how.to.translate.other.files"
 	endterm="how.to.translate.other.files.title"/> how-to for details.</para>
   </section>
 
-  <section id="introduction.install.spellchecker.dictionary">
-	<title id="introduction.install.spellchecker.dictionary.title">Spellchecking
+  <section xml:id="introduction.install.spellchecker.dictionary">
+	<title xml:id="introduction.install.spellchecker.dictionary.title">Spellchecking
 	dictionaries</title>
 
 	<para>Omegat provides a spellchecking system, but does not come with the
 	dictionaries required to actually spellcheck your translations.
 	You need to install the dictionaries you need yourself.</para>
 
-	<para>Use the <link linkend="dialog.preferences.spellchecker"
+	<para>Use the <olink linkend="dialog.preferences.spellchecker"
 	endterm="dialog.preferences.spellchecker.title"/> section in the general
-	<link linkend="chapter.dialogs.preferences"
+	<olink linkend="chapter.dialogs.preferences"
 	endterm="chapter.dialogs.preferences.title"/> dialog to access the
 	spellchecking preferences.</para>
 
 	<orderedlist>
 	  <listitem>
-		<para>Click on the <link
+		<para>Click on the <olink
 		linkend="dialog.preferences.spellchecker.install.new"
 		endterm="dialog.preferences.spellchecker.install.new.title"/> button to
 		display a list of dictionaries available at the URL in the <guilabel>URL of
@@ -330,7 +330,7 @@
 		<guibutton>Install</guibutton> button. OmegaT will download them
 		and copy them to the spellchecking dictionaries location specified
 		at the top of the dialog (the
-		<link linkend="configuration.folder">configuration</link>
+		<olink linkend="configuration.folder">configuration</olink>
 		folder by default). This operation may take some time.</para>
 	  </listitem>
 	  <listitem>
@@ -353,18 +353,18 @@
 
 		<itemizedlist>
 		  <listitem>
-			<para>use <link linkend="menus.project"
-			endterm="menus.project.title"/><link
+			<para>use <olink linkend="menus.project"
+			endterm="menus.project.title"/><olink
 			linkend="menus.project.properties"
 			endterm="menus.project.properties.title"/> to change the project
 			target language to <emphasis role="bold">fr-fr</emphasis>, or</para>
 		  </listitem>
 		  <listitem>
-			<para>use <link linkend="menus.options"
-			endterm="menus.options.title"/><link
+			<para>use <olink linkend="menus.options"
+			endterm="menus.options.title"/><olink
 			linkend="menus.options.access.configuration.folder"
 			endterm="menus.options.access.configuration.folder.title"/> to access
-			the <link linkend="configuration.folder">configuration</link> folder
+			the <olink linkend="configuration.folder">configuration</olink> folder
 			and change the dictionary file names to <emphasis
 			role="bold">fr</emphasis>.</para>
 		  </listitem>
@@ -373,20 +373,20 @@
 	</warning>
   </section>
 
-  <section id="introduction.manage.your.segments">
-    <title id="introduction.manage.your.segments.title">Manage your
+  <section xml:id="introduction.manage.your.segments">
+    <title xml:id="introduction.manage.your.segments.title">Manage your
     segments</title>
 
 	<para>The default setting for a translation project is to create
 	<emphasis>sentences</emphasis> by splitting the <emphasis>paragraph
-	blocks</emphasis> found in the document. See the <link
+	blocks</emphasis> found in the document. See the <olink
 	linkend="dialogs.project.properties.options.segmentation"
 	endterm="dialogs.project.properties.options.segmentation.title"/> project
 	property for details.</para>
 	
 	<para>Segments within a paragraph can be further segmented, or "unsegmented"
 	(merged). Add a segmentation rule to further segment them, or an exception
-	rule to merge them with the part they were split from. See the <link
+	rule to merge them with the part they were split from. See the <olink
 	linkend="app.segmentation" endterm="app.segmentation.title"/> appendix for
 	details.</para>
 
@@ -397,8 +397,8 @@
 	  
 	  <orderedlist>
 		<listitem>
-		  <para>Go to the source file with <link linkend="menus.project"
-		  endterm="menus.project.title"/><link
+		  <para>Go to the source file with <olink linkend="menus.project"
+		  endterm="menus.project.title"/><olink
 		  linkend="menus.project.access.project.contents"
 		  endterm="menus.project.access.project.contents.title"/>.</para>
 		</listitem>
@@ -416,8 +416,8 @@
 		</listitem>
 
 		<listitem>
-		  <para>Go back to OmegaT and use <link linkend="menus.project"
-		  endterm="menus.project.title"/><link linkend="menus.project.reload"
+		  <para>Go back to OmegaT and use <olink linkend="menus.project"
+		  endterm="menus.project.title"/><olink linkend="menus.project.reload"
 		  endterm="menus.project.reload.title"/> to have OmegaT recognize the
 		  change.</para>
 		</listitem>
@@ -425,13 +425,13 @@
 	</note>
   </section>
 
-  <section id="introduction.make.it.look.good">
-	<title id="introduction.make.it.look.good.title">Make it look good!</title>
+  <section xml:id="introduction.make.it.look.good">
+	<title xml:id="introduction.make.it.look.good.title">Make it look good!</title>
 	<para>Once all that is done, the source files appear in OmegaT in a layout
 	that looks like this:</para>
 
-	<figure id="default.omegat.layout">
-      <title id="default.omegat.layout.title">Default OmegaT layout on
+	<figure xml:id="default.omegat.layout">
+      <title xml:id="default.omegat.layout.title">Default OmegaT layout on
       macOS</title>
       <mediaobject>
         <imageobject role="html">
@@ -445,78 +445,78 @@
 
 	<orderedlist>
 	  <listitem>
-		<para>The <link linkend="panes.editor" endterm="panes.editor.title"/>
+		<para>The <olink linkend="panes.editor" endterm="panes.editor.title"/>
 		pane </para>
 	  </listitem>
 	  <listitem>
-		<para>The <link linkend="panes.notes" endterm="panes.notes.title"/>
+		<para>The <olink linkend="panes.notes" endterm="panes.notes.title"/>
 		pane</para>
 	  </listitem>
 	  <listitem>
-		<para>The <link linkend="panes.fuzzy.matches"
+		<para>The <olink linkend="panes.fuzzy.matches"
 		endterm="panes.fuzzy.matches.title"/> pane</para>
 	  </listitem>
 	  <listitem>
-		<para>The <link linkend="panes.glossary"
+		<para>The <olink linkend="panes.glossary"
 		endterm="panes.glossary.title"/> pane</para>
 	  </listitem>
 	  <listitem>
-		<para>The <link linkend="panes.segment.properties"
+		<para>The <olink linkend="panes.segment.properties"
 		endterm="panes.segment.properties.title"/> pane</para>
 	  </listitem>
 	  <listitem>
-		<para>The <link linkend="panes.comments"
+		<para>The <olink linkend="panes.comments"
 		endterm="panes.comments.title"/> pane</para>
 	  </listitem>
 	  <listitem>
-		<para>The <link linkend="panes.multipletranslations"
+		<para>The <olink linkend="panes.multipletranslations"
 		endterm="panes.multipletranslations.title"/> pane</para>
 	  </listitem>
 	  <listitem>
-		<para> The <link linkend="panes.dictionary"
-		endterm="panes.dictionary.title"/> and <link
+		<para> The <olink linkend="panes.dictionary"
+		endterm="panes.dictionary.title"/> and <olink
 		linkend="panes.machinetranslation"
 		endterm="panes.machinetranslation.title"/> panes are docked</para>
 	  </listitem>
 	  <listitem>
-		<para>The <link linkend="panes.statusbar"
+		<para>The <olink linkend="panes.statusbar"
 		endterm="panes.statusbar.title"/> (on the right), which contains
 		project information</para>
 	  </listitem>
 	</orderedlist>
 	
-	<para>Use the various options in the <link linkend="menus.view"
-	endterm="menus.view.title"/> menu and move the various <link
-	linkend="chapter.panes">panes</link> around to obtain the layout that fits
+	<para>Use the various options in the <olink linkend="menus.view"
+	endterm="menus.view.title"/> menu and move the various <olink
+	linkend="chapter.panes">panes</olink> around to obtain the layout that fits
 	your workflow best.</para>
 	
   </section>
 
-  <section id="introduction.translate.the.segments.one.by.one">
-    <title id="introduction.translate.the.segments.one.by.one.title">Translate
+  <section xml:id="introduction.translate.the.segments.one.by.one">
+    <title xml:id="introduction.translate.the.segments.one.by.one.title">Translate
     your files</title>
 
-    <para>The <link linkend="panes.editor" endterm="panes.editor.title"/> pane
+    <para>The <olink linkend="panes.editor" endterm="panes.editor.title"/> pane
     is where you type your translation.</para>
 
 	<note>
-	  <para>To see how efficient you can be with shortcuts, see the <link
+	  <para>To see how efficient you can be with shortcuts, see the <olink
 	  linkend="app.shortcuts.streamline.workflow"
 	  endterm="app.shortcuts.streamline.workflow.title"/> section.</para>
 	</note>
 	
-	<para>After you have typed the translation of a segment, use <link
-	linkend="menus.goto" endterm="menus.goto.title"/><link
+	<para>After you have typed the translation of a segment, use <olink
+	linkend="menus.goto" endterm="menus.goto.title"/><olink
 	linkend="menus.goto.next.untranslated.segment"
 	endterm="menus.goto.next.untranslated.segment.title"/> to move to the next
 	untranslated segment.</para>
 
 	<para>When you leave the segment, its translation is automatically stored
-	into the <link linkend="project.folder.project.save.tmx"
+	into the <olink linkend="project.folder.project.save.tmx" targetdoc="OmegaT_ProjectFolder"
 	endterm="project.folder.project.save.tmx.title"/> file and will be used as
 	reference for the rest of your translation.</para>
 
-	<para>See the <link linkend="menus.goto" endterm="menus.goto.title"/> menu
+	<para>See the <olink linkend="menus.goto" endterm="menus.goto.title"/> menu
 	for more navigation options.</para>
 
 	<note>
@@ -527,22 +527,22 @@
 
 	  <itemizedlist>
 		<listitem>
-		  <para>Add reminders in the <link linkend="panes.notes"
+		  <para>Add reminders in the <olink linkend="panes.notes"
 		  endterm="panes.notes.title"/> pane for problematic segments</para>
 
-		  <para>Use <link linkend="menus.goto" endterm="menus.goto.title"/><link
+		  <para>Use <olink linkend="menus.goto" endterm="menus.goto.title"/><olink
 		  linkend="menus.goto.notes.pane"
 		  endterm="menus.goto.notes.pane.title"/> to enter the Notepad and
 		  add your remark.</para>
 
-		  <para>Use <link linkend="menus.goto" endterm="menus.goto.title"/><link
+		  <para>Use <olink linkend="menus.goto" endterm="menus.goto.title"/><olink
 		  linkend="menus.goto.editor.pane"
 		  endterm="menus.goto.editor.pane.title"/> to return to the Editor and
 		  resume your translation.</para>
 		</listitem>
 
 		<listitem>
-		  <para>Use <link linkend="menus.edit" endterm="menus.edit.title"/><link
+		  <para>Use <olink linkend="menus.edit" endterm="menus.edit.title"/><olink
 		  linkend="menus.edit.search.project"
 		  endterm="menus.edit.search.project.title"/> to filter segments based
 		  on criteria that you set, and review only those.</para>
@@ -550,32 +550,32 @@
 	  </itemizedlist>
 	</note>
 	
-	<para>Use <link linkend="menus.edit" endterm="menus.edit.title"/><link
+	<para>Use <olink linkend="menus.edit" endterm="menus.edit.title"/><olink
 	linkend="menus.edit.create.glossary.entry"
 	endterm="menus.edit.create.glossary.entry.title"/> to add terms to your
 	glossary.</para>
 
-	<para>Use <link linkend="menus.view" endterm="menus.view.title"/><link
+	<para>Use <olink linkend="menus.view" endterm="menus.view.title"/><olink
 	linkend="menus.view.mark.glossary.matches"
-	endterm="menus.view.mark.glossary.matches.title"/> and the <link
+	endterm="menus.view.mark.glossary.matches.title"/> and the <olink
 	linkend="dialog.preferences.auto.completion"
 	endterm="dialog.preferences.auto.completion.title"/> preferences to manage
 	glossary matches.</para>
 
 	<para>When you enter a segment containing terms that match entries in your
 	glossaries, those terms and their translations are displayed in the
-	<link linkend="panes.glossary" endterm="panes.glossary.title"/> pane.</para>
+	<olink linkend="panes.glossary" endterm="panes.glossary.title"/> pane.</para>
 	
 	<para>When you enter a segment that matches part of the content of the
-	project translation memories, OmegaT displays the matches in the <link
+	project translation memories, OmegaT displays the matches in the <olink
 	linkend="panes.fuzzy.matches" endterm="panes.fuzzy.matches.title"/>
 	pane.</para>
 
-	<para>Use the <link linkend="menus.edit" endterm="menus.edit.title"/> menu
+	<para>Use the <olink linkend="menus.edit" endterm="menus.edit.title"/> menu
 	to manage translation memory matches and perform other various useful
 	functions.</para>
 
-	<para>The <link linkend="menus.edit.search.project"
+	<para>The <olink linkend="menus.edit.search.project"
 	endterm="menus.edit.search.project.title"/> function lets you search the
 	entire project for terms, sentence fragments, and so on, using exact,
 	keyword, or regular expression searches. You can also narrow the scope of
@@ -583,35 +583,35 @@
 
 	<para>You can also focus only on the results by filtering them in the
 	Editor. See the
-	<link linkend="windows.text.search" endterm="windows.text.search.title"/>
+	<olink linkend="windows.text.search" endterm="windows.text.search.title"/>
 	section for details.</para>
 
-	<para>You can replace terms with the <link
+	<para>You can replace terms with the <olink
 	linkend="menus.edit.search.and.replace"
 	endterm="menus.edit.search.and.replace.title"/> function using a similar
-	dialog. See the <link linkend="windows.text.replace"
+	dialog. See the <olink linkend="windows.text.replace"
 	endterm="windows.text.replace.title"/> section for details.</para>
 
-	<para>You can leave notes to yourself or team members in the <link
+	<para>You can leave notes to yourself or team members in the <olink
 	linkend="panes.notes" endterm="panes.notes.title"/> pane while you
-	translate, and go back to annotated segments with <link
+	translate, and go back to annotated segments with <olink
 	linkend="menus.goto.next.note" endterm="menus.goto.next.note.title"/> or
-	<link linkend="menus.goto.previous.note"
-	endterm="menus.goto.previous.note.title"/> in the <link linkend="menus.goto"
-	endterm="menus.goto.title"/> menu, or from the <link
+	<olink linkend="menus.goto.previous.note"
+	endterm="menus.goto.previous.note.title"/> in the <olink linkend="menus.goto"
+	endterm="menus.goto.title"/> menu, or from the <olink
 	linkend="windows.text.search" endterm="windows.text.search.title"/>
 	window.</para>
 
-	<para>The <link linkend="panes.editor.context.menu"
+	<para>The <olink linkend="panes.editor.context.menu"
 	endterm="panes.editor.context.menu.title"/> gives easy access to various
-	frequently used functions. The <link
+	frequently used functions. The <olink
 	linkend="panes.editor.auto.completion.menu"
 	endterm="panes.editor.auto.completion.menu.title"/> is also available in the
 	Editor pane.</para>
   </section>
   
-  <section id="introduction.manage.your.tags">
-    <title id="introduction.manage.your.tags.title">Manage your tags</title>
+  <section xml:id="introduction.manage.your.tags">
+    <title xml:id="introduction.manage.your.tags.title">Manage your tags</title>
 
     <para>If the documents you translate use bold, italics, or other decorative
     elements, OmegaT will convert those elements into tags that enclose the
@@ -622,8 +622,8 @@
 
 	<para>A sentence might look like this in its original application:</para>
     
-	<example id="example.source.segment.with.decorations">
-	  <title id="example.source.segment.with.decorations.title">Sentence with
+	<example xml:id="example.source.segment.with.decorations">
+	  <title xml:id="example.source.segment.with.decorations.title">Sentence with
 	  decorative formatting</title>
 	  <para>OmegaT is an <emphasis role="bold">easy-to-use</emphasis> program
 	  for <emphasis>eager</emphasis> translators</para>
@@ -632,8 +632,8 @@
     <para>Depending on the original format, OmegaT, however, will present this
     sentence in a fashion similar to this one:</para>
 
-	<example id="example.how.decorations.are.displayed">
-	  <title id="example.how.decorations.are.displayed.title">How decorations
+	<example xml:id="example.how.decorations.are.displayed">
+	  <title xml:id="example.how.decorations.are.displayed.title">How decorations
 	  are displayed in OmegaT</title>
 	  <para>OmegaT is an <code role="tag">&lt;t0/&gt;</code>easy to use<code
 	  role="tag">&lt;t1/&gt;</code> program for <code
@@ -647,22 +647,22 @@
 	  details:</para>
 	  <itemizedlist>
 		<listitem>
-		  <para><link linkend="dialogs.project.properties.hide.tags" endterm="dialogs.project.properties.hide.tags.title"/></para>
+		  <para><olink linkend="dialogs.project.properties.hide.tags" endterm="dialogs.project.properties.hide.tags.title"/></para>
 		</listitem>
 		<listitem>
-		  <para><link linkend="dialogs.preferences.tag.processing" endterm="dialogs.preferences.tag.processing.title"/></para>
+		  <para><olink linkend="dialogs.preferences.tag.processing" endterm="dialogs.preferences.tag.processing.title"/></para>
 		</listitem>
 		<listitem>
-		  <para><link linkend="windows.scripts.distribution.tagwipe" endterm="windows.scripts.distribution.tagwipe.title"/></para>
+		  <para><olink linkend="windows.scripts.distribution.tagwipe" endterm="windows.scripts.distribution.tagwipe.title"/></para>
 		</listitem>
 		<listitem>
-		  <para><link linkend="windows.scripts.distribution.adapt.standard.tags" endterm="windows.scripts.distribution.adapt.standard.tags.title"/></para>
+		  <para><olink linkend="windows.scripts.distribution.adapt.standard.tags" endterm="windows.scripts.distribution.adapt.standard.tags.title"/></para>
 		</listitem>
 		<listitem>
-		  <para><link linkend="windows.scripts.distribution.strip.tags" endterm="windows.scripts.distribution.strip.tags.title"/></para>
+		  <para><olink linkend="windows.scripts.distribution.strip.tags" endterm="windows.scripts.distribution.strip.tags.title"/></para>
 		</listitem>
 		<listitem>
-		  <para><link linkend="windows.scripts.distribution.tag.free.match" endterm="windows.scripts.distribution.tag.free.match.title"/></para>
+		  <para><olink linkend="windows.scripts.distribution.tag.free.match" endterm="windows.scripts.distribution.tag.free.match.title"/></para>
 		</listitem>
 	  </itemizedlist>
 	</note>
@@ -671,28 +671,28 @@
     protected to prevent you from modifying their contents, but you can delete
     them, enter them by hand or move them around in the target sentence.</para>
 	<para>Use
-    <link linkend="menus.edit" endterm="menus.edit.title"/>
-    <link linkend="menus.edit.insert.missing.source.tag"
-    endterm="menus.edit.insert.missing.source.tag.title"/> and <link
+    <olink linkend="menus.edit" endterm="menus.edit.title"/>
+    <olink linkend="menus.edit.insert.missing.source.tag"
+    endterm="menus.edit.insert.missing.source.tag.title"/> and <olink
     linkend="menus.edit.insert.next.missing.tag"
     endterm="menus.edit.insert.next.missing.tag.title"/> to insert the tags at
     the cursor location.</para>
 
 	<para>You can define custom tags that will be managed in the same
-	manner. See the <link
+	manner. See the <olink
 	linkend="dialogs.preferences.tag.processing.regular.expressions.for.custom.tags"
 	endterm="dialogs.preferences.tag.processing.regular.expressions.for.custom.tags.title"/>
 	section for details.</para>
 
 	<para>You can also define strings that OmegaT should warn you
-	about if you leave them in a translation. See the <link
+	about if you leave them in a translation. See the <olink
 	linkend="dialogs.preferences.tag.processing.regular.expressions.for.fragments.that.should.be.removed.from.translation"
 	endterm="dialogs.preferences.tag.processing.regular.expressions.for.fragments.that.should.be.removed.from.translation.title"/>
 	section for details.</para>
 
 	<para>If you make mistakes when you manage the tags, your translated files
-	might fail to open. Use <link linkend="menus.tools"
-	endterm="menus.tools.title"/> <link linkend="menus.tools.check.issues"
+	might fail to open. Use <olink linkend="menus.tools"
+	endterm="menus.tools.title"/> <olink linkend="menus.tools.check.issues"
 	endterm="menus.tools.check.issues.title"/> to check your tags before you
 	generate your translated files.</para>
 
@@ -704,26 +704,26 @@
 	</warning>
   </section>
 
-  <section id="introduction.review.the.translation">
-    <title id="introduction.review.the.translation.title">Review your
+  <section xml:id="introduction.review.the.translation">
+    <title xml:id="introduction.review.the.translation.title">Review your
     translation</title>
 
-	<para>Feel free to modify the <link linkend="chapter.panes"
-	endterm="chapter.panes.title"/> layout and <link linkend="menus.view"
+	<para>Feel free to modify the <olink linkend="chapter.panes"
+	endterm="chapter.panes.title"/> layout and <olink linkend="menus.view"
 	endterm="menus.view.title"/> options when you review the translation.</para>
 
-	<para>Use the <link linkend="menus.tools.check.issues"
+	<para>Use the <olink linkend="menus.tools.check.issues"
 	endterm="menus.tools.check.issues.title"/> option to perform various checks
 	on the contents of your translation.</para>
   </section>
   
-  <section id="introduction.generate.the.translated.file">
-    <title id="introduction.generate.the.translated.file.title">Create the
+  <section xml:id="introduction.generate.the.translated.file">
+    <title xml:id="introduction.generate.the.translated.file.title">Create the
     translated files</title>
 
 	<para>Whenever you want to see what your translation will look like in its
-	final format, use <link linkend="menus.project"
-	endterm="menus.project.title"/> <link
+	final format, use <olink linkend="menus.project"
+	endterm="menus.project.title"/> <olink
 	linkend="menus.project.create.translated.documents"
 	endterm="menus.project.create.translated.documents.title"/>.</para>
 
@@ -731,23 +731,23 @@
 	  <para>Any time you create the translated files, any previously created
 	  files with the same name are overwritten. Rename any files you want to
 	  prevent from being overwritten after you create them. You can
-	  automate file name changes using the <link linkend="edit.filter.dialog"
+	  automate file name changes using the <olink linkend="edit.filter.dialog"
 	  endterm="edit.filter.dialog.title"/> option for the file filter.</para>
 	
 	  <para>Your translations are <emphasis>always</emphasis> stored in the
-	  <link linkend="project.folder.project.save.tmx"
+	  <olink linkend="project.folder.project.save.tmx" targetdoc="OmegaT_ProjectFolder"
 	  endterm="project.folder.project.save.tmx.title"/> file, which is the
-	  project translation memory, located in the <link
-	  linkend="project.folder.omegat" endterm="project.folder.omegat.title"/>
+	  project translation memory, located in the <olink
+	  linkend="project.folder.omegat" endterm="project.folder.omegat.title" targetdoc="OmegaT_ProjectFolder"/>
 	  folder of your project.</para>
 
-	  <para>Deleting the contents of the <link linkend="project.folder.target"
+	  <para>Deleting the contents of the <olink linkend="project.folder.target" targetdoc="OmegaT_ProjectFolder"
 	  endterm="project.folder.target.title"/> folder 
 	  <emphasis>never</emphasis> impacts the content of your translations.</para>
 	</warning>
 
-	<para>The documents are created in the <link
-	linkend="project.folder.target" endterm="project.folder.target.title"/>
+	<para>The documents are created in the <olink
+	linkend="project.folder.target" endterm="project.folder.target.title" targetdoc="OmegaT_ProjectFolder"/>
 	folder of your project. Previously created files are overwritten by the
 	process unless you have renamed them...</para>
 
@@ -760,14 +760,14 @@
 	thus in the project translation memory, to keep it up to date) either by
 	entering them manually in the relevant segments, or by aligning the original
 	file and the final translated file to create a new translation memory (TMX)
-	file that will be put in the <link linkend="project.folder.tm.enforce"
+	file that will be put in the <olink linkend="project.folder.tm.enforce" targetdoc="OmegaT_ProjectFolder"
 	endterm="project.folder.tm.enforce.title"/> folder of your project
-	folder. See the <link linkend="windows.aligner"
+	folder. See the <olink linkend="windows.aligner"
 	endterm="windows.aligner.title"/> section for details.</para>
   </section>
 
-  <section id="introduction.one.more.thing">
-    <title id="introduction.one.more.thing.title">Manage your projects</title>
+  <section xml:id="introduction.one.more.thing">
+    <title xml:id="introduction.one.more.thing.title">Manage your projects</title>
 
     <itemizedlist>
       <listitem>
@@ -777,25 +777,25 @@
       </listitem>
 
       <listitem>
-        <para>You can access and modify the project settings using <link
-        linkend="menus.project" endterm="menus.project.title"/> <link
+        <para>You can access and modify the project settings using <olink
+        linkend="menus.project" endterm="menus.project.title"/> <olink
         linkend="menus.project.properties"
         endterm="menus.project.properties.title"/>. To see the list of files in
-        the project, use <link linkend="menus.project.source.files.list"
+        the project, use <olink linkend="menus.project.source.files.list"
         endterm="menus.project.source.files.list.title"/> from the same menu.
-        You can access the contents of all resources at any time with the <link
+        You can access the contents of all resources at any time with the <olink
         linkend="menus.project.access.project.contents"
         endterm="menus.project.access.project.contents.title"/> option.</para>
       </listitem>
 
       <listitem>
-        <para>Every time you create the translated files (see <link
+        <para>Every time you create the translated files (see <olink
         linkend="introduction.generate.the.translated.file"
         endterm="introduction.generate.the.translated.file.title"/>, above),
         OmegaT creates three translation memories that contain the state of the
-        translation of the files currently in the <link
-        linkend="project.folder.source" endterm="project.folder.source.title"/>
-        folder. See the <link
+        translation of the files currently in the <olink
+        linkend="project.folder.source" endterm="project.folder.source.title" targetdoc="OmegaT_ProjectFolder"/>
+        folder. See the <olink
         linkend="dialogs.project.properties.file.locations.exported.tms"
         endterm="dialogs.project.properties.file.locations.exported.tms.title"/>
         section for details.</para>
@@ -803,21 +803,21 @@
     </itemizedlist>
   </section>
 
-  <section id="app.shortcuts.streamline.workflow">
-    <title id="app.shortcuts.streamline.workflow.title">A shortcut based
+  <section xml:id="app.shortcuts.streamline.workflow">
+    <title xml:id="app.shortcuts.streamline.workflow.title">A shortcut based
     workflow</title>
 
-    <para>Remembering the main editing and navigation shortcuts (or <link
+    <para>Remembering the main editing and navigation shortcuts (or <olink
     linkend="app.shortcuts.customization">modifying them to suit your
-    needs</link>) can help you streamline your work.</para>
+    needs</olink>) can help you streamline your work.</para>
     <para>This is best illustrated with an example:</para>
 
-    <example id="example.shortcuts.streamline.workflow">
-      <title id="example.shortcuts.streamline.workflow.title">Using shortcuts to
+    <example xml:id="example.shortcuts.streamline.workflow">
+      <title xml:id="example.shortcuts.streamline.workflow.title">Using shortcuts to
       streamline the translation process</title>
 
       <para>Picture yourself tasked with translating an updated version of a
-      manual from a previous job. See the <link linkend="how.to.use.tm.reuse.tm"
+      manual from a previous job. See the <olink linkend="how.to.use.tm.reuse.tm"
       endterm="how.to.use.tm.reuse.tm.title"/> how-to for details.</para>
         
       <para>Since the first few pages have not changed, your are greeted with a
@@ -826,31 +826,31 @@
 
 	  <para>Rather than tediously scroll down until you find the first segment
 	  to translate, you quickly press
-	  <keycombo><keycap>C</keycap><keycap>U</keycap></keycombo> to <link
+	  <keycombo><keycap>C</keycap><keycap>U</keycap></keycombo> to <olink
 	  linkend="menus.goto.next.untranslated.segment">jump straight into the
-	  action</link> and start translating. (And do so again each time you
+	  action</olink> and start translating. (And do so again each time you
 	  reach a large unchanged section.)</para>
 
       <para>A few segments later, you come across a term you should add to the
       glossary. Instead of reaching for the mouse, you unlock the cursor with
-      <link linkend="panes.editor.cursor.lock"><keycap>F2</keycap></link>, use
+      <olink linkend="panes.editor.cursor.lock"><keycap>F2</keycap></olink>, use
       the cursor keys and standard system shortcuts to navigate to the term and
       select it, and then press
       <keycombo><keycap>C</keycap><keycap>S</keycap><keycap>G</keycap></keycombo>
-      to <link linkend="menus.edit.create.glossary.entry">call up the glossary
-      entry dialog</link> to enter the source term. You then switch back to the
-      editor, lock the cursor again with <link
-      linkend="panes.editor.cursor.lock"><keycap>F2</keycap></link> and repeat
+      to <olink linkend="menus.edit.create.glossary.entry">call up the glossary
+      entry dialog</olink> to enter the source term. You then switch back to the
+      editor, lock the cursor again with <olink
+      linkend="panes.editor.cursor.lock"><keycap>F2</keycap></olink> and repeat
       the process to enter the target term.</para>
 
-	  <para>You have enabled the <link
-	  linkend="dialog.preferences.auto.completion">auto-completion</link> to
+	  <para>You have enabled the <olink
+	  linkend="dialog.preferences.auto.completion">auto-completion</olink> to
 	  automatically display not only history predictions, but also glossary
 	  terms, and pre-defined short strings, which can be entered with simple
 	  arrow navigation.</para>
 		
       <para>You then reach a revised section of the text where the
-      <link linkend="panes.fuzzy.matches" endterm="panes.fuzzy.matches.title"/>
+      <olink linkend="panes.fuzzy.matches" endterm="panes.fuzzy.matches.title"/>
       pane shows a number of similar segments from the previous job.</para>
 
 	  <para>After quickly tapping
@@ -877,8 +877,8 @@
 
       <para>Later on, you come up with a better way to phrase a somewhat thorny
       expression that had come up earlier, so you select it in the source text,
-      press <keycombo><keycap>C</keycap><keycap>F</keycap></keycombo> <link
-      linkend="windows.text.search">to find</link> it, and then use
+      press <keycombo><keycap>C</keycap><keycap>F</keycap></keycombo> <olink
+      linkend="windows.text.search">to find</olink> it, and then use
       <keycombo><keycap>C</keycap><keycap>J</keycap></keycombo> to immediately
       jump to that segment from the search dialog.</para>
 
@@ -904,11 +904,11 @@
       translation itself.</para>
         
       <para>At the same time, you realize that during you session,
-      you used the <link linkend="menus.edit" endterm="menus.edit.title"/><link
+      you used the <olink linkend="menus.edit" endterm="menus.edit.title"/><olink
       linkend="menus.edit.create.alternative.translation"
       endterm="menus.edit.create.alternative.translation.title"/> menu and the
-      cursor keys several times, and decide to <link
-      linkend="example.shortcut.addition">add a new shortcut</link> to
+      cursor keys several times, and decide to <olink
+      linkend="example.shortcut.addition">add a new shortcut</olink> to
       streamline that part of the process as well.</para>
 	  
     </example>

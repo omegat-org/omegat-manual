@@ -37,11 +37,8 @@
     </abstract>
   </info>
 
-	<!-- test with a very simple xml file -->
-	<xi:include href="sample.xml"/>
-
-<!-- these files are invalid as docbook 5.
   <xi:include href="Introduction.xml"/>
+<!-- these files are invalid as docbook 5.
   <xi:include href="OmegaT_HowTo.xml"/>
   <xi:include href="OmegaT_EditorsPanes.xml"/>
   <xi:include href="OmegaT_Menus.xml"/>
