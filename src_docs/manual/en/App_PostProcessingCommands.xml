@@ -1,31 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "../../../docbook-xml-4.5/docbookx.dtd">
-<section id="post.processing.commands">
-  <title id="post.processing.commands.title">Post-Processing Commands</title>
+<?xml version="1.0" encoding="UTF-8" ?><!-- Converted by db4-upgrade version 1.1 -->
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="post.processing.commands">
+  <title xml:id="post.processing.commands.title">Post-Processing Commands</title>
 
-  <para>See the <link
-  linkend="dialogs.project.properties.external.processing.command"
-  endterm="dialogs.project.properties.external.processing.command.title"/>
+  <para>See the <link linkend="dialogs.project.properties.external.processing.command" endterm="dialogs.project.properties.external.processing.command.title"/>
   projet property for project specific commands.</para>
 
-  <para>See the <link
-  linkend="dialogs.preferences.saving.and.output.external.post-processing.command"
-  endterm="dialogs.preferences.saving.and.output.external.post-processing.command.title"/>
+  <para>See the <link linkend="dialogs.preferences.saving.and.output.external.post-processing.command" endterm="dialogs.preferences.saving.and.output.external.post-processing.command.title"/>
   preference for global commands.</para>
 	
 
-  <section id="post.processing.commands.template.variables">
-    <title id="post.processing.commands.template.variables.title">Template Variables</title>
+  <section xml:id="post.processing.commands.template.variables">
+    <title xml:id="post.processing.commands.template.variables.title">Template Variables</title>
     <para>The command is passed to Java runtime exec as a string with the
     template values expanded. All the arguments should be quoted,
-    e.g. <literal>&quot;${fileName}&quot;</literal>.</para>
+    e.g. <literal>"${fileName}"</literal>.</para>
 
     <para>The following template variables are always available. The other items
     on the template list are environment variables for your system.</para>
 	
-    <table id="post.processing.commands.template.variables.table">
-      <title
-      id="post.processing.commands.template.variables.table.title">Template
+    <table xml:id="post.processing.commands.template.variables.table">
+      <title xml:id="post.processing.commands.template.variables.table.title">Template
       Variables</title>
       <tgroup cols="2" colsep="1">
         <colspec align="left" colname="1" colnum="1"/>
@@ -72,9 +66,7 @@
 		  </row>
 		  <row>
 			<entry>${tmOtherLangRoot}</entry>
-			<entry>TM Root + tmx2source (See the <link
-			linkend="how.to.tm.bridge.two.languages"
-			endterm="how.to.tm.bridge.two.languages.title"/> how-to for
+			<entry>TM Root + tmx2source (See the <link linkend="how.to.tm.bridge.two.languages" endterm="how.to.tm.bridge.two.languages.title"/> how-to for
 			details.)</entry>
 		  </row>
 		  <row>
@@ -110,8 +102,8 @@
     </table>
   </section>
   
-  <section id="post.processing.commands.user.defined.scripts">
-    <title id="post.processing.commands.user.defined.scripts.title">Local
+  <section xml:id="post.processing.commands.user.defined.scripts">
+    <title xml:id="post.processing.commands.user.defined.scripts.title">Local
     Scripts</title>
     <para>
       In addition to a regular command, you can call a script. Never run
@@ -124,15 +116,14 @@
         OmegaT uses may not be the same as the current user’s PATH.
     </para>
     <para>
-        STDOUT and STDERR are written to the <link
-        linkend="configuration.folder.default.contents.logs.title">omegat.log</link>
+        STDOUT and STDERR are written to the <link linkend="configuration.folder.default.contents.logs.title">omegat.log</link>
         file. The exit code and STDERR or the last STDOUT will appear on the
         status bar.
     </para>
   </section>
 
-  <section id="post.processing.commands.linux.and.macos">
-    <title id="post.processing.commands.linux.and.macos.title">Linux and
+  <section xml:id="post.processing.commands.linux.and.macos">
+    <title xml:id="post.processing.commands.linux.and.macos.title">Linux and
     macOS</title>
     <para>
       You should use a shebang, e.g. <literal>#! /bin/bash</literal> or
@@ -142,8 +133,8 @@
     </para>
   </section>
   
-  <example id="post.processing.commands.example">
-	  <title id="post.processing.commands.example.title">Simple example of a
+  <example xml:id="post.processing.commands.example">
+	  <title xml:id="post.processing.commands.example.title">Simple example of a
 	  post-processing commands:</title>
 	  <variablelist>
 		<varlistentry>
@@ -151,8 +142,7 @@
 		  <listitem>
 			<programlisting>xdg-open ${targetRoot}</programlisting>
 		  </listitem>
-		</varlistentry
-		>
+		</varlistentry>
 		<varlistentry>
 		  <term>Open the target folder in macOS</term>
 		  <listitem>

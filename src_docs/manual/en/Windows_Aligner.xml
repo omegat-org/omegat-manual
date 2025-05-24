@@ -1,16 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"../../../docbook-xml-4.5/docbookx.dtd">
-<section id="windows.aligner">
-  <title id="windows.aligner.title"><guilabel>Align Files</guilabel></title>
+<?xml version="1.0" encoding="UTF-8" ?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="windows.aligner">
+  <title xml:id="windows.aligner.title"><guilabel>Align Files</guilabel></title>
 
-  <para>Use <link endterm="menus.tools.title"
-  linkend="menus.tools"/><link endterm="menus.tools.align.files.title"
-  linkend="menus.tools.align.files"/> to access this tool.</para>
+  <para>Use <link endterm="menus.tools.title" linkend="menus.tools"/><link endterm="menus.tools.align.files.title" linkend="menus.tools.align.files"/> to access this tool.</para>
 
   <para>OmegaT also offers a command line based alignment mode for key-based
-  formats. See the <link linkend="launch.with.command.line.mode.console.align"
-  endterm="launch.with.command.line.mode.console.align.title"/> option for
+  formats. See the <link linkend="launch.with.command.line.mode.console.align" endterm="launch.with.command.line.mode.console.align.title"/> option for
   details.</para>
 
   <warning>
@@ -80,8 +75,8 @@
     </listitem>
   </itemizedlist>
 
-  <section id="windows.aligner.adjust">
-    <title id="windows.aligner.adjust.title">Settings</title>
+  <section xml:id="windows.aligner.adjust">
+    <title xml:id="windows.aligner.adjust.title">Settings</title>
 
     <para>In this step, the bottom part of the window presents various
     parameters and options you can change if the initial alignment looks like it
@@ -197,9 +192,7 @@
         <term>Segment</term>
         <listitem>
           <para>The aligner uses sentence segmentation by default. Uncheck the
-          check box to use paragraph segmentation. See the <link
-          endterm="dialogs.preferences.segmentation.setup.title"
-          linkend="dialogs.preferences.segmentation.setup"/> preferences.</para>
+          check box to use paragraph segmentation. See the <link endterm="dialogs.preferences.segmentation.setup.title" linkend="dialogs.preferences.segmentation.setup"/> preferences.</para>
         </listitem>
       </varlistentry>
 
@@ -212,8 +205,8 @@
         </listitem>
       </varlistentry>
 
-      <varlistentry id="windows.aligner.adjust.highlight">
-        <term id="windows.aligner.adjust.highlight.title">Highlight</term>
+      <varlistentry xml:id="windows.aligner.adjust.highlight">
+        <term xml:id="windows.aligner.adjust.highlight.title">Highlight</term>
         <listitem>
 		  <para>Uncheck the check box to turn off highlighting.</para>
 
@@ -229,8 +222,7 @@
         <term>Rules...</term>
         <listitem>
           <para>Clicking this button lets you edit the segmentation rules that
-          apply to this project. See the <link linkend="app.segmentation"
-          endterm="app.segmentation.title"/> appendix for details.</para>
+          apply to this project. See the <link linkend="app.segmentation" endterm="app.segmentation.title"/> appendix for details.</para>
 
           <warning>
             <para>If you modify the segmentation rules, you will be asked if you
@@ -245,9 +237,7 @@
         <term>Filters...</term>
         <listitem>
           <para>Clicking this button lets you edit the file filters that apply
-          to this project. See the <link
-          linkend="dialogs.preferences.file.filters"
-          endterm="dialogs.preferences.file.filters.title"/> preferences for
+          to this project. See the <link linkend="dialogs.preferences.file.filters" endterm="dialogs.preferences.file.filters.title"/> preferences for
           details.</para>
 
           <warning>
@@ -315,8 +305,8 @@
     <guibutton>Continue</guibutton> button to proceed to the next one.</para>
   </section>
 
-  <section id="windows.aligner.manual.corrections">
-    <title id="windows.aligner.manual.corrections.title">Corrections</title>
+  <section xml:id="windows.aligner.manual.corrections">
+    <title xml:id="windows.aligner.manual.corrections.title">Corrections</title>
 
     <para>Manual adjustments are generally required after the initial automatic
     alignment process. This generally involves moving segments up or down to

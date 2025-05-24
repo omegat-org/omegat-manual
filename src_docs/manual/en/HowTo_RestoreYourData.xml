@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"../../../docbook-xml-4.5/docbookx.dtd">
-<section id="how.to.restore.your.data">
-  <title id="how.to.restore.your.data.title">Troubleshoot issues</title>
+<?xml version="1.0" encoding="UTF-8" ?><!-- Converted by db4-upgrade version 1.1 -->
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="how.to.restore.your.data">
+  <title xml:id="how.to.restore.your.data.title">Troubleshoot issues</title>
 
   <warning>
 	<para>OmegaT is a robust and trustworthy application, but even so, it is
@@ -10,21 +8,17 @@
 	with any other application.</para>
   </warning>
 
-  <section id="how.to.restore.your.data.automatic.backup">
-	<title id="how.to.restore.your.data.automatic.backup.title">Automatic
+  <section xml:id="how.to.restore.your.data.automatic.backup">
+	<title xml:id="how.to.restore.your.data.automatic.backup.title">Automatic
 	backups</title>
 
 	<para>OmegaT creates backups of your project settings to ensure it can
-	retrieve them in case of problem. See the <link
-	linkend="project.folder.omegat.project.file"
-	endterm="project.folder.omegat.project.file.title"/> section for
+	retrieve them in case of problem. See the <link linkend="project.folder.omegat.project.file" endterm="project.folder.omegat.project.file.title"/> section for
 	details.</para>
 	  
 	<para>OmegaT regularly and automatically stores all your progress in the
-	<link linkend="project.folder.project.save.tmx"
-	endterm="project.folder.project.save.tmx.title"/> file located in the
-	project’s <link linkend="project.folder.omegat"
-	endterm="project.folder.omegat.title"/> folder. OmegaT also creates regular
+	<link linkend="project.folder.project.save.tmx" endterm="project.folder.project.save.tmx.title"/> file located in the
+	project’s <link linkend="project.folder.omegat" endterm="project.folder.omegat.title"/> folder. OmegaT also creates regular
 	backups of that file.</para>
 
 	<orderedlist>
@@ -50,10 +44,7 @@
 		
 		<itemizedlist>
 		  <listitem>
-			<para>either after saving the project data (use <link
-			linkend="menus.project" endterm="menus.project.title"/><link
-			linkend="menus.project.save"
-			endterm="menus.project.save.title"/>),</para>
+			<para>either after saving the project data (use <link linkend="menus.project" endterm="menus.project.title"/><link linkend="menus.project.save" endterm="menus.project.save.title"/>),</para>
 		  </listitem>
 
 		  <listitem>
@@ -69,9 +60,7 @@
 	  </listitem>
 
 	  <listitem>
-		<para>Every time you save the project data (use <link
-		linkend="menus.project" endterm="menus.project.title"/><link
-		linkend="menus.project.save" endterm="menus.project.save.title"/>), or
+		<para>Every time you save the project data (use <link linkend="menus.project" endterm="menus.project.title"/><link linkend="menus.project.save" endterm="menus.project.save.title"/>), or
 		when making a regular backup, OmegaT saves the current state of the
 		translation into <filename>project_save.tmx</filename>.</para>
 	  </listitem>
@@ -81,15 +70,13 @@
 	most recent data.</para>
 
 	<note>
-	  <para>You can set the frequency of the regular backups in the <link
-	  linkend="dialogs.preferences.saving.and.output"
-	  endterm="dialogs.preferences.saving.and.output.title"/> preference.</para>
+	  <para>You can set the frequency of the regular backups in the <link linkend="dialogs.preferences.saving.and.output" endterm="dialogs.preferences.saving.and.output.title"/> preference.</para>
 	</note>
 
   </section>
 
-  <section id="how.to.restore.your.data.lost.in.translation">
-	<title id="how.to.restore.your.data.lost.in.translation.title">You lost your
+  <section xml:id="how.to.restore.your.data.lost.in.translation">
+	<title xml:id="how.to.restore.your.data.lost.in.translation.title">You lost your
 	translation?</title>
 
 	<para>Even if you fear you might have lost translation data, it is probably
@@ -139,8 +126,8 @@
 	</note>
   </section>
 
-  <section id="how.to.restore.your.data.project.locked">
-	<title id="how.to.restore.your.data.project.locked.title">Your project is
+  <section xml:id="how.to.restore.your.data.project.locked">
+	<title xml:id="how.to.restore.your.data.project.locked.title">Your project is
 	locked?</title>
 
 	<para>In the rare case where your computer freezes and OmegaT does not have
@@ -184,8 +171,8 @@
 	backup <filename>omegat.project</filename> file.</para>
   </section>
   
-  <section id="how.to.restore.your.data.project.wont.open">
-	<title id="how.to.restore.your.data.project.wont.open.title">Your project
+  <section xml:id="how.to.restore.your.data.project.wont.open">
+	<title xml:id="how.to.restore.your.data.project.wont.open.title">Your project
 	won’t open?</title>
 
 	<para>In the rare case where your computer freezes and OmegaT does not have
@@ -229,8 +216,8 @@
 	project.</para>
   </section>
 
-  <section id="how.to.restore.your.data.translated.file.broken">
-	<title id="how.to.restore.your.data.translated.file.broken.title">Your
+  <section xml:id="how.to.restore.your.data.translated.file.broken">
+	<title xml:id="how.to.restore.your.data.translated.file.broken.title">Your
 	translated file won’t open?</title>
 
 	<para>Very often, office suite files contain tags that must be copied into
@@ -246,9 +233,7 @@
       </listitem>
 
 	  <listitem>
-		<para>Use <link linkend="menus.tools" endterm="menus.tools.title"/><link
-		linkend="menus.tools.check.issues"
-		endterm="menus.tools.check.issues.title"/> and focus on <guilabel>Tag
+		<para>Use <link linkend="menus.tools" endterm="menus.tools.title"/><link linkend="menus.tools.check.issues" endterm="menus.tools.check.issues.title"/> and focus on <guilabel>Tag
 		issues</guilabel>.</para>
       </listitem>
 
@@ -257,10 +242,7 @@
       </listitem>
 
       <listitem>
-		<para>Use <link linkend="menus.project"
-		endterm="menus.project.title"/><link
-		linkend="menus.project.create.translated.documents"
-		endterm="menus.project.create.translated.documents.title"/> to recreate
+		<para>Use <link linkend="menus.project" endterm="menus.project.title"/><link linkend="menus.project.create.translated.documents" endterm="menus.project.create.translated.documents.title"/> to recreate
 		the documents.</para>
       </listitem>
 
@@ -273,8 +255,8 @@
 	inserting tags properly while entering the translation in OmegaT.</para>
   </section>
 
-  <section id="how.to.restore.your.data.omegat.wont.behave">
-	<title id="how.to.restore.your.data.omegat.wont.behave.title">OmegaT won’t
+  <section xml:id="how.to.restore.your.data.omegat.wont.behave">
+	<title xml:id="how.to.restore.your.data.omegat.wont.behave.title">OmegaT won’t
 	behave?</title>
 
 	<para>Something has happened and OmegaT won’t behave anymore. Whatever you
@@ -285,15 +267,11 @@
 	
 	<orderedlist>
 	  <listitem>
-		<para>Use <link linkend="menus.options"
-		endterm="menus.options.title"/><link
-		linkend="menus.options.access.configuration.folder"
-		endterm="menus.options.access.configuration.folder.title"/> to access
+		<para>Use <link linkend="menus.options" endterm="menus.options.title"/><link linkend="menus.options.access.configuration.folder" endterm="menus.options.access.configuration.folder.title"/> to access
 		the configuration folder.</para>
 		
 		<note>
-		  <para>If you can’t use OmegaT’s menus, see the <link
-		  linkend="configuration.folder" endterm="configuration.folder.title"/>
+		  <para>If you can’t use OmegaT’s menus, see the <link linkend="configuration.folder" endterm="configuration.folder.title"/>
 		  chapter to find the configuration folder location.</para>
 		</note>
       </listitem>
@@ -342,8 +320,8 @@
 	</orderedlist>
   </section>
 
-  <section id="how.to.restore.your.data.summary">
-	<title id="how.to.restore.your.data.summary.title">Summary</title>
+  <section xml:id="how.to.restore.your.data.summary">
+	<title xml:id="how.to.restore.your.data.summary.title">Summary</title>
 
 	<itemizedlist>
       <listitem>
