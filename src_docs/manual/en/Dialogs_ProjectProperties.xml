@@ -2,7 +2,7 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="dialogs.project.properties">
   <title xml:id="dialogs.project.properties.title"><link linkend="dialogs.project.properties"> </link><guilabel>Project Properties</guilabel></title>
 
-  <para>Use <link linkend="menus.project" endterm="menus.project.title"/><link linkend="menus.project.properties" endterm="menus.project.properties.title"/>
+  <para>Use <olink targetdoc="OmegaT_Menus" linkend="menus.project" endterm="menus.project.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.project.properties" endterm="menus.project.properties.title"/>
   to open the dialog.</para>
   
   <para>This dialog is used to set the initial project properties when creating 
@@ -82,7 +82,7 @@
 		  <para>By default, segmentation rules are global and apply to all
 		  projects.</para>
 
-		  <para>Use <link linkend="menus.options" endterm="menus.options.title"/><link linkend="menus.options.segmentation" endterm="menus.options.segmentation.title"/> to access the global
+		  <para>Use <olink targetdoc="OmegaT_Menus" linkend="menus.options" endterm="menus.options.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.options.segmentation" endterm="menus.options.segmentation.title"/> to access the global
 		  segmentation rules.</para>
 		  
 		  <para>Click on <link linkend="dialogs.project.properties.local.segmentation" endterm="dialogs.project.properties.local.segmentation.title"/> to use
@@ -130,7 +130,7 @@
 		  projects.</para>
 		  
 		  <para>The segmentation rules presented when you open the <link linkend="dialogs.preferences.segmentation.setup" endterm="dialogs.preferences.segmentation.setup.title"/> preferences
-		  (using <link linkend="menus.options" endterm="menus.options.title"/><link linkend="menus.options.segmentation" endterm="menus.options.segmentation.title"/>) are the global
+		  (using <olink targetdoc="OmegaT_Menus" linkend="menus.options" endterm="menus.options.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.options.segmentation" endterm="menus.options.segmentation.title"/>) are the global
 		  rules.</para>
 
 		  <para>Use this button to create local rules specific to your
@@ -165,7 +165,7 @@
           as the default translation and automatically use the same target text
           in the remaining repeated segments.</para>
 		  
-		  <para>Use <link linkend="menus.edit" endterm="menus.edit.title"/><link linkend="menus.edit.create.alternative.translation" endterm="menus.edit.create.alternative.translation.title"/> to assign
+		  <para>Use <olink targetdoc="OmegaT_Menus" linkend="menus.edit" endterm="menus.edit.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.edit.create.alternative.translation" endterm="menus.edit.create.alternative.translation.title"/> to assign
 		  an alternative translation to segments that require a different
 		  translation.</para>
 		  
@@ -226,7 +226,7 @@
 
 		  <para>Enter the commands you want to run in this field.</para>
 
-		  <para>Use <link linkend="menus.project" endterm="menus.project.title"/><link linkend="menus.project.create.translated.documents" endterm="menus.project.create.translated.documents.title"/> or <link linkend="menus.project" endterm="menus.project.title"/><link linkend="menus.project.create.current.translated.document" endterm="menus.project.create.current.translated.document.title"/> to
+		  <para>Use <olink targetdoc="OmegaT_Menus" linkend="menus.project" endterm="menus.project.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.project.create.translated.documents" endterm="menus.project.create.translated.documents.title"/> or <olink targetdoc="OmegaT_Menus" linkend="menus.project" endterm="menus.project.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.project.create.current.translated.document" endterm="menus.project.create.current.translated.document.title"/> to
 		  create the target files and trigger the command.</para>
 
 		  <para>Commands specified here are only available to this project. They
@@ -333,13 +333,13 @@
 	<para>Resource folders can be located anywhere on your system, including on
 	shared disks.</para>
 
-	<para>See the <link linkend="chapter.project.folder" endterm="chapter.project.folder.title"/> chapter for details.</para>
+	<para>See the <olink targetdoc="OmegaT_ProjectFolder" linkend="chapter.project.folder" endterm="chapter.project.folder.title"/> chapter for details.</para>
 
 	<para>You can modify the structure of your project by adding or removing
 	files from the folders, or even by changing the folders used by the project
 	at any time, even during the course of the translation.</para>
 
-	<para>Use <link linkend="menus.project" endterm="menus.project.title"/><link linkend="menus.project.access.project.contents" endterm="menus.project.access.project.contents.title"/> and its submenus to
+	<para>Use <olink targetdoc="OmegaT_Menus" linkend="menus.project" endterm="menus.project.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.project.access.project.contents" endterm="menus.project.access.project.contents.title"/> and its submenus to
 	access the locations of the project resources.</para>
 
 	<variablelist>
@@ -391,7 +391,7 @@
 
 				  <listitem>
 					<para>not taken into account in the various statistics
-					reports (such as the <link linkend="menus.tools" endterm="menus.tools.title"/><link linkend="menus.tools.statistics" endterm="menus.tools.statistics.title"/> command), and</para>
+					reports (such as the <olink targetdoc="OmegaT_Menus" linkend="menus.tools" endterm="menus.tools.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.tools.statistics" endterm="menus.tools.statistics.title"/> command), and</para>
 				  </listitem>
 
 				  <listitem>
@@ -435,7 +435,7 @@
 
 		  <para>See the <link linkend="project.folder.glossary" endterm="project.folder.glossary.title"/> section for details.</para>
 		  
-		  <para>If matches are found, they are displayed in the <link linkend="panes.glossary" endterm="panes.glossary.title"/> pane.</para>
+		  <para>If matches are found, they are displayed in the <olink targetdoc="OmegaT_EditorPanes" linkend="panes.glossaray" endterm="panes.glossary.title"/> pane.</para>
 
 		  <para>See the <link linkend="app.glossaries" endterm="app.glossaries.title"/> appendix for details.</para>
 		</listitem>
@@ -446,7 +446,7 @@
 
 		<listitem>
 		  <para>The writable glossary is the file that OmegaT uses when you add
-		  translated glossary terms to your project with the <link linkend="menus.edit" endterm="menus.edit.title"/><link linkend="menus.edit.create.glossary.entry" endterm="menus.edit.create.glossary.entry.title"/> command.</para>
+		  translated glossary terms to your project with the <olink targetdoc="OmegaT_Menus" linkend="menus.edit" endterm="menus.edit.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.edit.create.glossary.entry" endterm="menus.edit.create.glossary.entry.title"/> command.</para>
 
 		  <para>It is automatically created the first time a term is
 		  added.</para>
@@ -493,7 +493,7 @@
 		  are not supported by OmegaT’s file filters are copied without
 		  modification.</para>
 
-		  <para>Use <link linkend="menus.project.create.translated.documents" endterm="menus.project.create.translated.documents.title"/> or <link linkend="menus.project.create.current.translated.document" endterm="menus.project.create.current.translated.document.title"/> to
+		  <para>Use <olink targetdoc="OmegaT_Menus" linkend="menus.project.create.translated.documents" endterm="menus.project.create.translated.documents.title"/> or <olink targetdoc="OmegaT_Menus" linkend="menus.project.create.current.translated.document" endterm="menus.project.create.current.translated.document.title"/> to
 		  create the translated files.</para>
 
 		  <para>See the <link linkend="project.folder.target" endterm="project.folder.target.title"/> section for
@@ -520,7 +520,7 @@
 		  <para>The TMX files contain only the segments from the files currently
 		  stored in the <link linkend="project.folder.source" endterm="project.folder.source.title"/> folder.</para>
 
-		  <para>Use <link linkend="menus.project.create.translated.documents" endterm="menus.project.create.translated.documents.title"/> or <link linkend="menus.project.create.current.translated.document" endterm="menus.project.create.current.translated.document.title"/> to
+		  <para>Use <olink targetdoc="OmegaT_Menus" linkend="menus.project.create.translated.documents" endterm="menus.project.create.translated.documents.title"/> or <olink targetdoc="OmegaT_Menus" linkend="menus.project.create.current.translated.document" endterm="menus.project.create.current.translated.document.title"/> to
 		  create the translated files and the exported TMX files.</para>
 
 		  <variablelist>

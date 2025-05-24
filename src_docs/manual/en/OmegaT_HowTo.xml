@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<chapter xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="chapter.how.to">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:id="chapter.how.to">
   <title xml:id="chapter.how.to.title">How To...</title>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="HowTo_RestoreYourData.xml"/>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="HowTo_UseTM.xml"/>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="HowTo_TranslateOtherFiles.xml"/>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="HowTo_SetUpTeamProject.xml"/>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="HowTo_UseTeamProject.xml"/>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="HowTo_Install.xml"/>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="HowTo_Run.xml"/>
-  
+  <xi:include href="HowTo_RestoreYourData.xml"/>
+  <xi:include href="HowTo_UseTM.xml"/>
+  <xi:include href="HowTo_TranslateOtherFiles.xml"/>
+  <xi:include href="HowTo_SetUpTeamProject.xml"/>
+  <xi:include href="HowTo_UseTeamProject.xml"/>
+  <xi:include href="HowTo_Install.xml"/>
+  <xi:include href="HowTo_Run.xml"/>
 </chapter>

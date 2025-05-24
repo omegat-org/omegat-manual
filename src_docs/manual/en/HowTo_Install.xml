@@ -190,7 +190,7 @@
 	  <literal>--config-dir=&lt;path&gt;</literal> option on the command
 	  line. See the <link endterm="launch.with.command.line.omegat.options.title" linkend="launch.with.command.line.omegat.options"/> section.</para>
 
-	  <para>All the parameters located in a <link linkend="chapter.project.folder">project folder</link> will apply to that
+	  <para>All the parameters located in a <olink targetdoc="OmegaT_ProjectFolder" linkend="chapter.project.folder">project folder</link> will apply to that
 	  project regardless of which version of OmegaT opens it.</para>
 	  </listitem>
 	</varlistentry>

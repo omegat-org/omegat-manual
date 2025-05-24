@@ -8,19 +8,19 @@
 
   <itemizedlist>
 	<listitem>
-	  <para><link linkend="how.to.translate.other.files.associate">Associate</link> the format to an already supported format.</para>
+	  <para><olink targetdoc="HowTo_Translate" linkend="how.to.translate.other.files.associate">Associate</olink> the format to an already supported format.</para>
 	</listitem>
 	
 	<listitem>
-	  <para><link linkend="how.to.translate.other.files.convert">Convert</link> the format to an already supported format.</para>
+	  <para><olink targetdoc="HowTo_Translate" linkend="how.to.translate.other.files.convert">Convert</olink> the format to an already supported format.</para>
 	</listitem>
 
 	<listitem>
-	  <para><link linkend="how.to.translate.other.files.third.party.plugins">Extend</link> OmegaT with third-party plugins that support the format.</para>
+	  <para><olink targetdoc="HowTo_Translate" linkend="how.to.translate.other.files.third.party.plugins">Eoxtend</olink> OmegaT with third-party plugins that support the format.</para>
 	</listitem>
 
 	<listitem>
-	  <para><link linkend="how.to.translate.other.files.develop">Develop</link> a filter for the format.</para>
+	  <para><olink targetdoc="HowTo_Translate" linkend="how.to.translate.other.files.develop">Develop</olink> a filter for the format.</para>
 	</listitem>
   </itemizedlist>
   
@@ -31,12 +31,12 @@
 	  them. If the format you want to translate is structurally close to an
 	  already supported format, just add its file extension to the supported
 	  format extension list, or change the file extension to one that is
-	  accepted by the file filter that you want to use. See the <link linkend="file.filters" endterm="file.filters.title"/> chapter for
+	  accepted by the file filter that you want to use. See the <olink targetdoc="App_FileFilters" linkend="file.filters" endterm="file.filters.title"/> chapteor for
 	  details.</para>
 		
 	  <para>You can also use OmegaT's custom tag function to register format
 	  specific strings and have OmegaT handle them as if they were normal
-	  tags. See the <link linkend="dialogs.preferences.tag.processing.regular.expressions.for.custom.tags" endterm="dialogs.preferences.tag.processing.regular.expressions.for.custom.tags.title"/>
+	  tags. See the <olink targetdoc="Dialogs_Preerences" linkend="dialogs.preferences.tag.processing.regular.expressioons.for.custom.tags" endterm="dialogs.preferences.tag.processing.regular.expressions.for.custom.tags.title"/>
 	  preferences for details.</para>
 	</section>
 	
@@ -53,7 +53,7 @@
 	  
 	  <itemizedlist xml:id="how.to.translate.other.files.third.party.utilities">
 		<listitem xml:id="how.to.translate.other.files.third.party.utilities.rainbow">
-		  <para>Rainbow, from the <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://okapiframework.org">Okapi
+		  <para>Rainbow, from the <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="httpso://okapiframework.org">Okapi
 		  Framework</link></para>
 
 		  <para>License: Apache License Version 2.0</para>
@@ -76,7 +76,7 @@
 
 		  <para>po4a supports a number of free software documentation formats,
 		  listed on the site front page, and offers conversion tools to and from
-		  the po format. See the <link linkend="file.filters.po" endterm="file.filters.po.title"/> section for details.</para>
+		  the po format. See the <olink targetdoc="App_FileFilters" linkend="file.filters.po" endterm="file.filters.po.title"/> section for details.</para>
 		</listitem>
 
 		<listitem>

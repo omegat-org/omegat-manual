@@ -11,7 +11,7 @@
 	with its translation in the project memory, and subsequently used to match
 	other source segments in the project.</para>
 
-	<para>To specify the type of segmentation, use the  <link linkend="dialogs.project.properties.options.segmentation" endterm="dialogs.project.properties.options.segmentation.title"/> project
+	<para>To specify the type of segmentation, use the  <olink targetdoc="Dialogs_ProjectProperties" linkend="dialogs.project.properties.options.segmentation" endterm="dialogs.project.properties.options.segmentation.title"/> project
 	property.</para>
 
 	<para>Segments are by default <emphasis role="bold">paragraphs</emphasis>
@@ -97,12 +97,12 @@
 	<para>By default, segmentation settings are global and shared by all
 	projects.</para>
 
-	<para>Use the <link linkend="dialogs.project.properties.local.segmentation" endterm="dialogs.project.properties.local.segmentation.title"/> project
+	<para>Use the <olink targetdoc="Dialogs_ProjectProperties" linkend="dialogs.project.properties.local.segmentation" endterm="dialogs.project.properties.local.segmentation.title"/> project
 	property to limit the scope of the segmentation rules to the current
 	project.</para>
 
 	<para>You can achieve a similar result by starting OmegaT from the command
-	line. See the <link linkend="launch.with.command.line" endterm="launch.with.command.line.title"/> how-to for details.</para>
+	line. See the <olink targetdoc="HowTo_Run" linkend="launch.with.command.line" endterm="launch.with.command.line.title"/> how-to for details.</para>
 	
 	<para>If you use local rules, you can still access the global rules, but
 	modifying them will have no effect on your project.</para>

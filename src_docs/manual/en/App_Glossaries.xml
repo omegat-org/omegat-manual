@@ -6,7 +6,7 @@
   folder.</para>
 
   <para>All terms in a segment with a match in <emphasis>any</emphasis> of the
-  glossaries will be displayed in the <link linkend="panes.glossary" endterm="panes.glossary.title"/> pane.</para>
+  glossaries will be displayed in the <olink targetdoc="OmegaT_EditorPanes" linkend="panes.glossaray" endterm="panes.glossary.title"/> pane.</para>
 
   <para>Source terms can be multi-word expressions.</para>
 
@@ -16,11 +16,11 @@
 	<varlistentry>
 	  <term>The project glossary</term>
 	  <listitem>
-		<para>Use <link linkend="menus.edit" endterm="menus.edit.title"/><link linkend="menus.edit.create.glossary.entry" endterm="menus.edit.create.glossary.entry.title"/> to enter new terms in
+		<para>Use <olink targetdoc="OmegaT_Menus" linkend="menus.edit" endterm="menus.edit.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.edit.create.glossary.entry" endterm="menus.edit.create.glossary.entry.title"/> to enter new terms in
 		this glossary. It is called the <emphasis>writable</emphasis> glossary
 		for this reason.</para>
 		
-		<para>Use <link linkend="menus.project" endterm="menus.project.title"/><link linkend="menus.project.access.project.contents.title" endterm="menus.project.access.project.contents.title"/> to directly
+		<para>Use <olink targetdoc="OmegaT_Menus" linkend="menus.project" endterm="menus.project.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.project.access.project.contents.title" endterm="menus.project.access.project.contents.title"/> to directly
 		access it. You can then open it in a text editor and modify it.</para>
 
 		<para>You do not need to prepare the file in advance.</para>
@@ -61,7 +61,7 @@
 
   <note>
 	<para>Modifications made to any glossary are immediately recognized by
-	OmegaT displayed in the <link linkend="panes.glossary" endterm="panes.glossary.title"/> pane.</para>
+	OmegaT displayed in the <olink targetdoc="OmegaT_EditorPanes" linkend="panes.glossaray" endterm="panes.glossary.title"/> pane.</para>
   </note>
 
   <section xml:id="glossaries.glossary.folder">

@@ -12,8 +12,8 @@
 
   <note>
 	<para>An OmegaT team projects synchronizes the project translation memory
-	<link linkend="project.folder.project.save.tmx" endterm="project.folder.project.save.tmx.title"/> and the project writable
-	glossary <link linkend="project.folder.glossary.txt" endterm="project.folder.glossary.txt.title"/> between the hosting server and
+	<olink targetdoc="OmegaT_ProjectFolder" linkend="project.folder.project.save.tmx" endterm="project.folder.project.save.tmx.title"/> and the project writable
+	glossary <olink annotations="OmegaT_ProjectFolder" linkend="project.folder.glossary.txt" endterm="project.folder.glossary.txt.title"/> between the hosting server and
 	all the participating team members, and manages all possible conflicts
 	between them.</para>
   </note>
@@ -90,7 +90,7 @@
 
 			<para>Copy the files to translate to the source/ folder, and use
 			your SVN or Git client, or the command line, to add and publish them
-			to the repository. Use <link endterm="menus.project.title" linkend="menus.project"/><link linkend="menus.project.commit.source.files" endterm="menus.project.commit.source.files.title"/> to add files
+			to the repository. Use <olink targetdoc="Menus_Project" endterm="menus.project.title" linkend="menus.project"/><olink targetdoc="OmegaT_Menus" linkend="menus.project.commit.source.files" endterm="menus.project.commit.source.files.title"/> to add files
 			from OmegaT.</para>
 
 			<para>You must use your SVN or Git client, or the command line, to
@@ -107,7 +107,7 @@
           <para>In team projects that use a simple mapping between the local
           repository and the remote repository (the default), <emphasis role="bold">and only in such projects</emphasis>, the source and
           target files can be modified locally and uploaded to the server using
-          <link linkend="menus.project" endterm="menus.project.title"/><link endterm="menus.project.commit.source.files.title" linkend="menus.project.commit.source.files"/> and <link linkend="menus.project" endterm="menus.project.title"/><link linkend="menus.project.commit.target.files" endterm="menus.project.commit.target.files.title"/>.</para>
+          <olink targetdoc="OmegaT_Menus" linkend="menus.project" endterm="menus.project.title"/><link endterm="menus.project.commit.source.files.title" linkend="menus.project.commit.source.files"/> and <olink targetdoc="OmegaT_Menus" linkend="menus.project" endterm="menus.project.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.project.commit.target.files" endterm="menus.project.commit.target.files.title"/>.</para>
 
           <para>The team project administrator must use the local VCS to
           <emphasis role="bold">modify</emphasis> or <emphasis role="bold">delete</emphasis> those files. Some plugins can make this
@@ -182,7 +182,7 @@
 
 		<orderedlist>
           <listitem>
-			<para>Send a URL and ask the translators to use <link linkend="menus.project" endterm="menus.project.title"/><link linkend="menus.project.download.team.project" endterm="menus.project.download.team.project.title"/> to create a
+			<para>Send a URL and ask the translators to use <olink targetdoc="OmegaT_Menus" linkend="menus.project" endterm="menus.project.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.project.download.team.project" endterm="menus.project.download.team.project.title"/> to create a
 			local copy of the project on their own system.</para>
           </listitem>
 
@@ -197,7 +197,7 @@
 
 		<para>After the team project administrator confirms that a translator
 		has been able to open the team project, it is a good idea to make sure
-		that the <link linkend="menus.tools.statistics">project
+		that the <olink targetdoc="OmegaT_Menus" linkend="menus.tools.statistics">project
 		statistics</link> are the same for both the administrator (on the
 		server) and the translator (locally).</para>
 

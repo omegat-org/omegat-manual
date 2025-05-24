@@ -13,12 +13,12 @@
 	backups</title>
 
 	<para>OmegaT creates backups of your project settings to ensure it can
-	retrieve them in case of problem. See the <link linkend="project.folder.omegat.project.file" endterm="project.folder.omegat.project.file.title"/> section for
+	retrieve them in case of problem. See the <olink targetdoc="OmegaT_ProjectFolder" linkend="project.folder.omegat.project.file" endterm="project.folder.omegat.project.file.title"/> section for
 	details.</para>
 	  
 	<para>OmegaT regularly and automatically stores all your progress in the
-	<link linkend="project.folder.project.save.tmx" endterm="project.folder.project.save.tmx.title"/> file located in the
-	project’s <link linkend="project.folder.omegat" endterm="project.folder.omegat.title"/> folder. OmegaT also creates regular
+	<olink targetdoc="OmegaT_ProjectFolder" linkend="project.folder.project.save.tmx" endterm="project.folder.project.save.tmx.title"/> file located in the
+	project’s <olink targetdoc="OmegaT_ProjectFolder" linkend="project.folder.omegat" endterm="project.folder.omegat.title"/> folder. OmegaT also creates regular
 	backups of that file.</para>
 
 	<orderedlist>
@@ -44,7 +44,7 @@
 		
 		<itemizedlist>
 		  <listitem>
-			<para>either after saving the project data (use <link linkend="menus.project" endterm="menus.project.title"/><link linkend="menus.project.save" endterm="menus.project.save.title"/>),</para>
+			<para>either after saving the project data (use <olink targetdoc="OmegaT_Menus" linkend="menus.project" endterm="menus.project.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.project.save" endterm="menus.project.save.title"/>),</para>
 		  </listitem>
 
 		  <listitem>
@@ -60,7 +60,7 @@
 	  </listitem>
 
 	  <listitem>
-		<para>Every time you save the project data (use <link linkend="menus.project" endterm="menus.project.title"/><link linkend="menus.project.save" endterm="menus.project.save.title"/>), or
+		<para>Every time you save the project data (use <olink targetdoc="OmegaT_Menus" linkend="menus.project" endterm="menus.project.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.project.save" endterm="menus.project.save.title"/>), or
 		when making a regular backup, OmegaT saves the current state of the
 		translation into <filename>project_save.tmx</filename>.</para>
 	  </listitem>
@@ -141,7 +141,7 @@
       <listitem>
 		<para>Identify the project folder that OmegaT refuses to open and open
 		it in your file manager. The folder contents should be similar to a
-		standard <link linkend="chapter.project.folder">project</link>
+		standard <olink targetdoc="OmegaT_ProjectFolder" linkend="chapter.project.folder">project</link>
 		folder.</para>
       </listitem>
 
@@ -233,7 +233,7 @@
       </listitem>
 
 	  <listitem>
-		<para>Use <link linkend="menus.tools" endterm="menus.tools.title"/><link linkend="menus.tools.check.issues" endterm="menus.tools.check.issues.title"/> and focus on <guilabel>Tag
+		<para>Use <olink targetdoc="OmegaT_Menus" linkend="menus.tools" endterm="menus.tools.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.tools.check.issues" endterm="menus.tools.check.issues.title"/> and focus on <guilabel>Tag
 		issues</guilabel>.</para>
       </listitem>
 
@@ -242,7 +242,7 @@
       </listitem>
 
       <listitem>
-		<para>Use <link linkend="menus.project" endterm="menus.project.title"/><link linkend="menus.project.create.translated.documents" endterm="menus.project.create.translated.documents.title"/> to recreate
+		<para>Use <olink targetdoc="OmegaT_Menus" linkend="menus.project" endterm="menus.project.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.project.create.translated.documents" endterm="menus.project.create.translated.documents.title"/> to recreate
 		the documents.</para>
       </listitem>
 
@@ -267,11 +267,11 @@
 	
 	<orderedlist>
 	  <listitem>
-		<para>Use <link linkend="menus.options" endterm="menus.options.title"/><link linkend="menus.options.access.configuration.folder" endterm="menus.options.access.configuration.folder.title"/> to access
+		<para>Use <olink targetdoc="OmegaT_Menus" linkend="menus.options" endterm="menus.options.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.options.access.configuration.folder" endterm="menus.options.access.configuration.folder.title"/> to access
 		the configuration folder.</para>
 		
 		<note>
-		  <para>If you can’t use OmegaT’s menus, see the <link linkend="configuration.folder" endterm="configuration.folder.title"/>
+		  <para>If you can’t use OmegaT’s menus, see the <olink targetdoc="App_ConfigurationFolder" linkend="configuration.folder" endterm="configuration.folder.title"/>
 		  chapter to find the configuration folder location.</para>
 		</note>
       </listitem>

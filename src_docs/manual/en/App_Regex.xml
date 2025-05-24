@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?><!-- Converted by db4-upgrade version 1.1 -->
-<section xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="app.regex">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xhtml" version="5.0"
+         xml:id="app.regex">
   <title xml:id="app.regex.title">Regular expressions</title>
 
   <para>This appendix is intended for users interested in exploring a powerful
@@ -10,7 +11,7 @@
   variations.</para>
 
   <para>Only the fundamentals most useful to translators are covered. The
-  <link linkend="app.regex.tools" endterm="app.regex.tools.title"/>
+  <olink linkend="app.regex.tools" endterm="app.regex.tools.title"/>
   section at the end of this appendix provides a few starting points to explore
   advanced or complex uses beyond the scope of this manual. If you need help for
   a specific case, you can also ask questions in the various support
@@ -55,11 +56,11 @@
     <varlistentry>
       <term>Searches</term>
       <listitem>
-        <para>Searches include a <link linkend="windows.text.search.methods.regex" endterm="windows.text.search.methods.regex.title"/> option that
+        <para>Searches include a <olink targetdoc="Windows_TextSearch" linkend="windows.text.search.methods.regex" endterm="windows.text.search.methods.regex.title"/> option that
         allows you to make extremely powerful searches across your
         files.</para>
 
-        <para>The same option in the <link linkend="windows.text.replace" endterm="windows.text.replace.title"/> dialog allows you to apply
+        <para>The same option in the <olink targetdoc="Windows_TextSearch" linkend="windows.text.replace" endterm="windows.text.replace.title"/> dialog allows you to apply
         regular expressions to both the search and replaced text.</para>
       </listitem>
     </varlistentry>
@@ -68,7 +69,7 @@
       <term>Custom tags</term>
       <listitem>
         <para>Custom tags are tags defined with regular expressions that are
-        handled exactly like native OmegaT tags. See the <link linkend="dialogs.preferences.tag.processing.regular.expressions.for.custom.tags" endterm="dialogs.preferences.tag.processing.regular.expressions.for.custom.tags.title"/>
+        handled exactly like native OmegaT tags. See the <olink targetdoc="OpemgaT_Preferences" linkend="dialogs.preferences.tag.processing.regular.expressions.for.custom.tags" endterm="dialogs.preferences.tag.processing.regular.expressions.for.custom.tags.title"/>
         preference for details.</para>
 
 		<para>Use the <code>|</code> (OR) character to separate individual
@@ -79,7 +80,7 @@
     <varlistentry>
       <term>Flagged text</term>
       <listitem>
-        <para>The <link linkend="dialogs.preferences.tag.processing.regular.expressions.for.fragments.that.should.be.removed.from.translation" endterm="dialogs.preferences.tag.processing.regular.expressions.for.fragments.that.should.be.removed.from.translation.title"/>
+        <para>The <olink targetdoc="OmegaT_Preferences" linkend="dialogs.preferences.tag.processing.regular.expressions.for.fragments.that.should.be.removed.from.translation" endterm="dialogs.preferences.tag.processing.regular.expressions.for.fragments.that.should.be.removed.from.translation.title"/>
         preference allows you to define strings that OmegaT will mark in red by
         default, and treat as extraneous tags for validation purposes.</para>
 
@@ -92,7 +93,7 @@
       <term>Text highlighting in alignments</term>
       <listitem>
         <para>Visual cues can help verifying that your alignment is correct. The
-        <link linkend="windows.aligner.adjust.highlight" endterm="windows.aligner.adjust.highlight.title"/> setting allows you to
+        <olink targetdoc="Windows_Aligner" linkend="windows.aligner.adjust.highlight" endterm="windows.aligner.adjust.highlight.title"/> setting allows you to
         define strings that OmegaT will highlight in the aligned
         documents.</para>
 
@@ -106,7 +107,7 @@
       <listitem>
         <para>Segmentation rules and language patterns are defined with regular
         expressions. You can modify them freely to improve the segmentation of a
-        document or add additional general rules. See the <link linkend="app.segmentation" endterm="app.segmentation.title"/> appendix for
+        document or add additional general rules. See the <olink targetdoc="App_Segmentation" linkend="app.segmentation" endterm="app.segmentation.title"/> appendix for
         details.</para>
 
         <para>Segmentation or exception rules define the position in a
@@ -181,7 +182,7 @@
             describes a small subset of letters that take on a special
             meaning.</para>
 
-			<para>Consult the sites in the <link linkend="app.regex.tools" endterm="app.regex.tools.title"/> section below for information on
+			<para>Consult the sites in the <olink targetdoc="App_Regex" linkend="app.regex.tools" endterm="app.regex.tools.title"/> section below for information on
 			combinations not covered here.</para>
           </note>
         </listitem>
@@ -193,7 +194,7 @@
           <para>That special meaning has to be cancelled by another character to
           match the character itself.</para>
 
-          <para>The full list of characters is presented <link linkend="app.regex.twelve.characters">below</link>. One example is
+          <para>The full list of characters is presented <olink targetdoc="App_Regex" linkend="app.regex.twelve.characters">below</olink>. One example is
           <literal>.</literal>: on its own, it has the special meaning of
           matching <emphasis>any single character</emphasis>.</para>
 
@@ -298,8 +299,8 @@
             <emphasis>caret</emphasis> character matches the beginning of a
             line.</para>
 
-            <para>When it is the first character in <link linkend="app.regex.types.of.expressions.classes">a character class
-            enclosed in brackets</link>, it matches all the characters that are
+            <para>When it is the first character in <olink targetdoc="App_Regex" linkend="app.regex.types.of.expressions.classes">a character class
+            enclosed in brackets</olink>, it matches all the characters that are
             not part of that class.</para>
 
             <informaltable>
@@ -653,7 +654,7 @@
             the number of the group.</para>
 
             <note>
-              <para>The content of the group can also be used in the <link linkend="windows.text.replace">replacement text</link>. Use
+              <para>The content of the group can also be used in the <olink targetdoc="Windows_TextReplace" linkend="windows.text.replace">replacement text</olink>. Use
               <literal>$<option>n</option></literal>, where <option>n</option>
               is the number of the group defined in the search.</para>
             </note>
@@ -932,7 +933,7 @@
       
       <para>Ordinary OmegaT searches are case insensitive by default: they match
       both uppercase and lowercase characters, unless you choose to enable the
-      <link linkend="windows.text.search.options" endterm="windows.text.search.options.title"/> option. Doing so makes the
+      <olink targetdoc="Windows_TextSearch" linkend="windows.text.search.options" endterm="windows.text.search.options.title"/> option. Doing so makes the
       entire search expression case sensitive.</para>
 
       <para>In contrast, Regular expressions are case sensitive by default. This
@@ -1108,7 +1109,7 @@
       range. A few examples are presented in the table below.</para>
 
       <para>See also <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.regular-expressions.info/unicode.html">Unicode Regular
-      Expressions</link> for a thorough review of Unicode regular
+      Expressions</olink> for a thorough review of Unicode regular
       expressions.</para>
 
       <table xml:id="app.regex.unicode.blocks">
@@ -1173,7 +1174,7 @@
       <para>Some expressions specify a position rather than a character. They
       indicate where in the text to look for the match, but do not include any
       characters in that match. The table below list a few of the more common
-      examples. Consult the sites in the <link linkend="app.regex.tools" endterm="app.regex.tools.title"/> section for more information.</para>
+      examples. Consult the sites in the <olink  targetdoc="App_Regex" linkend="app.regex.tools" endterm="app.regex.tools.title"/> section for more information.</para>
 
       <table xml:id="app.regex.boundary.matchers">
         <title xml:id="app.regex.boundary.matchers.title">Expressions that mark a position</title>
@@ -1396,7 +1397,7 @@
     <title xml:id="app.regex.tools.title">References</title>
 
     <para>Although OmegaT does not offer fancy colouring for your regular
-    expressions, you can get a lot of practice by using the <link linkend="windows.text.search" endterm="windows.text.search.title"/> window
+    expressions, you can get a lot of practice by using the <olink targetdoc="Windows_TextSearch" linkend="windows.text.search" endterm="windows.text.search.title"/> window
     since OmegaT does colour the matching results.</para>
     
     <para>A few additional resources are presented below.</para>
@@ -1405,8 +1406,8 @@
 
       <variablelist>
         <varlistentry xml:id="app.regex.java">
-          <term xml:id="app.regex.java.title"><ulink url="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">Java Regex
-          documentation</ulink></term>
+          <term xml:id="app.regex.java.title"><link xlink:href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">Java Regex
+          documentation</link></term>
           <listitem>
             <para>The official reference for regular expressions used in
             Java.</para>
@@ -1419,7 +1420,7 @@
 
       <variablelist>
         <varlistentry xml:id="app.regex.tools.regex101">
-          <term xml:id="app.regex.tools.regex101.title"><ulink url="https://regex101.com">https://regex101.com</ulink></term>
+          <term xml:id="app.regex.tools.regex101.title"><link xlink:href="https://regex101.com">https://regex101.com</link></term>
           <listitem>
             <para>An online regular expression matcher that lets you enter the
             text you want to search and the regular expressions you want to
@@ -1428,7 +1429,7 @@
         </varlistentry>
 
         <varlistentry xml:id="app.regex.tools.regular.expression.info">
-          <term xml:id="app.regex.tools.regular.expression.info.title"><ulink url="https://www.regular-expressions.info">https://www.regular-expressions.info</ulink></term>
+          <term xml:id="app.regex.tools.regular.expression.info.title"><link xlink:href="https://www.regular-expressions.info">https://www.regular-expressions.info</link></term>
           <listitem>
             <para>One of the most thorough regular expression tutorial and
             reference on the web.</para>

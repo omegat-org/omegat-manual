@@ -3,7 +3,7 @@
   <title xml:id="how.to.use.tm.title"><link linkend="how.to.use.tm"> </link>Use translation memories</title>
 
   <para>When a project is initially created, it comes with its own empty project
-  translation memory, the <link linkend="project.folder.project.save.tmx.title" endterm="project.folder.project.save.tmx.title"/> file, located in the <link linkend="project.folder.omegat" endterm="project.folder.omegat.title"/>
+  translation memory, the <olink targetdoc="OmegaT_ProjectFolder" linkend="project.folder.project.save.tmx.title" endterm="project.folder.project.save.tmx.title"/> file, located in the <link linkend="project.folder.omegat" endterm="project.folder.omegat.title"/>
   folder. This memory is gradually filled as your translation progresses.</para>
 
   <para>Existing translations are used to speed up the translation
@@ -12,49 +12,49 @@
   <itemizedlist>
 	<listitem>
 	  <para>If a given sentence has already been translated once, there is no
-	  need to retranslate it. See the <link linkend="dialogs.project.properties.auto.propagation" endterm="dialogs.project.properties.auto.propagation.title"/> project
+	  need to retranslate it. See the <olink targetdoc="Dialogs_ProjectProperties" linkend="dialogs.project.properties.auto.propagation" endterm="dialogs.project.properties.auto.propagation.title"/> project
 	  property.</para>
 	</listitem>
 
 	<listitem>
 	  <para>If an old translation is similar to the contents of the segment
 	  you are translating, you can recycle it in your translation. See the
-	  <link linkend="panes.fuzzy.matches" endterm="panes.fuzzy.matches.title"/> pane for details.</para>
+	  <olink targetdoc="OmegaT_EditorsPanes" linkend="panes.fuzzy.matches" endterm="panes.fuzzy.matches.title"/> pane for details.</para>
 	</listitem>
 
 	<listitem>
 	  <para>You can also make use of reference translation memories by putting
-	  them in the <link linkend="project.folder.tm" endterm="project.folder.tm.title"/> folder of your project.</para>
+	  them in the <olink targetdoc="OmegaT_ProjectFolder" linkend="project.folder.tm" endterm="project.folder.tm.title"/> folder of your project.</para>
 	</listitem>
   </itemizedlist>
 
   <section xml:id="how.to.use.tm.create.your.tm">
-	<title xml:id="how.to.use.tm.create.your.tm.title"><link linkend="how.to.use.tm.create.your.tm"> </link>Create your own TMs</title>
+	<title xml:id="how.to.use.tm.create.your.tm.title"><olink targetdoc="HowTo_UseTM" linkend="how.to.use.tm.create.your.tm"> </olink>Create your own TMs</title>
 	
-	<para>When you use <link linkend="menus.project" endterm="menus.project.title"/><link linkend="menus.project.create.translated.documents" endterm="menus.project.create.translated.documents.title"/> to create the
+	<para>When you use <olink targetdoc="OmegaT_Menus" linkend="menus.project" endterm="menus.project.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.project.create.translated.documents" endterm="menus.project.create.translated.documents.title"/> to create the
 	target documents for a project, OmegaT also outputs three translation
 	memories that reflect the current state of the translation for the files in
-	the source folder. See the <link linkend="dialogs.project.properties.file.locations.exported.tms" endterm="dialogs.project.properties.file.locations.exported.tms.title"/>
+	the source folder. See the <olink targetdoc="Dialogs_ProjectProperties" linkend="dialogs.project.properties.file.locations.exported.tms" endterm="dialogs.project.properties.file.locations.exported.tms.title"/>
 	project property for details.</para>
 
 	<para>Each of the three files constitutes a bilingual export of the current
 	content of your translation. Their content comes from the global project
-	memory (the <link linkend="project.folder.project.save.tmx" endterm="project.folder.project.save.tmx.title"/> file) but is <emphasis>strictly
+	memory (the <olink targetdoc="OmegaT_ProjectFolder" linkend="project.folder.project.save.tmx" endterm="project.folder.project.save.tmx.title"/> file) but is <emphasis>strictly
 	limited</emphasis> to what you have translated so far.</para>
 
-	<para>You can also use the <link linkend="menus.tools" endterm="menus.tools.title"/><link linkend="menus.tools.align.files" endterm="menus.tools.align.files.title"/> tool to create a TMX from two
+	<para>You can also use the <olink targetdoc="OmegaT_Menus" linkend="menus.tools" endterm="menus.tools.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.tools.align.files" endterm="menus.tools.align.files.title"/> tool to create a TMX from two
 	files in a format that OmegaT supports.</para>
   </section>
 
   <section xml:id="how.to.use.tm.reuse.tm">
-	<title xml:id="how.to.use.tm.reuse.tm.title"><link linkend="how.to.use.tm.reuse.tm"> </link>Reuse TMs</title>
+	<title xml:id="how.to.use.tm.reuse.tm.title"><olink targetdoc="HowTo_UseTM" linkend="how.to.use.tm.reuse.tm"> </link>Reuse TMs</title>
 	
 	<para>To reuse translation memories from a previous project you have two
 	options:</para>
 
 	<itemizedlist>
 	  <listitem>
-		<para>Open the old project and put the new source files in its <link linkend="project.folder.source" endterm="project.folder.source.title"/>
+		<para>Open the old project and put the new source files in its <olink targetdoc="OmegaT_ProjectFolder" linkend="project.folder.source" endterm="project.folder.source.title"/>
 		folder.</para>
 		
 		<note>
@@ -71,7 +71,7 @@
 	  
 	  <listitem>
 		<para>Alternatively, put the reference memories from the old project in
-		the <link linkend="project.folder.tm" endterm="project.folder.tm.title"/>
+		the <olink targetdoc="OmegaT_ProjectFolder" linkend="project.folder.tm" endterm="project.folder.tm.title"/>
 		folder of the new one.</para>
 
 		<note>
@@ -84,27 +84,27 @@
 
 		<itemizedlist>
 		  <listitem>
-			<para><link linkend="project.folder.tm.enforce" endterm="project.folder.tm.enforce.title"/>,</para>
+			<para><olink targetdoc="OmegaT_ProjectFolder" linkend="project.folder.tm.enforce" endterm="project.folder.tm.enforce.title"/>,</para>
 		  </listitem>
 		  <listitem>
-			<para><link linkend="project.folder.tm.auto" endterm="project.folder.tm.auto.title"/>,</para>
+			<para><olink targetdoc="OmegaT_ProjectFolder" linkend="project.folder.tm.auto" endterm="project.folder.tm.auto.title"/>,</para>
 		  </listitem>
 		  <listitem>
-			<para><link linkend="project.folder.tm.penalty" endterm="project.folder.tm.penalty.title"/>,</para>
+			<para><olink targetdoc="OmegaT_ProjectFolder" linkend="project.folder.tm.penalty" endterm="project.folder.tm.penalty.title"/>,</para>
 		  </listitem>
 		</itemizedlist>
 
-		<para>Exact matches coming from the <link linkend="project.folder.tm.enforce" endterm="project.folder.tm.enforce.title"/> and the <link linkend="project.folder.tm.auto" endterm="project.folder.tm.auto.title"/> subfolders will be
+		<para>Exact matches coming from the <olink targetdoc="OmegaT_ProjectFolder" linkend="project.folder.tm.enforce" endterm="project.folder.tm.enforce.title"/> and the <link linkend="project.folder.tm.auto" endterm="project.folder.tm.auto.title"/> subfolders will be
 		automatically inserted into the translation, without the prefix that is
 		inserted by OmegaT when it inserts matches above a set threshold. See
-		the <link linkend="dialogs.preferences.editor.insert.the.best.fuzzy.match" endterm="dialogs.preferences.editor.insert.the.best.fuzzy.match.title"/>
+		the <olink targetdoc="Dialogs_Preferences" linkend="dialogs.preferences.editor.insert.the.best.fuzzy.match" endterm="dialogs.preferences.editor.insert.the.best.fuzzy.match.title"/>
 		preference for details.</para>
 
-		<para>Enable the <link linkend="dialogs.preferences.editor.save.auto-populated.status" endterm="dialogs.preferences.editor.save.auto-populated.status.title"/>
+		<para>Enable the <olink targetdoc="Dialogs_Preferences" linkend="dialogs.preferences.editor.save.auto-populated.status" endterm="dialogs.preferences.editor.save.auto-populated.status.title"/>
 		option to have OmegaT remember that the inserted matches came from those
 		folders.</para>
 
-		<para>Use the navigation menus found in <link linkend="menus.goto" endterm="menus.goto.title"/><link linkend="menus.goto.auto.populated.segments" endterm="menus.goto.auto.populated.segments.title"/> to navigate to an
+		<para>Use the navigation menus found in <olink targetdoc="OmegaT_Menus" linkend="menus.goto" endterm="menus.goto.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.goto.auto.populated.segments" endterm="menus.goto.auto.populated.segments.title"/> to navigate to an
 		automatically inserted segment.</para>
 	  </listitem>
 
@@ -191,17 +191,17 @@
 		</listitem>
 
 		<listitem>
-		  <para>Use <link linkend="menus.goto" endterm="menus.goto.title"/><link linkend="menus.goto.next.untranslated.segment" endterm="menus.goto.next.untranslated.segment.title"/> to find any
+		  <para>Use <olink targetdoc="OmegaT_Menus" linkend="menus.goto" endterm="menus.goto.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.goto.next.untranslated.segment" endterm="menus.goto.next.untranslated.segment.title"/> to find any
 		  untranslated segments (and translate them, if need be).</para>
 		</listitem>
 
 		<listitem>
-		  <para>Use <link linkend="menus.tools" endterm="menus.tools.title"/><link linkend="menus.tools.check.issues" endterm="menus.tools.check.issues.title"/> to check for possible
+		  <para>Use <olink targetdoc="OmegaT_Menus" linkend="menus.tools" endterm="menus.tools.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.tools.check.issues" endterm="menus.tools.check.issues.title"/> to check for possible
 		  issues.</para>
 		</listitem>
 
 		<listitem>
-		  <para>Use <link linkend="menus.project" endterm="menus.project.title"/><link linkend="menus.project.create.translated.documents" endterm="menus.project.create.translated.documents.title"/> to create
+		  <para>Use <olink targetdoc="OmegaT_Menus" linkend="menus.project" endterm="menus.project.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.project.create.translated.documents" endterm="menus.project.create.translated.documents.title"/> to create
 		  the TMX files that correspond to the current contents.</para>
 		</listitem>
       </itemizedlist>
@@ -240,7 +240,7 @@
 		  translation.</para>
 
 		  <para>OmegaT instantaneously recognizes modifications to TMX files.
-		  Therefore, any time one side creates or modifies such a TMX using <link linkend="menus.project" endterm="menus.project.title"/><link linkend="menus.project.create.translated.documents" endterm="menus.project.create.translated.documents.title"/>, the other
+		  Therefore, any time one side creates or modifies such a TMX using <olink targetdoc="OmegaT_Menus" linkend="menus.project" endterm="menus.project.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.project.create.translated.documents" endterm="menus.project.create.translated.documents.title"/>, the other
 		  side does not need to do anything to have that TMX recognized
 		  locally.</para>
 

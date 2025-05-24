@@ -623,7 +623,7 @@ config-dir="path/to/new/configdir"</programlisting>
 						  </varlistentry>
 						</variablelist>
 						  
-						<para>The data is the same as when using <link linkend="menus.tools" endterm="menus.tools.title"/><link linkend="menus.tools.statistics" endterm="menus.tools.statistics.title"/>.</para>
+						<para>The data is the same as when using <olink targetdoc="OmegaT_Menus" linkend="menus.tools" endterm="menus.tools.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.tools.statistics" endterm="menus.tools.statistics.title"/>.</para>
 					  </listitem>
 					</varlistentry>
 				  </variablelist>												

@@ -10,13 +10,13 @@
 	<para>For details, see:</para>
 	<itemizedlist>
 	  <listitem>
-		<para><link linkend="dialogs.project.properties.filters" endterm="dialogs.project.properties.filters.title"/></para>
+		<para><olink targetdoc="OmegaT_Preferences" linkend="dialogs.project.properties.filters" endterm="dialogs.project.properties.filters.title"/></para>
 	  </listitem>
 	  <listitem>
-		<para><link linkend="dialogs.preferences.file.filters" endterm="dialogs.preferences.file.filters.title"/></para>
+		<para><olink targetdoc="OmegaT_Preferences" linkend="dialogs.preferences.file.filters" endterm="dialogs.preferences.file.filters.title"/></para>
 	  </listitem>
 	  <listitem>
-		<para><link linkend="configuration.folder" endterm="configuration.folder.title"/></para>
+		<para><olink targetdoc="App_ConfigurationFolder" linkend="configuration.folder" endterm="configuration.folder.title"/></para>
 	  </listitem>
 	</itemizedlist>
   </warning>
@@ -42,12 +42,12 @@
   <para>Click the <guibutton>Restore Defaults</guibutton> button to reset the
   file filters to their default settings.</para>
 
-  <para>Modified global file filter preferences are saved in <link linkend="configuration.folder.extra.contents.filters" endterm="configuration.folder.extra.contents.filters.title"/>, in the
-  configuration folder. See <link linkend="configuration.folder" endterm="configuration.folder.title"/> for details. Deleting that file also
+  <para>Modified global file filter preferences are saved in <olink targetdoc="App_ConfigurationFolder" linkend="configuration.folder.extra.contents.filters" endterm="configuration.folder.extra.contents.filters.title"/>, in the
+  configuration folder. See <olink targetdoc="App_ConfigurationFolder" linkend="configuration.folder" endterm="configuration.folder.title"/> for details. Deleting that file also
   resets the filter preferences.</para>
 
-  <para>Modified local file filters are saved in the <link linkend="configuration.folder.extra.contents.filters" endterm="configuration.folder.extra.contents.filters.title"/> file, located in
-  the project folder. See the <link linkend="chapter.project.folder" endterm="chapter.project.folder.title"/> chapter for details. Deleting that
+  <para>Modified local file filters are saved in the <olink targetdoc="App_ConfigurationFolder" linkend="configuration.folder.extra.contents.filters" endterm="configuration.folder.extra.contents.filters.title"/> file, located in
+  the project folder. See the <olink targetdoc="OmegaT_ProjectFolder" linkend="chapter.project.folder" endterm="chapter.project.folder.title"/> chapter for details. Deleting that
   file also resets the filter preferences and reverts the project to global file
   filters.</para>
 

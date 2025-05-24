@@ -12,7 +12,7 @@
   <para>After the project is downloaded, it is installed locally and only needs
   to be opened locally to synchronize with the server.</para>
 
-  <para>Repository credentials are stored in the <link linkend="configuration.folder.extra.contents.repositories" endterm="configuration.folder.extra.contents.repositories.title"/> file and
+  <para>Repository credentials are stored in the <olink targetdoc="App_ConfigurationFolder" linkend="configuration.folder.extra.contents.repositories" endterm="configuration.folder.extra.contents.repositories.title"/> file and
   can be deleted from the <link linkend="dialog.preferences.team.title.repository.credentials" endterm="dialog.preferences.team.title.repository.credentials.title"/>
   preferences.</para>
 

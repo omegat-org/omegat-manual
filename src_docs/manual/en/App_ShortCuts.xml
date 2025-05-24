@@ -85,7 +85,7 @@
     <title xml:id="app.shortcuts.customization.title">Customization</title>
 
     <para>OmegaT assigns shortcuts to most of the functions available in the
-    <link linkend="menus.project" endterm="menus.project.title"/>, <link linkend="menus.edit" endterm="menus.edit.title"/>, and <link linkend="menus.goto" endterm="menus.goto.title"/> menus and to a number of
+    <olink targetdoc="OmegaT_Menus" linkend="menus.project" endterm="menus.project.title"/>, <olink targetdoc="OmegaT_Menus" linkend="menus.edit" endterm="menus.edit.title"/>, and <olink targetdoc="OmegaT_Menus" linkend="menus.goto" endterm="menus.goto.title"/> menus and to a number of
     functions in the <link linkend="panes.editor" endterm="panes.editor.title"/>
     pane. You can also add or modify the shortcuts for most of the
     functions.</para>
@@ -117,7 +117,7 @@
 
     <note>
       <para>You can copy the default OmegaT shortcut files from the OmegaT
-      development site on Sourceforge to <link linkend="configuration.folder">your configuration folder</link> and modify
+      development site on Sourceforge to <olink targetdoc="App_ConfigurationFolder" linkend="configuration.folder">your configuration folder</link> and modify
       them to suit your needs:</para>
 
       <variablelist>
@@ -222,14 +222,14 @@
     after that is ignored by the application.</para>
 
     <para>The easiest way to modify the shortcuts is to download copies of the
-    default files to <link linkend="configuration.folder">your configuration
+    default files to <olink targetdoc="App_ConfigurationFolder" linkend="configuration.folder">your configuration
     folder</link>, as noted above, and make the changes you want there.</para>
     
     <example xml:id="example.shortcut.modification">
       <title xml:id="example.shortcut.modification.title">Modifying a
       shortcut</title>
 
-      <para>The default shortcut for <link linkend="menus.project.close">closing
+      <para>The default shortcut for <olink targetdoc="OmegaT_Menus" linkend="menus.project.close">closing
       a project</link> is defined on Windows and Linux as:</para>
 
 	  <para><code>projectCloseMenuItem=ctrl shift W</code></para>
@@ -258,18 +258,18 @@
     <example xml:id="example.shortcut.addition">
       <title xml:id="example.shortcut.addition.title">Adding a shortcut</title>
 
-      <para>If your language pair calls for the frequent use of <link linkend="menus.edit.create.alternative.translation">alternative
+      <para>If your language pair calls for the frequent use of <olink targetdoc="OmegaT_Menus" linkend="menus.edit.create.alternative.translation">alternative
       translations</link>, you may want to assign a shortcut to that function
       since it does not have one by default.</para>
 
       <para>The steps below demonstrate how to assign the
       <keycombo><keycap>Alt</keycap><keycap>X</keycap></keycombo> shortcut to
-      the <link linkend="menus.edit" endterm="menus.edit.title"/><link linkend="menus.edit.create.alternative.translation" endterm="menus.edit.create.alternative.translation.title"/> menu item.</para>
+      the <olink targetdoc="OmegaT_Menus" linkend="menus.edit" endterm="menus.edit.title"/><olink targetdoc="OmegaT_Menus" linkend="menus.edit.create.alternative.translation" endterm="menus.edit.create.alternative.translation.title"/> menu item.</para>
 	  
       <orderedlist>
         <listitem>
           <para>Open the <filename>MainMenuShortcuts.properties</filename> you
-          have copied to <link linkend="configuration.folder">your configuration
+          have copied to <olink targetdoc="App_ConfigurationFolder" linkend="configuration.folder">your configuration
           folder</link> in a text editor.</para>
         </listitem>
 
@@ -1090,7 +1090,7 @@
       </table>
 
       <note>
-        <para>The <link linkend="windows.scripts" endterm="windows.scripts.title"/> item in the <link linkend="menus.tools" endterm="menus.tools.title"/> menu is an
+        <para>The <link linkend="windows.scripts" endterm="windows.scripts.title"/> item in the <olink targetdoc="OmegaT_Menus" linkend="menus.tools" endterm="menus.tools.title"/> menu is an
         exception.</para>
 
         <para>It is not possible to add a shortcut to call the script editor, or
