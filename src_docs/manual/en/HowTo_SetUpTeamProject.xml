@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"../../../docbook-xml-4.5/docbookx.dtd">
-<section id="how.to.setup.team.project">
-  <title id="how.to.setup.team.project.title">Set up a team project</title>
+<?xml version="1.0" encoding="UTF-8" ?><!-- Converted by db4-upgrade version 1.1 -->
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="how.to.setup.team.project">
+  <title xml:id="how.to.setup.team.project.title">Set up a team project</title>
 
   <para>Managing a team project calls for some knowledge of either the
   <emphasis>SVN</emphasis> or <emphasis>Git</emphasis> version control system
@@ -14,24 +12,20 @@
 
   <note>
 	<para>An OmegaT team projects synchronizes the project translation memory
-	<link linkend="project.folder.project.save.tmx"
-	endterm="project.folder.project.save.tmx.title"/> and the project writable
-	glossary <link linkend="project.folder.glossary.txt"
-	endterm="project.folder.glossary.txt.title"/> between the hosting server and
+	<link linkend="project.folder.project.save.tmx" endterm="project.folder.project.save.tmx.title"/> and the project writable
+	glossary <link linkend="project.folder.glossary.txt" endterm="project.folder.glossary.txt.title"/> between the hosting server and
 	all the participating team members, and manages all possible conflicts
 	between them.</para>
   </note>
 
-  <section id="how.to.setup.team.project.prepare.the.repository">
-    <title
-    id="how.to.setup.team.project.prepare.the.repository.title">Preparations</title>
+  <section xml:id="how.to.setup.team.project.prepare.the.repository">
+    <title xml:id="how.to.setup.team.project.prepare.the.repository.title">Preparations</title>
 
 	<para>Here are the steps to set up a team project:</para>
 
 	<orderedlist>
-      <listitem id="how.to.setup.team.project.create.empty.repository">
-		<para
-		id="how.to.setup.team.project.create.empty.repository.title">Create an
+      <listitem xml:id="how.to.setup.team.project.create.empty.repository">
+		<para xml:id="how.to.setup.team.project.create.empty.repository.title">Create an
 		empty repository on your VCS hosting server</para>
 
 		<para>This can normally be done through a web interface, a graphical
@@ -39,8 +33,8 @@
 		server or hosting service for details.</para>
 	  </listitem>
 
-	  <listitem id="how.to.setup.team.project.clone.locally">
-		<para id="how.to.setup.team.project.clone.locally.title">Use the local
+	  <listitem xml:id="how.to.setup.team.project.clone.locally">
+		<para xml:id="how.to.setup.team.project.clone.locally.title">Use the local
 		VCS to make a local copy (clone)</para>
 
 		<note>
@@ -55,12 +49,11 @@
 		<para>We recommend that you avoid using that folder for translation
 		tasks. If you need to perform translation or review tasks on that
 		project, use OmegaT to download a separate copy of the team project and
-		work from there. See the <link linkend="how.to.use.team.project"
-		endterm="how.to.use.team.project.title"/> how-to for details.</para>
+		work from there. See the <link linkend="how.to.use.team.project" endterm="how.to.use.team.project.title"/> how-to for details.</para>
 	  </listitem>
 
-	  <listitem id="how.to.setup.team.project.fill.local.clone">
-		<para id="how.to.setup.team.project.fill.local.clone.title">Fill the
+	  <listitem xml:id="how.to.setup.team.project.fill.local.clone">
+		<para xml:id="how.to.setup.team.project.fill.local.clone.title">Fill the
 		empty local copy with a real OmegaT project</para>
 		<itemizedlist>
 		  <listitem>
@@ -80,8 +73,7 @@
 
 			<para>Make the necessary changes to the project properties at this
 			stage, including local file filters or segmentation settings. See
-			the <link linkend="dialogs.project.properties"
-			endterm="dialogs.project.properties.title"/> dialog for
+			the <link linkend="dialogs.project.properties" endterm="dialogs.project.properties.title"/> dialog for
 			details.</para>
 		  </listitem>
 
@@ -89,8 +81,7 @@
 			<para>Add the necessary files</para>
 
 			<para>Similarly add any relevant lists of spellchecker files you
-			want to make available to everyone working on the project. See <link
-			linkend="project.folder.omegat.spellcheck">spellchecker files</link>
+			want to make available to everyone working on the project. See <link linkend="project.folder.omegat.spellcheck">spellchecker files</link>
 			for details.</para>
 
 			<para>If you are converting an existing project, make sure you
@@ -99,10 +90,7 @@
 
 			<para>Copy the files to translate to the source/ folder, and use
 			your SVN or Git client, or the command line, to add and publish them
-			to the repository. Use <link endterm="menus.project.title"
-			linkend="menus.project"/><link
-			linkend="menus.project.commit.source.files"
-			endterm="menus.project.commit.source.files.title"/> to add files
+			to the repository. Use <link endterm="menus.project.title" linkend="menus.project"/><link linkend="menus.project.commit.source.files" endterm="menus.project.commit.source.files.title"/> to add files
 			from OmegaT.</para>
 
 			<para>You must use your SVN or Git client, or the command line, to
@@ -117,27 +105,19 @@
 
 		<note>
           <para>In team projects that use a simple mapping between the local
-          repository and the remote repository (the default), <emphasis
-          role="bold">and only in such projects</emphasis>, the source and
+          repository and the remote repository (the default), <emphasis role="bold">and only in such projects</emphasis>, the source and
           target files can be modified locally and uploaded to the server using
-          <link linkend="menus.project" endterm="menus.project.title"/><link
-          endterm="menus.project.commit.source.files.title"
-          linkend="menus.project.commit.source.files"/> and <link
-          linkend="menus.project" endterm="menus.project.title"/><link
-          linkend="menus.project.commit.target.files"
-          endterm="menus.project.commit.target.files.title"/>.</para>
+          <link linkend="menus.project" endterm="menus.project.title"/><link endterm="menus.project.commit.source.files.title" linkend="menus.project.commit.source.files"/> and <link linkend="menus.project" endterm="menus.project.title"/><link linkend="menus.project.commit.target.files" endterm="menus.project.commit.target.files.title"/>.</para>
 
           <para>The team project administrator must use the local VCS to
-          <emphasis role="bold">modify</emphasis> or <emphasis
-          role="bold">delete</emphasis> those files. Some plugins can make this
-          task easier. See the <link linkend="dialogs.preferences.plugins"
-          endterm="dialogs.preferences.plugins.title"/> preference for
+          <emphasis role="bold">modify</emphasis> or <emphasis role="bold">delete</emphasis> those files. Some plugins can make this
+          task easier. See the <link linkend="dialogs.preferences.plugins" endterm="dialogs.preferences.plugins.title"/> preference for
           details.</para>
 		</note>
 	  </listitem>
 
-	  <listitem id="how.to.setup.team.project.register">
-		<para id="how.to.setup.team.project.register.title">Register the project
+	  <listitem xml:id="how.to.setup.team.project.register">
+		<para xml:id="how.to.setup.team.project.register.title">Register the project
 		files into the local VCS</para>
 
 		<para>If you created the project from the GUI, you then have to
@@ -145,8 +125,8 @@
 		in both SVN and Git).</para>
 	  </listitem>
 
-	  <listitem id="how.to.setup.team.project.push">
-		<para id="how.to.setup.team.project.push.title">Put the registered files
+	  <listitem xml:id="how.to.setup.team.project.push">
+		<para xml:id="how.to.setup.team.project.push.title">Put the registered files
 		on the hosting server</para>
 
 		<para>Finally, publish your project to the remote server
@@ -154,8 +134,8 @@
 		<command>push</command> in Git).</para>
 	  </listitem>
 
-	  <listitem id="how.to.setup.team.project.give.access.rights">
-		<para id="how.to.setup.team.project.give.access.rights.title">Give
+	  <listitem xml:id="how.to.setup.team.project.give.access.rights">
+		<para xml:id="how.to.setup.team.project.give.access.rights.title">Give
 		access rights to your team</para>
 
 		<note>
@@ -193,8 +173,8 @@
 		</orderedlist>	  
 	  </listitem>
 
-	  <listitem id="how.to.setup.team.project.have.members.download">
-		<para id="how.to.setup.team.project.have.members.download.title">Have
+	  <listitem xml:id="how.to.setup.team.project.have.members.download">
+		<para xml:id="how.to.setup.team.project.have.members.download.title">Have
 		everybody download the project from OmegaT</para>
 
 		<para>Administrators have two options for sending the location of the
@@ -202,10 +182,7 @@
 
 		<orderedlist>
           <listitem>
-			<para>Send a URL and ask the translators to use <link
-			linkend="menus.project" endterm="menus.project.title"/><link
-			linkend="menus.project.download.team.project"
-			endterm="menus.project.download.team.project.title"/> to create a
+			<para>Send a URL and ask the translators to use <link linkend="menus.project" endterm="menus.project.title"/><link linkend="menus.project.download.team.project" endterm="menus.project.download.team.project.title"/> to create a
 			local copy of the project on their own system.</para>
           </listitem>
 
@@ -213,8 +190,7 @@
 			<para>Send an <filename>omegat.project</filename> file containing
 			the project URL, and then have the translators copy it to an empty
 			folder and open it in OmegaT. This can be useful if the project is
-			set up to use different <link
-			linkend="how.to.setup.team.project.mapping.parameters">mappings</link>
+			set up to use different <link linkend="how.to.setup.team.project.mapping.parameters">mappings</link>
 			for each translator.</para>
           </listitem>
 		</orderedlist>
@@ -230,31 +206,25 @@
 		<filename>segmentation.conf</filename> files are properly shared.</para>
 	  </listitem>
 
-	  <listitem id="how.to.setup.team.project.download.if.needed">
-		<para id="how.to.setup.team.project.download.if.needed.title">If you
+	  <listitem xml:id="how.to.setup.team.project.download.if.needed">
+		<para xml:id="how.to.setup.team.project.download.if.needed.title">If you
 		need to work on the project too, download the project yourself to a
 		local location different from the local team project location</para>
 	  </listitem>
 
-	  <listitem id="how.to.setup.team.project.translate">
-		<para id="how.to.setup.team.project.translate.title">You can now also
+	  <listitem xml:id="how.to.setup.team.project.translate">
+		<para xml:id="how.to.setup.team.project.translate.title">You can now also
 		work on the project with the team</para>
 	  </listitem>
 	</orderedlist>
   </section>
 
-  <section id="how.to.setup.team.project.mapping.parameters">
-	<title id="how.to.setup.team.project.mapping.parameters.title">Repository
+  <section xml:id="how.to.setup.team.project.mapping.parameters">
+	<title xml:id="how.to.setup.team.project.mapping.parameters.title">Repository
 	mappings</title>
 
 	<para>It is possible to map various remote locations to local files via the
-	OmegaT user interface using <link
-	linkend="dialogs.project.properties.repository.mapping.title"
-	endterm="dialogs.project.properties.repository.mapping.title"/> in the <link
-	linkend="dialogs.project.properties"
-	endterm="dialogs.project.properties.title"/> dialog, or by editing the <link
-	linkend="project.folder.omegat.project.file.title"
-	endterm="project.folder.omegat.project.file.title"/> file. Although the
+	OmegaT user interface using <link linkend="dialogs.project.properties.repository.mapping.title" endterm="dialogs.project.properties.repository.mapping.title"/> in the <link linkend="dialogs.project.properties" endterm="dialogs.project.properties.title"/> dialog, or by editing the <link linkend="project.folder.omegat.project.file.title" endterm="project.folder.omegat.project.file.title"/> file. Although the
 	mapping feature is primarily intended for gathering source files from
 	disparate locations, it can also be used for other types of files.</para>
 
@@ -321,8 +291,8 @@
 	</variablelist>
   </section>
 
-  <section id="how.to.setup.team.project.example.mappings">
-	<title id="how.to.setup.team.project.example.mappings.title">Example
+  <section xml:id="how.to.setup.team.project.example.mappings">
+	<title xml:id="how.to.setup.team.project.example.mappings.title">Example
 	mappings</title>
 
 	<para>Default project mapping:
@@ -400,8 +370,8 @@
 	include the <filename>omegat.project</filename> file.</para>
 
   </section>
-  <section id="how.to.setup.team.project.selective.sharing">
-	<title id="how.to.setup.team.project.selective.sharing.title">Selective
+  <section xml:id="how.to.setup.team.project.selective.sharing">
+	<title xml:id="how.to.setup.team.project.selective.sharing.title">Selective
 	sharing</title>
 
 	<para>The above process describes the most common scenario, in which the

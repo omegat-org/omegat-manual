@@ -1,13 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"../../../docbook-xml-4.5/docbookx.dtd">
-<section id="app.bidi">
-  <title id="app.bidi.title">Directional Formatting Characters</title>
+<?xml version="1.0" encoding="UTF-8" ?><!-- Converted by db4-upgrade version 1.1 -->
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="app.bidi">
+  <title xml:id="app.bidi.title">Directional Formatting Characters</title>
 
-  <para>Bidi control characters are available from <link
-  linkend="menus.edit" endterm="menus.edit.title"/><link
-  linkend="menus.edit.insert.unicode.control.character"
-  endterm="menus.edit.insert.unicode.control.character.title"/>. They can be used
+  <para>Bidi control characters are available from <link linkend="menus.edit" endterm="menus.edit.title"/><link linkend="menus.edit.insert.unicode.control.character" endterm="menus.edit.insert.unicode.control.character.title"/>. They can be used
   to:</para>
 
   <itemizedlist>
@@ -23,13 +18,11 @@
   </itemizedlist>
   
   <para>These control characters change directionality but are invisible.
-  Use <link linkend="menus.view" endterm="menus.view.title"/><link
-  linkend="menus.view.mark.bidirectional.algorithm.control.character"
-  endterm="menus.view.mark.bidirectional.algorithm.control.character.title"/> to
+  Use <link linkend="menus.view" endterm="menus.view.title"/><link linkend="menus.view.mark.bidirectional.algorithm.control.character" endterm="menus.view.mark.bidirectional.algorithm.control.character.title"/> to
   show a visual indication of their position.</para>
 
-  <section id="app.bidi.marks">
-	<title id="app.bidi.marks.title">Marks</title>
+  <section xml:id="app.bidi.marks">
+	<title xml:id="app.bidi.marks.title">Marks</title>
 
 	<para>To change the position of a character with weak or neutral
 	directionality (like punctuation symbols), insert an LRM or RLM character
@@ -49,8 +42,8 @@
 	</itemizedlist>
   </section>
 
-  <section id="app.bidi.embeddings">
-	<title id="app.bidi.embeddings.title">Embeddings</title>
+  <section xml:id="app.bidi.embeddings">
+	<title xml:id="app.bidi.embeddings.title">Embeddings</title>
 
 	<para>Embeddings can be used to create a longer section of text (containing
 	several words and spaces) that must flow in the direction opposite that of
