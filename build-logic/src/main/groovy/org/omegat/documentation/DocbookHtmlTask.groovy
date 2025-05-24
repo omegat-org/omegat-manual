@@ -1,8 +1,11 @@
 package org.omegat.documentation
 
 import groovy.transform.CompileStatic
+import net.sf.saxon.s9api.QName
+import net.sf.saxon.s9api.XdmAtomicValue
+import net.sf.saxon.s9api.XsltTransformer
 
-import javax.xml.transform.Transformer
+import java.nio.file.Paths
 
 @CompileStatic
 class DocbookHtmlTask extends TransformationTask {
@@ -17,25 +20,25 @@ class DocbookHtmlTask extends TransformationTask {
     }
 
     @Override
-    protected void preTransform(Transformer transformer, File source, File target) {
-        String baseDir = outputFile.get().asFile.parent + File.separator
-        transformer.setParameter("root.filename", extractRootName(target))
-        transformer.setParameter("base.dir", baseDir)
-        transformer.setParameter("use.id.as.filename", 1)
-        transformer.setParameter("html.ext", ".html")
-        transformer.setParameter("chunk.section.depth", 0)
-        transformer.setParameter("chunk.first.sections", 0)
-        transformer.setParameter("chunker.output.encoding", "UTF-8")
-        transformer.setParameter("chunker.output.indent", "yes")
-        transformer.setParameter("use.extensions", 1)
-        transformer.setParameter("chapter.autolabel", 0)
-        transformer.setParameter("section.autolabel", 0)
-        transformer.setParameter("tablecolumns.extension", 0)
-        transformer.setParameter("toc.max.depth", 2)
-        transformer.setParameter("generate.toc", "book toc,title,figure,table chapter toc appendix toc")
-        transformer.setParameter("generate.index", 1)
-        transformer.setParameter("html.stylesheet", "omegat.css")
-        transformer.setParameter("docbook.css.link", 0)
-        transformer.setParameter("saxon.character.representation", "native;decimal")
+    protected void preTransform(XsltTransformer transformer, File source, File target) {
+        def baseDir = Paths.get(outputFile.get().asFile.parent).toUri().toString()
+        transformer.setParameter(new QName("chunk"), new XdmAtomicValue("index.html"))
+        transformer.setParameter(new QName("chunk-output-base-uri"), new XdmAtomicValue(baseDir))
+        transformer.setParameter(new QName("persistent-toc"), new XdmAtomicValue(true))
+        transformer.setParameter(new QName("persistent-toc-search"), new XdmAtomicValue(true))
+        transformer.setParameter(new QName("chunk-section-depth"), new XdmAtomicValue(0))
+        transformer.setParameter(new QName("html-extension"), new XdmAtomicValue(".html"))
+        transformer.setParameter(new QName("list-of-figures"), new XdmAtomicValue("true"))
+        transformer.setParameter(new QName("list-of-tables"), new XdmAtomicValue("true"))
+        transformer.setParameter(new QName("output-media"), new XdmAtomicValue("screen"))
+        transformer.setParameter(new QName("page-style"), new XdmAtomicValue("book"))
+        transformer.setParameter(new QName("pagetoc-dynamic"), new XdmAtomicValue("true"))
+        transformer.setParameter(new QName("persistent-toc"), new XdmAtomicValue("true"))
+        transformer.setParameter(new QName("use-id-as-filename"), new XdmAtomicValue("true"))
+        transformer.setParameter(new QName("use-docbook-css"), new XdmAtomicValue("false"))
+        transformer.setParameter(new QName("user-css-links"), new XdmAtomicValue("css/omegat.css"))
+        /*
+        transformer.setParameter(new QName("root.filename"), new XdmAtomicValue(extractRootName(target)))
+        */
     }
 }
