@@ -16,8 +16,8 @@ You will find HTML files under `build/docs/manual/`
 
 There are only TWO source files have been migrated into DocBook 5
 
-- [`src_docs/manual/en/sample.xml`](sample.xml)
-- [`src_docs/manual/en/OmegaTUsersManual_xinclude_full.xml`](OmegaTUsersManual_xinclude_full.xml) 
+- [`src_docs/manual/en/sample.xml`](https://github.com/omegat-org/omegat-manual/blob/main/src_docs/manual/en/sample.xml)
+- [`src_docs/manual/en/OmegaTUsersManual_xinclude_full.xml`](https://github.com/omegat-org/omegat-manual/blob/main/src_docs/manual/en/OmegaTUsersManual_xinclude_full.xml) 
 
 ## Build logic Sources
 
