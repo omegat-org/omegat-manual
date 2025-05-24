@@ -12,10 +12,6 @@ Please execute the Gradle command
 
 You will find HTML files under `build/docs/manual/`
 
-## Supported languages
-
-7 languages: CA, DE, EN, FR, IT, JA, NL
-
 ## Sources
 
 Tasks are defined as a custom local plugin defined in `build-logic`
