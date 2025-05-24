@@ -49,7 +49,7 @@
 		<para>We recommend that you avoid using that folder for translation
 		tasks. If you need to perform translation or review tasks on that
 		project, use OmegaT to download a separate copy of the team project and
-		work from there. See the <link linkend="how.to.use.team.project" endterm="how.to.use.team.project.title"/> how-to for details.</para>
+		work from there. See the <olink targetdoc="HowTo_UseTeamProject" linkend="how.to.use.team.project" endterm="how.to.use.team.project.title"/> how-to for details.</para>
 	  </listitem>
 
 	  <listitem xml:id="how.to.setup.team.project.fill.local.clone">
@@ -60,8 +60,8 @@
 			<para>Create the project structure</para>
 
 			<para>If you are creating a new empty project, you can follow the
-			<link linkend="introduction.create.and.open.new.project">GUI
-			procedure</link>, or create it directly from the command line:
+			<olink targetdoc="Introduction" linkend="introduction.create.and.open.new.project">GUI
+			procedure</olink>, or create it directly from the command line:
 			<command>java -jar OmegaT.jar team init &lt;source language&gt;
 			&lt;target language&gt;</command></para>
 
@@ -73,7 +73,7 @@
 
 			<para>Make the necessary changes to the project properties at this
 			stage, including local file filters or segmentation settings. See
-			the <link linkend="dialogs.project.properties" endterm="dialogs.project.properties.title"/> dialog for
+			the <olink targetdoc="Dialogs_ProjectProperties" linkend="dialogs.project.properties" endterm="dialogs.project.properties.title"/> dialog for
 			details.</para>
 		  </listitem>
 
@@ -81,7 +81,7 @@
 			<para>Add the necessary files</para>
 
 			<para>Similarly add any relevant lists of spellchecker files you
-			want to make available to everyone working on the project. See <link linkend="project.folder.omegat.spellcheck">spellchecker files</link>
+			want to make available to everyone working on the project. See <olink targetdoc="OmegaT_ProjectFolder" linkend="project.folder.omegat.spellcheck">spellchecker files</olink>
 			for details.</para>
 
 			<para>If you are converting an existing project, make sure you
@@ -111,7 +111,7 @@
 
           <para>The team project administrator must use the local VCS to
           <emphasis role="bold">modify</emphasis> or <emphasis role="bold">delete</emphasis> those files. Some plugins can make this
-          task easier. See the <link linkend="dialogs.preferences.plugins" endterm="dialogs.preferences.plugins.title"/> preference for
+          task easier. See the <olink targetdoc="OmegaT_Preferences" linkend="dialogs.preferences.plugins" endterm="dialogs.preferences.plugins.title"/> preference for
           details.</para>
 		</note>
 	  </listitem>
@@ -190,7 +190,7 @@
 			<para>Send an <filename>omegat.project</filename> file containing
 			the project URL, and then have the translators copy it to an empty
 			folder and open it in OmegaT. This can be useful if the project is
-			set up to use different <link linkend="how.to.setup.team.project.mapping.parameters">mappings</link>
+			set up to use different <olink targetdoc="HowTo_SetUpTeamProject" linkend="how.to.setup.team.project.mapping.parameters">mappings</olink>
 			for each translator.</para>
           </listitem>
 		</orderedlist>
@@ -198,7 +198,7 @@
 		<para>After the team project administrator confirms that a translator
 		has been able to open the team project, it is a good idea to make sure
 		that the <olink targetdoc="OmegaT_Menus" linkend="menus.tools.statistics">project
-		statistics</link> are the same for both the administrator (on the
+		statistics</olink> are the same for both the administrator (on the
 		server) and the translator (locally).</para>
 
 		<para>If they do not match, make sure the
@@ -224,7 +224,7 @@
 	mappings</title>
 
 	<para>It is possible to map various remote locations to local files via the
-	OmegaT user interface using <link linkend="dialogs.project.properties.repository.mapping.title" endterm="dialogs.project.properties.repository.mapping.title"/> in the <link linkend="dialogs.project.properties" endterm="dialogs.project.properties.title"/> dialog, or by editing the <link linkend="project.folder.omegat.project.file.title" endterm="project.folder.omegat.project.file.title"/> file. Although the
+	OmegaT user interface using <olink targetdoc="Dialogs_ProjectProperties" linkend="dialogs.project.properties.repository.mapping.title" endterm="dialogs.project.properties.repository.mapping.title"/> in the <olink targetdoc="Dialogs_ProjectProperties" linkend="dialogs.project.properties" endterm="dialogs.project.properties.title"/> dialog, or by editing the <olink targetdoc="OmegaT_ProjectFolder" linkend="project.folder.omegat.project.file.title" endterm="project.folder.omegat.project.file.title"/> file. Although the
 	mapping feature is primarily intended for gathering source files from
 	disparate locations, it can also be used for other types of files.</para>
 

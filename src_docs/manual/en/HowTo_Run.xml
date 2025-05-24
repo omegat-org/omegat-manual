@@ -33,7 +33,7 @@
 	<title xml:id="running.omegat.on.linux.title">On Linux</title>
 
 	<para>You can launch OmegaT from the command line with a script that
-	includes start-up options. See the <link endterm="launch.with.command.line.title" linkend="launch.with.command.line"/> section for details.</para>
+	includes start-up options. See the <olink endterm="launch.with.command.line.title" linkend="launch.with.command.line"/> section for details.</para>
 
 	<para>You can also double-click on <filename>OmegaT.jar</filename> to launch it
 	directly if the <filename>.jar</filename> extension is associated with the
@@ -58,7 +58,7 @@
 
 	<para>And it also comes with the generic <filename>OmegaT.jar</filename>
 	file located in <filename>OmegaT.app/Contents/MacOS/Java/</filename> that
-	you can use to launch OmegaT from the command line. See the <link endterm="launch.with.command.line.title" linkend="launch.with.command.line"/> section for details.</para>
+	you can use to launch OmegaT from the command line. See the <olink endterm="launch.with.command.line.title" linkend="launch.with.command.line"/> section for details.</para>
 
 	<para>You can modify the behaviour of OmegaT.app by editing the
 	<filename>Configuration.properties</filename> (OmegaT configuration) as well
@@ -76,7 +76,7 @@
 	  Package Contents”.</para>
 
 	  <para>It is also possible to use <filename>OmegaT.app</filename> itself to
-	  launch OmegaT from the terminal. See the <link linkend="launch.with.command.line.omegat.terminal.command.syntax" endterm="launch.with.command.line.omegat.terminal.command.syntax.title"/>
+	  launch OmegaT from the terminal. See the <olink linkend="launch.with.command.line.omegat.terminal.command.syntax" endterm="launch.with.command.line.omegat.terminal.command.syntax.title"/>
 	  section below for details.</para>
 	</note>
 
@@ -122,7 +122,7 @@
 	<title xml:id="running.omegat.on.other.systems.title">On other platforms</title>
 
 	<para>Methods vary from one system to another, but in general, once OmegaT
-	is installed, you can launch it directly from the command line.  See the <link endterm="launch.with.command.line.title" linkend="launch.with.command.line"/> section for details.</para>
+	is installed, you can launch it directly from the command line.  See the <olink endterm="launch.with.command.line.title" linkend="launch.with.command.line"/> section for details.</para>
 
 	<para>You can create a script that includes the desired command line launch
 	parameters. If <filename>.jar</filename> files are properly associated with
@@ -242,7 +242,7 @@
 		  <listitem>
 			<para>Optional parameters accepted by the <command>java</command>
 			command. The parameters relevant to running OmegaT are described
-			<link linkend="launch.with.command.line.java.parameters">below</link>.</para>
+			<olink linkend="launch.with.command.line.java.parameters">below</olink>.</para>
 		  </listitem>					
 		</varlistentry>
 
@@ -257,8 +257,8 @@
 		  <term xml:id="launch.with.command.line.intro.omegat.options.title"><emphasis><option>&lt;OmegaT
 		  options&gt;</option></emphasis></term>
 		  <listitem>
-			<para>The options specific to OmegaT are described <link linkend="launch.with.command.line.omegat.options">later in this
-			section</link></para>
+			<para>The options specific to OmegaT are described <olink linkend="launch.with.command.line.omegat.options">later in this
+			section</olink></para>
 		  </listitem>					
 		</varlistentry>
 	  </variablelist>
@@ -431,7 +431,7 @@
 				<term xml:id="launch.with.command.line.config.dir.title"><option>--config-dir=</option><userinput>&lt;path&gt;</userinput></term>
 				<listitem>
 				  <para>The folder used to read and write OmegaT configuration
-				  files. See the <link endterm="configuration.folder.title" linkend="configuration.folder"/> chapter for details.</para>
+				  files. See the <olink targetdoc="App_ConfigurationFolder" endterm="configuration.folder.title" linkend="configuration.folder"/> chapter for details.</para>
 				</listitem>
 			  </varlistentry>
 			  <varlistentry xml:id="launch.with.command.line.config.file.">
@@ -530,7 +530,7 @@ config-dir="path/to/new/configdir"</programlisting>
 								</varlistentry>
 							  </variablelist>
 
-							  <para>See the <link linkend="app.regex" endterm="app.regex.title"/> appendix for
+							  <para>See the <olink targetdoc="App_Regex" linkend="app.regex" endterm="app.regex.title"/> appendix for
 							  details.</para>
 							</listitem>
 						  </varlistentry>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?><!-- Converted by db4-upgrade version 1.1 -->
-<section xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="how.to.installing.omegat">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="how.to.installing.omegat">
   <title xml:id="how.to.installing.omegat.title">Install
   OmegaT</title>
 
@@ -21,7 +21,7 @@
 	</varlistentry>
   </variablelist>
 
-  <para>The files are downloadable directly from <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://omegat.org/download">https://omegat.org</link>.</para>
+  <para>The files are downloadable directly from <link xlink:href="https://omegat.org/download">https://omegat.org</link>.</para>
 
   <note>
 	<para>OmegaT 6.1.0 requires a Java 11 Runtime Environment (JRE) to run.</para>
@@ -35,10 +35,10 @@
 
 	<para>Due to licensing considerations, the OmegaT team recommends the Eclipse
 	Temurin Java runtime provided by the Eclipse Foundation's Adoptium Project, but any Java 11 compatible runtime environment should work.
-		See <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://projects.eclipse.org/projects/adoptium.temurin">The Eclipse
+		See <link xlink:href="https://projects.eclipse.org/projects/adoptium.temurin">The Eclipse
 	Temurin™ project</link>.</para>
 
-	<para>IBM provides JREs for Linux PowerPC at <uri xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://developer.ibm.com/languages/java/semeru-runtimes/downloads/">https://developer.ibm.com/languages/java/semeru-runtimes/downloads/</uri>.</para>
+	<para>IBM provides JREs for Linux PowerPC at <link xlink:href="https://developer.ibm.com/languages/java/semeru-runtimes/downloads/">https://developer.ibm.com/languages/java/semeru-runtimes/downloads/</link>.</para>
   </note>
 
   <section xml:id="installing.omegat.windows">
@@ -56,7 +56,7 @@
 
 	<para>Some Linux distributions offer OmegaT in their package manager. The
 	instructions given here apply to people who download the package from the
-	<link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://omegat.org/download">https://omegat.org</link>
+	<link xlink:href="https://omegat.org/download">https://omegat.org</link>
 	site and install it manually.</para>
 
 
@@ -120,10 +120,10 @@
   <section xml:id="update.and.delete.omegat">
 	<title xml:id="update.and.delete.omegat.title">Upgrade</title>
 
-	<para>OmegaT can tell you when a new version is available. See the <link endterm="dialogs.preferences.updates.title" linkend="dialogs.preferences.updates"/> preference for details.</para>
+	<para>OmegaT can tell you when a new version is available. See the <olink targetdoc="OmegaT_Preferences" endterm="dialogs.preferences.updates.title" linkend="dialogs.preferences.updates"/> preference for details.</para>
 
 	<para>The changes between your version and the current version are
-	documented in the development site’s <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://sourceforge.net/p/omegat/code/ci/master/tree/release/changes.txt">changes.txt</link>
+	documented in the development site’s <link xlink:href="https://sourceforge.net/p/omegat/code/ci/master/tree/release/changes.txt">changes.txt</link>
 	file.</para>
 
 	<note>
@@ -134,7 +134,7 @@
 		<listitem>
 		  <para>OmegaT’s preferences are stored in the configuration folder and
 		  will <emphasis>not</emphasis> be modified by the new version.  See the
-		  <link endterm="configuration.folder.title" linkend="configuration.folder"/> chapter for details.</para>
+		  <olink targetdoc="App_ConfigurationFolder" endterm="configuration.folder.title" linkend="configuration.folder"/> chapter for details.</para>
 		</listitem>
 
 		<listitem>
@@ -148,9 +148,9 @@
 		<listitem>
 		  <para>Parameter files that are included in the downloaded OmegaT
 		  package (especially the <filename>OmegaT.l4J.ini</filename> for
-		  <link linkend="running.omegat.on.windows">Windows</link> and the
+		  <olink targetdoc="HowTo_Run" linkend="running.omegat.on.windows">Windows</olink> and the
 		  <filename>Configuration.properties</filename> and
-		  <filename>Info.plist</filename> files for <link linkend="running.omegat.on.macos">macOS</link> packages) might be
+		  <filename>Info.plist</filename> files for <olink targetdoc="HowTo_Run" linkend="running.omegat.on.macos">macOS</olink> packages) might be
 			overwritten or deleted, so you may want to create a backup before
 			upgrading, if you have been using these files to modify OmegaT’s
 			launch parameters.</para>
@@ -188,9 +188,9 @@
 	  <para>All the parameters located in the OmegaT configuration folder will
 	  be shared unless you specify a different configuration folder with the
 	  <literal>--config-dir=&lt;path&gt;</literal> option on the command
-	  line. See the <link endterm="launch.with.command.line.omegat.options.title" linkend="launch.with.command.line.omegat.options"/> section.</para>
+	  line. See the <olink targetdoc="HowTo_Run" endterm="launch.with.command.line.omegat.options.title" linkend="launch.with.command.line.omegat.options"/> section.</para>
 
-	  <para>All the parameters located in a <olink targetdoc="OmegaT_ProjectFolder" linkend="chapter.project.folder">project folder</link> will apply to that
+	  <para>All the parameters located in a <olink targetdoc="OmegaT_ProjectFolder" linkend="chapter.project.folder">project folder</olink> will apply to that
 	  project regardless of which version of OmegaT opens it.</para>
 	  </listitem>
 	</varlistentry>
@@ -214,8 +214,8 @@
 	<title xml:id="build.omegat.from.source.title">Build OmegaT</title>
 
 	<para>The source code for the current version can either be downloaded
-	directly from the OmegaT <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://omegat.org/download">download
-	page</link>, or cloned from the <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://git.code.sf.net/p/omegat/code">Sourceforge</link> or <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://github.com/omegat-org/omegat.git">GitHub</link>
+	directly from the OmegaT <link xlink:href="https://omegat.org/download">download
+	page</link>, or cloned from the <link xlink:href="https://git.code.sf.net/p/omegat/code">Sourceforge</link> or <link xlink:href="https://github.com/omegat-org/omegat.git">GitHub</link>
 	repositories.</para>
 	<para>Once the code is downloaded, open a terminal in the source folder
 	(<filename>omegat-code/</filename> if you cloned from Sourceforge, or
@@ -235,7 +235,7 @@
 
 	<programlisting>./gradlew tasks</programlisting>
 
-	<para>Detailed instructions on building OmegaT can be found in the  <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://sourceforge.net/p/omegat/svn/HEAD/tree/trunk/docs_devel/README.txt">README.txt</link>
+	<para>Detailed instructions on building OmegaT can be found in the  <link xlink:href="https://sourceforge.net/p/omegat/svn/HEAD/tree/trunk/docs_devel/README.txt">README.txt</link>
 	file located in the <filename class="directory">docs_devel</filename> subfolder.</para>
   </section>
 </section>

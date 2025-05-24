@@ -47,7 +47,7 @@
   </section>
 
   <section xml:id="how.to.use.tm.reuse.tm">
-	<title xml:id="how.to.use.tm.reuse.tm.title"><olink targetdoc="HowTo_UseTM" linkend="how.to.use.tm.reuse.tm"> </link>Reuse TMs</title>
+	<title xml:id="how.to.use.tm.reuse.tm.title"><olink linkend="how.to.use.tm.reuse.tm"> </olink>Reuse TMs</title>
 	
 	<para>To reuse translation memories from a previous project you have two
 	options:</para>

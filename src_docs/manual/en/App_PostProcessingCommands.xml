@@ -116,7 +116,7 @@
         OmegaT uses may not be the same as the current user’s PATH.
     </para>
     <para>
-        STDOUT and STDERR are written to the <olink targetdoc="App_ConfigurationFolder" linkend="configuration.folder.default.contents.logs.title">omegat.log</link>
+        STDOUT and STDERR are written to the <olink targetdoc="App_ConfigurationFolder" linkend="configuration.folder.default.contents.logs.title">omegat.log</olink>
         file. The exit code and STDERR or the last STDOUT will appear on the
         status bar.
     </para>

@@ -117,7 +117,7 @@
 
     <note>
       <para>You can copy the default OmegaT shortcut files from the OmegaT
-      development site on Sourceforge to <olink targetdoc="App_ConfigurationFolder" linkend="configuration.folder">your configuration folder</link> and modify
+      development site on Sourceforge to <olink targetdoc="App_ConfigurationFolder" linkend="configuration.folder">your configuration folder</olink> and modify
       them to suit your needs:</para>
 
       <variablelist>
@@ -223,14 +223,14 @@
 
     <para>The easiest way to modify the shortcuts is to download copies of the
     default files to <olink targetdoc="App_ConfigurationFolder" linkend="configuration.folder">your configuration
-    folder</link>, as noted above, and make the changes you want there.</para>
+    folder</olink>, as noted above, and make the changes you want there.</para>
     
     <example xml:id="example.shortcut.modification">
       <title xml:id="example.shortcut.modification.title">Modifying a
       shortcut</title>
 
       <para>The default shortcut for <olink targetdoc="OmegaT_Menus" linkend="menus.project.close">closing
-      a project</link> is defined on Windows and Linux as:</para>
+      a project</olink> is defined on Windows and Linux as:</para>
 
 	  <para><code>projectCloseMenuItem=ctrl shift W</code></para>
 
@@ -259,7 +259,7 @@
       <title xml:id="example.shortcut.addition.title">Adding a shortcut</title>
 
       <para>If your language pair calls for the frequent use of <olink targetdoc="OmegaT_Menus" linkend="menus.edit.create.alternative.translation">alternative
-      translations</link>, you may want to assign a shortcut to that function
+      translations</olink>, you may want to assign a shortcut to that function
       since it does not have one by default.</para>
 
       <para>The steps below demonstrate how to assign the
@@ -270,7 +270,7 @@
         <listitem>
           <para>Open the <filename>MainMenuShortcuts.properties</filename> you
           have copied to <olink targetdoc="App_ConfigurationFolder" linkend="configuration.folder">your configuration
-          folder</link> in a text editor.</para>
+          folder</olink> in a text editor.</para>
         </listitem>
 
 		<listitem>

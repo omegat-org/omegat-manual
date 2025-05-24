@@ -1109,7 +1109,7 @@
       range. A few examples are presented in the table below.</para>
 
       <para>See also <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.regular-expressions.info/unicode.html">Unicode Regular
-      Expressions</olink> for a thorough review of Unicode regular
+      Expressions</link> for a thorough review of Unicode regular
       expressions.</para>
 
       <table xml:id="app.regex.unicode.blocks">

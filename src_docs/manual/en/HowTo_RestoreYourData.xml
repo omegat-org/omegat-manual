@@ -141,7 +141,7 @@
       <listitem>
 		<para>Identify the project folder that OmegaT refuses to open and open
 		it in your file manager. The folder contents should be similar to a
-		standard <olink targetdoc="OmegaT_ProjectFolder" linkend="chapter.project.folder">project</link>
+		standard <olink targetdoc="OmegaT_ProjectFolder" linkend="chapter.project.folder">project</olink>
 		folder.</para>
       </listitem>
 
