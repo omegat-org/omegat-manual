@@ -22,7 +22,7 @@ All greeting pages have been successfully migrated to DocBook 5.
 
 Currently, only **two manual source files** have been migrated to DocBook 5:
 
-- [`src_docs/manual/en/sample.xml`](https://github.com/omegat-org/omegat-manual/blob/main/src_docs/manual/en/sample.xml)
+- [`src_docs/manual/en/sample.xml`](https://github.com/omegat-org/omegat-manual/blob/main/src_docs/manuScreenshot from 2025-05-24 15-36-14al/en/sample.xml)
 - [`src_docs/manual/en/OmegaTUsersManual_xinclude_full.xml`](https://github.com/omegat-org/omegat-manual/blob/main/src_docs/manual/en/OmegaTUsersManual_xinclude_full.xml)
 
 The `sample.xml` is a file to test the build logic.
@@ -62,4 +62,8 @@ Then you can find a html document in `build/docs/developer`
 
 ## Downloading Artifacts via GitHub Actions
 
-You can download the build artifacts directly from the GitHub Actions page by clicking the "**artifact**" link.
+You can download the build artifacts directly from the GitHub Actions page by clicking the "**artifacts**" file download link at the bottom of the Actions page.
+Please visit https://github.com/omegat-org/omegat-manual/actions/workflows/manuals-builds-main.yml and click most recent job title.
+
+![image](https://github.com/user-attachments/assets/ce8feb98-d477-46a5-9fef-1777c12615a1)
+
