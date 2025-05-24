@@ -9,7 +9,7 @@
       <xi:include href="App_Bidi.xml"/>
       <xi:include href="App_PostProcessingCommands.xml"/>
       <xi:include href="App_ShortCuts.xml"/>
-      <xi:include href="App_ConfigurationFolder.xml"/>
      -->
+    <xi:include href="App_ConfigurationFolder.xml"/>
     <xi:include href="App_ApplicationFolder.xml"/>
 </chapter>
