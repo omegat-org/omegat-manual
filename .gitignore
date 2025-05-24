@@ -1,0 +1,28 @@
+build
+
+# Gradle
+.gradle
+.settings
+.project
+.classpath
+bin
+.nb-gradle
+local.properties
+
+# IDEs
+#.idea
+.fleet
+.run
+out
+
+# Docs
+.fop
+
+# emacs backup files
+*~
+
+# MacOS system file
+.DS_Store
+
+# Python virtual env
+venv
