@@ -12,7 +12,9 @@ To build the HTML manual, run the following Gradle command:
 
 Once the build process is complete, you will find the HTML files under `build/docs/manual/`.
 
-## DocBook 5 data
+## DocBook 5 Migration tool
+
+The repository has migration stylesheet `src_docs/xsl/db4-upgrade.xsl`
 
 ### Greeting page
 
@@ -20,7 +22,7 @@ All greeting pages have been successfully migrated to DocBook 5.
 
 ### Manuals
 
-Migration is in-progress.
+English manuals are migrated into DocBook 5, converted by `db4-upgrade.xsl` tool.
 
 ## Directory hierarchy
 
