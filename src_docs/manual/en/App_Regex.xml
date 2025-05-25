@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?><!-- Converted by db4-upgrade version 1.1 -->
-<section xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="app.regex">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app.regex">
   <title xml:id="app.regex.title">Regular expressions</title>
 
   <para>This appendix is intended for users interested in exploring a powerful
@@ -1107,7 +1107,7 @@
       categories to specify character classes outside the alphanumeric character
       range. A few examples are presented in the table below.</para>
 
-      <para>See also <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.regular-expressions.info/unicode.html">Unicode Regular
+      <para>See also <link xlink:href="https://www.regular-expressions.info/unicode.html">Unicode Regular
       Expressions</link> for a thorough review of Unicode regular
       expressions.</para>
 
@@ -1405,8 +1405,8 @@
 
       <variablelist>
         <varlistentry xml:id="app.regex.java">
-          <term xml:id="app.regex.java.title"><ulink url="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">Java Regex
-          documentation</ulink></term>
+          <term xml:id="app.regex.java.title"><link xlink:href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">Java Regex
+          documentation</link></term>
           <listitem>
             <para>The official reference for regular expressions used in
             Java.</para>
@@ -1419,7 +1419,7 @@
 
       <variablelist>
         <varlistentry xml:id="app.regex.tools.regex101">
-          <term xml:id="app.regex.tools.regex101.title"><ulink url="https://regex101.com">https://regex101.com</ulink></term>
+          <term xml:id="app.regex.tools.regex101.title"><link xlink:href="https://regex101.com">https://regex101.com</link></term>
           <listitem>
             <para>An online regular expression matcher that lets you enter the
             text you want to search and the regular expressions you want to
@@ -1428,7 +1428,7 @@
         </varlistentry>
 
         <varlistentry xml:id="app.regex.tools.regular.expression.info">
-          <term xml:id="app.regex.tools.regular.expression.info.title"><ulink url="https://www.regular-expressions.info">https://www.regular-expressions.info</ulink></term>
+          <term xml:id="app.regex.tools.regular.expression.info.title"><link xlink:href="https://www.regular-expressions.info">https://www.regular-expressions.info</link></term>
           <listitem>
             <para>One of the most thorough regular expression tutorial and
             reference on the web.</para>
