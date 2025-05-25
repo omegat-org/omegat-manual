@@ -1,23 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"../../../docbook-xml-4.5/docbookx.dtd">
-<section id="windows.text.replace">
-  <title id="windows.text.replace.title"><guilabel>Text
+<?xml version="1.0" encoding="UTF-8" ?><!-- Converted by db4-upgrade version 1.1 -->
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="windows.text.replace">
+  <title xml:id="windows.text.replace.title"><guilabel>Text
   Replace</guilabel></title>
 
-  <para>Use <link linkend="menus.edit" endterm="menus.edit.title"/><link
-  linkend="menus.edit.search.and.replace"
-  endterm="menus.edit.search.and.replace.title"/> to open a new replace window
+  <para>Use <link linkend="menus.edit" endterm="menus.edit.title"/><link linkend="menus.edit.search.and.replace" endterm="menus.edit.search.and.replace.title"/> to open a new replace window
   and enter the word or phrase you wish to search for in the search
   field.</para>
   
-  <para>Alternatively, select a word or phrase in the <link
-  linkend="panes.editor" endterm="panes.editor.title"/>, <link
-  linkend="panes.fuzzy.matches" endterm="panes.fuzzy.matches.title"/>, or <link
-  linkend="panes.glossary" endterm="panes.glossary.title"/> pane and use <link
-  linkend="menus.edit" endterm="menus.edit.title"/><link
-  linkend="menus.edit.search.and.replace"
-  endterm="menus.edit.search.and.replace.title"/>. The selection is
+  <para>Alternatively, select a word or phrase in the <link linkend="panes.editor" endterm="panes.editor.title"/>, <link linkend="panes.fuzzy.matches" endterm="panes.fuzzy.matches.title"/>, or <link linkend="panes.glossary" endterm="panes.glossary.title"/> pane and use <link linkend="menus.edit" endterm="menus.edit.title"/><link linkend="menus.edit.search.and.replace" endterm="menus.edit.search.and.replace.title"/>. The selection is
   automatically entered in the search field.</para>
 
   <para>You can have several replacement windows opened at the same time.</para>
@@ -34,13 +24,13 @@
   strings are displayed in orange to show the result of the replacement.</para>
 
 
-  <example id="replace.with.allemand">
-	<title id="replace.with.allemand.title">Replace a term</title>
+  <example xml:id="replace.with.allemand">
+	<title xml:id="replace.with.allemand.title">Replace a term</title>
 	<para>
 	  <programlisting>多和田葉子.UTF8
--- 148> | language = [[日本語]]・[[ドイツ語]]
+-- 148&gt; | language = [[日本語]]・[[ドイツ語]]
 &lt;- | language = [[Japonais]]・[[<token>Alllemand</token>]]
--> | language = [[Japonais]]・[[<token>Allemand</token>]]
+-&gt; | language = [[Japonais]]・[[<token>Allemand</token>]]
 ---------</programlisting></para>
   </example>
   
@@ -109,10 +99,7 @@
       <para><guimenu>Edit</guimenu> &gt; <guimenuitem>Create Glossary
       Entry</guimenuitem>
       (<keycombo><keycap>C</keycap><keycap>S</keycap><keycap>G</keycap></keycombo>):
-      add a new glossary item. See <link linkend="menus.edit"
-      endterm="menus.edit.title"/><link
-      linkend="menus.edit.create.glossary.entry"
-      endterm="menus.edit.create.glossary.entry.title"/> for details.</para>
+      add a new glossary item. See <link linkend="menus.edit" endterm="menus.edit.title"/><link linkend="menus.edit.create.glossary.entry" endterm="menus.edit.create.glossary.entry.title"/> for details.</para>
     </listitem>
 
     <listitem>
@@ -121,16 +108,16 @@
     </listitem>
   </itemizedlist>
 
-  <section id="windows.text.replace.methods">
-    <title id="windows.text.replace.methods.title">Search type</title>
+  <section xml:id="windows.text.replace.methods">
+    <title xml:id="windows.text.replace.methods.title">Search type</title>
 
     <para>Use the radio buttons to select the type of search.</para>
 
 	<para>The following search types are available:</para>
 
     <variablelist>
-      <varlistentry id="windows.text.replace.methods.exact">
-        <term id="windows.text.replace.methods.exact.title">Exact search</term>
+      <varlistentry xml:id="windows.text.replace.methods.exact">
+        <term xml:id="windows.text.replace.methods.exact.title">Exact search</term>
         <listitem>
           <para>Search for the string exactly as entered in the search
           field.</para>
@@ -162,14 +149,13 @@
         </listitem>
       </varlistentry>
 
-      <varlistentry id="windows.text.replace.methods.regex">
-        <term id="windows.text.replace.methods.regex.title">Regular expressions</term>
+      <varlistentry xml:id="windows.text.replace.methods.regex">
+        <term xml:id="windows.text.replace.methods.regex.title">Regular expressions</term>
         <listitem>
           <para>Treat the search string as a regular expression.</para>
 
 		  <para>Regular expressions are a very powerful way to search for
-		  general or complex patterns rather than exact strings. See the <link
-		  linkend="app.regex" endterm="app.regex.title"/> appendix for
+		  general or complex patterns rather than exact strings. See the <link linkend="app.regex" endterm="app.regex.title"/> appendix for
 		  details.</para>
 
 		  <note>
@@ -183,8 +169,8 @@
     </variablelist>
   </section>
 
-  <section id="windows.text.replace.options">
-	<title id="windows.text.replace.options.title">Options</title>
+  <section xml:id="windows.text.replace.options">
+	<title xml:id="windows.text.replace.options.title">Options</title>
 	
 	<variablelist>
 	  <varlistentry>
@@ -234,15 +220,14 @@
 	</variablelist>
   </section>
 
-  <section id="windows.text.replace.result.display">
-    <title id="windows.text.replace.result.display.title">Results display</title>
+  <section xml:id="windows.text.replace.result.display">
+    <title xml:id="windows.text.replace.result.display.title">Results display</title>
 
     <para>Matches are displayed in their order of appearance in the project. For
     translated segments, the original text is displayed above the translated
     text. Only the source text is displayed for untranslated segments.</para>
 
-	<para>Double-click on a segment to open it in the <link
-	linkend="panes.editor" endterm="panes.editor.title"/> pane.</para>
+	<para>Double-click on a segment to open it in the <link linkend="panes.editor" endterm="panes.editor.title"/> pane.</para>
 
     <para>You can use the following shortcuts in the search results:</para>
 	
@@ -285,8 +270,7 @@
 	  <varlistentry>
 		<term>Back to the initial segment on close</term>
 		<listitem>
-		  <para>When you close the search windows, the <link
-		  linkend="panes.editor" endterm="panes.editor.title"/> pane
+		  <para>When you close the search windows, the <link linkend="panes.editor" endterm="panes.editor.title"/> pane
 		  automatically goes back to the segment that it displayed before the
 		  search was started</para>
 		</listitem>

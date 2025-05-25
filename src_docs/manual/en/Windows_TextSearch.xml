@@ -1,25 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"../../../docbook-xml-4.5/docbookx.dtd">
-<section id="windows.text.search">
-  <title id="windows.text.search.title"><guilabel>Text Search</guilabel></title>
+<?xml version="1.0" encoding="UTF-8" ?><!-- Converted by db4-upgrade version 1.1 -->
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="windows.text.search">
+  <title xml:id="windows.text.search.title"><guilabel>Text Search</guilabel></title>
 
-  <para>Use <link linkend="menus.edit" endterm="menus.edit.title"/><link
-  linkend="menus.edit.search.project"
-  endterm="menus.edit.search.project.title"/> to open a new search window and
+  <para>Use <link linkend="menus.edit" endterm="menus.edit.title"/><link linkend="menus.edit.search.project" endterm="menus.edit.search.project.title"/> to open a new search window and
   enter the word or phrase you wish to search for in the search field.</para>
   
   <para>You can have several search windows opened at the same time. Hit
   <keycombo><keycap>C</keycap><keycap>S</keycap><keycap>F</keycap></keycombo> to
   reuse the most recent search window.</para>
 
-  <para>Alternatively, select a word or phrase in the <link
-  linkend="panes.editor" endterm="panes.editor.title"/>, <link
-  linkend="panes.fuzzy.matches" endterm="panes.fuzzy.matches.title"/>, or <link
-  linkend="panes.glossary" endterm="panes.glossary.title"/> pane and use <link
-  linkend="menus.edit" endterm="menus.edit.title"/><link
-  linkend="menus.edit.search.project"
-  endterm="menus.edit.search.project.title"/>. The selection is automatically
+  <para>Alternatively, select a word or phrase in the <link linkend="panes.editor" endterm="panes.editor.title"/>, <link linkend="panes.fuzzy.matches" endterm="panes.fuzzy.matches.title"/>, or <link linkend="panes.glossary" endterm="panes.glossary.title"/> pane and use <link linkend="menus.edit" endterm="menus.edit.title"/><link linkend="menus.edit.search.project" endterm="menus.edit.search.project.title"/>. The selection is automatically
   entered in the search field.</para>
 
 
@@ -31,12 +21,12 @@
   
   <para>Matches will be displayed in bold blue characters.</para>
 
-  <example id="search.for.doitsu">
-	<title id="search.for.doitsu.title">Search for ドイツ</title>
+  <example xml:id="search.for.doitsu">
+	<title xml:id="search.for.doitsu.title">Search for ドイツ</title>
 	<para>
-	  <programlisting>-- 148> | language = [[日本語]]・[[<token>ドイツ</token>語]]
+	  <programlisting>-- 148&gt; | language = [[日本語]]・[[<token>ドイツ</token>語]]
 ---------
--- 177> [[2001年]]、<token>ドイツ</token>の永住権を取得。
+-- 177&gt; [[2001年]]、<token>ドイツ</token>の永住権を取得。
 ---------</programlisting>
 	</para>
   </example>
@@ -76,10 +66,7 @@
       <para><guimenu>Edit</guimenu> &gt; <guimenuitem>Create Glossary
       Entry</guimenuitem>
       (<keycombo><keycap>C</keycap><keycap>S</keycap><keycap>G</keycap></keycombo>):
-      add a new glossary item. See <link linkend="menus.edit"
-      endterm="menus.edit.title"/><link
-      linkend="menus.edit.create.glossary.entry"
-      endterm="menus.edit.create.glossary.entry.title"/> for details.</para>
+      add a new glossary item. See <link linkend="menus.edit" endterm="menus.edit.title"/><link linkend="menus.edit.create.glossary.entry" endterm="menus.edit.create.glossary.entry.title"/> for details.</para>
     </listitem>
 
     <listitem>
@@ -88,16 +75,16 @@
     </listitem>
   </itemizedlist>
 
-  <section id="windows.text.search.methods">
-    <title id="windows.text.search.methods.title">Search type</title>
+  <section xml:id="windows.text.search.methods">
+    <title xml:id="windows.text.search.methods.title">Search type</title>
 
     <para>Use the radio buttons to select the type of search.</para>
 
 	<para>The following search types are available:</para>
 
     <variablelist>
-      <varlistentry id="windows.text.search.methods.exact">
-        <term id="windows.text.search.methods.exact.title">Exact search</term>
+      <varlistentry xml:id="windows.text.search.methods.exact">
+        <term xml:id="windows.text.search.methods.exact.title">Exact search</term>
         <listitem>
           <para>Search for the string exactly as entered in the search
           field.</para>
@@ -106,8 +93,8 @@
         </listitem>
       </varlistentry>
 
-      <varlistentry id="windows.text.search.methods.keyword">
-        <term id="windows.text.search.methods.keyword.title">Keyword
+      <varlistentry xml:id="windows.text.search.methods.keyword">
+        <term xml:id="windows.text.search.methods.keyword.title">Keyword
         search</term>
         <listitem>
           <para>Search for segments containing each of the search terms
@@ -146,14 +133,13 @@
 	</variablelist>
 
 	<variablelist>
-      <varlistentry id="windows.text.search.methods.regex">
-        <term id="windows.text.search.methods.regex.title">Regular
+      <varlistentry xml:id="windows.text.search.methods.regex">
+        <term xml:id="windows.text.search.methods.regex.title">Regular
         expressions</term>
         <listitem>
           <para>Treat the search string as a regular expression.</para>
 		  <para>Regular expressions are a very powerful way to search for
-		  general or complex patterns rather than exact strings. See the <link
-		  linkend="app.regex" endterm="app.regex.title"/> appendix for
+		  general or complex patterns rather than exact strings. See the <link linkend="app.regex" endterm="app.regex.title"/> appendix for
 		  details.</para>
 
 		  <warning>
@@ -166,8 +152,8 @@
     </variablelist>
   </section>
 
-  <section id="windows.text.search.options">
-	<title id="windows.text.search.options.title">Options</title>
+  <section xml:id="windows.text.search.options">
+	<title xml:id="windows.text.search.options.title">Options</title>
 	
 	<variablelist>
 	  <varlistentry>
@@ -264,17 +250,14 @@
 			<varlistentry>
 			  <term>Main Memory</term>
 			  <listitem>
-				<para>Include the project memory (<link
-				linkend="project.folder.project.save.tmx"
-				endterm="project.folder.project.save.tmx.title"/>).</para>
+				<para>Include the project memory (<link linkend="project.folder.project.save.tmx" endterm="project.folder.project.save.tmx.title"/>).</para>
 			  </listitem>
 			</varlistentry>
 
 			<varlistentry>
 			  <term>Reference TMs</term>
 			  <listitem>
-				<para>Include the translation memories located in the <link
-				linkend="project.folder.tm" endterm="project.folder.tm.title"/>
+				<para>Include the translation memories located in the <link linkend="project.folder.tm" endterm="project.folder.tm.title"/>
 				folder.</para>
 			  </listitem>
 			</varlistentry>
@@ -282,9 +265,7 @@
 			<varlistentry>
 			  <term>Glossaries</term>
 			  <listitem>
-				<para>Include the glossaries located in the <link
-				linkend="project.folder.glossary"
-				endterm="project.folder.glossary.title"/> folder.</para>
+				<para>Include the glossaries located in the <link linkend="project.folder.glossary" endterm="project.folder.glossary.title"/> folder.</para>
 			  </listitem>
 			</varlistentry>
 		  </variablelist>
@@ -298,8 +279,7 @@
 		  resources.</para>
 
 		  <para>OmegaT can conduct searches in any file that it can read as
-		  source file. See the <link linkend="file.filters"
-		  endterm="file.filters.title"/> chapter for details.</para>
+		  source file. See the <link linkend="file.filters" endterm="file.filters.title"/> chapter for details.</para>
 
 		  <para>TMX files are excluded from file searches since OmegaT does not
 		  recognize them as a source file format despite supporting them as
@@ -345,15 +325,14 @@
 	</variablelist>
   </section>
 
-  <section id="windows.text.search.result.display">
-    <title id="windows.text.search.result.display.title">Results display</title>
+  <section xml:id="windows.text.search.result.display">
+    <title xml:id="windows.text.search.result.display.title">Results display</title>
 
     <para>Matches are displayed in their order of appearance in the project. For
     translated segments, the original text is displayed above the translated
     text. Only the source text is displayed for untranslated segments.</para>
 
-    <para>Double-click on a segment to open it in the <link
-    linkend="panes.editor" endterm="panes.editor.title"/> pane.</para>
+    <para>Double-click on a segment to open it in the <link linkend="panes.editor" endterm="panes.editor.title"/> pane.</para>
 
     <para>You can also use the following shortcuts in the search results:</para>
 	
@@ -381,12 +360,12 @@
 	
 	<para>The selected segment is highlighted in green:</para>
 
-  	<example id="select.second.match">
-	  <title id="select.second.match.title">Select the second match</title>
+  	<example xml:id="select.second.match">
+	  <title xml:id="select.second.match.title">Select the second match</title>
 	  <para>
-		<programlisting>-- 148> | language = [[日本語]]・[[<token>ドイツ</token>語]]
+		<programlisting>-- 148&gt; | language = [[日本語]]・[[<token>ドイツ</token>語]]
 ---------
-<action>-- 177> [[2001年]]、<token>ドイツ</token>の永住権を取得。</action>
+<phrase remap="action">-- 177&gt; [[2001年]]、<token>ドイツ</token>の永住権を取得。</phrase>
 ---------</programlisting>
 	  </para>
 	</example>
@@ -403,8 +382,7 @@
 	  <varlistentry>
 		<term>Back to the initial segment on close</term>
 		<listitem>
-		  <para>When you close the search windows, the <link
-		  linkend="panes.editor" endterm="panes.editor.title"/> pane
+		  <para>When you close the search windows, the <link linkend="panes.editor" endterm="panes.editor.title"/> pane
 		  automatically goes back to the segment that it displayed before the
 		  search was started</para>
 		</listitem>
@@ -412,14 +390,12 @@
 	</variablelist>
   </section>
   
-  <section id="windows.text.search.filter">
-    <title id="windows.text.search.filter.title">Filter</title>
+  <section xml:id="windows.text.search.filter">
+    <title xml:id="windows.text.search.filter.title">Filter</title>
 
 	<para>Click on the <guibutton>Filter</guibutton> button to show only the 
-	matching search result segments in the <link linkend="panes.editor"
-	endterm="panes.editor.title"/> pane. To remove the filter, click on the
-	<guibutton>Remove Filter</guibutton> button at the top of the <link
-	linkend="panes.editor" endterm="panes.editor.title"/> pane, or reload the
+	matching search result segments in the <link linkend="panes.editor" endterm="panes.editor.title"/> pane. To remove the filter, click on the
+	<guibutton>Remove Filter</guibutton> button at the top of the <link linkend="panes.editor" endterm="panes.editor.title"/> pane, or reload the
 	project.</para>
   </section>
 </section>

@@ -1,14 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"../../../docbook-xml-4.5/docbookx.dtd">
-<section id="menus.tools">
-  <title id="menus.tools.title"><guimenu>Tools</guimenu></title>
+<?xml version="1.0" encoding="UTF-8" ?><!-- Converted by db4-upgrade version 1.1 -->
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="menus.tools">
+  <title xml:id="menus.tools.title"><guimenu>Tools</guimenu></title>
 
   <para>This menu gives you access to a number of tools, including QA
   validation, match reports, an aligner, and scripting.</para>
 
-  <example id="example.check.issues">
-	<title id="example.check.issues.title">Shortcut description example</title>
+  <example xml:id="example.check.issues">
+	<title xml:id="example.check.issues.title">Shortcut description example</title>
 	<para>On Windows and Linux:
 	<keycombo><keycap>Control</keycap><keycap>Shift</keycap><keycap>V</keycap></keycombo></para>
 
@@ -20,8 +18,8 @@
   </example>
 
   <variablelist>
-    <varlistentry id="menus.tools.check.issues">
-      <term id="menus.tools.check.issues.title"><guimenuitem>Check
+    <varlistentry xml:id="menus.tools.check.issues">
+      <term xml:id="menus.tools.check.issues.title"><guimenuitem>Check
       Issues...</guimenuitem>
       <keycombo><keycap>C</keycap><keycap>S</keycap><keycap>V</keycap></keycombo></term>
       <listitem>
@@ -34,8 +32,7 @@
           <listitem>
             <para><guilabel>Tag Issues</guilabel> (always selected): detects
             missing or misplaced tags, including custom tags and flagged
-            text. See the <link linkend="dialogs.preferences.tag.processing"
-            endterm="dialogs.preferences.tag.processing.title"/> preferences for
+            text. See the <link linkend="dialogs.preferences.tag.processing" endterm="dialogs.preferences.tag.processing.title"/> preferences for
             details.</para>
 
 			<note>
@@ -47,24 +44,20 @@
             <para><guilabel>Spelling Issues</guilabel> (optional): detects
             spelling mistakes. It works when there is a supported language module,
             or a user local custom dictionary for the target language.
-            See the <link linkend="dialog.preferences.spellchecker"
-            endterm="dialog.preferences.spellchecker.title"/> preferences for
+            See the <link linkend="dialog.preferences.spellchecker" endterm="dialog.preferences.spellchecker.title"/> preferences for
             details.</para>
           </listitem>
 
           <listitem>
             <para><guilabel>Terminology Issues</guilabel> (optional): detects
             all the glossary items that are not properly translated. See the
-            <link linkend="dialogs.preferences.glossary"
-            endterm="dialogs.preferences.glossary.title"/> preferences for
+            <link linkend="dialogs.preferences.glossary" endterm="dialogs.preferences.glossary.title"/> preferences for
             details.</para>
           </listitem>
 
 		  <listitem>
             <para><guilabel>LanguageTool Issues</guilabel> (optional): detects
-            grammatical or typographical issues. See the <link
-            linkend="dialog.preferences.languagetool.plugin"
-            endterm="dialog.preferences.languagetool.plugin.title"/> preferences
+            grammatical or typographical issues. See the <link linkend="dialog.preferences.languagetool.plugin" endterm="dialog.preferences.languagetool.plugin.title"/> preferences
             for details.</para>
           </listitem>
         </itemizedlist>
@@ -88,15 +81,11 @@
 
 			<note>
 			  <para>To force issue checking each time you leave a segment,
-			  enable the <link
-			  linkend="dialogs.preferences.editor.validate.tags.when.leaving.a.segment"
-			  endterm="dialogs.preferences.editor.validate.tags.when.leaving.a.segment.title"/>
+			  enable the <link linkend="dialogs.preferences.editor.validate.tags.when.leaving.a.segment" endterm="dialogs.preferences.editor.validate.tags.when.leaving.a.segment.title"/>
 			  preference.</para>
 
 			  <para>To prevent the creation of translated files if tag issues are 
-			  found, enable the <link
-			  linkend="dialogs.preferences.tag.processing.do.not.allow.creating.translated.documents.with.tag.issues"
-			  endterm="dialogs.preferences.tag.processing.do.not.allow.creating.translated.documents.with.tag.issues.title"/>
+			  found, enable the <link linkend="dialogs.preferences.tag.processing.do.not.allow.creating.translated.documents.with.tag.issues" endterm="dialogs.preferences.tag.processing.do.not.allow.creating.translated.documents.with.tag.issues.title"/>
 			  preference.</para>
 			</note>
           </listitem>
@@ -104,9 +93,8 @@
       </listitem>
     </varlistentry>
 
-    <varlistentry id="menus.tools.check.issues.for.current.document">
-      <term
-      id="menus.tools.check.issues.for.current.document.title"><guimenuitem>Check
+    <varlistentry xml:id="menus.tools.check.issues.for.current.document">
+      <term xml:id="menus.tools.check.issues.for.current.document.title"><guimenuitem>Check
       Issues for Current File</guimenuitem></term>
       <listitem>
         <para>As above, but only for the document currently displayed in the
@@ -114,19 +102,14 @@
       </listitem>
     </varlistentry>
 
-    <varlistentry id="menus.tools.statistics">
-      <term
-      id="menus.tools.statistics.title"><guimenuitem>Statistics</guimenuitem></term>
+    <varlistentry xml:id="menus.tools.statistics">
+      <term xml:id="menus.tools.statistics.title"><guimenuitem>Statistics</guimenuitem></term>
       <listitem>
         <para>Opens a new window and displays project statistics such as the
         overall project word count or segment totals, and totals for every file
         in the project.</para>
 
-		<para>The data is saved in the <link
-		linkend="project.folder.project.stats"
-		endterm="project.folder.project.stats.title"/> file located in the <link
-		linkend="project.folder.omegat.folder"
-		endterm="project.folder.omegat.folder.title"/> folder of the
+		<para>The data is saved in the <link linkend="project.folder.project.stats" endterm="project.folder.project.stats.title"/> file located in the <link linkend="project.folder.omegat.folder" endterm="project.folder.omegat.folder.title"/> folder of the
 		project.</para>
 
 		<note>
@@ -136,34 +119,27 @@
 		  <itemizedlist>
 			<listitem>
 			  <para>File filter settings: some filters allow for extra parts to
-			  be considered for translation. See the file filter <link
-			  linkend="filters.options">options</link> for details.</para>
+			  be considered for translation. See the file filter <link linkend="filters.options">options</link> for details.</para>
 			</listitem>
 
 			<listitem>
 			  <para>Segmentation rules: different rules will generate a
-			  different number of segment. See the <link
-			  linkend="app.segmentation" endterm="app.segmentation.title"/>
+			  different number of segment. See the <link linkend="app.segmentation" endterm="app.segmentation.title"/>
 			  appendix for details.</para>
 			</listitem>
 
 			<listitem>
 			  <para>Tags: OmegaT tags are never counted in the statistics but in
 			  some cases can split terms and create discrepancies in the way
-			  OmegaT counts them. See the <link
-			  linkend="dialogs.project.properties.hide.tags"
-			  endterm="dialogs.project.properties.hide.tags.title"/>
-			  preference in the <link linkend="dialogs.project.properties"
-			  endterm="dialogs.project.properties.title"/> dialog for
+			  OmegaT counts them. See the <link linkend="dialogs.project.properties.hide.tags" endterm="dialogs.project.properties.hide.tags.title"/>
+			  preference in the <link linkend="dialogs.project.properties" endterm="dialogs.project.properties.title"/> dialog for
 			  details.</para>
 			</listitem>
 
 			<listitem>
 			  <para>Custom tags and flagged text: as with OmegaT tags, they are
 			  not counted by default in the statistics, but you can have OmegaT
-			  count them as words. See the <link
-			  linkend="dialogs.preferences.tag.processing.count.protected.text.and.custom.tags.in.statistics"
-			  endterm="dialogs.preferences.tag.processing.count.protected.text.and.custom.tags.in.statistics.title"/>
+			  count them as words. See the <link linkend="dialogs.preferences.tag.processing.count.protected.text.and.custom.tags.in.statistics" endterm="dialogs.preferences.tag.processing.count.protected.text.and.custom.tags.in.statistics.title"/>
 			  preference for details.</para>
 			</listitem>
 		  </itemizedlist>
@@ -171,47 +147,38 @@
       </listitem>
     </varlistentry>
 
-    <varlistentry id="menus.tools.match.statistics">
-      <term id="menus.tools.match.statistics.title"><guimenuitem>Match
+    <varlistentry xml:id="menus.tools.match.statistics">
+      <term xml:id="menus.tools.match.statistics.title"><guimenuitem>Match
       Statistics</guimenuitem></term>
       <listitem>
         <para>Displays the match statistics for the project, which consist of 
         the number of repetitions, exact matches, fuzzy matches and no-matches 
         for segments, words and characters.</para>
 
-		<para>The data is saved in the <link
-		linkend="project.folder.omegat.project.stats.match"
-		endterm="project.folder.omegat.project.stats.match.title"/> file located in the <link
-		linkend="project.folder.omegat.folder"
-		endterm="project.folder.omegat.folder.title"/> folder of the
+		<para>The data is saved in the <link linkend="project.folder.omegat.project.stats.match" endterm="project.folder.omegat.project.stats.match.title"/> file located in the <link linkend="project.folder.omegat.folder" endterm="project.folder.omegat.folder.title"/> folder of the
 		project.</para>
       </listitem>
     </varlistentry>
 	
-    <varlistentry id="menus.tools.match.statistics.per.file">
-      <term id="menus.tools.match.statistics.per.file.title"><guimenuitem>Match
+    <varlistentry xml:id="menus.tools.match.statistics.per.file">
+      <term xml:id="menus.tools.match.statistics.per.file.title"><guimenuitem>Match
       Statistics per File</guimenuitem></term>
       <listitem>
         <para>Displays the individual match statistics, which consist of the
         number of repetitions, exact matches, fuzzy matches and no-matches for
         segments, words and characters, for each file in the project.</para>
 
-		<para>The data is saved in the <link
-		linkend="project.folder.omegat.project.stats.match.per.file"
-		endterm="project.folder.omegat.project.stats.match.per.file.title"/> file located in the <link
-		linkend="project.folder.omegat.folder"
-		endterm="project.folder.omegat.folder.title"/> folder of the
+		<para>The data is saved in the <link linkend="project.folder.omegat.project.stats.match.per.file" endterm="project.folder.omegat.project.stats.match.per.file.title"/> file located in the <link linkend="project.folder.omegat.folder" endterm="project.folder.omegat.folder.title"/> folder of the
 		project.</para>
       </listitem>
     </varlistentry>
 
-    <varlistentry id="menus.tools.align.files">
-      <term id="menus.tools.align.files.title"><guimenuitem>Align
+    <varlistentry xml:id="menus.tools.align.files">
+      <term xml:id="menus.tools.align.files.title"><guimenuitem>Align
       Files...</guimenuitem></term>
       <listitem>
         <para>Select the two files to align (the source file and its
-        translation) and click <guibutton>OK</guibutton> to open the <link
-        linkend="windows.aligner" endterm="windows.aligner.title"/>
+        translation) and click <guibutton>OK</guibutton> to open the <link linkend="windows.aligner" endterm="windows.aligner.title"/>
         window.</para>
 
         <para>The supported file formats depend on your project setting. See the
@@ -223,12 +190,10 @@
       </listitem>
     </varlistentry>
 
-    <varlistentry id="menus.tools.scripting">
-      <term
-      id="menus.tools.scripting.title"><guimenuitem>Scripting...</guimenuitem></term>
+    <varlistentry xml:id="menus.tools.scripting">
+      <term xml:id="menus.tools.scripting.title"><guimenuitem>Scripting...</guimenuitem></term>
       <listitem>
-        <para>Opens the <link linkend="windows.scripts"
-        endterm="windows.scripts.title"/> window, which allows you to set the
+        <para>Opens the <link linkend="windows.scripts" endterm="windows.scripts.title"/> window, which allows you to set the
         location where scripts are stored, as well as write and run scripts, and
         assign them a shortcut.</para>
 		<para>The list below this item displays 12 potential slots for
@@ -256,13 +221,11 @@
       </listitem>
     </varlistentry>
 
-    <varlistentry id="menus.tools.external.search.commands">
-      <term id="menus.tools.external.search.commands.title">External search
+    <varlistentry xml:id="menus.tools.external.search.commands">
+      <term xml:id="menus.tools.external.search.commands.title">External search
       commands</term>
       <listitem>
-        <para>If you have defined external searches in the <link
-        linkend="dialogs.preferences.external.searches"
-        endterm="dialogs.preferences.external.searches.title"/> preferences,
+        <para>If you have defined external searches in the <link linkend="dialogs.preferences.external.searches" endterm="dialogs.preferences.external.searches.title"/> preferences,
         they are listed and accessible here.</para>
       </listitem>
     </varlistentry>

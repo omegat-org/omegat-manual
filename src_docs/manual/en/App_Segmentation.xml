@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"../../../docbook-xml-4.5/docbookx.dtd">
-<section id="app.segmentation">
-  <title id="app.segmentation.title">Segmentation</title>
+<?xml version="1.0" encoding="UTF-8" ?><!-- Converted by db4-upgrade version 1.1 -->
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="app.segmentation">
+  <title xml:id="app.segmentation.title">Segmentation</title>
 
-  <section id="dialog.preferences.segmentation.setup.type">
-	<title id="dialog.preferences.segmentation.setup.type.title">Paragraph or
+  <section xml:id="dialog.preferences.segmentation.setup.type">
+	<title xml:id="dialog.preferences.segmentation.setup.type.title">Paragraph or
 	sentence?</title>
 	
 	<para>Translation memory tools work with textual units called segments. When
@@ -13,9 +11,7 @@
 	with its translation in the project memory, and subsequently used to match
 	other source segments in the project.</para>
 
-	<para>To specify the type of segmentation, use the  <link
-	linkend="dialogs.project.properties.options.segmentation"
-	endterm="dialogs.project.properties.options.segmentation.title"/> project
+	<para>To specify the type of segmentation, use the  <link linkend="dialogs.project.properties.options.segmentation" endterm="dialogs.project.properties.options.segmentation.title"/> project
 	property.</para>
 
 	<para>Segments are by default <emphasis role="bold">paragraphs</emphasis>
@@ -39,9 +35,8 @@
 	technical or legal documents.</para>
 
 	<variablelist>
-	  <varlistentry id="dialogs.preferences.segmentation.setup.structure.level.segmentation">
-		<term
-			id="dialogs.preferences.segmentation.setup.structure.level.segmentation.title">Paragraph-Level
+	  <varlistentry xml:id="dialogs.preferences.segmentation.setup.structure.level.segmentation">
+		<term xml:id="dialogs.preferences.segmentation.setup.structure.level.segmentation.title">Paragraph-Level
 		segmentation</term>
 
 		<listitem>
@@ -57,9 +52,8 @@
 		</listitem>
 	  </varlistentry>
 
-	  <varlistentry id="dialogs.preferences.segmentation.rules.sentence.level.segmentation">
-        <term
-			id="dialogs.preferences.segmentation.rules.sentence.level.segmentation.title">Sentence-level
+	  <varlistentry xml:id="dialogs.preferences.segmentation.rules.sentence.level.segmentation">
+        <term xml:id="dialogs.preferences.segmentation.rules.sentence.level.segmentation.title">Sentence-level
         segmentation</term>
 
         <listitem>
@@ -76,13 +70,11 @@
 		  
 		  <itemizedlist>
 			<listitem>
-			  <para>the text before the location corresponds to a <emphasis
-			  role="bold">Before</emphasis> rule,</para>
+			  <para>the text before the location corresponds to a <emphasis role="bold">Before</emphasis> rule,</para>
 			</listitem>
 			
 			<listitem>
-			  <para>and the text after the location corresponds to the associated <emphasis
-			  role="bold">After</emphasis> rule.</para>
+			  <para>and the text after the location corresponds to the associated <emphasis role="bold">After</emphasis> rule.</para>
 			</listitem>
 		  </itemizedlist>
 
@@ -93,8 +85,8 @@
     </variablelist>
   </section>
   
-  <section id="dialog.preferences.segmentation.setup.scope">
-	<title id="dialog.preferences.segmentation.setup.scope.title">Global or
+  <section xml:id="dialog.preferences.segmentation.setup.scope">
+	<title xml:id="dialog.preferences.segmentation.setup.scope.title">Global or
 	local?</title>
 
 	<note>
@@ -105,25 +97,22 @@
 	<para>By default, segmentation settings are global and shared by all
 	projects.</para>
 
-	<para>Use the <link linkend="dialogs.project.properties.local.segmentation"
-	endterm="dialogs.project.properties.local.segmentation.title"/> project
+	<para>Use the <link linkend="dialogs.project.properties.local.segmentation" endterm="dialogs.project.properties.local.segmentation.title"/> project
 	property to limit the scope of the segmentation rules to the current
 	project.</para>
 
 	<para>You can achieve a similar result by starting OmegaT from the command
-	line. See the <link linkend="launch.with.command.line"
-	endterm="launch.with.command.line.title"/> how-to for details.</para>
+	line. See the <link linkend="launch.with.command.line" endterm="launch.with.command.line.title"/> how-to for details.</para>
 	
 	<para>If you use local rules, you can still access the global rules, but
 	modifying them will have no effect on your project.</para>
   </section>
 
 
-  <section id="dialog.preferences.segmentation.setup.rules.based.segmentation">
-	<title id="dialog.preferences.segmentation.setup.rules.based.segmentation.title">Rules</title>
+  <section xml:id="dialog.preferences.segmentation.setup.rules.based.segmentation">
+	<title xml:id="dialog.preferences.segmentation.setup.rules.based.segmentation.title">Rules</title>
 	<para>OmegaT provides predefined segmentation rules, and the translator can
-	use regular expressions to modify them. See the <link linkend="app.regex"
-	endterm="app.regex.title"/> appendix for details.</para>
+	use regular expressions to modify them. See the <link linkend="app.regex" endterm="app.regex.title"/> appendix for details.</para>
 
 	<para>As a reminder, rules work the following way: when a rule matches,
 	OmegaT puts a marker at the match location so that rules that come after
@@ -138,8 +127,8 @@
 	  translation will still be in the project memory.</para>
 	</warning>
 
-	<table id="segmentation.simple.examples">
-	  <title id="segmentation.simple.examples.title">A few simple examples</title>
+	<table xml:id="segmentation.simple.examples">
+	  <title xml:id="segmentation.simple.examples.title">A few simple examples</title>
       <tgroup cols="5">
 		<colspec align="left" colnum="1"/>
 		<colspec align="left" colnum="2"/>

@@ -1,10 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"../../../docbook-xml-4.5/docbookx.dtd"
-[<!ENTITY % manualvariables SYSTEM "manualvariables.mod"> %manualvariables;]>
-
-<section id="app.regex">
-  <title id="app.regex.title">Regular expressions</title>
+<?xml version="1.0" encoding="UTF-8" ?><!-- Converted by db4-upgrade version 1.1 -->
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:id="app.regex">
+  <title xml:id="app.regex.title">Regular expressions</title>
 
   <para>This appendix is intended for users interested in exploring a powerful
   way to boost their productivity. Although seen as daunting and complex, even
@@ -59,14 +55,11 @@
     <varlistentry>
       <term>Searches</term>
       <listitem>
-        <para>Searches include a <link
-        linkend="windows.text.search.methods.regex"
-        endterm="windows.text.search.methods.regex.title"/> option that
+        <para>Searches include a <link linkend="windows.text.search.methods.regex" endterm="windows.text.search.methods.regex.title"/> option that
         allows you to make extremely powerful searches across your
         files.</para>
 
-        <para>The same option in the <link linkend="windows.text.replace"
-        endterm="windows.text.replace.title"/> dialog allows you to apply
+        <para>The same option in the <link linkend="windows.text.replace" endterm="windows.text.replace.title"/> dialog allows you to apply
         regular expressions to both the search and replaced text.</para>
       </listitem>
     </varlistentry>
@@ -75,9 +68,7 @@
       <term>Custom tags</term>
       <listitem>
         <para>Custom tags are tags defined with regular expressions that are
-        handled exactly like native OmegaT tags. See the <link
-        linkend="dialogs.preferences.tag.processing.regular.expressions.for.custom.tags"
-        endterm="dialogs.preferences.tag.processing.regular.expressions.for.custom.tags.title"/>
+        handled exactly like native OmegaT tags. See the <link linkend="dialogs.preferences.tag.processing.regular.expressions.for.custom.tags" endterm="dialogs.preferences.tag.processing.regular.expressions.for.custom.tags.title"/>
         preference for details.</para>
 
 		<para>Use the <code>|</code> (OR) character to separate individual
@@ -88,9 +79,7 @@
     <varlistentry>
       <term>Flagged text</term>
       <listitem>
-        <para>The <link
-        linkend="dialogs.preferences.tag.processing.regular.expressions.for.fragments.that.should.be.removed.from.translation"
-        endterm="dialogs.preferences.tag.processing.regular.expressions.for.fragments.that.should.be.removed.from.translation.title"/>
+        <para>The <link linkend="dialogs.preferences.tag.processing.regular.expressions.for.fragments.that.should.be.removed.from.translation" endterm="dialogs.preferences.tag.processing.regular.expressions.for.fragments.that.should.be.removed.from.translation.title"/>
         preference allows you to define strings that OmegaT will mark in red by
         default, and treat as extraneous tags for validation purposes.</para>
 
@@ -103,8 +92,7 @@
       <term>Text highlighting in alignments</term>
       <listitem>
         <para>Visual cues can help verifying that your alignment is correct. The
-        <link linkend="windows.aligner.adjust.highlight"
-        endterm="windows.aligner.adjust.highlight.title"/> setting allows you to
+        <link linkend="windows.aligner.adjust.highlight" endterm="windows.aligner.adjust.highlight.title"/> setting allows you to
         define strings that OmegaT will highlight in the aligned
         documents.</para>
 
@@ -118,8 +106,7 @@
       <listitem>
         <para>Segmentation rules and language patterns are defined with regular
         expressions. You can modify them freely to improve the segmentation of a
-        document or add additional general rules. See the <link
-        linkend="app.segmentation" endterm="app.segmentation.title"/> appendix for
+        document or add additional general rules. See the <link linkend="app.segmentation" endterm="app.segmentation.title"/> appendix for
         details.</para>
 
         <para>Segmentation or exception rules define the position in a
@@ -135,8 +122,8 @@
     </varlistentry>
   </variablelist>
 
-  <section id="app.regex.four.rules">
-    <title id="app.regex.four.rules.title">The 4 rules</title>
+  <section xml:id="app.regex.four.rules">
+    <title xml:id="app.regex.four.rules.title">The 4 rules</title>
 
     <para>Regular expressions are used to find text, including characters that
     are not visible on the screen or when printed out, such as spaces, tabs, or
@@ -194,8 +181,7 @@
             describes a small subset of letters that take on a special
             meaning.</para>
 
-			<para>Consult the sites in the <link linkend="app.regex.tools"
-			endterm="app.regex.tools.title"/> section below for information on
+			<para>Consult the sites in the <link linkend="app.regex.tools" endterm="app.regex.tools.title"/> section below for information on
 			combinations not covered here.</para>
           </note>
         </listitem>
@@ -207,8 +193,7 @@
           <para>That special meaning has to be cancelled by another character to
           match the character itself.</para>
 
-          <para>The full list of characters is presented <link
-          linkend="app.regex.twelve.characters">below</link>. One example is
+          <para>The full list of characters is presented <link linkend="app.regex.twelve.characters">below</link>. One example is
           <literal>.</literal>: on its own, it has the special meaning of
           matching <emphasis>any single character</emphasis>.</para>
 
@@ -236,8 +221,8 @@
     </variablelist>
   </section>
 
-  <section id="app.regex.twelve.characters">
-    <title id="app.regex.twelve.characters.title">The 12 characters</title>
+  <section xml:id="app.regex.twelve.characters">
+    <title xml:id="app.regex.twelve.characters.title">The 12 characters</title>
   
     <para>The twelve special characters are the <emphasis>backslash</emphasis>
     <literal>\</literal>, the <emphasis>caret</emphasis> <literal>^</literal>,
@@ -271,7 +256,7 @@
 
                 <tbody>
                   <row>
-                    <entry></entry>
+                    <entry/>
                     <entry><literal>0\.[0-9]</literal></entry>
                   </row>
 
@@ -313,8 +298,7 @@
             <emphasis>caret</emphasis> character matches the beginning of a
             line.</para>
 
-            <para>When it is the first character in <link
-            linkend="app.regex.types.of.expressions.classes">a character class
+            <para>When it is the first character in <link linkend="app.regex.types.of.expressions.classes">a character class
             enclosed in brackets</link>, it matches all the characters that are
             not part of that class.</para>
 
@@ -325,7 +309,7 @@
 
                 <tbody>
                   <row>
-                    <entry></entry>
+                    <entry/>
                     <entry>
                       <orderedlist>
                         <listitem>
@@ -392,7 +376,7 @@
 
                 <tbody>
                   <row>
-                    <entry></entry>
+                    <entry/>
                     <entry><literal>^\w+:$</literal></entry>
                   </row>
 
@@ -431,7 +415,7 @@
 
                 <tbody>
                   <row>
-                    <entry></entry>
+                    <entry/>
                     <entry><literal>c.t</literal></entry>
                   </row>
 
@@ -456,9 +440,9 @@
                       start with “c” and ending with “t”, but are
                       split across more than one line.</para>
                       <para>What is the missing letter?</para>
-                        <simplelist>
+                        <simplelist type="vert">
                           <member><literal>c</literal></member>
-                          <member><literal></literal></member>
+                          <member><literal/></member>
                           <member><literal>t</literal></member>
                         </simplelist>
                     </entry>
@@ -482,7 +466,7 @@
 
                 <tbody>
                   <row>
-                    <entry></entry>
+                    <entry/>
                     <entry><literal>^An|^The</literal></entry>
                   </row>
 
@@ -490,7 +474,7 @@
                     <entry>Matches</entry>
                     <entry>
                       <para>The initial “An” or “The” in phrases such as:
-                        <simplelist>
+                        <simplelist type="vert">
                           <member>“An apple a day…”</member>
                           <member>“The apple of my eye…”</member>
                         </simplelist>
@@ -502,7 +486,7 @@
                     <entry>Does not match</entry>
                     <entry>
                       <para>The initial “An” or “The” in phrases such as:
-                        <simplelist>
+                        <simplelist type="vert">
                           <member>“A story called <emphasis>An Unsung
                           Hero</emphasis>.”</member>
                           <member>“They work for <emphasis>The Daily
@@ -531,7 +515,7 @@
 
                 <tbody>
                   <row>
-                    <entry></entry>
+                    <entry/>
                     <entry>
                       <literal>an?␣</literal> (where “␣” represents a
                       single space).
@@ -542,7 +526,7 @@
                     <entry>Matches</entry>
                     <entry>
                       <para>Either the “a ” or the “an ” in:
-                        <simplelist>
+                        <simplelist type="vert">
                           <member>“I have a question.”</member>
                           <member>“I know an excellent doctor.”</member>
                         </simplelist>
@@ -558,7 +542,7 @@
                     <entry>Does not match</entry>
                     <entry>
                       <para>Neither the “a” nor the “an” in:
-                        <simplelist>
+                        <simplelist type="vert">
                           <member>The indefinite article: “a” (or
                           “an”).</member>
                         </simplelist>
@@ -585,7 +569,7 @@
 
                 <tbody>
                   <row>
-                    <entry></entry>
+                    <entry/>
                     <entry><literal>run\w*</literal></entry>
                   </row>
 
@@ -630,7 +614,7 @@
 
                 <tbody>
                   <row>
-                    <entry></entry>
+                    <entry/>
                     <entry><literal>\d+.d</literal></entry>
                   </row>
 
@@ -669,8 +653,7 @@
             the number of the group.</para>
 
             <note>
-              <para>The content of the group can also be used in the <link
-              linkend="windows.text.replace">replacement text</link>. Use
+              <para>The content of the group can also be used in the <link linkend="windows.text.replace">replacement text</link>. Use
               <literal>$<option>n</option></literal>, where <option>n</option>
               is the number of the group defined in the search.</para>
             </note>
@@ -686,7 +669,7 @@
 
                 <tbody>
                   <row>
-                    <entry></entry>
+                    <entry/>
                     <entry><literal>(\b\w+\b)\h\1\b</literal></entry>
                   </row>
 
@@ -732,7 +715,7 @@
 
                 <tbody>
                   <row>
-                    <entry></entry>
+                    <entry/>
                     <entry><literal>^\d+\)</literal></entry>
                   </row>
 
@@ -742,7 +725,7 @@
                       <para>The sequence number (including the parenthesis) at
                       the beginning of each line in a list such as:</para>
 
-                      <simplelist>
+                      <simplelist type="vert">
                         <member>1) Apples</member>
                         <member>2) Oranges</member>
                         <member>3) Pears</member>
@@ -757,7 +740,7 @@
                       line.</para>
 
                       <para>Follow these steps:</para>
-                      <simplelist>
+                      <simplelist type="vert">
                         <member>Step 1) Preparation</member>
                         <member>Step 2) …</member>
                       </simplelist>
@@ -790,7 +773,7 @@
 
                 <tbody>
                   <row>
-                    <entry></entry>
+                    <entry/>
                     <entry><literal>li[cs]en[cs]e</literal></entry>
                   </row>
 
@@ -840,7 +823,7 @@
 
                 <tbody>
                   <row>
-                    <entry></entry>
+                    <entry/>
                     <entry><literal>\d{4}/\d{1,3}</literal></entry>
                   </row>
 
@@ -874,8 +857,8 @@
       </variablelist>
   </section>
 
-  <section id="app.regex.types.of.expressions">
-    <title id="app.regex.types.of.expressions.title">Lots of
+  <section xml:id="app.regex.types.of.expressions">
+    <title xml:id="app.regex.types.of.expressions.title">Lots of
     expressions</title>
 
     <para>This section presents various types of regular expression, ranging
@@ -888,16 +871,16 @@
       meaning</emphasis>.</para>
     </note>
 
-    <section id="app.regex.types.of.expressions.simple.expressions">
-      <title id="app.regex.types.of.expressions.simple.expressions.title">
+    <section xml:id="app.regex.types.of.expressions.simple.expressions">
+      <title xml:id="app.regex.types.of.expressions.simple.expressions.title">
         Simple expressions
       </title>
       <para>The simplest regular expression consist of a single character,
       or combination of a <literal>\</literal> and a character constituting a
       unit with a single meaning.</para>
       
-      <table id="app.regex.characters">
-        <title id="app.regex.characters.title">Characters</title>
+      <table xml:id="app.regex.characters">
+        <title xml:id="app.regex.characters.title">Characters</title>
 
         <tgroup align="left" cols="2" rowsep="1">
           <colspec align="left" colnum="1"/>
@@ -943,14 +926,13 @@
       </table>
     </section>
 
-    <section id="app.regex.types.of.expressions.case">
-      <title id="app.regex.types.of.expressions.case.title">Case</title>
+    <section xml:id="app.regex.types.of.expressions.case">
+      <title xml:id="app.regex.types.of.expressions.case.title">Case</title>
 
       
       <para>Ordinary OmegaT searches are case insensitive by default: they match
       both uppercase and lowercase characters, unless you choose to enable the
-      <link linkend="windows.text.search.options"
-      endterm="windows.text.search.options.title"/> option. Doing so makes the
+      <link linkend="windows.text.search.options" endterm="windows.text.search.options.title"/> option. Doing so makes the
       entire search expression case sensitive.</para>
 
       <para>In contrast, Regular expressions are case sensitive by default. This
@@ -984,8 +966,8 @@
       by a case sensitive “mega”, followed by a case insensitive “t”.</para>
     </section>
 
-    <section id="app.regex.types.of.expressions.classes">
-      <title id="app.regex.types.of.expressions.classes.title">Classes</title>
+    <section xml:id="app.regex.types.of.expressions.classes">
+      <title xml:id="app.regex.types.of.expressions.classes.title">Classes</title>
 
       <para>Regular expressions allow you to create sets of characters—known as
       <emphasis>classes</emphasis>. Searches will match any of the characters in
@@ -1024,8 +1006,8 @@
       classes never represent only the actual letter used to form the
       shorthand.</para>
       
-      <table id="app.regex.classes">
-        <title id="app.regex.classes.title">Examples of classes</title>
+      <table xml:id="app.regex.classes">
+        <title xml:id="app.regex.classes.title">Examples of classes</title>
 
         <tgroup align="left" cols="2" rowsep="1">
           <colspec align="left" colnum="1"/>
@@ -1110,10 +1092,8 @@
 				<para>Horizontal and vertical whitespace (generally preferred to
 				<literal>\s</literal>).</para>
 
-				<para><literal>\H </literal> is any character that is <emphasis
-				role="bold">not</emphasis> a horizontal white space, and
-				<literal>\V</literal> any character that is <emphasis
-				role="bold">not</emphasis> a vertical white space
+				<para><literal>\H </literal> is any character that is <emphasis role="bold">not</emphasis> a horizontal white space, and
+				<literal>\V</literal> any character that is <emphasis role="bold">not</emphasis> a vertical white space
 				(<literal>[^\h]</literal> and <literal>[^\v]</literal>,
 				respectively).</para>
 			  </entry>
@@ -1127,13 +1107,12 @@
       categories to specify character classes outside the alphanumeric character
       range. A few examples are presented in the table below.</para>
 
-      <para>See also <ulink
-      url="https://www.regular-expressions.info/unicode.html">Unicode Regular
-      Expressions</ulink> for a thorough review of Unicode regular
+      <para>See also <link xlink:href="https://www.regular-expressions.info/unicode.html">Unicode Regular
+      Expressions</link> for a thorough review of Unicode regular
       expressions.</para>
 
-      <table id="app.regex.unicode.blocks">
-        <title id="app.regex.unicode.blocks.title">Unicode blocks, scripts and
+      <table xml:id="app.regex.unicode.blocks">
+        <title xml:id="app.regex.unicode.blocks.title">Unicode blocks, scripts and
         categories</title>
         
         <tgroup align="left" cols="2" rowsep="1">
@@ -1149,9 +1128,8 @@
             <row>
               <entry><literal>\p{InGreek}</literal></entry>
               <entry>
-                <para>A character in the Greek block (<ulink
-                url="https://unicode.org/reports/tr18/#Blocks">Unicode
-                block</ulink>)</para>
+                <para>A character in the Greek block (<link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://unicode.org/reports/tr18/#Blocks">Unicode
+                block</link>)</para>
 				
                 <para><literal>\P{InGreek}</literal> is any character that is
                 <emphasis role="bold">not</emphasis> in the Greek block.</para>
@@ -1163,27 +1141,24 @@
               <entry>
                 <para>A logogram
                 (<emphasis>Han</emphasis>/<emphasis>kanji</emphasis>/<emphasis>hanja</emphasis>
-                character) found in CJK languages (<ulink
-                url="https://unicode.org/reports/tr18/#Script_Property">Unicode
-                script</ulink>)</para>
+                character) found in CJK languages (<link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://unicode.org/reports/tr18/#Script_Property">Unicode
+                script</link>)</para>
               </entry>
             </row>
           
             <row>
               <entry><literal>\p{Lu}</literal></entry>
               <entry>
-                <para>An uppercase letter (<ulink
-                url="https://unicode.org/reports/tr18/#General_Category_Property">Unicode
-                category</ulink>)</para>
+                <para>An uppercase letter (<link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://unicode.org/reports/tr18/#General_Category_Property">Unicode
+                category</link>)</para>
               </entry>
             </row>
           
             <row>
               <entry><literal>\p{Sc}</literal></entry>
               <entry>
-                <para>A currency symbol, which is also a <ulink
-                url="https://unicode.org/reports/tr18/#General_Category_Property">Unicode
-                category</ulink>.</para>
+                <para>A currency symbol, which is also a <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://unicode.org/reports/tr18/#General_Category_Property">Unicode
+                category</link>.</para>
               </entry>
             </row>
           </tbody>
@@ -1191,18 +1166,17 @@
       </table>
     </section>
 
-    <section id="app.regex.more.advanced.expressions">
-      <title id="app.regex.more.advanced.expressions.title">More advanced
+    <section xml:id="app.regex.more.advanced.expressions">
+      <title xml:id="app.regex.more.advanced.expressions.title">More advanced
       expressions</title>
       
       <para>Some expressions specify a position rather than a character. They
       indicate where in the text to look for the match, but do not include any
       characters in that match. The table below list a few of the more common
-      examples. Consult the sites in the <link linkend="app.regex.tools"
-      endterm="app.regex.tools.title" /> section for more information.</para>
+      examples. Consult the sites in the <link linkend="app.regex.tools" endterm="app.regex.tools.title"/> section for more information.</para>
 
-      <table id="app.regex.boundary.matchers">
-        <title id="app.regex.boundary.matchers.title">Expressions that mark a position</title>
+      <table xml:id="app.regex.boundary.matchers">
+        <title xml:id="app.regex.boundary.matchers.title">Expressions that mark a position</title>
       
         <tgroup align="left" cols="2" rowsep="1">
           <colspec align="left" colnum="1"/>
@@ -1297,15 +1271,15 @@
     </section>  
   </section>
 
-  <section id="app.regex.more.examples">
-    <title id="app.regex.more.examples.title">More examples</title>
+  <section xml:id="app.regex.more.examples">
+    <title xml:id="app.regex.more.examples.title">More examples</title>
 
     <para>This section presents a few examples demonstrating how the various
     expressions described above can be combined to perform powerful searches in
     OmegaT.</para>
     
-    <table id="regex.examples">
-      <title id="regex.examples.title">Examples of regular expressions that use
+    <table xml:id="regex.examples">
+      <title xml:id="regex.examples.title">Examples of regular expressions that use
       the above expressions</title>
 
       <tgroup align="left" cols="2" rowsep="1">
@@ -1418,12 +1392,11 @@
     </table>
   </section>
 
-  <section id="app.regex.tools">
-    <title id="app.regex.tools.title">References</title>
+  <section xml:id="app.regex.tools">
+    <title xml:id="app.regex.tools.title">References</title>
 
     <para>Although OmegaT does not offer fancy colouring for your regular
-    expressions, you can get a lot of practice by using the <link
-    linkend="windows.text.search" endterm="windows.text.search.title"/> window
+    expressions, you can get a lot of practice by using the <link linkend="windows.text.search" endterm="windows.text.search.title"/> window
     since OmegaT does colour the matching results.</para>
     
     <para>A few additional resources are presented below.</para>
@@ -1431,9 +1404,9 @@
     <para>The Java technical reference is useful as a canonical reference.
 
       <variablelist>
-        <varlistentry id="app.regex.java">
-          <term id="app.regex.java.title"><ulink url="&javaregex;">Java Regex
-          documentation</ulink></term>
+        <varlistentry xml:id="app.regex.java">
+          <term xml:id="app.regex.java.title"><link xlink:href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">Java Regex
+          documentation</link></term>
           <listitem>
             <para>The official reference for regular expressions used in
             Java.</para>
@@ -1445,9 +1418,8 @@
       following sites have proven very useful.
 
       <variablelist>
-        <varlistentry id="app.regex.tools.regex101">
-          <term id="app.regex.tools.regex101.title"><ulink
-          url="https://regex101.com">https://regex101.com</ulink></term>
+        <varlistentry xml:id="app.regex.tools.regex101">
+          <term xml:id="app.regex.tools.regex101.title"><link xlink:href="https://regex101.com">https://regex101.com</link></term>
           <listitem>
             <para>An online regular expression matcher that lets you enter the
             text you want to search and the regular expressions you want to
@@ -1455,9 +1427,8 @@
           </listitem>
         </varlistentry>
 
-        <varlistentry id="app.regex.tools.regular.expression.info">
-          <term id="app.regex.tools.regular.expression.info.title"><ulink
-          url="https://www.regular-expressions.info">https://www.regular-expressions.info</ulink></term>
+        <varlistentry xml:id="app.regex.tools.regular.expression.info">
+          <term xml:id="app.regex.tools.regular.expression.info.title"><link xlink:href="https://www.regular-expressions.info">https://www.regular-expressions.info</link></term>
           <listitem>
             <para>One of the most thorough regular expression tutorial and
             reference on the web.</para>
