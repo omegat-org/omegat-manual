@@ -45,7 +45,7 @@ tasks.register('manualHtmls') {
 ext.makeDocumentationTasks = { lang ->
 
     def copyCss = tasks.register("copyCss${lang.capitalize()}", Copy) {
-        description 'Copy Images and CSS file to target'
+        description 'Copy CSS and JS files to target'
         into(layout.buildDirectory.dir("docs/manual/${lang}/"))
         from fileTree(dir: "${documentRootDir}/docbook", includes: ['css/*', 'js/*'])
     }
@@ -85,10 +85,13 @@ tasks.register('firstSteps') {
 assemble.dependsOn firstSteps
 
 ext.makeFirstStepTask = { lang ->
+
     def firstStepsHtmlFinally = tasks.register("firstSteps${lang.capitalize()}Finally", Copy) {
-        from layout.projectDirectory.file("${documentRootDir}/style/omegat.css")
-        into layout.buildDirectory.dir("docs/greetings/${lang}/")
+        description 'Copy CSS files to target'
+        into(layout.buildDirectory.dir("docs/greetings/${lang}/"))
+        from fileTree(dir: "${documentRootDir}/docbook", includes: ['css/*'])
     }
+
     def firstStepsHtml = tasks.register("firstSteps${lang.capitalize()}", DocbookHtmlTask) {
         description 'Generate chunked HTML documentation'
         inputFile.set(file("${documentRootDir}/greeting/${lang}/First_Steps.xml"))
