@@ -20,12 +20,7 @@ All greeting pages have been successfully migrated to DocBook 5.
 
 ### Manuals
 
-Currently, only **two manual source files** have been migrated to DocBook 5:
-
-- [`src_docs/manual/en/sample.xml`](https://github.com/omegat-org/omegat-manual/blob/main/src_docs/manuScreenshot from 2025-05-24 15-36-14al/en/sample.xml)
-- [`src_docs/manual/en/OmegaTUsersManual_xinclude_full.xml`](https://github.com/omegat-org/omegat-manual/blob/main/src_docs/manual/en/OmegaTUsersManual_xinclude_full.xml)
-
-The `sample.xml` is a file to test the build logic.
+Migration is in-progress.
 
 ## Directory hierarchy
 
