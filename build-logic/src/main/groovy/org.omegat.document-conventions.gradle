@@ -66,7 +66,7 @@ ext.makeDocumentationTasks = { lang ->
 
     def docbookHtml = tasks.register("docbookHtml${lang.capitalize()}", DocbookHtmlTask) {
         description = 'Generate chunked HTML documentation'
-        styleSheetFile.set(layout.projectDirectory.file("${documentRootDir}/xsl/xhtml.xsl"))
+        styleSheetFile.set(layout.projectDirectory.file("${documentRootDir}/xsl/db5-xhtml.xsl"))
         inputFile.set(layout.projectDirectory.file("${documentRootDir}/manual/${lang}/OmegaTUsersManual_xinclude_full.xml"))
         outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/xhtml5/_index.html"))
         dependsOn(copyImages, copyCss)
@@ -74,10 +74,10 @@ ext.makeDocumentationTasks = { lang ->
 
     def whcToc = tasks.register("whcToc${lang.capitalize()}", TransformationTask) {
         description = 'Generates a whc header and index.'
-        styleSheetFile.set(layout.projectDirectory.file("${documentRootDir}/xsl/whc-toc.xsl"))
-        inputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/xhtml5/_index.html"))
+        styleSheetFile.set(layout.projectDirectory.file("${documentRootDir}/xsl/db5-whc-toc.xsl"))
+        inputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/xhtml5/_index.xml"))
         outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/xhtml5/toc.xml"))
-        dependsOn(docbookHtml)
+        dependsOn(docbookInclude)
     }
 
     def whcIndex = tasks.register("whcIndex${lang.capitalize()}", TransformationTask) {
