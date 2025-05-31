@@ -27,7 +27,7 @@ class DocbookHtmlTask extends TransformationTask {
         transformer.setParameter(new QName("persistent-toc"), new XdmAtomicValue(false))
         transformer.setParameter(new QName("persistent-toc-search"), new XdmAtomicValue(false))
         transformer.setParameter(new QName("chunk-section-depth"), new XdmAtomicValue(0))
-        transformer.setParameter(new QName("section-toc-depth"), new XdmAtomicValue(2))
+        transformer.setParameter(new QName("section-toc-depth"), new XdmAtomicValue(1))
         transformer.setParameter(new QName("html-extension"), new XdmAtomicValue(".html"))
         transformer.setParameter(new QName("output-media"), new XdmAtomicValue("screen"))
         transformer.setParameter(new QName("page-style"), new XdmAtomicValue("book"))
