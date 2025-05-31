@@ -82,8 +82,8 @@ ext.makeDocumentationTasks = { lang ->
 
     def whcIndex = tasks.register("whcIndex${lang.capitalize()}", TransformationTask) {
         description = 'Generates a whc header and index.'
-        styleSheetFile.set(layout.projectDirectory.file("${documentRootDir}/xsl/whc-index.xsl"))
-        inputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/xhtml5/index.html"))
+        styleSheetFile.set(layout.projectDirectory.file("${documentRootDir}/xsl/db5-whc-index.xsl"))
+        inputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/xhtml5/db5-all-included.xml"))
         outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/xhtml5/_whc-index.xml"))
         dependsOn(docbookHtml, whcToc)
     }
