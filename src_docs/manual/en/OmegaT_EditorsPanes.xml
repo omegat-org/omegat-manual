@@ -16,7 +16,7 @@
           <imagedata fileref="images/defaultOmegaTLayout.png"/>
         </imageobject>
         <imageobject role="fo">
-          <imagedata fileref="images/defaultOmegaTLayout.png" width="60%"/>
+          <imagedata fileref="images/defaultOmegaTLayout.png"/>
         </imageobject>
       </mediaobject>
     </figure>
@@ -88,11 +88,11 @@
                 <row>
                   <entry><inlinemediaobject>
                       <imageobject role="html">
-                        <imagedata fileref="images/Settings.png" width="60%"/>
+                        <imagedata fileref="images/Settings.png"/>
                       </imageobject>
 
                       <imageobject role="fo">
-                        <imagedata fileref="images/Settings.png" width="40%"/>
+                        <imagedata fileref="images/Settings.png"/>
                       </imageobject>
                     </inlinemediaobject></entry>
 
@@ -102,11 +102,11 @@
                 <row>
                   <entry><inlinemediaobject>
                       <imageobject role="html">
-                        <imagedata fileref="images/Minimize.png" width="60%"/>
+                        <imagedata fileref="images/Minimize.png"/>
                       </imageobject>
 
                       <imageobject role="fo">
-                        <imagedata fileref="images/Minimize.png" width="40%"/>
+                        <imagedata fileref="images/Minimize.png"/>
                       </imageobject>
                     </inlinemediaobject></entry>
 
@@ -117,11 +117,11 @@
                 <row>
                   <entry><inlinemediaobject>
                       <imageobject role="html">
-                        <imagedata fileref="images/Maximize.png" width="60%"/>
+                        <imagedata fileref="images/Maximize.png"/>
                       </imageobject>
 
                       <imageobject role="fo">
-                        <imagedata fileref="images/Maximize.png" width="40%"/>
+                        <imagedata fileref="images/Maximize.png"/>
                       </imageobject>
                     </inlinemediaobject></entry>
 
@@ -131,11 +131,11 @@
                 <row>
                   <entry><inlinemediaobject>
                       <imageobject role="html">
-                        <imagedata fileref="images/Restore.png" width="60%"/>
+                        <imagedata fileref="images/Restore.png"/>
                       </imageobject>
 
                       <imageobject role="fo">
-                        <imagedata fileref="images/Restore.png" width="40%"/>
+                        <imagedata fileref="images/Restore.png"/>
                       </imageobject>
                     </inlinemediaobject></entry>
 
@@ -146,11 +146,11 @@
                 <row>
                   <entry><inlinemediaobject>
                       <imageobject role="html">
-                        <imagedata fileref="images/Undock.png" width="60%"/>
+                        <imagedata fileref="images/Undock.png"/>
                       </imageobject>
 
                       <imageobject role="fo">
-                        <imagedata fileref="images/Undock.png" width="40%"/>
+                        <imagedata fileref="images/Undock.png"/>
                       </imageobject>
                     </inlinemediaobject></entry>
 
@@ -161,11 +161,11 @@
                 <row>
                   <entry><inlinemediaobject>
                       <imageobject role="html">
-                        <imagedata fileref="images/Dock.png" width="60%"/>
+                        <imagedata fileref="images/Dock.png"/>
                       </imageobject>
 
                       <imageobject role="fo">
-                        <imagedata fileref="images/Dock.png" width="40%"/>
+                        <imagedata fileref="images/Dock.png"/>
                       </imageobject>
                     </inlinemediaobject></entry>
 
