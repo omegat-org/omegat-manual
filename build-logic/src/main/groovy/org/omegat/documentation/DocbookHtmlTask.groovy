@@ -14,9 +14,11 @@ class DocbookHtmlTask extends TransformationTask {
 
     @Override
     protected void preTransform(XsltTransformer transformer, File source, File target) {
-        def baseDir = Paths.get(outputFile.get().asFile.parent).toUri().toString()
+        def outputBaseDir = Paths.get(outputFile.get().asFile.parent).toUri().toString()
+        def inputBaseDir = Paths.get(inputFile.get().asFile.parent).toUri().toString()
         transformer.setParameter(new QName("chunk"), new XdmAtomicValue("index.html"))
-        transformer.setParameter(new QName("chunk-output-base-uri"), new XdmAtomicValue(baseDir))
+        transformer.setParameter(new QName("chunk-output-base-uri"), new XdmAtomicValue(outputBaseDir))
+        transformer.setParameter(new QName("mediaobject-input-base-uri"), new XdmAtomicValue(inputBaseDir))
         transformer.setParameter(new QName("resource-base-uri"), new XdmAtomicValue(""))
         transformer.setParameter(new QName("persistent-toc"), new XdmAtomicValue(false))
         transformer.setParameter(new QName("persistent-toc-search"), new XdmAtomicValue(false))
