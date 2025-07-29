@@ -6,11 +6,14 @@ import org.gradle.api.file.RegularFile
 import org.gradle.api.logging.LogLevel
 import org.gradle.api.provider.Provider
 import org.gradle.api.tasks.InputFile
+import org.gradle.api.tasks.PathSensitive
+import org.gradle.api.tasks.PathSensitivity
 
 @CompileStatic
 abstract class AbstractDocumentTask  extends DefaultTask {
 
     @InputFile
+    @PathSensitive(PathSensitivity.RELATIVE)
     final Provider<RegularFile> inputFile = project.objects.fileProperty()
 
      protected void configureLogging() {

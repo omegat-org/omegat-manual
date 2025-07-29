@@ -48,7 +48,8 @@ ext.makeDocumentationTasks = { lang ->
     def docbookInclude = tasks.register("docbookInclude${lang.capitalize()}", TransformationTask) {
         styleSheetFile.set(layout.projectDirectory.file("${documentRootDir}/xsl/passthrough.xsl"))
         outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/xhtml5/db5-all-included.xml"))
-        inputFile.set(layout.projectDirectory.file("src_docs/manual/${lang}/OmegaTUsersManual_xinclude_full.xml"))
+        inputFile.set(layout.projectDirectory.file("${documentRootDir}/manual/${lang}/OmegaTUsersManual_xinclude_full.xml"))
+        contentFiles.set(fileTree(dir: layout.projectDirectory.dir("${documentRootDir}/manual/${lang}"), include: '*.xml'))
     }
 
     def copyCss = tasks.register("copyCss${lang.capitalize()}", Copy) {
@@ -69,6 +70,7 @@ ext.makeDocumentationTasks = { lang ->
         styleSheetFile.set(layout.projectDirectory.file("${documentRootDir}/xsl/db5-xhtml.xsl"))
         inputFile.set(layout.projectDirectory.file("${documentRootDir}/manual/${lang}/OmegaTUsersManual_xinclude_full.xml"))
         outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/xhtml5/index.html"))
+        contentFiles.set(fileTree(dir: layout.projectDirectory.dir("${documentRootDir}/manual/${lang}"), include: '*.xml'))
         dependsOn(copyImages, copyCss)
     }
 
