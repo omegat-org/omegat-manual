@@ -1155,6 +1155,7 @@
     <xsl:message select="'f:m/o baseuri:', f:mediaobject-input-base-uri(.)"/>
     <xsl:message select="'      fileref:', @fileref/string()"/>
     <xsl:message select="'     base-uri:', $base-uri"/>
+    <xsl:message select="' resolved-uri:', resolve-uri(@fileref, f:mediaobject-input-base-uri(.))"/>
     <xsl:message select="'          uri:', $uri"/>
     <xsl:message select="'     relative →',
                           (if (exists($uri))
