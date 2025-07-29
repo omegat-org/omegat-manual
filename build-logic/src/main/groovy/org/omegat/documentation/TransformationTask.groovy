@@ -3,7 +3,9 @@ package org.omegat.documentation
 import groovy.transform.CompileStatic
 import net.sf.saxon.lib.ResourceResolverWrappingURIResolver
 import net.sf.saxon.s9api.Processor
+import net.sf.saxon.s9api.QName
 import net.sf.saxon.s9api.Serializer
+import net.sf.saxon.s9api.XdmAtomicValue
 import net.sf.saxon.s9api.XsltCompiler
 import net.sf.saxon.s9api.XsltExecutable
 import net.sf.saxon.s9api.XsltTransformer
@@ -88,6 +90,7 @@ class TransformationTask extends AbstractDocumentTask {
         Processor processor = new Processor(false)
         XsltCompiler compiler = processor.newXsltCompiler()
         compiler.setResourceResolver(initializeResourceResolver())
+        compiler.setParameter(new QName("debug"), new XdmAtomicValue("mediaobject-uris"))
 
         // Compile the XSLT stylesheet
         XsltExecutable executable = compiler.compile(new StreamSource(xslFile))
