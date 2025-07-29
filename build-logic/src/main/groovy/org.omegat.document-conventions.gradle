@@ -7,7 +7,7 @@ plugins {
 }
 
 def documentRootDir = 'src_docs'
-def styleRootDir = file('src_docs/xsl')
+def styleRootDir = 'src_docs/xsl'
 
 tasks.register('genDocIndex', Copy) {
     def inputTemplate = layout.projectDirectory.file("${documentRootDir}/template/index.html")
@@ -48,7 +48,7 @@ ext.makeDocumentationTasks = { lang ->
     def docbookInclude = tasks.register("docbookInclude${lang.capitalize()}", TransformationTask) {
         styleSheetFile.set(layout.projectDirectory.file("${styleRootDir}/passthrough.xsl"))
         outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/db5-all-included.xml"))
-        inputFile.set(layout.projectDirectory.file("src_docs/manual/${lang}/OmegaTUsersManual_xinclude_full.xml"))
+        inputFile.set(layout.projectDirectory.file("${documentRootDir}/manual/${lang}/OmegaTUsersManual_xinclude_full.xml"))
         contentFiles.set(fileTree(dir: layout.projectDirectory.dir("${documentRootDir}/manual/${lang}"), include: '*.xml'))
     }
 
@@ -67,7 +67,7 @@ ext.makeDocumentationTasks = { lang ->
     def copyImages = tasks.register("copyImages${lang.capitalize()}", Copy) {
         description 'Copy Images and CSS file to tmp'
         into layout.buildDirectory.dir("tmp/manual/${lang}/images/")
-        from fileTree(dir: layout.projectDirectory.dir("src_docs/manual/${lang}/images/"), include: "*.png")
+        from fileTree(dir: layout.projectDirectory.dir("${documentRootDir}/manual/${lang}/images/"), include: "*.png")
         from layout.projectDirectory.file("images/OmegaT.svg")
     }
 
@@ -80,7 +80,7 @@ ext.makeDocumentationTasks = { lang ->
     def copyImagesTarget = tasks.register("copyImagesTarget${lang.capitalize()}", Copy) {
         description 'Copy Images and CSS file to target'
         into layout.buildDirectory.dir("docs/manual/${lang}/images/")
-        from fileTree(dir: layout.projectDirectory.dir("src_docs/manual/${lang}/images/"), include: "*.png")
+        from fileTree(dir: layout.projectDirectory.dir("${documentRootDir}/manual/${lang}/images/"), include: "*.png")
         from layout.projectDirectory.file("images/OmegaT.svg")
     }
 
