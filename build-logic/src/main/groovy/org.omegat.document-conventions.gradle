@@ -49,6 +49,7 @@ ext.makeDocumentationTasks = { lang ->
         styleSheetFile.set(layout.projectDirectory.file("${styleRootDir}/passthrough.xsl"))
         outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/db5-all-included.xml"))
         inputFile.set(layout.projectDirectory.file("src_docs/manual/${lang}/OmegaTUsersManual_xinclude_full.xml"))
+        contentFiles.set(fileTree(dir: layout.projectDirectory.dir("${documentRootDir}/manual/${lang}"), include: '*.xml'))
     }
 
     def copyJs = tasks.register("copyJs${lang.capitalize()}", Copy) {
@@ -88,6 +89,7 @@ ext.makeDocumentationTasks = { lang ->
         styleSheetFile.set(layout.projectDirectory.file("${styleRootDir}/db5-xhtml.xsl"))
         inputFile.set(layout.projectDirectory.file("${documentRootDir}/manual/${lang}/OmegaTUsersManual_xinclude_full.xml"))
         outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/index.html"))
+        contentFiles.set(fileTree(dir: layout.projectDirectory.dir("${documentRootDir}/manual/${lang}"), include: '*.xml'))
         dependsOn(copyImages, copyCss, copyJs)
     }
 

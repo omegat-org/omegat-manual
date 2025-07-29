@@ -4,20 +4,13 @@ import groovy.transform.CompileStatic
 import net.sf.saxon.s9api.QName
 import net.sf.saxon.s9api.XdmAtomicValue
 import net.sf.saxon.s9api.XsltTransformer
+import org.gradle.api.tasks.CacheableTask
 
 import java.nio.file.Paths
 
 @CompileStatic
+@CacheableTask
 class DocbookHtmlTask extends TransformationTask {
-
-    private static String extractRootName(File file) {
-        def fileName = file.getName()
-        int extensionIndex = fileName.lastIndexOf('.')
-        if (extensionIndex <= 0) {
-            return fileName
-        }
-        return fileName.substring(0, extensionIndex)
-    }
 
     @Override
     protected void preTransform(XsltTransformer transformer, File source, File target) {
