@@ -118,7 +118,7 @@ class TransformationTask extends AbstractDocumentTask {
         factory.setFeature(EXTERNAL_GENERAL_ENTITIES, true)
         factory.setFeature(EXTERNAL_PARAMETER_ENTITIES, true)
         factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", false)  // Allow DOCTYPE
-        return factory;
+        return factory
     }
 
     private static ResourceResolverWrappingURIResolver initializeResourceResolver() {
