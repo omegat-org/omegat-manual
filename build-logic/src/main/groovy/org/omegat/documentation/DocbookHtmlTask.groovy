@@ -17,6 +17,7 @@ class DocbookHtmlTask extends TransformationTask {
         def baseDir = Paths.get(outputFile.get().asFile.parent).toUri().toString()
         transformer.setParameter(new QName("chunk"), new XdmAtomicValue("index.html"))
         transformer.setParameter(new QName("chunk-output-base-uri"), new XdmAtomicValue(baseDir))
+        transformer.setParameter(new QName("resource-base-uri"), new XdmAtomicValue(""))
         transformer.setParameter(new QName("persistent-toc"), new XdmAtomicValue(false))
         transformer.setParameter(new QName("persistent-toc-search"), new XdmAtomicValue(false))
         transformer.setParameter(new QName("chunk-section-depth"), new XdmAtomicValue(0))
