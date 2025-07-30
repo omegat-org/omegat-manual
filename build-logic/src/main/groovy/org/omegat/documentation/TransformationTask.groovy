@@ -90,7 +90,7 @@ class TransformationTask extends AbstractDocumentTask {
         Processor processor = new Processor(false)
         XsltCompiler compiler = processor.newXsltCompiler()
         compiler.setResourceResolver(initializeResourceResolver())
-        compiler.setParameter(new QName("debug"), new XdmAtomicValue("mediaobject-uris"))
+        compiler.setParameter(new QName("debug"), new XdmAtomicValue("chunk-cleanup"))
 
         // Compile the XSLT stylesheet
         XsltExecutable executable = compiler.compile(new StreamSource(xslFile))
