@@ -123,8 +123,7 @@
                 select="ancestor::*[@db-chunk and fp:navigable(.)][last()]"/>
 
   <xsl:variable name="rbu" select="fp:root-base-uri(.)"/>
-  <xsl:variable name="cbu" select="fp:fix-file-uri(fp:chunk-output-filename(.))"/>
-  <xsl:message use-when="'chunk-cleanup' = $v:debug" select="'Chunk-output-filename: ', $cbu"/>
+  <xsl:variable name="cbu" select="fp:chunk-output-filename(.)"/>
 
   <xsl:variable name="classes" 
                 select="if (@db-chunk = '')
@@ -467,9 +466,11 @@
                 select="if ($v:chunk)
                         then resolve-uri($href, $rootbaseuri)
                         else $rootbaseuri"/>
+  <xsl:variable name="normalizeabsuri" select="fp:fix-file-uri($absuri)"/>
+  <xsl:variable name="normalizechunkbaseuri" select="fp:fix-file-uri($chunkbaseuri)"/>
 
   <xsl:variable name="rchunk"
-                select="fp:trim-common-prefix($chunkbaseuri, $absuri)"/>
+                select="fp:trim-common-prefix($normalizechunkbaseuri, $normalizeabsuri)"/>
 
   <xsl:choose>
     <!-- Attempt to leave absolute path references alone -->
