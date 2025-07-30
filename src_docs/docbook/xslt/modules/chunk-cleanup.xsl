@@ -430,6 +430,33 @@
   </xsl:copy>
 </xsl:template>
 
+<!-- Helper function to fix Saxon's file:/ normalization -->
+<xsl:function name="fp:fix-file-uri" as="xs:anyURI">
+  <xsl:param name="uri" as="xs:string"/>
+  <xsl:variable name="fixed-uri" as="xs:string">
+    <xsl:choose>
+      <!-- Handle file: with no slashes -->
+      <xsl:when test="$uri = 'file:'">
+        <xsl:sequence select="'file:///'"/>
+      </xsl:when>
+      <!-- Handle file:/ (single slash) -->
+      <xsl:when test="starts-with($uri, 'file:/') and not(starts-with($uri, 'file://'))">
+        <xsl:sequence select="replace($uri, '^file:/', 'file:///')"/>
+      </xsl:when>
+      <!-- Handle file:// (double slash) -->
+      <xsl:when test="starts-with($uri, 'file://') and not(starts-with($uri, 'file:///'))">
+        <xsl:sequence select="replace($uri, '^file://', 'file:///')"/>
+      </xsl:when>
+      <!-- Already correct or not a file URI -->
+      <xsl:otherwise>
+        <xsl:sequence select="$uri"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
+    <xsl:sequence select="xs:anyURI($fixed-uri)"/>
+  </xsl:function>
+
 <xsl:function name="fp:relative-uri" as="xs:string">
   <xsl:param name="rootbaseuri" as="xs:string" required="yes"/>
   <xsl:param name="chunkbaseuri" as="xs:string" required="yes"/>
@@ -439,9 +466,11 @@
                 select="if ($v:chunk)
                         then resolve-uri($href, $rootbaseuri)
                         else $rootbaseuri"/>
+  <xsl:variable name="normalizeabsuri" select="fp:fix-file-uri($absuri)"/>
+  <xsl:variable name="normalizechunkbaseuri" select="fp:fix-file-uri($chunkbaseuri)"/>
 
   <xsl:variable name="rchunk"
-                select="fp:trim-common-prefix($chunkbaseuri, $absuri)"/>
+                select="fp:trim-common-prefix($normalizechunkbaseuri, $normalizeabsuri)"/>
 
   <xsl:choose>
     <!-- Attempt to leave absolute path references alone -->
