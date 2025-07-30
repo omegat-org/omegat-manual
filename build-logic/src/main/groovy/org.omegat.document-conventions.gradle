@@ -90,6 +90,7 @@ ext.makeDocumentationTasks = { lang ->
         inputFile.set(layout.projectDirectory.file("${documentRootDir}/manual/${lang}/OmegaTUsersManual_xinclude_full.xml"))
         outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/index.html"))
         contentFiles.set(fileTree(dir: layout.projectDirectory.dir("${documentRootDir}/manual/${lang}"), include: '*.xml'))
+        // debug.set("chunk-cleanup")
         dependsOn(copyImages, copyCss, copyJs)
     }
 
