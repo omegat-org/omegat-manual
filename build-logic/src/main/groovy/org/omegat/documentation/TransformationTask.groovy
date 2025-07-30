@@ -15,6 +15,7 @@ import org.gradle.api.file.FileTree
 import org.gradle.api.file.RegularFile
 import org.gradle.api.provider.Provider
 import org.gradle.api.tasks.CacheableTask
+import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.InputFiles
 import org.gradle.api.tasks.Optional
@@ -54,6 +55,10 @@ class TransformationTask extends AbstractDocumentTask {
     @OutputFile
     Provider<RegularFile> outputFile = project.objects.fileProperty()
 
+    @Input
+    @Optional
+    Provider<String> debug = project.objects.property(String)
+
     @TaskAction
     void transform() {
         configureLogging()
@@ -83,14 +88,16 @@ class TransformationTask extends AbstractDocumentTask {
         return xmlReader
     }
 
-    private static XsltTransformer initializeTransformer(File input, File output, File xslFile) {
+    private XsltTransformer initializeTransformer(File input, File output, File xslFile) {
         def xmlReader = initializeXmlReader()
 
         // Set up Saxon Processor
         Processor processor = new Processor(false)
         XsltCompiler compiler = processor.newXsltCompiler()
         compiler.setResourceResolver(initializeResourceResolver())
-        compiler.setParameter(new QName("debug"), new XdmAtomicValue("chunk-cleanup"))
+        if (debug.present) {
+            compiler.setParameter(new QName("debug"), new XdmAtomicValue(debug.get()))
+        }
 
         // Compile the XSLT stylesheet
         XsltExecutable executable = compiler.compile(new StreamSource(xslFile))
