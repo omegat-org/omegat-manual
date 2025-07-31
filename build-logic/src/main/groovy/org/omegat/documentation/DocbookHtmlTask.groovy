@@ -1,9 +1,15 @@
 package org.omegat.documentation
 
 import groovy.transform.CompileStatic
+import net.sf.saxon.s9api.Processor
 import net.sf.saxon.s9api.QName
 import net.sf.saxon.s9api.XdmAtomicValue
 import net.sf.saxon.s9api.XsltTransformer
+import org.docbook.xsltng.extensions.Cwd
+import org.docbook.xsltng.extensions.ImageMetadata
+import org.docbook.xsltng.extensions.ImageProperties
+import org.docbook.xsltng.extensions.Register
+import org.docbook.xsltng.extensions.XInclude
 import org.gradle.api.tasks.CacheableTask
 
 import java.nio.file.Paths
@@ -11,6 +17,12 @@ import java.nio.file.Paths
 @CompileStatic
 @CacheableTask
 class DocbookHtmlTask extends TransformationTask {
+
+    @Override
+    protected void configProcessor(Processor processor) {
+        Register register = new Register()
+        register.initialize(processor.getUnderlyingConfiguration())
+    }
 
     @Override
     protected void preTransform(XsltTransformer transformer, File source, File target) {

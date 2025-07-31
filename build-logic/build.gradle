@@ -44,6 +44,7 @@ dependencies {
     implementation 'org.xmlresolver:xmlresolver:5.2.2'
     implementation 'net.sf.saxon:Saxon-HE:12.5'
     implementation 'org.docbook:docbook-xslTNG:2.5.0'
+    implementation 'com.nwalsh:sinclude:5.2.4'
     implementation 'tokyo.northside:whc:3.6.0'
     implementation 'xalan:xalan:2.7.3'
     implementation 'xalan:serializer:2.7.3'
