@@ -81,6 +81,9 @@ class TransformationTask extends AbstractDocumentTask {
     protected void postTransform(File output) {
     }
 
+    protected void configProcessor(Processor processor) {
+    }
+
     private static XMLReader initializeXmlReader() {
         def factory = configureSAXParserFactory()
         def xmlReader = factory.newSAXParser().getXMLReader()
@@ -92,6 +95,7 @@ class TransformationTask extends AbstractDocumentTask {
 
         // Set up Saxon Processor
         Processor processor = new Processor(false)
+        configProcessor(processor)
         XsltCompiler compiler = processor.newXsltCompiler()
         compiler.setResourceResolver(initializeResourceResolver())
         if (debug.present) {
