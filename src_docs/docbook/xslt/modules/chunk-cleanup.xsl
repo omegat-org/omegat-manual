@@ -430,9 +430,13 @@
   </xsl:copy>
 </xsl:template>
 
-<!-- Helper function to fix Saxon's resolve-uri file:/ normalization -->
-<xsl:function name="fp:fix-file-uri" as="xs:anyURI">
-  <xsl:param name="uri" as="xs:string"/>
+<!-- Helper function to alternate Saxon's resolve-uri for file:/ normalization -->
+<xsl:function name="fp:resolve-uri" as="xs:anyURI">
+  <xsl:param name="href" as="xs:string" required="yes"/>
+  <xsl:param name="baseuri" as="xs:string" required="yes"/>
+  <xsl:variable name="uri" as="xs:string">
+    <xsl:sequence select="resolve-uri($href, $baseuri)"/>
+  </xsl:variable>
   <xsl:variable name="fixed-uri" as="xs:string">
     <xsl:choose>
       <!-- Handle file: with no slashes -->
@@ -454,12 +458,6 @@
     </xsl:choose>
   </xsl:variable>
   <xsl:sequence select="xs:anyURI($fixed-uri)"/>
-</xsl:function>
-
-<xsl:function name="fp:resolve-uri" as="xs:anyURI">
-  <xsl:param name="href" as="xs:string" required="yes"/>
-  <xsl:param name="baseuri" as="xs:string" required="yes"/>
-  <xsl:sequence select="fp:fix-file-uri(resolve-uri($href, $baseuri))"/>
 </xsl:function>
 
 <xsl:function name="fp:relative-uri" as="xs:string">
