@@ -377,7 +377,7 @@
     <xsl:choose>
       <xsl:when test="exists($pchunk)">
         <xsl:sequence
-            select="resolve-uri($node/@db-chunk,
+            select="fp:resolve-uri($node/@db-chunk,
                                 fp:chunk-output-filename($pchunk))"/>
       </xsl:when>
       <xsl:when test="not($v:chunk)">
@@ -385,7 +385,7 @@
       </xsl:when>
       <xsl:otherwise>
         <xsl:sequence
-            select="resolve-uri($node/@db-chunk,
+            select="fp:resolve-uri($node/@db-chunk,
                                 $vp:chunk-output-base-uri)"/>
       </xsl:otherwise>
     </xsl:choose>
@@ -430,7 +430,7 @@
   </xsl:copy>
 </xsl:template>
 
-<!-- Helper function to fix Saxon's file:/ normalization -->
+<!-- Helper function to fix Saxon's resolve-uri file:/ normalization -->
 <xsl:function name="fp:fix-file-uri" as="xs:anyURI">
   <xsl:param name="uri" as="xs:string"/>
   <xsl:variable name="fixed-uri" as="xs:string">
@@ -453,9 +453,14 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
+  <xsl:sequence select="xs:anyURI($fixed-uri)"/>
+</xsl:function>
 
-    <xsl:sequence select="xs:anyURI($fixed-uri)"/>
-  </xsl:function>
+<xsl:function name="fp:resolve-uri" as="xs:anyURI">
+  <xsl:param name="href" as="xs:string" required="yes"/>
+  <xsl:param name="baseuri" as="xs:string" required="yes"/>
+  <xsl:sequence select="fp:fix-file-uri(resolve-uri($href, $baseuri))"/>
+</xsl:function>
 
 <xsl:function name="fp:relative-uri" as="xs:string">
   <xsl:param name="rootbaseuri" as="xs:string" required="yes"/>
@@ -464,13 +469,11 @@
 
   <xsl:variable name="absuri"
                 select="if ($v:chunk)
-                        then resolve-uri($href, $rootbaseuri)
+                        then fp:resolve-uri($href, $rootbaseuri)
                         else $rootbaseuri"/>
-  <xsl:variable name="normalizeabsuri" select="fp:fix-file-uri($absuri)"/>
-  <xsl:variable name="normalizechunkbaseuri" select="fp:fix-file-uri($chunkbaseuri)"/>
 
   <xsl:variable name="rchunk"
-                select="fp:trim-common-prefix($normalizechunkbaseuri, $normalizeabsuri)"/>
+                select="fp:trim-common-prefix($chunkbaseuri, $absuri)"/>
 
   <xsl:choose>
     <!-- Attempt to leave absolute path references alone -->
