@@ -377,7 +377,7 @@
     <xsl:choose>
       <xsl:when test="exists($pchunk)">
         <xsl:sequence
-            select="resolve-uri($node/@db-chunk,
+            select="fp:resolve-uri($node/@db-chunk,
                                 fp:chunk-output-filename($pchunk))"/>
       </xsl:when>
       <xsl:when test="not($v:chunk)">
@@ -385,7 +385,7 @@
       </xsl:when>
       <xsl:otherwise>
         <xsl:sequence
-            select="resolve-uri($node/@db-chunk,
+            select="fp:resolve-uri($node/@db-chunk,
                                 $vp:chunk-output-base-uri)"/>
       </xsl:otherwise>
     </xsl:choose>
@@ -430,6 +430,36 @@
   </xsl:copy>
 </xsl:template>
 
+<!-- Helper function to alternate Saxon's resolve-uri for file:/ normalization -->
+<xsl:function name="fp:resolve-uri" as="xs:anyURI">
+  <xsl:param name="href" as="xs:string" required="yes"/>
+  <xsl:param name="baseuri" as="xs:string" required="yes"/>
+  <xsl:variable name="uri" as="xs:string">
+    <xsl:sequence select="resolve-uri($href, $baseuri)"/>
+  </xsl:variable>
+  <xsl:variable name="fixed-uri" as="xs:string">
+    <xsl:choose>
+      <!-- Handle file: with no slashes -->
+      <xsl:when test="$uri = 'file:'">
+        <xsl:sequence select="'file:///'"/>
+      </xsl:when>
+      <!-- Handle file:/ (single slash) -->
+      <xsl:when test="starts-with($uri, 'file:/') and not(starts-with($uri, 'file://'))">
+        <xsl:sequence select="replace($uri, '^file:/', 'file:///')"/>
+      </xsl:when>
+      <!-- Handle file:// (double slash) -->
+      <xsl:when test="starts-with($uri, 'file://') and not(starts-with($uri, 'file:///'))">
+        <xsl:sequence select="replace($uri, '^file://', 'file:///')"/>
+      </xsl:when>
+      <!-- Already correct or not a file URI -->
+      <xsl:otherwise>
+        <xsl:sequence select="$uri"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+  <xsl:sequence select="xs:anyURI($fixed-uri)"/>
+</xsl:function>
+
 <xsl:function name="fp:relative-uri" as="xs:string">
   <xsl:param name="rootbaseuri" as="xs:string" required="yes"/>
   <xsl:param name="chunkbaseuri" as="xs:string" required="yes"/>
@@ -437,7 +467,7 @@
 
   <xsl:variable name="absuri"
                 select="if ($v:chunk)
-                        then resolve-uri($href, $rootbaseuri)
+                        then fp:resolve-uri($href, $rootbaseuri)
                         else $rootbaseuri"/>
 
   <xsl:variable name="rchunk"
