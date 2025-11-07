@@ -470,13 +470,14 @@ p span.keycap:last-of-type,
 dd span.keycap:last-of-type, 
 li.listitem span.keycap:last-of-type, 
 span.term>span.keycap:last-of-type, 
-div.example-contents span.keycap:last-of-type, 
-div.example-contents > p:nth-child(8) > span:nth-child(2),
-div.example-contents > p:nth-child(9) > span:nth-child(3),
-div.example-contents > p:nth-child(11) > span:nth-child(2),
-div.example-contents > p:nth-child(13) > span:nth-child(2),
-div.example-contents > p:nth-child(13) > span:nth-child(4),
-div.example-contents > p:nth-child(5) > span:nth-child(3),
+div.example span.keycap:last-of-type,
+div.example > p:nth-child(8) > span:nth-child(2),
+div.example > p:nth-child(9) > span:nth-child(3),
+div.example > p:nth-child(11) > span:nth-child(2),
+div.example > p:nth-child(13) > span:nth-child(2),
+div.example > p:nth-child(13) > span:nth-child(4),
+div.example > p:nth-child(5) > span:nth-child(3),
+span.keycombo > span.keycap:last-of-type,
 p > span.keycap:last-child  {
     background: var(--main-color);
     color: var(--normal-background);
@@ -629,12 +630,6 @@ h2:has(a[href="chapter.appendices.html"]) ~ ul {
 /* Various font, colors and box settings */
 /*****************************************/
 
-
-/* 
-code.filename {
-	color:var(--main-color);
-}
- */
 
 .literal {
     font-weight: bold;
@@ -845,8 +840,8 @@ dd {
 
 /* General layout */
 
-.programlisting,
-.literallayout {
+.programlisting-wrap,
+.literal {
 	background-color:var(--normal-background);
 	font-weight: 100;
 	font-size: 1em;	
