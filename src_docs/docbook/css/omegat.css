@@ -319,15 +319,14 @@ td,th {
 /* Code */
 /********/
 
-pre.programlisting em.parameter {
+pre.db-programlisting em.parameter {
     white-space:nowrap;
     display:inline-block;
 }
 
-pre.programlisting {
+pre.db-programlisting {
     overflow-x : auto;
     text-align:left;
-	/*    padding: 1.2em 0.5em 0 1.5em; */
 }
 
 /*************/
