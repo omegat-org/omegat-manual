@@ -1087,21 +1087,21 @@
 
     <para>De technische verwijzing voor Java is nuttig als een canonieke verwijzing.<variablelist>
         <varlistentry xml:id="app.regex.java">
-          <term xml:id="app.regex.java.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">Documentatie voor Java Regex </ulink></term>
+          <term xml:id="app.regex.java.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">Documentatie voor Java Regex </link></term>
           <listitem>
             <para>De officiële verwijzing voor reguliere expressies die worden gebruikt in Java.</para>
           </listitem>
         </varlistentry>
       </variablelist>Als u meer wilt leren over het gebruiken van reguliere expressies, hebben de volgende twee pagina's bewezen heel nuttig te zijn.<variablelist>
         <varlistentry xml:id="app.regex.tools.regex101">
-          <term xml:id="app.regex.tools.regex101.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://regex101.com">https://regex101.com</ulink></term>
+          <term xml:id="app.regex.tools.regex101.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://regex101.com">https://regex101.com</link></term>
           <listitem>
             <para>Een online programma voor overeenkomsten van reguliere expressies dat u de tekst in laat voeren die u wilt zoeken en de reguliere expressies die u wilt testen.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry xml:id="app.regex.tools.regular.expression.info">
-          <term xml:id="app.regex.tools.regular.expression.info.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.regular-expressions.info">https://www.regular-expressions.info</ulink></term>
+          <term xml:id="app.regex.tools.regular.expression.info.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.regular-expressions.info">https://www.regular-expressions.info</link></term>
           <listitem>
             <para>Een van de meest uitgebreide handleidingen voor reguliere expressies en verwijzingen op het web.</para>
           </listitem>

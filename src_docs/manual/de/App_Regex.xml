@@ -1088,21 +1088,21 @@
 
     <para>Die technische Java-Referenz ist nützlich als kanonische Referenz.<variablelist>
         <varlistentry xml:id="app.regex.java">
-          <term xml:id="app.regex.java.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html">Java-Regex-Dokumentation</ulink></term>
+          <term xml:id="app.regex.java.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html">Java-Regex-Dokumentation</link></term>
           <listitem>
             <para>Die offizielle Referenz für in Java verwendete reguläre Ausdrücke.</para>
           </listitem>
         </varlistentry>
       </variablelist>Wenn Sie mehr über die Nutzung regulärer Ausdrücke erfahren möchten, könnten die beiden folgenden Seiten sehr nützlich sein.<variablelist>
         <varlistentry xml:id="app.regex.tools.regex101">
-          <term xml:id="app.regex.tools.regex101.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://regex101.com">https://regex101.com</ulink></term>
+          <term xml:id="app.regex.tools.regex101.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://regex101.com">https://regex101.com</link></term>
           <listitem>
             <para>Ein RegEx-Online-Tool, das Ihnen erlaubt, den Text, der durchsucht werden soll, und die regulären Ausdrücke, die getestet werden sollen, einzutragen.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry xml:id="app.regex.tools.regular.expression.info">
-          <term xml:id="app.regex.tools.regular.expression.info.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.regular-expressions.info">https://www.regular-expressions.info</ulink></term>
+          <term xml:id="app.regex.tools.regular.expression.info.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.regular-expressions.info">https://www.regular-expressions.info</link></term>
           <listitem>
             <para>Eines der ausführlichsten Tutorials und Referenzen für reguläre Ausdrücke im Internet.</para>
           </listitem>

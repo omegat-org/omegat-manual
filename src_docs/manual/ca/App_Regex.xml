@@ -1085,21 +1085,21 @@
 
     <para>La referència tècnica del Java és útil com a referència canònica.<variablelist>
         <varlistentry xml:id="app.regex.java">
-          <term xml:id="app.regex.java.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">Documentació d'expressions regulars del Java</ulink></term>
+          <term xml:id="app.regex.java.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">Documentació d'expressions regulars del Java</link></term>
           <listitem>
             <para>Referència oficial per a les expressions regulars utilitzades en el Java.</para>
           </listitem>
         </varlistentry>
       </variablelist>Si voleu aprendre més sobre l'ús d'expressions regulars, els dos llocs següents han demostrat ser molt útils.<variablelist>
         <varlistentry xml:id="app.regex.tools.regex101">
-          <term xml:id="app.regex.tools.regex101.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://regex101.com">https://regex101.com</ulink></term>
+          <term xml:id="app.regex.tools.regex101.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://regex101.com">https://regex101.com</link></term>
           <listitem>
             <para>Eina de coincidència d'expressions regulars que us permet indicar el text que voleu cercar i les expressions regulars que voleu provar.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry xml:id="app.regex.tools.regular.expression.info">
-          <term xml:id="app.regex.tools.regular.expression.info.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.regular-expressions.info">https://www.regular-expressions.info</ulink></term>
+          <term xml:id="app.regex.tools.regular.expression.info.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.regular-expressions.info">https://www.regular-expressions.info</link></term>
           <listitem>
             <para>Un dels tutorials d'expressions regulars més complets, de referència a Internet.</para>
           </listitem>

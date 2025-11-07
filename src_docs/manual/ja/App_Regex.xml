@@ -1101,21 +1101,21 @@
 
     <para>Javaテクニカル・リファレンスは、標準的なリファレンスとして役立ちます。<variablelist>
         <varlistentry xml:id="app.regex.java">
-          <term xml:id="app.regex.java.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">Java Regexのドキュメント</ulink></term>
+          <term xml:id="app.regex.java.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">Java Regexのドキュメント</link></term>
           <listitem>
             <para>Javaで使用される正規表現の公式リファレンスです。</para>
           </listitem>
         </varlistentry>
       </variablelist>正規表現の使用についてさらに詳しく知りたい場合は、次の2つのWebサイトが非常に便利です。<variablelist>
         <varlistentry xml:id="app.regex.tools.regex101">
-          <term xml:id="app.regex.tools.regex101.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://regex101.com">https://regex101.com</ulink></term>
+          <term xml:id="app.regex.tools.regex101.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://regex101.com">https://regex101.com</link></term>
           <listitem>
             <para>検索したいテキストとテストしたい正規表現を入力できるオンライン正規表現マッチングツール。</para>
           </listitem>
         </varlistentry>
 
         <varlistentry xml:id="app.regex.tools.regular.expression.info">
-          <term xml:id="app.regex.tools.regular.expression.info.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.regular-expressions.info">https://www.regular-expressions.info</ulink></term>
+          <term xml:id="app.regex.tools.regular.expression.info.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.regular-expressions.info">https://www.regular-expressions.info</link></term>
           <listitem>
             <para>Web上で最も徹底した正規表現のチュートリアルおよびリファレンスの1つ。</para>
           </listitem>

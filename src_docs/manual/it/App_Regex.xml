@@ -1087,21 +1087,21 @@
 
     <para>Il riferimento tecnico di Java è utile come riferimento standard.<variablelist>
         <varlistentry xml:id="app.regex.java">
-          <term xml:id="app.regex.java.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">Documentazione Java Regex</ulink></term>
+          <term xml:id="app.regex.java.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">Documentazione Java Regex</link></term>
           <listitem>
             <para>Il riferimento ufficiale per le espressioni regolari utilizzate in Java.</para>
           </listitem>
         </varlistentry>
       </variablelist>Per approfondire l'uso delle espressioni regolari, sono risultati molto utili i due siti di seguito riportati:<variablelist>
         <varlistentry xml:id="app.regex.tools.regex101">
-          <term xml:id="app.regex.tools.regex101.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://regex101.com">https://regex101.com</llllink></term>
+          <term xml:id="app.regex.tools.regex101.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://regex101.com">https://regex101.com</link></term>
           <listitem>
             <para>Un "verificatore" di espressioni regolari in linea che permette di inserire il testo da ricercare e le espressioni regolari da provare.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry xml:id="app.regex.tools.regular.expression.info">
-          <term xml:id="app.regex.tools.regular.expression.info.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.regular-expressions.info">https://www.regular-expressions.info</ulink></term>
+          <term xml:id="app.regex.tools.regular.expression.info.title"><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.regular-expressions.info">https://www.regular-expressions.info</link></term>
           <listitem>
             <para>Punto di riferimento nel web, tra le più complete esercitazioni sulle espressioni regolari.</para>
           </listitem>
