@@ -168,6 +168,11 @@ body {
 /* CSS for web manual visual effects */
 /*************************************/
 
+nav, .db-navheader, .db-navfooter {
+  display: none !important;
+}
+
+
 /*****************/
 /* Global layout */
 /*****************/
