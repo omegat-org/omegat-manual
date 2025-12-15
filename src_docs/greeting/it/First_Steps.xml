@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="it">
-  <title>OmegaT</title>
   <section>
 	<title>Primi passi</title>
 	<para>Per aprire il manuale dell'utente premere il tasto <keycap>F1</keycap> o accedere dal menu <guimenu>&gt; Aiuto</guimenu>. Verrà presentata una introduzione accurata su OmegaT. Per iniziare a usare OmegaT con le impostazioni minime:<orderedlist id="first-step-list">

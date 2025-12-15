@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="nl">
-  <title>OmegaT</title>
   <section>
 	<title>Eerste stappen</title>
 	<para>Druk op <keycap>F1</keycap> of open het menu <guimenu>&gt; Help</guimenu> om de gebruikershandleiding te openen. Die bevat een uitgebreide introductie voor OmegaT. Doe dit om te beginnen met OmegaT met minimale instellingen:<orderedlist id="first-step-list">

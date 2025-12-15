@@ -5,18 +5,23 @@ import net.sf.saxon.s9api.Processor
 import net.sf.saxon.s9api.QName
 import net.sf.saxon.s9api.XdmAtomicValue
 import net.sf.saxon.s9api.XsltTransformer
-import org.docbook.xsltng.extensions.Cwd
-import org.docbook.xsltng.extensions.ImageMetadata
-import org.docbook.xsltng.extensions.ImageProperties
 import org.docbook.xsltng.extensions.Register
-import org.docbook.xsltng.extensions.XInclude
+import org.gradle.api.provider.Provider
 import org.gradle.api.tasks.CacheableTask
+import org.gradle.api.tasks.Input
 
 import java.nio.file.Paths
 
 @CompileStatic
 @CacheableTask
 class DocbookHtmlTask extends TransformationTask {
+
+    private final Provider<String> css = project.objects.property(String)
+
+    @Input
+    Provider<String> getCss() {
+        return css
+    }
 
     @Override
     protected void configProcessor(Processor processor) {
@@ -43,7 +48,7 @@ class DocbookHtmlTask extends TransformationTask {
         transformer.setParameter(new QName("persistent-toc"), new XdmAtomicValue(false))
         transformer.setParameter(new QName("use-id-as-filename"), new XdmAtomicValue("true"))
         transformer.setParameter(new QName("use-docbook-css"), new XdmAtomicValue("false"))
-        transformer.setParameter(new QName("user-css-links"), new XdmAtomicValue("css/omegat.css"))
+        transformer.setParameter(new QName("user-css-links"), new XdmAtomicValue(css.get()))
         transformer.setParameter(new QName("lists-of-examples"), new XdmAtomicValue("false"))
         transformer.setParameter(new QName("lists-of-figures"), new XdmAtomicValue("false"))
         transformer.setParameter(new QName("lists-of-tables"), new XdmAtomicValue("false"))
