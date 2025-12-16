@@ -322,12 +322,12 @@ td,th {
 /* Code */
 /********/
 
-pre.db-programlisting em.parameter {
+pre.programlisting em.parameter {
     white-space:nowrap;
     display:inline-block;
 }
 
-pre.db-programlisting {
+pre.programlisting {
     overflow-x : auto;
     text-align:left;
 }
@@ -394,7 +394,7 @@ span.guibutton {
     margin:.5em 0 0 0;
 }
 
-.example-title {
+div.example div.title {
     font-style:italic;
     color: var(--main-color);
     font-size : .9em;
@@ -642,7 +642,7 @@ samp,
 var,
 pre {
     font-family: monospace;
-    font-size: 1.3em;
+    font-size: 1em;
 }
 
 kbd {
@@ -840,7 +840,7 @@ dd {
 
 /* General layout */
 
-.programlisting-wrap,
+.programlisting,
 .literal {
 	background-color:var(--normal-background);
 	font-weight: 100;
@@ -854,7 +854,7 @@ dd {
 
 /* Editor pane */
 
-#panes\.editor\.default\.editor\.writing\.space > div.example-contents > pre {
+#panes\.editor\.default\.editor\.writing\.space > div.pre-wrap > pre {
 	border-left: 10px solid lightgrey;
 }
 
