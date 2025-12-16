@@ -92,6 +92,7 @@ ext.makeDocumentationTasks = { lang ->
         outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/index.html"))
         contentFiles.set(fileTree(dir: layout.projectDirectory.dir("${documentRootDir}/manual/${lang}"), include: '*.xml'))
         css.set("omegat.css")
+        outputs.cacheIf { false }
         // debug.set("chunk-cleanup")
         dependsOn(copyImages, copyCss, copyJs)
     }
@@ -101,7 +102,7 @@ ext.makeDocumentationTasks = { lang ->
         styleSheetFile.set(layout.projectDirectory.file("${styleRootDir}/db5-whc-toc.xsl"))
         inputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/db5-all-included.xml"))
         outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/_whc-toc.xml"))
-        dependsOn(docbookInclude)
+        dependsOn(docbookHtml, docbookInclude)
     }
 
     def whcIndex = tasks.register("whcIndex${lang.capitalize()}", TransformationTask) {
@@ -117,7 +118,7 @@ ext.makeDocumentationTasks = { lang ->
         styleSheetFile.set(layout.projectDirectory.file("${styleRootDir}/whc-header.xsl"))
         inputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/db5-all-included.xml"))
         outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/_whc-header.xml"))
-        dependsOn(docbookInclude)
+        dependsOn(docbookHtml, docbookInclude)
     }
 
     def buildDocumentTask = tasks.register("manual${lang.capitalize()}", WhcTask) {
@@ -134,6 +135,7 @@ ext.makeDocumentationTasks = { lang ->
                 '--field-background-color', '#FDFDFD',
                 '--panel-background-color', '#FDFDFD',
         ])
+        outputs.cacheIf { false }
         dependsOn(whcHeader, whcToc, whcIndex, copyImagesTarget, copyCssJsTarget)
         group('documentation')
     }
