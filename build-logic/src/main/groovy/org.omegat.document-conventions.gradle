@@ -163,7 +163,6 @@ ext.makeFirstStepTask = { lang ->
         description 'Copy CSS files to target'
         into(layout.buildDirectory.dir("docs/greetings/${lang}/"))
         from layout.projectDirectory.file("src_docs/style/greeting.css")
-        from fileTree(dir: "${documentRootDir}/docbook", includes: ['css/*'])
     }
 
     def firstStepsHtml = tasks.register("firstSteps${lang.capitalize()}", DocbookHtmlTask) {
