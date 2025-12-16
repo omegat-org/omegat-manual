@@ -47,7 +47,7 @@ ext.makeDocumentationTasks = { lang ->
 
     def docbookInclude = tasks.register("docbookInclude${lang.capitalize()}", TransformationTask) {
         styleSheetFile.set(layout.projectDirectory.file("${styleRootDir}/passthrough.xsl"))
-        outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/db5-all-included.xml"))
+        outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/_whc/db5-all-included.xml"))
         inputFile.set(layout.projectDirectory.file("${documentRootDir}/manual/${lang}/OmegaTUsersManual_xinclude_full.xml"))
         contentFiles.set(fileTree(dir: layout.projectDirectory.dir("${documentRootDir}/manual/${lang}"), include: '*.xml'))
     }
@@ -62,6 +62,7 @@ ext.makeDocumentationTasks = { lang ->
         description 'Copy CSS and JS files to tmp'
         into(layout.buildDirectory.dir("tmp/manual/${lang}/css/"))
         from fileTree(dir: "${documentRootDir}/docbook/css")
+        from file("${documentRootDir}/style/omegat.css")
     }
 
     def copyImages = tasks.register("copyImages${lang.capitalize()}", Copy) {
@@ -71,11 +72,16 @@ ext.makeDocumentationTasks = { lang ->
         from layout.projectDirectory.file("images/OmegaT.svg")
     }
 
-    def copyCssJsTarget = tasks.register("copyCssJsTarget${lang.capitalize()}", Copy) {
+    def copyCssTarget = tasks.register("copyCssTarget${lang.capitalize()}", Copy) {
         description 'Copy CSS and JS files to target'
-        into(layout.buildDirectory.dir("docs/manual/${lang}/"))
-        from fileTree(dir: "${documentRootDir}/docbook", includes: ['js/*'])
         from layout.projectDirectory.file("src_docs/style/omegat.css")
+        into(layout.buildDirectory.dir("docs/manual/${lang}/css/"))
+    }
+
+    def copyJsTarget = tasks.register("copyJsTarget${lang.capitalize()}", Copy) {
+        description 'Copy CSS and JS files to target'
+        from fileTree(dir: "${documentRootDir}/docbook/js", includes: ['*.js'])
+        into(layout.buildDirectory.dir("docs/manual/${lang}/js/"))
     }
 
     def copyImagesTarget = tasks.register("copyImagesTarget${lang.capitalize()}", Copy) {
@@ -91,7 +97,8 @@ ext.makeDocumentationTasks = { lang ->
         inputFile.set(layout.projectDirectory.file("${documentRootDir}/manual/${lang}/OmegaTUsersManual_xinclude_full.xml"))
         outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/index.html"))
         contentFiles.set(fileTree(dir: layout.projectDirectory.dir("${documentRootDir}/manual/${lang}"), include: '*.xml'))
-        css.set("omegat.css")
+        css.set("css/omegat.css")
+        outputs.cacheIf { false }
         // debug.set("chunk-cleanup")
         dependsOn(copyImages, copyCss, copyJs)
     }
@@ -99,33 +106,33 @@ ext.makeDocumentationTasks = { lang ->
     def whcToc = tasks.register("whcToc${lang.capitalize()}", TransformationTask) {
         description = 'Generates a whc header and index.'
         styleSheetFile.set(layout.projectDirectory.file("${styleRootDir}/db5-whc-toc.xsl"))
-        inputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/db5-all-included.xml"))
-        outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/_whc-toc.xml"))
-        dependsOn(docbookInclude)
+        inputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/_whc/db5-all-included.xml"))
+        outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/_whc/_whc-toc.xml"))
+        dependsOn(docbookHtml, docbookInclude)
     }
 
     def whcIndex = tasks.register("whcIndex${lang.capitalize()}", TransformationTask) {
         description = 'Generates a whc header and index.'
         styleSheetFile.set(layout.projectDirectory.file("${styleRootDir}/db5-whc-index.xsl"))
-        inputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/db5-all-included.xml"))
-        outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/_whc-index.xml"))
+        inputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/_whc/db5-all-included.xml"))
+        outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/_whc/_whc-index.xml"))
         dependsOn(docbookHtml, whcToc)
     }
 
     def whcHeader = tasks.register("whcHeader${lang.capitalize()}", TransformationTask) {
         description = 'Generates a whc header and index.'
         styleSheetFile.set(layout.projectDirectory.file("${styleRootDir}/whc-header.xsl"))
-        inputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/db5-all-included.xml"))
-        outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/_whc-header.xml"))
-        dependsOn(docbookInclude)
+        inputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/_whc/db5-all-included.xml"))
+        outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/_whc/_whc-header.xml"))
+        dependsOn(docbookHtml, docbookInclude)
     }
 
     def buildDocumentTask = tasks.register("manual${lang.capitalize()}", WhcTask) {
         description = 'Builds the whc contents.'
-        inputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/_whc-index.xml"))
+        inputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/_whc/_whc-index.xml"))
         contentFiles.set(fileTree(dir: layout.buildDirectory.dir("tmp/manual/${lang}"), include: '*.html', exclude: '_*'))
-        tocFile.set(layout.buildDirectory.file("tmp/manual/${lang}/_whc-toc.xml"))
-        headerFile.set(layout.buildDirectory.file("tmp/manual/${lang}/_whc-header.xml"))
+        tocFile.set(layout.buildDirectory.file("tmp/manual/${lang}/_whc/_whc-toc.xml"))
+        headerFile.set(layout.buildDirectory.file("tmp/manual/${lang}/_whc/_whc-header.xml"))
         outputDirectory.set(layout.buildDirectory.dir("docs/manual/${lang}"))
         documentLayout.set('simple')
         localJQuery.set(true)
@@ -134,7 +141,8 @@ ext.makeDocumentationTasks = { lang ->
                 '--field-background-color', '#FDFDFD',
                 '--panel-background-color', '#FDFDFD',
         ])
-        dependsOn(whcHeader, whcToc, whcIndex, copyImagesTarget, copyCssJsTarget)
+        outputs.cacheIf { false }
+        dependsOn(whcHeader, whcToc, whcIndex, copyImagesTarget, copyCssTarget, copyJsTarget)
         group('documentation')
     }
     assemble.dependsOn buildDocumentTask

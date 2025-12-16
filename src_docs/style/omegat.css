@@ -78,24 +78,25 @@ body {
 /* WH ToC */
 
 #wh-navigation {
-	margin-right:3em;
+    margin-right:3em;
 }
+
 #wh-toc a.wh-toc-selected {
-	color:var(--normal-font) !important;
-	border-bottom-width:0px !important;
-	font-weight:bold;
-	font-size: 1.1em;
+    color:var(--normal-font) !important;
+    border-bottom-width:0px !important;
+    font-weight:bold;
+    font-size: 1.1em;
 }
 
 #wh-toc a {
-	font-style: normal;
+    font-style: normal;
 }
 
 /* WH content */
 
 #wh-content {
     font-family: sans-serif;
-	/*    font-size: 10pt; */
+    /*    font-size: 10pt; */
     background-color: var(--normal-background);
     line-height: 1.5;
     color:var(--normal-font);
@@ -103,60 +104,18 @@ body {
     clip-path: padding-box;
 }
 
-#wh-content div.toc,
-#wh-content header,
-#wh-content footer
-{
-    display:none;
-}
-
-#wh-content .book  div.toc {
+#wh-content .book div.list-of-titles .lot {
     display: block;
 }
 
-#wh-content .book .abstract-title,
-#wh-content .book .list-of-figures,
-#wh-content .book .list-of-tables,
-#wh-content .book .toc-title {
+#wh-content .book .title {
     display:none;
 }
 
 #wh-content .book  h3.author {
     font-style:italic;
 }
-#wh-content .book  div.toc .toc-chapters,
-#wh-content .book  div.toc .toc-appendices {
-    display:flex;
-    flex-wrap: wrap;
-    padding:0;
-    margin-bottom:20px;
-}
-
-#wh-content .book  div.toc .toc-panel {
-    display:block;
-    /*    height: 120px;*/
-
-    position: relative;
-    flex: 0 1 auto;
-
-    width: 45%;
-
-    border: 1px solid var(--accent-line);
-    border-radius:3px;
-    background:var(--normal-background);
-    margin-right:3%;
-    margin-top:30px;
-    padding-bottom:20px;
-}
-
-#wh-content .book  div.toc h2 {
-    font-size: 1.2em;
-    color:var(--main-color);
-    font-weight:bold;
-    margin:.8rem 1rem 0 1rem;
-}
-
-#wh-content .book  div.toc .toc-panel ul {
+#wh-content .book  div.list-of-titles ul.toc {
     display:block;
     margin-top: 1rem;
     margin-right: 1em;
@@ -164,16 +123,17 @@ body {
     text-align:left;
 }
 
-#wh-content .book  div.toc .toc-panel ul>li {
+#wh-content .book  div.list-of-titles ul>li {
     display:inline;
 }
 
-#wh-content .book  div.toc .toc-panel li>span>a:after {
-    content:", ";
+#wh-content .book div.list-of-titles ul.toc li ul li span.label,
+#wh-content .book div.list-of-titles ul.toc li ul li span.sep {
+    display:none;
 }
 
-#wh-content .book  div.toc .toc-panel li:last-of-type>span>a:after {
-    content:".";
+#wh-content .book  div.list-of-titles ul.toc li ul li>a:after {
+    content:", ";
 }
 
 /* WH Header */
@@ -193,8 +153,7 @@ body {
 
 #wh-header .title {
     display:inline;
-	/*    font-size:18pt; */
-	font-size:1.8em;
+    font-size:1.8em;
     font-family: sans-serif;
     font-weight:bold;
     vertical-align: middle;
@@ -205,10 +164,17 @@ body {
     text-decoration:none;
 }
 
-
 /*************************************/
 /* CSS for web manual visual effects */
 /*************************************/
+
+nav, .db-navheader, .db-navfooter {
+  display: none !important;
+}
+
+.list-of-titles {
+    display:none !important;
+}
 
 /*****************/
 /* Global layout */
@@ -304,24 +270,6 @@ a.ulink::after {
 	content: " ↗️";
 }
 
-/* 
-.toc a:link {
-	text-decoration:none;
-}
-
-
-a.ulink:link {
-    color:var(--caps-border);
-	text-decoration-color: var(--caps-border);	
-}
-
-a.ulink:visited {
-    color:var(--caps-border);
-	text-decoration-color: var(--caps-border);	
-}
- */
-
-
 /*****************************************/
 /* Visual differentiation of link target */
 /*****************************************/
@@ -374,15 +322,14 @@ td,th {
 /* Code */
 /********/
 
-pre.programlisting em.parameter {
+pre.db-programlisting em.parameter {
     white-space:nowrap;
     display:inline-block;
 }
 
-pre.programlisting {
+pre.db-programlisting {
     overflow-x : auto;
     text-align:left;
-	/*    padding: 1.2em 0.5em 0 1.5em; */
 }
 
 /*************/
@@ -523,13 +470,14 @@ p span.keycap:last-of-type,
 dd span.keycap:last-of-type, 
 li.listitem span.keycap:last-of-type, 
 span.term>span.keycap:last-of-type, 
-div.example-contents span.keycap:last-of-type, 
-div.example-contents > p:nth-child(8) > span:nth-child(2),
-div.example-contents > p:nth-child(9) > span:nth-child(3),
-div.example-contents > p:nth-child(11) > span:nth-child(2),
-div.example-contents > p:nth-child(13) > span:nth-child(2),
-div.example-contents > p:nth-child(13) > span:nth-child(4),
-div.example-contents > p:nth-child(5) > span:nth-child(3),
+div.example span.keycap:last-of-type,
+div.example > p:nth-child(8) > span:nth-child(2),
+div.example > p:nth-child(9) > span:nth-child(3),
+div.example > p:nth-child(11) > span:nth-child(2),
+div.example > p:nth-child(13) > span:nth-child(2),
+div.example > p:nth-child(13) > span:nth-child(4),
+div.example > p:nth-child(5) > span:nth-child(3),
+span.keycombo > span.keycap:last-of-type,
 p > span.keycap:last-child  {
     background: var(--main-color);
     color: var(--normal-background);
@@ -682,12 +630,6 @@ h2:has(a[href="chapter.appendices.html"]) ~ ul {
 /* Various font, colors and box settings */
 /*****************************************/
 
-
-/* 
-code.filename {
-	color:var(--main-color);
-}
- */
 
 .literal {
     font-weight: bold;
@@ -898,8 +840,8 @@ dd {
 
 /* General layout */
 
-.programlisting,
-.literallayout {
+.programlisting-wrap,
+.literal {
 	background-color:var(--normal-background);
 	font-weight: 100;
 	font-size: 1em;	
