@@ -642,6 +642,8 @@ h2:has(a[href="chapter.appendices.html"]) ~ ul {
 
 
 .literal {
+    font-family: monospace;
+    font-size: 1.3em;
     font-weight: bold;
 }
 
@@ -850,8 +852,7 @@ dd {
 
 /* General layout */
 
-.programlisting,
-.literal {
+.programlisting {
 	background-color:var(--normal-background);
 	font-weight: 100;
 	font-size: 1em;	
