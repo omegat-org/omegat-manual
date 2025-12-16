@@ -379,7 +379,6 @@ span.guibutton {
 /********************************/
 
 .note {
-	/*    font-size: small; */
 	font-size: 0.9em;
     color: var(--normal-font);
     background-color:var(--insert-background);
@@ -389,9 +388,17 @@ span.guibutton {
     padding:0 1em;
 }
 
-.note h3 {
+.note .icon {
+    display: none
+}
+
+.note .body .title {
     display:inline-block;
+    font-size: 1.17em;
+    font-style: bold;
+    line-height: 1.28;
     margin:.5em 0 0 0;
+    color: #77A43B;
 }
 
 .example-title {
@@ -411,7 +418,6 @@ span.guibutton {
 }
 
 .warning {
-	/*    font-size: small; */
 	font-size: 0.9em;
     color: var(--normal-font);
     background: var(--insert-background);
@@ -422,12 +428,16 @@ span.guibutton {
 
 }
 
-.warning h3 {
+.warning .icon {
+    display: none
+}
+
+.warning .body .title {
     display:inline-block;
+    font-style: bold;
     margin:.5em 0 0 0;
     color:var(--warning-header);
 }
-
 
 /***********/
 /* Figures */
