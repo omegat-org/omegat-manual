@@ -15,19 +15,6 @@ gradlePlugin {
 
 repositories {
     mavenCentral()
-    // 'repository' for getting docbook xsd
-    ivy {
-        url = 'https://docbook.org/xml'
-        patternLayout {
-            artifact '[revision]/[module]-[revision].[ext]'
-        }
-        content {
-            includeGroup 'docbook'
-        }
-        metadataSources {
-            artifact()
-        }
-    }
     gradlePluginPortal()
 }
 
@@ -48,8 +35,4 @@ dependencies {
     implementation 'tokyo.northside:whc:3.6.0'
     implementation 'xalan:xalan:2.7.3'
     implementation 'xalan:serializer:2.7.3'
-
-    // dependencies not on Maven
-    // https://docbook.org/xml/5.0.1/docbook-5.0.1.zip
-    implementation 'docbook:docbook:5.0.1:resources@zip'
 }
