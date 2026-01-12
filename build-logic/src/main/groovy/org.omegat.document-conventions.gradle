@@ -23,14 +23,16 @@ tasks.register('genDocIndex', Copy) {
     from inputTemplate
     into layout.buildDirectory.dir("tmp/manual/")
     expand('languages': langInformation)
-    doLast {
-        copy {
-            from layout.buildDirectory.file("tmp/manual/index.html")
-            into layout.buildDirectory.dir("docs/manual")
-        }
-    }
     filteringCharset = 'UTF-8'
 }
+
+tasks.register('copyDocIndex', Copy) {
+    description = 'Copies the generated index.html to the final docs directory.'
+    from layout.buildDirectory.file("tmp/manual/index.html")
+    into layout.buildDirectory.dir("docs/manual")
+    dependsOn genDocIndex
+}
+genDocIndex.finalizedBy(copyDocIndex)
 
 tasks.register('manualZips') {
     description = 'Build ZIP manuals to bundle into application. Requires container runtime.'
@@ -43,7 +45,9 @@ tasks.register('manualHtmls') {
     group = 'documentation'
 }
 
-ext.makeDocumentationTasks = { lang ->
+def manualLangsProvider = providers.gradleProperty("org.omegat.manualLangs")
+        .map { it.split(',') }
+manualLangsProvider.get().each { lang ->
 
     def docbookInclude = tasks.register("docbookInclude${lang.capitalize()}", TransformationTask) {
         styleSheetFile.set(layout.projectDirectory.file("${styleRootDir}/passthrough.xsl"))
@@ -189,7 +193,9 @@ tasks.register('firstSteps') {
 }
 assemble.dependsOn firstSteps
 
-ext.makeFirstStepTask = { lang ->
+def firstStepLangsProvider = providers.gradleProperty("org.omegat.firstStepLangs")
+        .map { it.split(',') }
+firstStepLangsProvider.get().each { lang ->
 
     def firstStepsHtmlFinally = tasks.register("firstSteps${lang.capitalize()}Finally", Copy) {
         description 'Copy CSS files to target'
@@ -205,14 +211,28 @@ ext.makeFirstStepTask = { lang ->
         css.set("greeting.css")
         finalizedBy firstStepsHtmlFinally
     }
+    firstSteps.dependsOn firstStepsHtml
+    firstSteps.dependsOn firstStepsHtmlFinally
+}
+
+// -- for first-step-wizard philosophy step
+def copyCss = tasks.register("copyPhilosophyCss", Copy) {
+    description = 'Copies CSS file.'
+    from rootProject.layout.settingsDirectory.file("${documentRootDir}/style/philosophy.css")
+    into rootProject.layout.buildDirectory.dir("docs/greetings")
+}
+// jar.dependsOn(copyCss)
+
+def langs = project.findProperty('org.omegat.philosophyLanguages')?.split(',') ?: ['en']
+langs.each { lang ->
+
     def philosophyHtml = tasks.register("philosophy${lang.capitalize()}", DocbookHtmlTask) {
         description = 'Generates a philosophy HTML'
-        inputFile.set(file("${documentRootDir}/greeting/${lang}/Philosophy.xml"))
-        outputFile.set(layout.buildDirectory.file("docs/greetings/${lang}/philosophy.html"))
-        styleSheetFile.set(layout.projectDirectory.file("${styleRootDir}/html.xsl"))
-        css.set("greeting.css")
+        inputFile.set(rootProject.layout.settingsDirectory.file("${documentRootDir}/greeting/${lang}/Philosophy.xml"))
+        outputFile.set(rootProject.layout.buildDirectory.file("docs/greetings/${lang}/philosophy.html"))
+        styleSheetFile.set(rootProject.layout.settingsDirectory.file("${styleRootDir}/html.xsl"))
+        css.set("../philosophy.css")
+        dependsOn copyCss
     }
-    firstSteps.dependsOn firstStepsHtml
-    firstSteps.dependsOn philosophyHtml
-    firstSteps.dependsOn firstStepsHtmlFinally
+    // jar.dependsOn(philosophyHtml)
 }

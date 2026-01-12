@@ -13,20 +13,9 @@ repositories {
 
 version = '6.1.0'
 
-def manualLangs = project.property("manualLangs").split(',')
-manualLangs.each { lang ->
-    makeDocumentationTasks(lang)
-}
-
-def firstStepLangs = project.property("firstStepLangs").split(',')
-firstStepLangs.each { lang ->
-    makeFirstStepTask(lang)
-}
-
 tasks.register('updateManuals') {
     group = 'documentation'
     description = 'Update first pages and HTML manuals.'
-    dependsOn manualHtmls, firstSteps
 }
 
 nexusPublishing.repositories {
