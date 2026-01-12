@@ -1,5 +1,6 @@
 <!-- Converted by db4-upgrade version 1.1 -->
-<section xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="app.regex">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xhtml" version="5.0"
+         xml:id="app.regex">
    <title xml:id="app.regex.title">Regular expressions</title>
    <para>This appendix is intended for users interested in exploring a powerful
       way to boost their productivity. Although seen as daunting and complex, even
@@ -1606,8 +1607,8 @@
          <variablelist>
             <varlistentry xml:id="app.regex.java">
                <term xml:id="app.regex.java.title">
-                  <ulink url="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">Java Regex
-                     documentation</ulink>
+                  <link xlink:href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html">Java Regex
+                     documentation</link>
                </term>
                <listitem>
                   <para>The official reference for regular expressions used in
@@ -1623,7 +1624,7 @@
          <variablelist>
             <varlistentry xml:id="app.regex.tools.regex101">
                <term xml:id="app.regex.tools.regex101.title">
-                  <ulink url="https://regex101.com">https://regex101.com</ulink>
+                  <link xlink:href="https://regex101.com">https://regex101.com</link>
                </term>
                <listitem>
                   <para>An online regular expression matcher that lets you enter the
@@ -1633,7 +1634,7 @@
             </varlistentry>
             <varlistentry xml:id="app.regex.tools.regular.expression.info">
                <term xml:id="app.regex.tools.regular.expression.info.title">
-                  <ulink url="https://www.regular-expressions.info">https://www.regular-expressions.info</ulink>
+                  <link xlink:href="https://www.regular-expressions.info">https://www.regular-expressions.info</link>
                </term>
                <listitem>
                   <para>One of the most thorough regular expression tutorial and
