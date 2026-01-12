@@ -159,6 +159,30 @@ ext.makeDocumentationTasks = { lang ->
     manualZips.dependsOn zipTask
 }
 
+def sourceDir = file("src_docs/manual/4")
+def targetDir = file("src_docs/manual/en")
+def xslFile = file("src_docs/xsl/db4-upgrade.xsl")
+
+def upgradeTasks = fileTree(sourceDir).include("**/*.xml").collect { sourceFile ->
+    def relativePath = sourceDir.toPath().relativize(sourceFile.toPath())
+    def targetFile = targetDir.toPath().resolve(relativePath).toFile()
+    def taskName = "upgradeManual_${sourceFile.name.replaceAll(/[^a-zA-Z0-9]/, '_')}"
+
+    return tasks.register(taskName, TransformationTask) {
+        styleSheetFile.set(xslFile)
+        inputFile.set(sourceFile)
+        outputFile.set(targetFile)
+        xIncludeAware.set(false)
+    }
+}
+
+// Register the aggregate task and link it to the individual ones
+tasks.register('upgradeAllManualsEn') {
+    group = 'documentation'
+    description = 'Upgrades all DocBook 4 XML files to DocBook 5 for English locale.'
+    dependsOn upgradeTasks
+}
+
 tasks.register('firstSteps') {
     description = 'Build first pages for all languages at docs/greetings/. Requires Docker.'
     group = 'documentation'

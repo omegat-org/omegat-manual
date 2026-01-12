@@ -12,6 +12,7 @@ import net.sf.saxon.s9api.XsltTransformer
 import org.apache.xerces.jaxp.SAXParserFactoryImpl
 import org.gradle.api.file.FileTree
 import org.gradle.api.file.RegularFile
+import org.gradle.api.provider.Property
 import org.gradle.api.provider.Provider
 import org.gradle.api.tasks.CacheableTask
 import org.gradle.api.tasks.Input
@@ -58,6 +59,10 @@ class TransformationTask extends AbstractDocumentTask {
     @Optional
     Provider<String> debug = project.objects.property(String)
 
+    @Input
+    @Optional
+    final Property<Boolean> xIncludeAware = project.objects.property(Boolean).convention(true)
+
     @TaskAction
     void transform() {
         configureLogging()
@@ -84,7 +89,7 @@ class TransformationTask extends AbstractDocumentTask {
     protected void configProcessor(Processor processor) {
     }
 
-    private static XMLReader initializeXmlReader() {
+    private XMLReader initializeXmlReader() {
         def factory = configureSAXParserFactory()
         def xmlReader = factory.newSAXParser().getXMLReader()
         return xmlReader
@@ -123,11 +128,11 @@ class TransformationTask extends AbstractDocumentTask {
         return transformer
     }
 
-    private static SAXParserFactory configureSAXParserFactory() {
+    private SAXParserFactory configureSAXParserFactory() {
         SAXParserFactory factory = new SAXParserFactoryImpl()
         factory.setValidating(false)
         factory.setNamespaceAware(true)
-        factory.setXIncludeAware(true)
+        factory.setXIncludeAware(xIncludeAware.get())
         factory.setFeature(EXTERNAL_GENERAL_ENTITIES, true)
         factory.setFeature(EXTERNAL_PARAMETER_ENTITIES, true)
         factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", false)  // Allow DOCTYPE
