@@ -340,17 +340,16 @@
 	  writing space</title>
          <para>
             		
-            <programlisting>— ¶ —————————————————————
-               
-               
-               <token>Hide Tags</token>
-               |Dissimuler les balises
-               <token>&lt;segment 2148 ¶&gt;</token>
-               
-               — ¶ —————————————————————
-               
-               When enabled, all formatting in the source segments are hidden.</programlisting>
-         </para>
+   <programlisting>— ¶ —————————————————————
+
+   <token>Hide Tags</token>
+   |Dissimuler les balises
+   <token>&lt;segment 2148 ¶&gt;</token>
+
+— ¶ —————————————————————
+
+When enabled, all formatting in the source segments are hidden.</programlisting>
+</para>
       </example>
       <itemizedlist>
          <listitem>
@@ -688,17 +687,15 @@
                                     <tbody>
                                        <row>
                                           <entry>
-                                             							
-                                             <programlisting>— ¶ —————————————————————
-                                                
-                                                
-                                                <token>Application Folder</token>
-                                                |
-                                                <token>&lt;segment 1879 ¶&gt;</token>
-                                                
-                                                — ¶ —————————————————————
-                                                </programlisting>
-                                          </entry>
+
+<programlisting>— ¶ —————————————————————
+
+<token>Application Folder</token>
+ | <token>&lt;segment 1879 ¶&gt;</token>
+
+ — ¶ —————————————————————
+</programlisting>
+                                    </entry>
                                        </row>
                                     </tbody>
                                  </tgroup>
@@ -714,15 +711,14 @@
                                        <row>
                                           <entry>
                                              							
-                                             <programlisting>1. 
-                                                <token>Top</token> Folder
-                                                Dossier racine
-                                                &lt;50/50/66% Orphan segments (+1 more)&gt;</programlisting>
-                                             
-                                             <programlisting>2. Configuration Folder
-                                                Dossier de configuration
-                                                &lt;50/50/66% &gt;</programlisting>
-                                          </entry>
+<programlisting>1. <token>Top</token> Folder
+ Dossier racine
+ &lt;50/50/66% Orphan segments (+1 more)&gt;
+
+2. Configuration Folder
+Dossier de configuration
+&lt;50/50/66% &gt;</programlisting>
+                                         </entry>
                                        </row>
                                     </tbody>
                                  </tgroup>
@@ -794,14 +790,11 @@
       <example xml:id="glossary.matches">
          <title xml:id="glossary.matches.title">Glossary matches</title>
          <para>
-            		
-            <programlisting>Project = 
-               <token>Projet</token>
-               1. Projet de traduction
-               
-               Folder = 
-               <token>Dossier</token>
-            </programlisting>
+<programlisting>Project = <token>Projet</token>
+1. Projet de traduction
+
+Folder = <token>Dossier</token>
+</programlisting>
             	  </para>
       </example>
       <para>The glossary file name is shown as a tooltip when hovering over the
