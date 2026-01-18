@@ -65,7 +65,6 @@ manualLangsProvider.get().each { lang ->
     def copyCss = tasks.register("copyCss${lang.capitalize()}", Copy) {
         description 'Copy CSS and JS files to tmp'
         into(layout.buildDirectory.dir("tmp/manual/${lang}/css/"))
-        from fileTree(dir: "${documentRootDir}/docbook/css")
         from file("${documentRootDir}/style/omegat.css")
     }
 
