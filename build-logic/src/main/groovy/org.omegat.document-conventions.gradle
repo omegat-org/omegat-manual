@@ -125,7 +125,7 @@ manualLangsProvider.get().each { lang ->
 
     def whcHeader = tasks.register("whcHeader${lang.capitalize()}", TransformationTask) {
         description = 'Generates a whc header and index.'
-        styleSheetFile.set(layout.projectDirectory.file("${styleRootDir}/whc-header.xsl"))
+        styleSheetFile.set(layout.projectDirectory.file("${styleRootDir}/db5-whc-header.xsl"))
         inputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/_whc/db5-all-included.xml"))
         outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/_whc/_whc-header.xml"))
         dependsOn(docbookHtml, docbookInclude)
@@ -207,7 +207,7 @@ firstStepLangsProvider.get().each { lang ->
         description 'Generate chunked HTML documentation'
         inputFile.set(file("${documentRootDir}/greeting/${lang}/First_Steps.xml"))
         outputFile.set(layout.buildDirectory.file("docs/greetings/${lang}/first_steps.html"))
-        styleSheetFile.set(layout.projectDirectory.file("${styleRootDir}/html.xsl"))
+        styleSheetFile.set(layout.projectDirectory.file("${styleRootDir}/db5-html.xsl"))
         css.set("greeting.css")
         finalizedBy firstStepsHtmlFinally
     }
@@ -230,7 +230,7 @@ langs.each { lang ->
         description = 'Generates a philosophy HTML'
         inputFile.set(rootProject.layout.settingsDirectory.file("${documentRootDir}/greeting/${lang}/Philosophy.xml"))
         outputFile.set(rootProject.layout.buildDirectory.file("docs/greetings/${lang}/philosophy.html"))
-        styleSheetFile.set(rootProject.layout.settingsDirectory.file("${styleRootDir}/html.xsl"))
+        styleSheetFile.set(rootProject.layout.settingsDirectory.file("${styleRootDir}/db5-html.xsl"))
         css.set("../philosophy.css")
         dependsOn copyCss
     }
