@@ -6,6 +6,14 @@ plugins {
     id 'signing'
 }
 
+configurations {
+    docbookXsl
+}
+
+dependencies {
+    docbookXsl 'org.docbook:docbook-xslTNG:2.5.0'
+}
+
 def documentRootDir = 'src_docs'
 def styleRootDir = 'src_docs/xsl'
 
@@ -56,16 +64,9 @@ manualLangsProvider.get().each { lang ->
         contentFiles.set(fileTree(dir: layout.projectDirectory.dir("${documentRootDir}/manual/${lang}"), include: '*.xml'))
     }
 
-    def copyJs = tasks.register("copyJs${lang.capitalize()}", Copy) {
-        description 'Copy CSS and JS files to tmp'
-        into(layout.buildDirectory.dir("tmp/manual/${lang}/js/"))
-        from fileTree(dir: "${documentRootDir}/docbook/js")
-    }
-
     def copyCss = tasks.register("copyCss${lang.capitalize()}", Copy) {
         description 'Copy CSS and JS files to tmp'
         into(layout.buildDirectory.dir("tmp/manual/${lang}/css/"))
-        from fileTree(dir: "${documentRootDir}/docbook/css")
         from file("${documentRootDir}/style/omegat.css")
     }
 
@@ -84,7 +85,12 @@ manualLangsProvider.get().each { lang ->
 
     def copyJsTarget = tasks.register("copyJsTarget${lang.capitalize()}", Copy) {
         description 'Copy CSS and JS files to target'
-        from fileTree(dir: "${documentRootDir}/docbook/js", includes: ['*.js'])
+        from(zipTree(configurations.docbookXsl.find { it.name.startsWith('docbook-xslTNG') })) {
+            include 'org/docbook/xsltng/resources/js/chunk-nav.js'
+            include 'org/docbook/xsltng/resources/js/copy-verbatim.js'
+            eachFile { fcd -> fcd.path = fcd.name }
+            includeEmptyDirs = false
+        }
         into(layout.buildDirectory.dir("docs/manual/${lang}/js/"))
     }
 
@@ -104,7 +110,7 @@ manualLangsProvider.get().each { lang ->
         css.set("css/omegat.css")
         outputs.cacheIf { false }
         // debug.set("chunk-cleanup")
-        dependsOn(copyImages, copyCss, copyJs)
+        dependsOn(copyImages, copyCss)
     }
 
     def whcToc = tasks.register("whcToc${lang.capitalize()}", TransformationTask) {
@@ -125,7 +131,7 @@ manualLangsProvider.get().each { lang ->
 
     def whcHeader = tasks.register("whcHeader${lang.capitalize()}", TransformationTask) {
         description = 'Generates a whc header and index.'
-        styleSheetFile.set(layout.projectDirectory.file("${styleRootDir}/whc-header.xsl"))
+        styleSheetFile.set(layout.projectDirectory.file("${styleRootDir}/db5-whc-header.xsl"))
         inputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/_whc/db5-all-included.xml"))
         outputFile.set(layout.buildDirectory.file("tmp/manual/${lang}/_whc/_whc-header.xml"))
         dependsOn(docbookHtml, docbookInclude)
@@ -163,25 +169,24 @@ manualLangsProvider.get().each { lang ->
     manualZips.dependsOn zipTask
 }
 
-def sourceDir = file("src_docs/manual/4")
-def targetDir = file("src_docs/manual/en")
-def xslFile = file("src_docs/xsl/db4-upgrade.xsl")
+def sourceDir = file("src_docs/manual4")
+def OUTPUT_BASE_DIR = "build/docs/manual5"
+def UPGRADE_XSL_PATH = "src_docs/xsl/db4-upgrade.xsl"
 
-def upgradeTasks = fileTree(sourceDir).include("**/*.xml").collect { sourceFile ->
-    def relativePath = sourceDir.toPath().relativize(sourceFile.toPath())
-    def targetFile = targetDir.toPath().resolve(relativePath).toFile()
+def upgradeTasks = fileTree(sourceDir).include("**/*.xml").collect { File sourceFile ->
     def taskName = "upgradeManual_${sourceFile.name.replaceAll(/[^a-zA-Z0-9]/, '_')}"
 
     return tasks.register(taskName, TransformationTask) {
-        styleSheetFile.set(xslFile)
+        def relativePath = sourceDir.toPath().relativize(sourceFile.toPath())
+        styleSheetFile.set(layout.projectDirectory.file(UPGRADE_XSL_PATH))
         inputFile.set(sourceFile)
-        outputFile.set(targetFile)
+        outputFile.set(layout.buildDirectory.file("${OUTPUT_BASE_DIR}/${relativePath}"))
         xIncludeAware.set(false)
     }
 }
 
 // Register the aggregate task and link it to the individual ones
-tasks.register('upgradeAllManualsEn') {
+tasks.register('upgradeAllManuals') {
     group = 'documentation'
     description = 'Upgrades all DocBook 4 XML files to DocBook 5 for English locale.'
     dependsOn upgradeTasks
@@ -207,7 +212,7 @@ firstStepLangsProvider.get().each { lang ->
         description 'Generate chunked HTML documentation'
         inputFile.set(file("${documentRootDir}/greeting/${lang}/First_Steps.xml"))
         outputFile.set(layout.buildDirectory.file("docs/greetings/${lang}/first_steps.html"))
-        styleSheetFile.set(layout.projectDirectory.file("${styleRootDir}/html.xsl"))
+        styleSheetFile.set(layout.projectDirectory.file("${styleRootDir}/db5-html.xsl"))
         css.set("greeting.css")
         finalizedBy firstStepsHtmlFinally
     }
@@ -230,7 +235,7 @@ langs.each { lang ->
         description = 'Generates a philosophy HTML'
         inputFile.set(rootProject.layout.settingsDirectory.file("${documentRootDir}/greeting/${lang}/Philosophy.xml"))
         outputFile.set(rootProject.layout.buildDirectory.file("docs/greetings/${lang}/philosophy.html"))
-        styleSheetFile.set(rootProject.layout.settingsDirectory.file("${styleRootDir}/html.xsl"))
+        styleSheetFile.set(rootProject.layout.settingsDirectory.file("${styleRootDir}/db5-html.xsl"))
         css.set("../philosophy.css")
         dependsOn copyCss
     }

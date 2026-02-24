@@ -41,7 +41,7 @@ class TransformationTask extends AbstractDocumentTask {
     private static final String EXTERNAL_GENERAL_ENTITIES = "http://xml.org/sax/features/external-general-entities"
     private static final String EXTERNAL_PARAMETER_ENTITIES = "http://xml.org/sax/features/external-parameter-entities"
 
-    private static final String CATALOG = "classpath:/org/xmlresolver/catalog.xml"
+    private static final String CATALOG = "classpath:/org/docbook/xsltng/catalog.xml"
 
     @InputFiles
     @PathSensitive(PathSensitivity.RELATIVE)

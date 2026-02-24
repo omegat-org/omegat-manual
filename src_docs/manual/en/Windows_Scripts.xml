@@ -408,19 +408,19 @@
          as the top object. For example, the following Groovy code snippet scans
          through all segments in every file in the current project and prints out the
          source and the target text of segments that contain a translation.</para>
-      <programlisting>files = project.projectFiles;
-         for (i in 0 ..&lt; files.size())
-         {
-         	for (j in 0 ..&lt; files[i].entries.size())
-         	{
-         		currSegment = files[i].entries[j];
-         		if (project.getTranslationInfo(currSegment))
-         		{
-         			source = currSegment.getSrcText();
-         			target = project.getTranslationInfo(currSegment).translation;
-         			console.println(source + " &gt;&gt;&gt;&gt; " + target);
-         		}     
-         	}
-         }</programlisting>
+<programlisting>   files = project.projectFiles;
+   for (i in 0 ..&lt; files.size())
+   {
+      for (j in 0 ..&lt; files[i].entries.size())
+      {
+          currSegment = files[i].entries[j];
+          if (project.getTranslationInfo(currSegment))
+          {
+              source = currSegment.getSrcText();
+              target = project.getTranslationInfo(currSegment).translation;
+              console.println(source + " &gt;&gt;&gt;&gt; " + target);
+          }
+      }
+   }</programlisting>
    </section>
 </section>

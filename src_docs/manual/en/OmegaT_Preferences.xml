@@ -871,24 +871,18 @@
                      <token>2001</token> in the source:</para>
                   <para>
                      			
-                     <programlisting>[[
-                        <token>2001</token>年]]、ドイツの永住権を取得。</programlisting>
+                     <programlisting>[[<token>2001</token>年]]、ドイツの永住権を取得。</programlisting>
                   </para>
                   <para>
                      <token>2003</token> in the fuzzy match:</para>
                   <para>
-                     <programlisting>[[
-                        <token>2003</token>年]]、ドイツの永住権を取得。
-                        [[
-                        <token>2003</token>]], elle acquiert la nationalité allemande.</programlisting>
+<programlisting>[[<token>2003</token>年]]、ドイツの永住権を取得。
+[[<token>2003</token>]], elle acquiert la nationalité allemande.</programlisting>
                   </para>
                   <para>When the match is inserted, OmegaT will convert
-                     			
-                     <token>2003</token> to 
-                     <token>2001</token>:</para>
+                     <token>2003</token> to <token>2001</token>:</para>
                   <para>
-                     <programlisting>[[
-                        <token>2001</token>]], elle acquiert la nationalité allemande.</programlisting>
+                     <programlisting>[[<token>2001</token>]], elle acquiert la nationalité allemande.</programlisting>
                   </para>
                </example>
             </listitem>

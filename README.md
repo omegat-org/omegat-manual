@@ -2,7 +2,7 @@
 
 This is an experimental repository designed to migrate OmegaT manuals to DocBook 5 and build them with Gradle.
 
-## How to build HTML manual
+## How to build an HTML manual
 
 To build the HTML manual, run the following Gradle command:
 
@@ -22,7 +22,8 @@ All greeting pages have been successfully migrated to DocBook 5.
 
 ### Manuals
 
-English manuals are migrated into DocBook 5, converted by `db4-upgrade.xsl` tool.
+English manuals are migrated into DocBook 5, converted by `src_docs/xsl/db4-upgrade.xsl` tool.
+When storing your DocBook 4.5 XML files under `src_docs/manual/4/` and executing `./gradlew upgradeAllManualsEn`, then the contents will be generated into `src_docs/manual/en/`.
 
 ## Directory hierarchy
 
@@ -32,7 +33,6 @@ English manuals are migrated into DocBook 5, converted by `db4-upgrade.xsl` tool
 - `images`: OmegaT resources of the images, that is as same as OmegaT project repository
 - `release`: OmegaT release resource `doc-license.txt` which is used by build configuration
 - `src_docs/developer`: developer manual of the DocBook 5 transformation
-- `src_docs/docbook`: CSS and Javascript resources used by XSLTNG DocBook5 XSLT tookkit.
 - `src_docs/greeting`: OmegaT greeting pages for each langauges in DocBook 5 format
 - `src_docs/manual/en`: working directory to migrate manual into DocBook 5 compliant format.
 - `src_docs/template`: OmegaT manual Web Site index page template as same as the OmegaT project repository.
@@ -45,9 +45,8 @@ The tasks for building the project are defined in a custom local plugin located 
 
 ## Developer manual
 
-There is a developer manual in `src_docs/developer` in Markdown mark-up syntax.
-You can build HTML developer manual with MkDocs python document build toolkit.
-Please install python3 with venv module;
+There is a developer manual in `src_docs/developer` in Markdown markup syntax.
+You can build an HTML developer manual with MkDocs, a Python document build toolkit.
 
 ```generic
 python3 -m venv venv
@@ -55,12 +54,12 @@ source venv/bin/activate
 mkdocs build -f src_docs/mkdocs.yml
 ```
 
-Then you can find a html document in `build/docs/developer`
+Then you can find an HTML document in `build/docs/developer`
 
 ## Downloading Artifacts via GitHub Actions
 
 You can download the build artifacts directly from the GitHub Actions page by clicking the "**artifacts**" file download link at the bottom of the Actions page.
-Please visit https://github.com/omegat-org/omegat-manual/actions/workflows/manuals-builds-main.yml and click most recent job title.
+Please visit https://github.com/omegat-org/omegat-manual/actions/workflows/manuals-builds-main.yml and click the most recent job.
 
 ![image](https://github.com/user-attachments/assets/ce8feb98-d477-46a5-9fef-1777c12615a1)
 
