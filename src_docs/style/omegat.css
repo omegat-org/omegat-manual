@@ -298,16 +298,33 @@ section.chapter p a[href^="chapter.windows.and.dialogs.html#windows"] > span.gui
 /* Tables */
 /**********/
 
-.table-title {
+.table .title {
     font-style:italic;
     color: var(--main-color);
     font-size : .9em;
     margin-bottom: .75em;
 }
 
+table {
+    border-collapse: collapse;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-left: 1px solid;
+    border-right: 1px solid;
+}
 
-td,th {
+table th {
     padding: .5em 1em;
+    text-align: left;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+}
+
+table td {
+    padding: .5em 1em;
+    text-align: left;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
 }
 
 div.table[id="menus.shortcut.description"] table {
@@ -477,30 +494,6 @@ picture.imageobject img {
     max-width: 100%;
     height: auto;
 
-}
-
-/***********/
-/* Tables  */
-/***********/
-
-table {
-    border-collapse: collapse;
-    border-top: 1px solid;
-    border-bottom: 1px solid;
-    border-left: 1px solid;
-    border-right: 1px solid;
-}
-
-table th {
-    text-align: left;
-    border-right: 1px solid;
-    border-bottom: 1px solid;
-}
-
-table td {
-    text-align: left;
-    border-right: 1px solid;
-    border-bottom: 1px solid;
 }
 
 /***********/
