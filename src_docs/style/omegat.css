@@ -266,7 +266,7 @@ a {
 	text-decoration-color: var(--panes-color);
 }
 
-a.ulink::after {
+a.link::after {
 	content: " ↗️";
 }
 
