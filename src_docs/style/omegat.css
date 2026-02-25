@@ -441,14 +441,14 @@ span.guibutton {
     color: #77A43B;
 }
 
-div.example div.title {
+div.example header div.title {
     font-style:italic;
     color: var(--main-color);
     font-size : .9em;
     margin-bottom: .75em;
 }
 
-.example-contents {
+.example {
     border-style: solid;
     border-width: 1px;
     border-radius:3px;
