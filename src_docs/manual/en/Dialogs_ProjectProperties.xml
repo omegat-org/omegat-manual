@@ -1,6 +1,6 @@
 <!-- Converted by db4-upgrade version 1.1 -->
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="dialogs.project.properties">
-   <title xml:id="dialogs.project.properties.title"><link linkend="dialogs.project.properties"> </link><guilabel>Project Properties</guilabel></title>
+   <title xml:id="dialogs.project.properties.title"><guilabel>Project Properties</guilabel></title>
    <para>Use 
       <link linkend="menus.project" endterm="menus.project.title"></link>
       <link linkend="menus.project.properties" endterm="menus.project.properties.title"></link>
