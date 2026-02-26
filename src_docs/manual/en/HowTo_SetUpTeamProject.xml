@@ -179,7 +179,7 @@
                      the project URL, and then have the translators copy it to an empty
                      folder and open it in OmegaT. This can be useful if the project is
                      set up to use different 
-                     <link linkend="how.to.setup.team.project.mapping.parameters">mappings</link>
+                     <link linkend="how.to.setup.team.project.mapping.parameters" role="xref">mappings</link>
                      for each translator.</para>
                </listitem>
             </orderedlist>

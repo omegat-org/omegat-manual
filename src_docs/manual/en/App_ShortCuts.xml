@@ -299,7 +299,7 @@
       <example xml:id="example.shortcut.addition">
          <title xml:id="example.shortcut.addition.title">Adding a shortcut</title>
          <para>If your language pair calls for the frequent use of 
-            <link linkend="menus.edit.create.alternative.translation">alternative
+            <link linkend="menus.edit.create.alternative.translation" role="xref">alternative
                translations</link>, you may want to assign a shortcut to that function
             since it does not have one by default.</para>
          <para>The steps below demonstrate how to assign the

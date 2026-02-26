@@ -7,19 +7,19 @@
    <itemizedlist>
       <listitem>
          <para>
-            <link linkend="how.to.translate.other.files.associate">Associate</link> the format to an already supported format.</para>
+            <link linkend="how.to.translate.other.files.associate" role="xref">Associate</link> the format to an already supported format.</para>
       </listitem>
       <listitem>
          <para>
-            <link linkend="how.to.translate.other.files.convert">Convert</link> the format to an already supported format.</para>
+            <link linkend="how.to.translate.other.files.convert" role="xref">Convert</link> the format to an already supported format.</para>
       </listitem>
       <listitem>
          <para>
-            <link linkend="how.to.translate.other.files.third.party.plugins">Extend</link> OmegaT with third-party plugins that support the format.</para>
+            <link linkend="how.to.translate.other.files.third.party.plugins" role="xref">Extend</link> OmegaT with third-party plugins that support the format.</para>
       </listitem>
       <listitem>
          <para>
-            <link linkend="how.to.translate.other.files.develop">Develop</link> a filter for the format.</para>
+            <link linkend="how.to.translate.other.files.develop" role="xref">Develop</link> a filter for the format.</para>
       </listitem>
    </itemizedlist>
    <section xml:id="how.to.translate.other.files.associate">

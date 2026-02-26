@@ -747,7 +747,7 @@
                <para>If you check 
                   <guilabel>Show in Editor context menu</guilabel>,
                   		  the set name will also be displayed in the 
-                  <link linkend="panes.editor.context.menu">context menu</link> if a string is
+                  <link linkend="panes.editor.context.menu" role="xref">context menu</link> if a string is
                   		  selected.</para>
                <para>URL searches as well as commands must contain the string
                   		  
@@ -1552,7 +1552,7 @@
          <link linkend="configuration.folder" role="xref">configuration folder</link>, but can also be
          	installed in the 
          <link linkend="application.folder.plugins" endterm="application.folder.plugins.title"></link> folder under the 
-         <link linkend="application.folder">application</link> folder.</para>
+         <link linkend="application.folder" role="xref">application</link> folder.</para>
       <para>Additional plugins can be found on the 
          <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://sourceforge.net/p/omegat/wiki/Plugins/">OmegaT wiki
             	site</link>.</para>
