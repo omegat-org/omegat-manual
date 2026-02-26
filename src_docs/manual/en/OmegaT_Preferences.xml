@@ -9,7 +9,7 @@
    <para>Use the search field at the top of the preferences list to look for
       specific items.</para>
    <para>Preferences set in this dialog are saved to the default 
-      <link linkend="configuration.folder">configuration folder</link> and apply to all
+      <link linkend="configuration.folder" role="xref">configuration folder</link> and apply to all
       translation projects unless you have specified a different configuration
       folder.</para>
    <note>
@@ -430,7 +430,7 @@
          	use local file filters.</para>
       <para>The contents of this preference are identical to the contents of the
          	
-         <link linkend="dialogs.project.properties.filters">local file filters</link>
+         <link linkend="dialogs.project.properties.filters" role="xref">local file filters</link>
          	dialog. See the 
          <link linkend="file.filters" endterm="file.filters.title"></link>
          	appendix for details.</para>
@@ -629,13 +629,13 @@
                <para>Enable after installing a spellchecking dictionary. OmegaT will
                   		  underline spelling mistakes with red wavy-lines.</para>
                <para>Use the 
-                  <link linkend="panes.editor.context.menu">editor context
+                  <link linkend="panes.editor.context.menu" role="xref">editor context
                      		  menu</link> to correct the mistake, to 
                   <guimenuitem>Ignore
                      		  All</guimenuitem> or to 
                   <guimenuitem>Add to
                      		  Dictionary</guimenuitem>. See 
-                  <link linkend="project.folder.omegat.ignored.words">spellchecker files</link>
+                  <link linkend="project.folder.omegat.ignored.words" role="xref">spellchecker files</link>
                   		  for details.</para>
             </listitem>
          </varlistentry>
@@ -744,7 +744,7 @@
             <listitem>
                <warning>
                   <para>For security reasons, 
-                     <link linkend="dialogs.project.properties.external.searches">local
+                     <link linkend="dialogs.project.properties.external.searches" role="xref">local
                         			external searches</link> are disabled by default.</para>
                </warning>
                <para>Local external search commands are saved in the 
@@ -760,7 +760,7 @@
             <listitem>
                <para>This option enables you to change the order of the commands in
                   		  the Editor pane 
-                  <link linkend="panes.editor.context.menu">context
+                  <link linkend="panes.editor.context.menu" role="xref">context
                      		  menu</link>. Values around 100 display commands at the top, and values
                   		  around 900 display them at the bottom.</para>
                <warning>
@@ -933,7 +933,7 @@
                   </listitem>
                </itemizedlist>
                <para>both located in the 
-                  <link linkend="windows.scripts.folder">scripting folder</link>.
+                  <link linkend="windows.scripts.folder" role="xref">scripting folder</link>.
                   		  </para>
                <note>
                   <para>This function has no relation to the 
@@ -1591,8 +1591,7 @@
             <listitem>
                <warning>
                   <para>For security reasons, the 
-                     <link linkend="dialogs.project.properties.external.processing.command">local
-                        			post-processing commands</link> are disabled by default.</para>
+                     <link linkend="dialogs.project.properties.external.processing.command" role="xref">local post-processing commands</link> are disabled by default.</para>
                </warning>
                <para>You can also define local post-processing commands available
                   		  only to a given project. Such commands are defined in the 
@@ -1625,7 +1624,7 @@
       <title xml:id="dialogs.preferences.plugins.title"><link linkend="dialogs.preferences.plugins"> </link><guilabel>Plugins</guilabel></title>
       <para>Displays the list of all the installed plugins.</para>
       <para>Plugins are by default installed in the 
-         <link linkend="configuration.folder">configuration folder</link>, but can also be
+         <link linkend="configuration.folder" role="xref">configuration folder</link>, but can also be
          	installed in the 
          <link linkend="application.folder.plugins" endterm="application.folder.plugins.title"></link> folder under the 
          <link linkend="application.folder">application</link> folder.</para>

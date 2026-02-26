@@ -125,7 +125,7 @@
             <para>When installed, the plugin offers direct access to the added
                			formats and also allows you to associate a custom filter parameters
                			file created in Rainbow. See 
-               <link linkend="how.to.translate.other.files.third.party.utilities.rainbow">above</link>.</para>
+                <link linkend="how.to.translate.other.files.third.party.utilities.rainbow" role="xref">above</link>.</para>
          </listitem>
       </itemizedlist>
       <para>Other plugins for less common formats are listed on the OmegaT

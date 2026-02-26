@@ -61,7 +61,7 @@
       </orderedlist>
       <para>Use the various options in the 
          <link linkend="menus.view" endterm="menus.view.title"></link> menu and move the various 
-         <link linkend="chapter.panes">panes</link> around to obtain the layout that fits
+         <link linkend="chapter.panes" role="xref">panes</link> around to obtain the layout that fits
          	your workflow best.</para>
       <warning>
          <para>Use 
@@ -80,7 +80,7 @@
                   described in the 
                   <link linkend="chapter.menus" endterm="chapter.menus.title"></link> chapter, and a status bar, described
                   
-                  <link linkend="panes.statusbar">below</link>. You can click and 
+                  <link linkend="panes.statusbar" role="xref">below</link>. You can click and
                   hold the name of a pane to drag it to a new position or even undock it
                   as a separate window.</para>
                <para>The top right corner of each pane shows different icons
@@ -514,7 +514,7 @@ When enabled, all formatting in the source segments are hidden.</programlisting>
                   <guilabel>OVR</guilabel> or insert
                   - 
                   <guilabel>INS</guilabel>) is shown at the right of the 
-                  <link linkend="panes.statusbar">status bar</link>. The same key toggles between each mode.</para>
+                  <link linkend="panes.statusbar" role="xref">status bar</link>. The same key toggles between each mode.</para>
             </listitem>
          </varlistentry>
          <varlistentry xml:id="panes.editor.cursor.lock">
@@ -531,7 +531,7 @@ When enabled, all formatting in the source segments are hidden.</programlisting>
                   <guilabel>LCK</guilabel> or unlocked
                   - 
                   <guilabel>UNL</guilabel>) is shown at the right of the 
-                  <link linkend="panes.statusbar">status bar</link>. The same key toggles
+                  <link linkend="panes.statusbar" role="xref">status bar</link>. The same key toggles
                   between locking and unlocking the cursor.</para>
             </listitem>
          </varlistentry>

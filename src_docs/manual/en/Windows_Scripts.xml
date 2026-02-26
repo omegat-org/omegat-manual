@@ -139,7 +139,7 @@
             location.</para>
          <para>In such cases, you will have to copy or move the script folder to a
             location for which you have write permissions, such as the 
-            <link linkend="configuration.folder.location">configuration folder</link>, if
+            <link linkend="configuration.folder.location" role="xref">configuration folder</link>, if
             you want to write your own scripts, add new ones, or modify existing
             ones.</para>
          <para>If you do have permission to write to the default folder, make sure
