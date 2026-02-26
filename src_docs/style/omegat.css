@@ -266,8 +266,8 @@ a {
 	text-decoration-color: var(--panes-color);
 }
 
-a.link::after {
-	content: " ↗️";
+a.link:not(.xref)::after {
+	content: "↗️";
 }
 
 /*****************************************/
