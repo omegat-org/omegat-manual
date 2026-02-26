@@ -55,8 +55,8 @@
                <listitem>
                   <para>Create the project structure</para>
                   <para>If you are creating a new empty project, you can follow the
-                     
-                     <link linkend="introduction.create.and.open.new.project">GUI
+
+                     <link linkend="introduction.create.and.open.new.project" role="xref">GUI
                         procedure</link>, or create it directly from the command line:
                      <!-- TODO we’ll need to update the CL when we have integrated the
                  new CL framework -->
@@ -78,8 +78,8 @@
                <listitem>
                   <para>Add the necessary files</para>
                   <para>Similarly add any relevant lists of spellchecker files you
-                     want to make available to everyone working on the project. See 
-                     <link linkend="project.folder.omegat.spellcheck">spellchecker files</link>
+                     want to make available to everyone working on the project. See
+                     <link linkend="project.folder.omegat.spellcheck" role="xref">spellchecker files</link>
                      for details.</para>
                   <para>If you are converting an existing project, make sure you
                      delete any files in the project that you do not need or want to
@@ -185,8 +185,8 @@
             </orderedlist>
             <para>After the project manager confirms that a translator has
                been able to open the team project, it is a good idea to make
-               sure that the 
-               <link linkend="menus.tools.statistics">project
+               sure that the project
+               <link linkend="menus.tools.statistics" role="xref">project
                   statistics</link> are the same for both the project manager
                (on the server) and the translator (locally).</para>
             <para>If they do not match, make sure the two projects use the
