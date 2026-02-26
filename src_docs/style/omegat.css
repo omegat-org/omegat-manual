@@ -902,13 +902,17 @@ dd {
     border-radius: 5px;
 }
 
+.programlisting .ln {
+    display: none;
+}
+
 /* Editor pane */
 
 #panes\.editor\.default\.editor\.writing\.space > div.pre-wrap > pre {
 	border-left: 10px solid lightgrey;
 }
 
-#panes\.editor\.default\.editor\.writing\.space > div.example-contents > pre > span:nth-child(1) {
+#panes\.editor\.default\.editor\.writing\.space .line:nth-child(3) .token {
 	background-color:var(--match-background);
 	font-weight:bold;	
 }
@@ -995,7 +999,7 @@ dd {
 
 /* Glossary match */
 
-#glossary\.matches > div.example-contents > pre {
+#glossary\.matches pre {
 	border-left: 10px solid lightgrey;
 	border-radius: 5px;
 }
@@ -1004,47 +1008,47 @@ dd {
 	font-weight:bold;
 }
 
-#glossary\.matches > div.example-contents > pre > span:nth-child(2) {
+#glossary\.matches .line:nth-child(2) {
 	font-weight:100;	
 }
 
-#no\.source\.file\.display > div.example-contents > pre > span {
+#no\.source\.file\.display .line {
 	font-weight:bold;
 }
 
 /* Search */
-#search\.for\.doitsu > div.example-contents > pre > .token {
+#search\.for\.doitsu .token {
 	color:var(--term-match);
 	font-weight:bold;
 }
 
-#select\.second\.match > div.example-contents > pre > span.action {
+#select\.second\.match .line:nth-child(3) {
 	background-color:var(--match-background);
 }
 
 /* Replace */
 
-#replace\.with\.allemand > div.example-contents > pre > span:nth-child(1) {
+#replace\.with\.allemand .line:nth-child(3) .token {
 	color:var(--term-match);	
 }
 
-#replace\.with\.allemand > div.example-contents > pre > span:nth-child(2) {
+#replace\.with\.allemand .line:nth-child(4) .token {
 	color:var(--replace-color);
 }
 
 /* Convert match numbers */
 
-#convert\.match\.numbers > div.example-contents .token {
+#convert\.match\.numbers .token {
 	font-weight:bold;	
 }
 
 /* Bridge two languages */
 
-#bridge\.english\.and\.french\.with\.japanese > div.example-contents > pre > span:nth-child(1) {
-	background-color:var(--match-background);
+#bridge\.english\.and\.french\.with\.japanese .token {
 	font-weight:bold;
 }
 
-#bridge\.english\.and\.french\.with\.japanese > div.example-contents > pre > span:nth-child(2) {
-	font-weight:bold;
+#bridge\.english\.and\.french\.with\.japanese .line:nth-child(3) .token,
+#bridge\.english\.and\.french\.with\.japanese .line:nth-child(4) .token {
+	background-color:var(--match-background);
 }
