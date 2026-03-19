@@ -10,7 +10,6 @@ import org.gradle.api.provider.Provider
 import org.gradle.api.tasks.CacheableTask
 import org.gradle.api.tasks.Input
 
-import java.nio.file.Paths
 
 @CompileStatic
 @CacheableTask
@@ -37,7 +36,7 @@ class DocbookHtmlTask extends TransformationTask {
         transformer.setParameter(new QName("chunk"), new XdmAtomicValue(outputChunkName))
         transformer.setParameter(new QName("chunk-output-base-uri"), new XdmAtomicValue(outputBaseDir))
         transformer.setParameter(new QName("mediaobject-input-base-uri"), new XdmAtomicValue(inputBaseDir))
-        transformer.setParameter(new QName("resource-base-uri"), new XdmAtomicValue(outputBaseDir))
+        transformer.setParameter(new QName("resource-base-uri"), new XdmAtomicValue("./"))
         transformer.setParameter(new QName("persistent-toc"), new XdmAtomicValue(false))
         transformer.setParameter(new QName("persistent-toc-search"), new XdmAtomicValue(false))
         transformer.setParameter(new QName("chunk-section-depth"), new XdmAtomicValue(0))
