@@ -342,9 +342,8 @@
             		
    <programlisting>— ¶ —————————————————————
 
-   <token>Hide Tags</token>
-   |Dissimuler les balises
-   <token>&lt;segment 2148 ¶&gt;</token>
+<token>Hide Tags</token>
+|Dissimuler les balises<token>&lt;segment 2148 ¶&gt;</token>
 
 — ¶ —————————————————————
 
