@@ -584,6 +584,16 @@ code.userinput {
     font-style: italic;
 }
 
+code.command {
+    font-weight: bold;
+}
+
+code.literal {
+    font-family: monospace;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
 /*******************/
 /* ToC side colors */
 /*******************/
@@ -719,68 +729,6 @@ div.lot > ul.toc > li:has(a[href="chapter.appendices.html"]) > ul.toc {
 	border-bottom: var(--support-border) var(--appendices-color);
 }
 
-/*****************************************/
-/* Various font, colors and box settings */
-/*****************************************/
-
-
-.literal {
-    font-family: monospace;
-    font-size: 1.3em;
-    font-weight: bold;
-}
-
-tt,
-kbd,
-samp,
-var,
-pre {
-    font-family: monospace;
-    font-size: 1em;
-}
-
-kbd {
-    font-weight: bold;
-    border: 1px solid var(--main-color);
-    border-radius: 3px;
-    padding: 0.125em 0.25em;
-}
-
-samp {
-    background-color: var(--insert-background);
-    padding: 0.125em 0.25em;
-}
-
-var {
-    font-style: italic;
-}
-
-abbr {
-    font-weight: bold;
-    text-decoration: none;
-}
-
-cite {
-    font-style: italic;
-}
-
-dfn {
-    font-style: italic;
-    border-bottom: 1px dotted var(--main-color);
-}
-
-pre {
-    white-space: pre;
-    background-color: var(--insert-background);
-    border: 1px dotted var(--main-color);
-    padding: 0.5em;
-    margin: 1.1em 0;
-}
-
-strong.userinput {    
-    font-style: italic;    
-}
-
 /**********************/
 /* List bullets, etc. */
 /**********************/
@@ -856,24 +804,52 @@ dd {
 /* CSS for "docbook" coded screenshots */
 /***************************************/
 
+/******************/
+/* Panes examples */
+/******************/
+
+/* General layout */
+
+pre {
+    white-space: pre;
+    background-color: var(--insert-background);
+    border: 1px dotted var(--main-color);
+    padding: 0.5em;
+    margin: 1.1em 0;
+}
+
+pre.programlisting {
+	background-color: var(--normal-background);
+	font-weight: 100;
+	font-size: 1em;
+	text-align:left;
+    border: 1px solid var(--accent-line) ;
+    padding: 1em;
+    border-radius: 5px;
+}
+
+pre.programlisting .ln {
+    display: none;
+}
+
 /**************/
 /* Status bar */
 /**************/
 
 /* Messages */
 
-#panes\.statusbar\.messages > div.example-contents {
-	background-color:var(--normal-background);	
+#panes\.statusbar\.messages {
+	background-color:var(--normal-background);
 }
-																
-#panes\.statusbar\.widgets > div.example-contents > p {
+
+#panes\.statusbar\.widgets > p {
 	background-color:var(--insert-background);
     border: 0.1px solid var(--normal-font) ;
 	border-radius: 0px;
 	text-align: left;
 }
 
-#panes\.statusbar\.messages > div.example-contents > p > .literal {
+#panes\.statusbar\.messages > p > .literal {
 	background-color:var(--insert-background);
     border: 0.1px solid var(--normal-font) ;
     padding: 0.5em 5em 0.5em 1em;
@@ -883,11 +859,11 @@ dd {
 
 /* Widget */
 
-#panes\.statusbar\.widgets > div.example-contents {
+#panes\.statusbar\.widgets {
 	background-color:var(--normal-background);
 }
 
-#panes\.statusbar\.widgets > div.example-contents > p  {
+#panes\.statusbar\.widgets > p  {
 	background-color:var(--insert-background);
     border: 0.1px solid var(--normal-font) ;
     padding: 0.5em 5em 0.5em 1em;
@@ -895,21 +871,21 @@ dd {
 	text-align: left;
 }
 
-#panes\.statusbar\.widgets > div.example-contents > p > .literal {
-	font-size:1em;	
+#panes\.statusbar\.widgets > p > .literal {
+	font-size:1em;
 }
 
-#panes\.statusbar\.widgets > div.example-contents > p > .literal > .token {
+#panes\.statusbar\.widgets > p > .literal > .token {
     border: 0.1px solid var(--normal-font) ;
-    padding: 3px;	
+    padding: 3px;
 }
 
 /* widget with % */
-#panes\.statusbar\.widgets\.percentage > div.example-contents {
-	background-color:var(--normal-background);	
+#panes\.statusbar\.widgets\.percentage {
+	background-color:var(--normal-background);
 }
 
-#panes\.statusbar\.widgets\.percentage > div.example-contents > p {
+#panes\.statusbar\.widgets\.percentage > p {
 	background-color:var(--insert-background);
     border: 0.1px solid var(--normal-font) ;
     padding: 0.5em 5em 0.5em 1em;
@@ -918,35 +894,13 @@ dd {
 	font-size:1em;
 }
 
-#panes\.statusbar\.widgets\.percentage > div.example-contents > p > .literal {
+#panes\.statusbar\.widgets\.percentage > p > .literal {
 		font-size:1em;
 }
 
-#panes\.statusbar\.widgets\.percentage > div.example-contents > p > .literal > .token {
+#panes\.statusbar\.widgets\.percentage > p > .literal > .token {
     border: 0.1px solid var(--normal-font) ;
-    padding: 3px;	
-}
-
-
-/******************/
-/* Panes examples */
-/******************/
-
-/* General layout */
-
-.programlisting {
-	background-color:var(--normal-background);
-	font-weight: 100;
-	font-size: 1em;	
-	text-align:left;		
-
-    border: 1px solid var(--accent-line) ;
-    padding: 1em;
-    border-radius: 5px;
-}
-
-.programlisting .ln {
-    display: none;
+    padding: 3px;
 }
 
 /* Editor pane */
@@ -955,30 +909,19 @@ dd {
 	border-left: 10px solid lightgrey;
 }
 
-#panes\.editor\.default\.editor\.writing\.space .line:nth-child(3) .token {
+#panes\.editor\.default\.editor\.writing\.space span[db-line="3"] .token {
 	background-color:var(--match-background);
 	font-weight:bold;	
 }
 
-#panes\.editor\.default\.editor\.writing\.space > div.example-contents > pre > span:nth-child(2) {
-	font-weight:bold;	
+#panes\.editor\.default\.editor\.writing\.space span[db-line="4"] .token {
+	font-weight:bold;
 }
-
-#panes\.editor\.modified\.editor\.target\.field > div.example-contents > pre  {
-}
-#panes\.editor\.modified\.editor\.target\.field > div.example-contents > pre > span:nth-child(2) {
-	float:left;
-}
-
-#panes\.editor\.modified\.editor\.target\.field > div.example-contents > pre > span:nth-child(4) {
-	float:left;	
-}
-
 
 /* Fuzzy match pane */
 
 #table\.pane\.matches > table,
-#table\.pane\.matches > table > tbody > tr > td:nth-child(1) > div > table{
+#table\.pane\.matches > table > tbody > tr > td:nth-child(1) > div > table {
 	width: 100%;
 	border-collapse:separate !important;
 	border: 0px !important;
@@ -997,36 +940,33 @@ dd {
 }
 
 /** Editor side **/
+/** fuzzy pane side **/
 
-#table\.pane\.matches > table > tbody > tr > td:nth-child(1) > div > table > tbody > tr > td,
-#table\.pane\.matches > table > tbody > tr > td:nth-child(2) > div > table > tbody > tr > td {
+#table\.pane\.matches_tgroup1_tbody1_row1_entry1_para1_informaltable1 div.pre-wrap,
+#table\.pane\.matches_tgroup1_tbody1_row1_entry2_para1_informaltable1 div.pre-wrap {
 	border: 1px solid lightgrey;
 	border-left: 10px solid lightgrey;
 	border-radius: 5px;
 }
 
-#table\.pane\.matches > table > tbody > tr > td:nth-child(1) > div > table > tbody > tr > td > pre > span:nth-child(1),
-#table\.pane\.matches > table > tbody > tr > td:nth-child(1) > div > table > tbody > tr > td > pre > span:nth-child(2) {
+#table\.pane\.matches_tgroup1_tbody1_row1_entry1_para1_informaltable1 div.pre-wrap pre.programlisting,
+#table\.pane\.matches_tgroup1_tbody1_row1_entry2_para1_informaltable1 div.pre-wrap pre.programlisting,
+#table\.pane\.matches_tgroup1_tbody1_row1_entry2_para1_informaltable1 table {
+    border:0px;
+}
+
+#table\.pane\.matches_tgroup1_tbody1_row1_entry1_para1_informaltable1 div.pre-wrap pre.programlisting .line[db-line="3"],
+#table\.pane\.matches_tgroup1_tbody1_row1_entry1_para1_informaltable1 div.pre-wrap pre.programlisting .line[db-line="4"] {
 	font-weight:bold;	
 }
 
-/** fuzzy pane side **/
-
-#table\.pane\.matches > table > tbody > tr > td:nth-child(2) > div > table {
-	width: 100%;
-	border-collapse:separate !important;
-	border: 0px !important;
-}
-
-#table\.pane\.matches > table > tbody > tr > td:nth-child(2) > div > table > tbody > tr > td > pre {
-	border:0px;
-}
-
-#table\.pane\.matches > table > tbody > tr > td:nth-child(2) > div > table > tbody > tr > td > pre:nth-child(1) {
+#table\.pane\.matches_tgroup1_tbody1_row1_entry2_para1_informaltable1 div.pre-wrap pre.programlisting .line[db-line="1"],
+#table\.pane\.matches_tgroup1_tbody1_row1_entry2_para1_informaltable1 div.pre-wrap pre.programlisting .line[db-line="2"],
+#table\.pane\.matches_tgroup1_tbody1_row1_entry2_para1_informaltable1 div.pre-wrap pre.programlisting .line[db-line="3"] {
 	font-weight:bold;
 }
 
-#table\.pane\.matches > table > tbody > tr > td:nth-child(2) > div > table > tbody > tr > td > pre:nth-child(1) > span {
+#table\.pane\.matches_tgroup1_tbody1_row1_entry2_para1_informaltable1 div.pre-wrap pre.programlisting .token {
 	color:blue;
 }
 
@@ -1055,7 +995,7 @@ dd {
 	font-weight:100;	
 }
 
-#no\.source\.file\.display .line {
+#no\.source\.file\.display .ln {
 	font-weight:bold;
 }
 
@@ -1065,17 +1005,17 @@ dd {
 	font-weight:bold;
 }
 
-#select\.second\.match .line:nth-child(3) {
+#select\.second\.match .ln:nth-child(3) {
 	background-color:var(--match-background);
 }
 
 /* Replace */
 
-#replace\.with\.allemand .line:nth-child(3) .token {
+#replace\.with\.allemand .ln:nth-child(3) .token {
 	color:var(--term-match);	
 }
 
-#replace\.with\.allemand .line:nth-child(4) .token {
+#replace\.with\.allemand .ln:nth-child(4) .token {
 	color:var(--replace-color);
 }
 
@@ -1091,7 +1031,7 @@ dd {
 	font-weight:bold;
 }
 
-#bridge\.english\.and\.french\.with\.japanese .line:nth-child(3) .token,
-#bridge\.english\.and\.french\.with\.japanese .line:nth-child(4) .token {
+#bridge\.english\.and\.french\.with\.japanese .ln:nth-child(3) .token,
+#bridge\.english\.and\.french\.with\.japanese .ln:nth-child(4) .token {
 	background-color:var(--match-background);
 }
