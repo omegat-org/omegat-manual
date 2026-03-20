@@ -532,7 +532,28 @@ p > span.keycap:last-child  {
     color: var(--normal-background);
     border-color: var(--caps-border);
     padding: 0 .3rem;
-} 
+}
+
+/********/
+/* code */
+/********/
+code {
+   font-family: monospace;
+    font-size: 1.0em;
+}
+
+code.filename {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+code.option {
+    font-weight: bold;
+}
+
+code.userinput {
+    font-style: italic;
+}
 
 /*******************/
 /* ToC side colors */
@@ -686,7 +707,6 @@ h2:has(a[href="chapter.appendices.html"]) ~ ul {
     font-weight: bold;
 }
 
-code,
 tt,
 kbd,
 samp,
