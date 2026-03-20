@@ -1,12 +1,13 @@
-/**********************************/
-/* Reset some of the WH styesheet */
-/**********************************/
-
-* {
+body #wh-header {
+	font-family: sans-serif;
 }
 
-body {
-	font-family:sans-serif;
+body #wh-body #wh-navigation {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif;
+}
+
+body #wh-body #wh-content {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif;
 }
 
 /***************************/
