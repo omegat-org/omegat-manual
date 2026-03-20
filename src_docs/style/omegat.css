@@ -129,10 +129,17 @@ body {
 #wh-content article.book div.list-of-titles div.lot > ul.toc > li {
     break-inside: avoid;
     page-break-inside: avoid;
-    /* border: 2px solid var(--accent-line); */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 2px solid var(--accent-line);
+    border-radius: 3px;
+    padding-bottom: 20px;
 }
 
 #wh-content article.book div.list-of-titles div.lot > ul.toc > li > a {
+    display: block;
     font-size: 1.2em;
     font-weight: bold;
     border-bottom: 1px solid var(--accent-line);:
