@@ -104,35 +104,56 @@ body {
     clip-path: padding-box;
 }
 
-#wh-content .book div.list-of-titles .lot {
+#wh-content nav.top {
+  display: none !important;
+}
+
+#wh-content nav.bottom {
+  display: none !important;
+}
+
+#wh-content article.book div.list-of-titles div.lot {
     display: block;
 }
 
-#wh-content .book .title {
+#wh-content article.book div.list-of-titles div.lot div.title {
     display:none;
 }
 
-#wh-content .book  h3.author {
-    font-style:italic;
+#wh-content article.book div.list-of-titles div.lot > ul.toc {
+    display: grid;
+    grid-template-columns: 45% 1fr;
+    gap: 1rem 3%;
+    align-items: start;
 }
-#wh-content .book  div.list-of-titles ul.toc {
-    display:block;
-    margin-top: 1rem;
-    margin-right: 1em;
-    padding-left: 1rem;
-    text-align:left;
+#wh-content article.book div.list-of-titles div.lot > ul.toc > li {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    /* border: 2px solid var(--accent-line); */
 }
 
-#wh-content .book  div.list-of-titles ul>li {
+#wh-content article.book div.list-of-titles div.lot > ul.toc > li > a {
+    font-size: 1.2em;
+    font-weight: bold;
+    border-bottom: 1px solid var(--accent-line);:
+}
+
+/* subsection titles stay inside the section block */
+#wh-content article.book div.list-of-titles div.lot > ul.toc > li > ul.toc {
+    display: block;
+    margin-top: 0.75rem;
+}
+
+#wh-content article.book div.list-of-titles div.lot > ul.toc > li > ul > li {
     display:inline;
 }
 
-#wh-content .book div.list-of-titles ul.toc li ul li span.label,
-#wh-content .book div.list-of-titles ul.toc li ul li span.sep {
+#wh-content article.book div.list-of-titles div.lot>ul.toc>li span.label,
+#wh-content article.book div.list-of-titles div.lot>ul.toc>li span.sep {
     display:none;
 }
 
-#wh-content .book  div.list-of-titles ul.toc li ul li>a:after {
+#wh-content article.book div.list-of-titles div.lot ul.toc li ul li>a:after {
     content:", ";
 }
 
@@ -162,18 +183,6 @@ body {
 #wh-header .title a {
     color:var(--normal-background);
     text-decoration:none;
-}
-
-/*************************************/
-/* CSS for web manual visual effects */
-/*************************************/
-
-nav, .db-navheader, .db-navfooter {
-  display: none !important;
-}
-
-.list-of-titles {
-    display:none !important;
 }
 
 /*****************/
