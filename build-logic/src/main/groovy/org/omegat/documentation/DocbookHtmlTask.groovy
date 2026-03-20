@@ -31,12 +31,13 @@ class DocbookHtmlTask extends TransformationTask {
     @Override
     protected void preTransform(XsltTransformer transformer, File source, File target) {
         def outputChunkName = outputFile.get().asFile.name
+        transformer.setParameter(new QName("chunk"), new XdmAtomicValue(outputChunkName))
+        // Both BaseDirs should be the same form of the URI expressions.
+        // Otherwise, produced src URL of the img tags become weired.
         def inputBaseDir = inputFile.get().asFile.parentFile.toURI().toString()
         def outputBaseDir = outputFile.get().asFile.parentFile.toURI().toString()
-        transformer.setParameter(new QName("chunk"), new XdmAtomicValue(outputChunkName))
         transformer.setParameter(new QName("chunk-output-base-uri"), new XdmAtomicValue(outputBaseDir))
         transformer.setParameter(new QName("mediaobject-input-base-uri"), new XdmAtomicValue(inputBaseDir))
-        transformer.setParameter(new QName("resource-base-uri"), new XdmAtomicValue("./"))
         transformer.setParameter(new QName("persistent-toc"), new XdmAtomicValue(false))
         transformer.setParameter(new QName("persistent-toc-search"), new XdmAtomicValue(false))
         transformer.setParameter(new QName("chunk-section-depth"), new XdmAtomicValue(0))
@@ -48,6 +49,9 @@ class DocbookHtmlTask extends TransformationTask {
         transformer.setParameter(new QName("persistent-toc"), new XdmAtomicValue(false))
         transformer.setParameter(new QName("use-id-as-filename"), new XdmAtomicValue("true"))
         transformer.setParameter(new QName("use-docbook-css"), new XdmAtomicValue("false"))
+        // html stylesheet link is constructed as "${resource-base-uri}${user-css-links}"
+        // so "resource-base-uri" should be a plain file path that ends with "/"
+        transformer.setParameter(new QName("resource-base-uri"), new XdmAtomicValue("./"))
         transformer.setParameter(new QName("user-css-links"), new XdmAtomicValue(css.get()))
         transformer.setParameter(new QName("lists-of-examples"), new XdmAtomicValue("false"))
         transformer.setParameter(new QName("lists-of-figures"), new XdmAtomicValue("false"))
