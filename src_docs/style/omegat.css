@@ -1,13 +1,3 @@
-/**********************************/
-/* Reset some of the WH styesheet */
-/**********************************/
-
-* {
-}
-
-body {
-	font-family:sans-serif;
-}
 
 /***************************/
 /* Device based page width */
@@ -95,13 +85,24 @@ body {
 /* WH content */
 
 #wh-content {
-    font-family: sans-serif;
-    /*    font-size: 10pt; */
+	font-family: "Noto Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: var(--normal-background);
     line-height: 1.5;
     color:var(--normal-font);
     text-align:left;
     clip-path: padding-box;
+}
+
+#wh-content article:lang(ja) {
+	font-family: "Noto Sans CJK JP", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+#wh-content article:lang(zh) {
+	font-family: "Noto Sans CJK SC", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+#wh-content article:lang(ko) {
+	font-family: "Noto Sans CJK KR", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 #wh-content nav.top {
@@ -182,9 +183,21 @@ body {
 #wh-header .title {
     display:inline;
     font-size:1.8em;
-    font-family: sans-serif;
+	font-family: "Noto Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight:bold;
     vertical-align: middle;
+}
+
+body:has(article:lang(ja)) #wh-header .title {
+  font-family: "Noto Sans CJK JP", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body:has(article:lang(zh)) #wh-header .title {
+	font-family: "Noto Sans CJK SC", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body:has(article:lang(ko)) #wh-header .title {
+	font-family: "Noto Sans CJK KR", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 #wh-header .title a {
