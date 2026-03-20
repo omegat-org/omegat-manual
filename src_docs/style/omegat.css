@@ -76,8 +76,8 @@ body {
 /*************************/
 
 /* WH ToC */
-
-#wh-navigation {
+#wh-body #wh-navigation {
+    width: 25%;
     margin-right:3em;
 }
 
