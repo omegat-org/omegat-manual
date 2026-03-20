@@ -129,10 +129,17 @@ body {
 #wh-content article.book div.list-of-titles div.lot > ul.toc > li {
     break-inside: avoid;
     page-break-inside: avoid;
-    /* border: 2px solid var(--accent-line); */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 2px solid var(--accent-line);
+    border-radius: 3px;
+    padding-bottom: 20px;
 }
 
 #wh-content article.book div.list-of-titles div.lot > ul.toc > li > a {
+    display: block;
     font-size: 1.2em;
     font-weight: bold;
     border-bottom: 1px solid var(--accent-line);:
@@ -569,16 +576,15 @@ code.userinput {
 /*******************/
 
 /* Introduction */
-a[href="chapter.instant.start.guide.html"] ~ ul {
+ul.toc-toc > li.toc-expanded:has(> a[href="chapter.instant.start.guide.html"]) > ul {
 	border-left: var(--support-border) var(--intro-color);
 	border-radius: 3px;
 }
 
-h2:has(a[href="chapter.instant.start.guide.html"]) ~ ul {
-	border-right: var(--support-border) var(--intro-color);
-	padding-right: 1em;
+div.lot > ul.toc > li:has(a[href="chapter.instant.start.guide.html"]) > ul.toc {
+    border-right: var(--support-border) var(--intro-color);
+    padding-right: 1em;
 }
-
 
 #chapter\.instant\.start\.guide {
 	padding-right: 2em;
@@ -587,16 +593,16 @@ h2:has(a[href="chapter.instant.start.guide.html"]) ~ ul {
 }
 
 /* How to */
-
-a[href="chapter.how.to.html"] ~ ul {
+ul.toc-toc > li.toc-expanded:has(> a[href="chapter.how.to.html"]) > ul {
 	border-left: var(--support-border) var(--howto-color);
 	border-radius: 3px;
 }
 
-h2:has(a[href="chapter.how.to.html"]) ~ ul {
+div.lot > ul.toc > li:has(a[href="chapter.how.to.html"]) > ul.toc {
 	border-right: var(--support-border) var(--howto-color);
 	padding-right: 1em;
 }
+
 #chapter\.how\.to {
 	padding-right: 2em;
 	border-right: var(--support-border) var(--howto-color);
@@ -604,12 +610,12 @@ h2:has(a[href="chapter.how.to.html"]) ~ ul {
 }
 
 /* Panes */
-a[href="chapter.panes.html"] ~ ul {
+ul.toc-toc > li.toc-expanded:has(> a[href="chapter.panes.html"]) > ul {
 	border-left: var(--support-border) var(--panes-color);
 	border-radius: 3px;
 }
 
-h2:has(a[href="chapter.panes.html"]) ~ ul {
+div.lot > ul.toc > li:has(a[href="chapter.panes.html"]) > ul.toc {
 	border-right: var(--support-border) var(--panes-color);
 	padding-right: 1em;
 }
@@ -621,12 +627,12 @@ h2:has(a[href="chapter.panes.html"]) ~ ul {
 }
 
 /* Menus */
-a[href="chapter.menus.html"] ~ ul {
+ul.toc-toc > li.toc-expanded:has(> a[href="chapter.menus.html"]) > ul {
 	border-left: var(--support-border) var(--menus-color);
 	border-radius: 3px;
 }
 
-h2:has(a[href="chapter.menus.html"]) ~ ul {
+div.lot > ul.toc > li:has(a[href="chapter.menus.html"]) > ul.toc {
 	border-right: var(--support-border) var(--menus-color);
 	padding-right: 1em;
 }
@@ -637,13 +643,12 @@ h2:has(a[href="chapter.menus.html"]) ~ ul {
 }
 
 /* Windows and dialogs */
-
-a[href="chapter.windows.and.dialogs.html"] ~ ul {
+ul.toc-toc > li.toc-expanded:has(> a[href="chapter.windows.and.dialogs.html"]) > ul {
 	border-left: var(--support-border) var(--windows-color);
 	border-radius: 3px;
 }
 
-h2:has(a[href="chapter.windows.and.dialogs.html"]) ~ ul {
+div.lot > ul.toc > li:has(a[href="chapter.windows.and.dialogs.html"]) > ul.toc {
 	border-right: var(--support-border) var(--windows-color);
 	padding-right: 1em;
 }
@@ -654,13 +659,12 @@ h2:has(a[href="chapter.windows.and.dialogs.html"]) ~ ul {
 }
 
 /* Project folder */
-
-a[href="chapter.project.folder.html"] ~ ul {
+ul.toc-toc > li.toc-expanded:has(> a[href="chapter.project.folder.html"]) > ul {
 	border-left: var(--support-border) var(--project-color);
 	border-radius: 3px;
 }
 
-h2:has(a[href="chapter.project.folder.html"]) ~ ul {
+div.lot > ul.toc > li:has(a[href="chapter.project.folder.html"]) > ul.toc {
 	border-right: var(--support-border) var(--project-color);
 	padding-right: 1em;
 }
@@ -671,13 +675,12 @@ h2:has(a[href="chapter.project.folder.html"]) ~ ul {
 }
 
 /* Preferences */
-
-a[href="chapter.dialogs.preferences.html"] ~ ul {
+ul.toc-toc > li.toc-expanded:has(> a[href="chapter.dialogs.preferences.html"]) > ul {
 	border-left: var(--support-border) var(--prefs-color);
 	border-radius: 3px;
 }
 
-h2:has(a[href="chapter.dialogs.preferences.html"]) ~ ul {
+div.lot > ul.toc > li:has(a[href="chapter.dialogs.preferences.html"]) > ul.toc {
 	border-right: var(--support-border) var(--prefs-color);
 	padding-right: 1em;
 }
@@ -688,13 +691,12 @@ h2:has(a[href="chapter.dialogs.preferences.html"]) ~ ul {
 }
 
 /* Appendices */
-
-a[href="chapter.appendices.html"] ~ ul {
+ul.toc-toc > li.toc-expanded:has(> a[href="chapter.appendices.html"]) > ul {
 	border-left: var(--support-border) var(--appendices-color);
 	border-radius: 3px;
 }
 
-h2:has(a[href="chapter.appendices.html"]) ~ ul {
+div.lot > ul.toc > li:has(a[href="chapter.appendices.html"]) > ul.toc {
 	border-right: var(--support-border) var(--appendices-color);
 	padding-right: 1em;
 }
@@ -703,7 +705,6 @@ h2:has(a[href="chapter.appendices.html"]) ~ ul {
 	border-right: var(--support-border) var(--appendices-color);
 	border-bottom: var(--support-border) var(--appendices-color);
 }
-
 
 /*****************************************/
 /* Various font, colors and box settings */
